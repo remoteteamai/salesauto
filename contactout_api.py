@@ -2,7 +2,7 @@
 
 This client includes convenience helpers for common operations and a generic
 `request()` method that can call any ContactOut endpoint.
-Docs: https://api.contactout.com/#authentication
+Docs: https://api.contactout.com/#linkedin-profile-api
 """
 
 from __future__ import annotations
@@ -91,23 +91,15 @@ class ContactOutClient:
         return self._request(method=method, path=path, params=params, payload=payload)
 
     def get(self, path: str, *, params: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
-        """HTTP GET helper for arbitrary ContactOut endpoints."""
-
         return self._request("GET", path, params=params)
 
     def post(self, path: str, *, payload: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
-        """HTTP POST helper for arbitrary ContactOut endpoints."""
-
         return self._request("POST", path, payload=payload)
 
     def put(self, path: str, *, payload: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
-        """HTTP PUT helper for arbitrary ContactOut endpoints."""
-
         return self._request("PUT", path, payload=payload)
 
     def patch(self, path: str, *, payload: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
-        """HTTP PATCH helper for arbitrary ContactOut endpoints."""
-
         return self._request("PATCH", path, payload=payload)
 
     def delete(
@@ -117,15 +109,27 @@ class ContactOutClient:
         params: Optional[Dict[str, Any]] = None,
         payload: Optional[Dict[str, Any]] = None,
     ) -> Dict[str, Any]:
-        """HTTP DELETE helper for arbitrary ContactOut endpoints."""
-
         return self._request("DELETE", path, params=params, payload=payload)
 
     def enrich_by_email(self, email: str) -> Dict[str, Any]:
+        """Enrich a person/company profile by email."""
+
         return self.post("/people/search", payload={"email": email})
 
     def enrich_by_linkedin_url(self, linkedin_url: str) -> Dict[str, Any]:
+        """Enrich a person/company profile by LinkedIn profile URL."""
+
         return self.post("/people/search", payload={"linkedin_url": linkedin_url})
 
+    def linkedin_profile_lookup(self, linkedin_url: str) -> Dict[str, Any]:
+        """Call ContactOut LinkedIn Profile API.
+
+        Docs reference: https://api.contactout.com/#linkedin-profile-api
+        """
+
+        return self.post("/linkedin/profile", payload={"linkedin_url": linkedin_url})
+
     def find_company(self, domain: str) -> Dict[str, Any]:
+        """Fetch company information by domain name."""
+
         return self.get("/companies/search", params={"domain": domain})

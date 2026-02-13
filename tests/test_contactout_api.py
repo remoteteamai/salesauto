@@ -30,7 +30,19 @@ def test_enrich_by_email_success(mock_urlopen):
     data = client.enrich_by_email("jane@example.com")
 
     assert data["person"]["email"] == "jane@example.com"
-    mock_urlopen.assert_called_once()
+
+
+@patch("contactout_api.urlopen")
+def test_linkedin_profile_lookup_uses_linkedin_profile_api_endpoint(mock_urlopen):
+    mock_urlopen.return_value = FakeResponse({"linkedin": {"url": "https://linkedin.com/in/jane"}})
+
+    client = ContactOutClient(api_key="secret")
+    data = client.linkedin_profile_lookup("https://linkedin.com/in/jane")
+
+    assert data["linkedin"]["url"] == "https://linkedin.com/in/jane"
+    req = mock_urlopen.call_args[0][0]
+    assert req.method == "POST"
+    assert req.full_url.endswith("/linkedin/profile")
 
 
 @patch("contactout_api.urlopen")

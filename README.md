@@ -1,6 +1,6 @@
 # ContactOut API Integration
 
-This repository includes a Python integration for the [ContactOut API](https://api.contactout.com/#authentication).
+This repository includes a Python integration for the [ContactOut API](https://api.contactout.com/#authentication), including the [LinkedIn Profile API](https://api.contactout.com/#linkedin-profile-api).
 
 ## Authentication
 
@@ -14,20 +14,12 @@ from contactout_api import ContactOutClient
 client = ContactOutClient.from_env()  # reads CONTACTOUT_API_KEY
 ```
 
-If ContactOut changes auth header requirements, you can override it:
-
-```python
-client = ContactOutClient(
-    api_key="YOUR_CONTACTOUT_API_KEY",
-    auth_header_name="X-Auth-Token",  # configurable
-)
-```
-
 ## What is covered
 
 - Convenience methods for common operations:
   - `enrich_by_email(email)`
   - `enrich_by_linkedin_url(linkedin_url)`
+  - `linkedin_profile_lookup(linkedin_url)`  # LinkedIn Profile API
   - `find_company(domain)`
 - Full API surface via generic methods:
   - `request(method, path, params=None, payload=None)`
@@ -38,14 +30,13 @@ client = ContactOutClient(
 ```python
 from contactout_api import ContactOutClient
 
-client = ContactOutClient(
-    api_key="YOUR_CONTACTOUT_API_KEY",
-    user_agent="Mozilla/5.0",
-)
+client = ContactOutClient(api_key="YOUR_CONTACTOUT_API_KEY")
 
-person = client.enrich_by_email("jane@example.com")
-print(person)
+# LinkedIn Profile API
+linkedin_profile = client.linkedin_profile_lookup("https://linkedin.com/in/jane")
+print(linkedin_profile)
 
+# Any other endpoint
 response = client.request("GET", "/some/other/contactout/endpoint", params={"page": 1})
 print(response)
 ```
@@ -53,4 +44,4 @@ print(response)
 ## Notes
 
 - The client raises `ContactOutAPIError` for non-2xx responses and network errors.
-- `base_url` and timeout are configurable through `ContactOutClient`.
+- `base_url`, auth header name, and timeout are configurable through `ContactOutClient`.
