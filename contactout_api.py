@@ -2,12 +2,13 @@
 
 This client includes convenience helpers for common operations and a generic
 `request()` method that can call any ContactOut endpoint.
-Docs: https://api.contactout.com/#introduction
+Docs: https://api.contactout.com/#authentication
 """
 
 from __future__ import annotations
 
 import json
+import os
 from dataclasses import dataclass
 from typing import Any, Dict, Optional
 from urllib.error import HTTPError, URLError
@@ -27,6 +28,16 @@ class ContactOutClient:
     base_url: str = "https://api.contactout.com/v1"
     timeout_seconds: int = 30
     user_agent: str = "Mozilla/5.0"
+    auth_header_name: str = "X-Auth-Token"
+
+    @classmethod
+    def from_env(cls) -> "ContactOutClient":
+        """Build a client from the CONTACTOUT_API_KEY environment variable."""
+
+        api_key = os.getenv("CONTACTOUT_API_KEY", "").strip()
+        if not api_key:
+            raise ValueError("CONTACTOUT_API_KEY is required")
+        return cls(api_key=api_key)
 
     def _request(
         self,
@@ -48,7 +59,7 @@ class ContactOutClient:
             data=body,
             method=method.upper(),
             headers={
-                "X-Auth-Token": self.api_key,
+                self.auth_header_name: self.api_key,
                 "Accept": "application/json",
                 "Content-Type": "application/json",
                 "User-Agent": self.user_agent,
@@ -75,10 +86,7 @@ class ContactOutClient:
         params: Optional[Dict[str, Any]] = None,
         payload: Optional[Dict[str, Any]] = None,
     ) -> Dict[str, Any]:
-        """Call any ContactOut endpoint.
-
-        Use this for endpoints that do not have convenience wrappers yet.
-        """
+        """Call any ContactOut endpoint."""
 
         return self._request(method=method, path=path, params=params, payload=payload)
 
@@ -114,16 +122,10 @@ class ContactOutClient:
         return self._request("DELETE", path, params=params, payload=payload)
 
     def enrich_by_email(self, email: str) -> Dict[str, Any]:
-        """Enrich a person/company profile by email."""
-
         return self.post("/people/search", payload={"email": email})
 
     def enrich_by_linkedin_url(self, linkedin_url: str) -> Dict[str, Any]:
-        """Enrich a person/company profile by LinkedIn profile URL."""
-
         return self.post("/people/search", payload={"linkedin_url": linkedin_url})
 
     def find_company(self, domain: str) -> Dict[str, Any]:
-        """Fetch company information by domain name."""
-
         return self.get("/companies/search", params={"domain": domain})
