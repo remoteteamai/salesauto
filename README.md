@@ -65,6 +65,23 @@ Use HTTPS at the hosting/platform layer (e.g., Vercel/Netlify/Cloudflare/Nginx/A
 
 This app is ready to run behind HTTPS termination and respects forwarded traffic as plain HTTP in-container.
 
+
+## Check if API is production-live
+
+Run the live check script (uses `frontend/runtime-config.js` by default):
+
+```bash
+./scripts/check_api_live.sh
+# or explicit URL
+./scripts/check_api_live.sh https://your-api-domain.com
+```
+
+The script validates:
+
+- `GET /health`
+- `GET /api/leads`
+- `POST /api/leads`
+
 ## Endpoint tests
 
 Run smoke tests locally or against production:
