@@ -1,4 +1,4 @@
-const API_BASE_URL = window.__API_BASE_URL__ || 'https://api.salesauto.example.com';
+const API_BASE_URL = window.__API_BASE_URL__ || 'https://salesauto-api-demo.trycloudflare.com';
 
 const outputEl = document.getElementById('output');
 const apiUrlEl = document.getElementById('api-url');
