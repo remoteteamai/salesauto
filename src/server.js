@@ -46,6 +46,14 @@ app.get('/health', (_req, res) => {
   });
 });
 
+
+app.get('/api/health', (_req, res) => {
+  res.status(200).json({
+    status: 'ok',
+    environment: NODE_ENV
+  });
+});
+
 app.get('/', (_req, res) => {
   res.status(200).json({ message: 'Salesauto backend is running' });
 });
