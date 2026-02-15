@@ -1,0 +1,15 @@
+{
+  "name": "salesauto-backend",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Backend service configured for Railway production deployment",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "start:prod": "NODE_ENV=production node server.js",
+    "dev": "node --watch server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
