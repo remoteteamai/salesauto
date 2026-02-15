@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SalesAuto Dashboard</title>
+    <style>
+      body { font-family: Arial, sans-serif; margin: 2rem; background: #f8fafc; color: #0f172a; }
+      .card { max-width: 720px; background: white; border: 1px solid #e2e8f0; border-radius: 12px; padding: 1rem 1.25rem; box-shadow: 0 2px 8px rgba(15,23,42,0.05); }
+      button { background: #2563eb; border: 0; color: white; padding: .6rem .9rem; border-radius: 8px; cursor: pointer; }
+      input { margin-right: .5rem; padding: .55rem; border: 1px solid #cbd5e1; border-radius: 8px; }
+      pre { background: #f1f5f9; padding: .75rem; border-radius: 8px; overflow: auto; }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <h1>SalesAuto Live Check</h1>
+      <p>API Base URL: <strong id="api-url"></strong></p>
+      <button id="health-btn">Check Health Endpoint</button>
+      <h2>Create Lead</h2>
+      <input id="name" placeholder="Name" />
+      <input id="email" placeholder="Email" />
+      <button id="lead-btn">Create Lead</button>
+      <h3>Response</h3>
+      <pre id="output">Ready</pre>
+    </div>
+    <script src="./app.js"></script>
+  </body>
+</html>
