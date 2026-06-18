@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Alerts History - Sales Auto AI</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#135bec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Manrope', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 antialiased">
+<div class="flex h-screen overflow-hidden">
+<!-- Side Navigation -->
+<aside class="w-64 border-r border-primary/10 bg-background-light dark:bg-background-dark flex flex-col">
+<div class="p-6 flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-white">bolt</span>
+</div>
+<h1 class="text-xl font-bold tracking-tight text-primary">Sales Auto AI</h1>
+</div>
+<nav class="flex-1 px-4 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-primary/10 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="font-medium text-sm">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/20 text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">notifications</span>
+<span class="font-medium text-sm">Alerts History</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-primary/10 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-medium text-sm">Prospects</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-primary/10 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">mail</span>
+<span class="font-medium text-sm">Sequences</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-primary/10 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-medium text-sm">Settings</span>
+</a>
+</nav>
+<div class="p-4 mt-auto border-t border-primary/10">
+<div class="flex items-center gap-3 p-2">
+<div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center border border-primary/30 overflow-hidden">
+<img alt="User Avatar" class="w-full h-full object-cover" data-alt="Portrait of a modern software professional" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2Esm5hWHu5k8Hy4Mu459iH_JOcBGv1o-T_a78_ZaJNh8wTRpCM7M4gFM8UkHb9fmo2piJ3zJzBPUlleMVceGMyrgKVNFYsk30M3EyqYWcLLnqaGWsJ8z9z4IO76dN84-g0Trs1NDNDP2ipma59yW2GniNi5G5-bZ47v9_W0NWDuGixPT9XVEoZzch-QSBfcScXS9ClCCEKmEuX4YMpnsmbRUawnHXfEXTlNA2RUShRD3bjeFdJ2RFeQllRrlw6WjXq8-kKHUwKwA"/>
+</div>
+<div class="flex flex-col">
+<span class="text-xs font-semibold uppercase tracking-wider text-slate-500">Enterprise</span>
+<span class="text-sm font-bold">Alex Rivera</span>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col min-w-0 overflow-hidden">
+<!-- Header Section -->
+<header class="h-16 border-b border-primary/10 flex items-center justify-between px-8 bg-background-light dark:bg-background-dark">
+<div class="flex items-center gap-4 flex-1">
+<div class="relative w-full max-w-md">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-slate-100 dark:bg-slate-800 border-none rounded-lg focus:ring-2 focus:ring-primary text-sm transition-all" placeholder="Search alerts, companies or prospects..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">help</span>
+</button>
+<button class="p-2 text-slate-400 hover:text-primary transition-colors relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full border-2 border-background-dark"></span>
+</button>
+<div class="h-8 w-[1px] bg-primary/10 mx-2"></div>
+<button class="bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-lg text-sm font-bold flex items-center gap-2 transition-all">
+<span class="material-symbols-outlined text-sm">add</span>
+                        New Trigger
+                    </button>
+</div>
+</header>
+<!-- Scrollable Content -->
+<div class="flex-1 overflow-y-auto p-8 space-y-8">
+<!-- Title & Stats -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<h2 class="text-3xl font-extrabold tracking-tight">Alerts History</h2>
+<p class="text-slate-500 mt-1">Real-time intent tracking and automated trigger logs.</p>
+</div>
+<div class="flex gap-4">
+<div class="px-6 py-4 bg-primary/5 border border-primary/10 rounded-xl min-w-[140px]">
+<p class="text-xs font-bold text-slate-500 uppercase tracking-widest">Total Alerts</p>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="text-2xl font-black">1,284</span>
+<span class="text-xs text-green-500 font-bold">+12%</span>
+</div>
+</div>
+<div class="px-6 py-4 bg-primary/5 border border-primary/10 rounded-xl min-w-[140px]">
+<p class="text-xs font-bold text-slate-500 uppercase tracking-widest">Unread</p>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="text-2xl font-black text-primary">42</span>
+<span class="text-xs text-slate-500 font-medium">pending</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Filters -->
+<div class="bg-white dark:bg-slate-900 border border-primary/10 rounded-xl p-4 flex flex-wrap items-center gap-4">
+<div class="flex items-center gap-2 px-3 py-1.5 bg-slate-100 dark:bg-slate-800 rounded-lg text-sm font-medium">
+<span class="material-symbols-outlined text-sm">filter_list</span>
+                        Filters:
+                    </div>
+<select class="bg-transparent border-primary/10 dark:border-slate-700 rounded-lg text-sm focus:ring-primary">
+<option>Alert Name: All</option>
+<option>High Intent Tech Leads</option>
+<option>Competitor Search</option>
+<option>Direct Website Visit</option>
+</select>
+<select class="bg-transparent border-primary/10 dark:border-slate-700 rounded-lg text-sm focus:ring-primary">
+<option>Score: &gt; 80%</option>
+<option>Score: &gt; 50%</option>
+<option>All Scores</option>
+</select>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm">calendar_today</span>
+<input class="pl-9 bg-transparent border-primary/10 dark:border-slate-700 rounded-lg text-sm focus:ring-primary w-40" type="text" value="Last 30 Days"/>
+</div>
+<button class="ml-auto text-sm font-bold text-primary hover:underline">Clear all filters</button>
+<button class="px-4 py-2 border border-primary/30 text-primary rounded-lg text-sm font-bold hover:bg-primary/5 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">download</span>
+                        Export CSV
+                    </button>
+</div>
+<!-- Alerts Table -->
+<div class="bg-white dark:bg-slate-900 border border-primary/10 rounded-xl overflow-hidden">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-slate-50 dark:bg-slate-800/50 border-b border-primary/10">
+<th class="px-6 py-4 text-xs font-bold uppercase tracking-wider text-slate-500">Alert Details</th>
+<th class="px-6 py-4 text-xs font-bold uppercase tracking-wider text-slate-500">Prospect / Company</th>
+<th class="px-6 py-4 text-xs font-bold uppercase tracking-wider text-slate-500 text-center">Intent Score</th>
+<th class="px-6 py-4 text-xs font-bold uppercase tracking-wider text-slate-500">Timestamp</th>
+<th class="px-6 py-4 text-xs font-bold uppercase tracking-wider text-slate-500 text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-primary/10">
+<!-- Entry 1 (Unread) -->
+<tr class="group hover:bg-primary/5 transition-colors">
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-2 h-2 rounded-full bg-primary animate-pulse" title="Unread"></div>
+<div>
+<p class="font-bold text-sm">High Intent Tech Leads</p>
+<p class="text-xs text-slate-500 flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-xs">language</span> Website Visit
+                                            </p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-slate-100 dark:bg-slate-800 flex items-center justify-center overflow-hidden">
+<img alt="Stripe Logo" class="w-6 h-6" data-alt="Corporate logo of a global payment processor" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCeV3_pSRXTapXanFXJBoubmfzfaJFXyi2ZOOXr-TOUpcSYrRo7NtujEzD_QD5IR8WRHjiAlsfdikhJIFBE-KhOfalel00_ZP8JcvuIvV8vhOEnQvOQVc6Gv7uVanfAx4Ja0EQvuk6zXfTd6TXXrx1XhzXcWYzeCK56qDDUpgLaIzKT4JXaobJs6Z3zWo278uHyT9ZzQVxJl0bRMvtd-6Uuq1RlADLkiUY4Z-3RSlBsvkC4Nhrf5R7wZamXoVD-eY6IXTBgfLokvxI"/>
+</div>
+<div>
+<p class="text-sm font-semibold">Sarah Jenkins</p>
+<p class="text-xs text-slate-500">CTO at Stripe</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex flex-col items-center gap-1">
+<span class="px-2 py-0.5 rounded-full bg-green-500/10 text-green-500 text-xs font-black">94%</span>
+<div class="w-16 h-1 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
+<div class="bg-green-500 h-full w-[94%]"></div>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<p class="text-sm font-medium">Just now</p>
+<p class="text-xs text-slate-500">Oct 24, 10:42 AM</p>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-2 hover:bg-primary/10 text-primary rounded-lg transition-colors" title="View Details">
+<span class="material-symbols-outlined text-xl">visibility</span>
+</button>
+<button class="p-2 hover:bg-green-500/10 text-green-500 rounded-lg transition-colors" title="Add to Sequence">
+<span class="material-symbols-outlined text-xl">send</span>
+</button>
+<button class="p-2 hover:bg-red-500/10 text-slate-400 hover:text-red-500 rounded-lg transition-colors" title="Dismiss">
+<span class="material-symbols-outlined text-xl">close</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Entry 2 (Read) -->
+<tr class="group hover:bg-primary/5 transition-colors">
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-2 h-2 rounded-full bg-transparent"></div>
+<div>
+<p class="font-bold text-sm">Bombora Surge Alert</p>
+<p class="text-xs text-slate-500 flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-xs">trending_up</span> Topic: Cloud Security
+                                            </p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-slate-100 dark:bg-slate-800 flex items-center justify-center overflow-hidden">
+<img alt="Atlassian Logo" class="w-6 h-6" data-alt="Corporate logo of a software collaboration company" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqOv5ss-E1Z5g3G0d-JSjmV5EK5b5SZRsLYiKEdEFyIUx6-wT4aPBVPC14m7SIEbwNR82W0DCaiWEAPdGkrRXSVXxp5tZ7-mCb20I5WemBVp5zLI4FC7nvbCY-WdGUvC0NUhCRIx-dHz3cOxCMjU507JuWDhIVJTC9MsoZNsURwCLqDomailiEX1EcRHb9isg5ftOz8oa30ACufhSchPEJ-sxcncLcsgUAtanwXTmddm5bD--PxP6xXBB0BFIemLUAqP_GJ2Aq46U"/>
+</div>
+<div>
+<p class="text-sm font-semibold">David Chen</p>
+<p class="text-xs text-slate-500">DevOps Manager at Atlassian</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex flex-col items-center gap-1">
+<span class="px-2 py-0.5 rounded-full bg-primary/10 text-primary text-xs font-black">78%</span>
+<div class="w-16 h-1 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[78%]"></div>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<p class="text-sm font-medium">14m ago</p>
+<p class="text-xs text-slate-500">Oct 24, 10:28 AM</p>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-2 hover:bg-primary/10 text-primary rounded-lg transition-colors">
+<span class="material-symbols-outlined text-xl">visibility</span>
+</button>
+<button class="p-2 hover:bg-green-500/10 text-green-500 rounded-lg transition-colors">
+<span class="material-symbols-outlined text-xl">send</span>
+</button>
+<button class="p-2 hover:bg-red-500/10 text-slate-400 hover:text-red-500 rounded-lg transition-colors">
+<span class="material-symbols-outlined text-xl">close</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Entry 3 (Unread) -->
+<tr class="group hover:bg-primary/5 transition-colors bg-primary/[0.02]">
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
+<div>
+<p class="font-bold text-sm">Competitor Pricing Page</p>
+<p class="text-xs text-slate-500 flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-xs">group_work</span> G2 Comparison
+                                            </p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-slate-100 dark:bg-slate-800 flex items-center justify-center overflow-hidden">
+<img alt="Zoom Logo" class="w-6 h-6" data-alt="Corporate logo of a video conferencing service" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPE4H8yNtAG2Cjw3PfGO-ZnLpGCfsHDLsygWtH9eZzSDWvOXANcaklACslmqNmzHiNdbCtcx4I59CVQ_6n8DqKxMJp0QMRKG2dJuHf0MljtA3RbnOOGwZL4biX5LLMRcPBI4u0sEWIk8UbEcIyn0bL0d9SB6GoP3_eZQxATSBiu5Ksg7jSSNDjGQj_nHcsB_Wc9Rl1M2Jk-ZZjU05LwNnuX6lx9tm6stdMSs2h9SDIBaq-oP6wHiBOnWrY9x3fNw1KQyNV1m0cwNg"/>
+</div>
+<div>
+<p class="text-sm font-semibold">Mark Thompson</p>
+<p class="text-xs text-slate-500">Director of IT at Zoom</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex flex-col items-center gap-1">
+<span class="px-2 py-0.5 rounded-full bg-green-500/10 text-green-500 text-xs font-black">89%</span>
+<div class="w-16 h-1 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
+<div class="bg-green-500 h-full w-[89%]"></div>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<p class="text-sm font-medium">1h ago</p>
+<p class="text-xs text-slate-500">Oct 24, 09:30 AM</p>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-2 hover:bg-primary/10 text-primary rounded-lg transition-colors">
+<span class="material-symbols-outlined text-xl">visibility</span>
+</button>
+<button class="p-2 hover:bg-green-500/10 text-green-500 rounded-lg transition-colors">
+<span class="material-symbols-outlined text-xl">send</span>
+</button>
+<button class="p-2 hover:bg-red-500/10 text-slate-400 hover:text-red-500 rounded-lg transition-colors">
+<span class="material-symbols-outlined text-xl">close</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Entry 4 (Read) -->
+<tr class="group hover:bg-primary/5 transition-colors">
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-2 h-2 rounded-full bg-transparent"></div>
+<div>
+<p class="font-bold text-sm">Direct Website Visit</p>
+<p class="text-xs text-slate-500 flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-xs">link</span> Home Page
+                                            </p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-slate-100 dark:bg-slate-800 flex items-center justify-center overflow-hidden">
+<img alt="Figma Logo" class="w-6 h-6" data-alt="Corporate logo of a collaborative design tool" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3gGpJV5jpkCpD-Y4B-0YfVexLm7-m84UcnXxH-PwCj2OrRIXuC1-sWRJxuIKShUgjC2z4YT62U9G-iqu4O4Nyk39WAuRPFEMo3DOWOY2jrbRZ1MT9REU8qB9x7_XfcCSIjZF7YsEs5MN4HHoVgvqliIn5NFFSGEhd6jbSjmvpmK8ENWmZ1TQFawOGJXnX3SXIoECgVRlJxpDB1iWVx5Js__lyz6Zl427L01hU0UEDB02nqvj_QGadva8PCI1Gu62pZoUzzqEF5Qk"/>
+</div>
+<div>
+<p class="text-sm font-semibold">Leila Voss</p>
+<p class="text-xs text-slate-500">Product Lead at Figma</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex flex-col items-center gap-1">
+<span class="px-2 py-0.5 rounded-full bg-orange-500/10 text-orange-500 text-xs font-black">42%</span>
+<div class="w-16 h-1 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
+<div class="bg-orange-500 h-full w-[42%]"></div>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<p class="text-sm font-medium">3h ago</p>
+<p class="text-xs text-slate-500">Oct 24, 07:15 AM</p>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-2 hover:bg-primary/10 text-primary rounded-lg transition-colors">
+<span class="material-symbols-outlined text-xl">visibility</span>
+</button>
+<button class="p-2 hover:bg-green-500/10 text-green-500 rounded-lg transition-colors">
+<span class="material-symbols-outlined text-xl">send</span>
+</button>
+<button class="p-2 hover:bg-red-500/10 text-slate-400 hover:text-red-500 rounded-lg transition-colors">
+<span class="material-symbols-outlined text-xl">close</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- Pagination -->
+<div class="px-6 py-4 flex items-center justify-between bg-slate-50 dark:bg-slate-800/50 border-t border-primary/10">
+<span class="text-xs font-medium text-slate-500">Showing 1 to 4 of 1,284 entries</span>
+<div class="flex items-center gap-2">
+<button class="px-3 py-1 border border-primary/10 rounded text-xs font-bold text-slate-400 cursor-not-allowed">Previous</button>
+<button class="px-3 py-1 bg-primary text-white rounded text-xs font-bold">1</button>
+<button class="px-3 py-1 border border-primary/10 hover:bg-primary/10 rounded text-xs font-bold transition-colors">2</button>
+<button class="px-3 py-1 border border-primary/10 hover:bg-primary/10 rounded text-xs font-bold transition-colors">3</button>
+<span class="text-slate-400 px-1">...</span>
+<button class="px-3 py-1 border border-primary/10 hover:bg-primary/10 rounded text-xs font-bold transition-colors">Next</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>e-500">Mark T.</span>
+</div>
+<button class="flex items-center gap-1.5 rounded-xl bg-slate-900 dark:bg-slate-800 px-4 py-2 text-xs font-bold text-white hover:bg-primary transition-all">
+<span class="material-symbols-outlined text-sm">content_copy</span>
+                                Copy
+                            </button>
+</div>
+</div>
+<!-- Prompt Card 6 -->
+<div class="group flex flex-col rounded-2xl bg-white dark:bg-slate-900 p-6 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-all duration-300">
+<div class="flex items-start justify-between">
+<span class="inline-flex items-center rounded-lg bg-indigo-500/10 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-indigo-600 ring-1 ring-inset ring-indigo-500/20">LinkedIn Messaging</span>
+<button class="text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">bookmark</span>
+</button>
+</div>
+<h4 class="mt-4 text-lg font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors leading-tight">LinkedIn Voice Clip Script</h4>
+<p class="mt-3 flex-1 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                            A script designed specifically for 30-second LinkedIn voice notes to break through the noise.
+                        </p>
+<div class="mt-6 flex items-center justify-between border-t border-slate-100 dark:border-slate-800 pt-4">
+<div class="flex items-center gap-2">
+<div class="h-6 w-6 rounded-full bg-slate-200">
+<img class="h-full w-full rounded-full object-cover" data-alt="Small avatar of prompt creator" src="https://lh3.googleusercontent.com/aida-public/AB6AXuANGvmp85533zIMzeBokqLzx3DbmzEKhsFyt4at0bZulB_OqZrNLh-GFqfS9woEGOWY98_dcrVykIDK3Tw1rEbYzvPuNrnlvQBn3NcSKDjJVp2agqSFu_Ze0tJz4iE6faZ4Ep_stN9J1AgQ-7prcbhkwNXqvtonYvEKfzqIEq0yrQLHVLUyEiCyAdAJhg9q9xxvOSNyBptg3cIykz0RgDXvtG2N_bkmGkZ2pp73vsdvFGHgFR94FXlpOLMpsi_9mJ8gq4FV5exbBUY"/>
+</div>
+<span class="text-xs font-medium text-slate-500">Lisa W.</span>
+</div>
+<button class="flex items-center gap-1.5 rounded-xl bg-slate-900 dark:bg-slate-800 px-4 py-2 text-xs font-bold text-white hover:bg-primary transition-all">
+<span class="material-symbols-outlined text-sm">content_copy</span>
+                                Copy
+                            </button>
+</div>
+</div>
+</div>
+<!-- Pagination/Load More -->
+<div class="mt-12 flex justify-center">
+<button class="inline-flex items-center gap-2 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-8 py-3 text-sm font-bold text-slate-900 dark:text-white shadow-sm hover:bg-slate-50 dark:hover:bg-slate-800 transition-all">
+                        Load More Prompts
+                        <span class="material-symbols-outlined text-sm">expand_more</span>
+</button>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="mt-auto border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/50">
+<div class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8">
+<div class="col-span-2">
+<div class="flex items-center gap-2">
+<div class="flex h-6 w-6 items-center justify-center rounded bg-primary text-white">
+<span class="material-symbols-outlined text-base">neurology</span>
+</div>
+<span class="text-lg font-bold text-slate-900 dark:text-white">Neural AI</span>
+</div>
+<p class="mt-4 text-sm text-slate-500 dark:text-slate-400 max-w-xs leading-relaxed">
+                            Empowering sales teams with the world's most advanced AI prompt library and sequence automation.
+                        </p>
+</div>
+<div>
+<h5 class="text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white">Platform</h5>
+<ul class="mt-4 space-y-2">
+<li><a class="text-sm text-slate-500 hover:text-primary transition-colors" href="#">Library</a></li>
+<li><a class="text-sm text-slate-500 hover:text-primary transition-colors" href="#">Integrations</a></li>
+<li><a class="text-sm text-slate-500 hover:text-primary transition-colors" href="#">API Docs</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white">Company</h5>
+<ul class="mt-4 space-y-2">
+<li><a class="text-sm text-slate-500 hover:text-primary transition-colors" href="#">About Us</a></li>
+<li><a class="text-sm text-slate-500 hover:text-primary transition-colors" href="#">Careers</a></li>
+<li><a class="text-sm text-slate-500 hover:text-primary transition-colors" href="#">Contact</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white">Social</h5>
+<ul class="mt-4 space-y-2">
+<li><a class="text-sm text-slate-500 hover:text-primary transition-colors" href="#">LinkedIn</a></li>
+<li><a class="text-sm text-slate-500 hover:text-primary transition-colors" href="#">X (Twitter)</a></li>
+<li><a class="text-sm text-slate-500 hover:text-primary transition-colors" href="#">Discord</a></li>
+</ul>
+</div>
+</div>
+<div class="mt-12 border-t border-slate-100 dark:border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-xs text-slate-400">© 2024 Neural AI Technology Inc. All rights reserved.</p>
+<div class="flex gap-6">
+<a class="text-xs text-slate-400 hover:text-slate-600 transition-colors" href="#">Privacy Policy</a>
+<a class="text-xs text-slate-400 hover:text-slate-600 transition-colors" href="#">Terms of Service</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+</body></html>

@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Melioro AI - Data Enrichment Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#6366f1",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#221610",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Public Sans', sans-serif; }
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display transition-colors duration-300"><div class="fixed top-6 left-1/2 -translate-x-1/2 z-[100] animate-in fade-in slide-in-from-top-4 duration-300">
+<div class="flex items-center gap-3 bg-green-600 text-white px-6 py-3 rounded-2xl shadow-2xl shadow-green-900/20">
+<span class="material-symbols-outlined font-bold">check_circle</span>
+<p class="font-bold text-sm tracking-tight">Leads successfully synced to Salesforce</p>
+<button class="ml-2 opacity-70 hover:opacity-100 transition-opacity" onclick="this.parentElement.parentElement.remove()">
+<span class="material-symbols-outlined text-lg">close</span>
+</button>
+</div>
+</div>
+<div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden">
+<!-- Header -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-background-dark px-6 py-3 lg:px-10">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-3 text-primary">
+<span class="material-symbols-outlined text-3xl font-bold">bolt</span>
+<h2 class="text-slate-900 dark:text-white text-xl font-extrabold leading-tight tracking-tight">Melioro AI</h2>
+</div>
+<div class="hidden md:flex items-center gap-6">
+<a class="text-slate-600 dark:text-slate-300 text-sm font-semibold hover:text-primary transition-colors" href="#">Dashboard</a>
+<a class="text-primary text-sm font-semibold border-b-2 border-primary pb-1" href="#">Enrichment</a>
+<a class="text-slate-600 dark:text-slate-300 text-sm font-semibold hover:text-primary transition-colors" href="#">Integrations</a>
+<a class="text-slate-600 dark:text-slate-300 text-sm font-semibold hover:text-primary transition-colors" href="#">API</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<label class="hidden lg:flex items-center bg-slate-100 dark:bg-slate-800 rounded-xl px-3 py-1.5 border border-slate-200 dark:border-slate-700">
+<span class="material-symbols-outlined text-slate-400 text-xl">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-48 placeholder:text-slate-400" placeholder="Search data..." type="text"/>
+</label>
+<div class="flex gap-2">
+<button class="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+<div class="size-10 rounded-full border-2 border-primary overflow-hidden">
+<img alt="User profile" data-alt="Professional user profile avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsRCCx3FVHB9lBmMYmO9N8CzYqWHh_HBhwd_LRHhaJ_AmZZj4w1Z-PbR2hgQ4BCym83zAoo_M9SDzGZNyk6NIKKVJv2uJfQLFPa94mol86tIM45lKvhUIKBFTMgJgQrT62Ptox0dBWErh4ZZE-uCAMBi2dpNFWMfgxpmot-gFb13TOnfKFnmB3XG4QHZbMI1zVAFXxlRgAE0A5LqypZmM0fJ51ojQpJ6gZEeSyNjd3IhAdnR-wJb_o3ULFEwDZPYJfjMvtwB2rEPM"/>
+</div>
+</div>
+</header>
+<div class="flex flex-1 overflow-hidden">
+<!-- Sidebar: Waterfall Config -->
+<aside class="hidden lg:flex w-72 flex-col border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-background-dark p-6 gap-8 overflow-y-auto">
+<div class="flex flex-col gap-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">waterfall_chart</span>
+<h3 class="font-bold text-slate-900 dark:text-white uppercase tracking-wider text-xs">Waterfall Config</h3>
+</div>
+<div class="space-y-3">
+<div class="flex items-center justify-between p-3 rounded-xl bg-primary/10 border border-primary/20">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">verified</span>
+<span class="text-sm font-semibold">Active Engine</span>
+</div>
+<span class="text-[10px] bg-primary text-white px-2 py-0.5 rounded-full font-bold">LIVE</span>
+</div>
+<div class="flex flex-col gap-2 mt-4">
+<p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest px-1">Active Providers</p>
+<div class="flex items-center gap-3 p-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors group cursor-pointer">
+<div class="size-8 rounded bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-blue-600">CB</div>
+<div class="flex-1">
+<p class="text-xs font-bold">Clearbit</p>
+<p class="text-[10px] text-slate-500">Firmographics &amp; Tech</p>
+</div>
+<span class="material-symbols-outlined text-sm text-green-500">check_circle</span>
+</div>
+<div class="flex items-center gap-3 p-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors group cursor-pointer">
+<div class="size-8 rounded bg-indigo-100 dark:bg-indigo-900/30 flex items-center justify-center text-indigo-600">L</div>
+<div class="flex-1">
+<p class="text-xs font-bold">Lusha</p>
+<p class="text-[10px] text-slate-500">Mobile Numbers</p>
+</div>
+<span class="material-symbols-outlined text-sm text-green-500">check_circle</span>
+</div>
+<div class="flex items-center gap-3 p-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors group cursor-pointer">
+<div class="size-8 rounded bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center text-orange-600">H</div>
+<div class="flex-1">
+<p class="text-xs font-bold">Hunter.io</p>
+<p class="text-[10px] text-slate-500">Email Verification</p>
+</div>
+<span class="material-symbols-outlined text-sm text-green-500">check_circle</span>
+</div>
+<div class="flex items-center gap-3 p-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors group cursor-pointer">
+<div class="size-8 rounded bg-slate-100 dark:bg-slate-700 flex items-center justify-center text-slate-600">Z</div>
+<div class="flex-1">
+<p class="text-xs font-bold">ZoomInfo</p>
+<p class="text-[10px] text-slate-500">B2B Intel</p>
+</div>
+<span class="material-symbols-outlined text-sm text-slate-300">circle</span>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-auto pt-6 border-t border-slate-200 dark:border-slate-800">
+<button class="w-full py-2.5 rounded-xl border-2 border-dashed border-slate-300 dark:border-slate-700 text-slate-500 dark:text-slate-400 text-xs font-bold hover:border-primary hover:text-primary transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-lg">add</span>
+                        Add Provider
+                    </button>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 overflow-y-auto p-6 lg:p-10 space-y-8">
+<!-- Page Title & Quick Stats -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<h1 class="text-3xl font-black text-slate-900 dark:text-white tracking-tight">Data Enrichment</h1>
+<p class="text-slate-500 dark:text-slate-400 mt-1">Scale your outbound with Melioro AI's waterfall verification engine.</p>
+</div>
+<div class="flex gap-3">
+<button class="flex items-center gap-2 px-5 py-2.5 bg-primary text-white font-bold rounded-xl shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-all">
+<span class="material-symbols-outlined">download</span>
+                            Download Enriched CSV
+                        </button>
+</div>
+</div>
+<!-- Bulk Upload Area -->
+<section class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-8 shadow-sm">
+<div class="grid lg:grid-cols-2 gap-10 items-center">
+<div class="space-y-6">
+<div class="flex flex-col items-center justify-center border-2 border-dashed border-primary/40 bg-primary/5 rounded-2xl p-10 group cursor-pointer hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined text-5xl text-primary mb-4 group-hover:scale-110 transition-transform">upload_file</span>
+<h3 class="text-lg font-bold">Bulk Upload CSV</h3>
+<p class="text-sm text-slate-500 text-center mt-2 max-w-xs">Drag and drop your contact list or <span class="text-primary font-semibold">browse files</span></p>
+<div class="mt-6 flex gap-2">
+<span class="text-[10px] font-bold px-2 py-1 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded uppercase">CSV</span>
+<span class="text-[10px] font-bold px-2 py-1 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded uppercase">XLSX</span>
+</div>
+</div>
+</div>
+<div class="space-y-4">
+<h4 class="font-bold text-slate-800 dark:text-slate-200 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">info</span>
+                                Required Input Formats
+                            </h4>
+<p class="text-sm text-slate-500">Ensure your file includes at least three of the following columns for maximum matching accuracy:</p>
+<div class="grid grid-cols-2 gap-3">
+<div class="flex items-center gap-2 p-3 bg-slate-50 dark:bg-slate-800/50 rounded-xl border border-slate-100 dark:border-slate-800">
+<span class="material-symbols-outlined text-primary text-lg">link</span>
+<span class="text-xs font-medium">LinkedIn URL</span>
+</div>
+<div class="flex items-center gap-2 p-3 bg-slate-50 dark:bg-slate-800/50 rounded-xl border border-slate-100 dark:border-slate-800">
+<span class="material-symbols-outlined text-primary text-lg">person</span>
+<span class="text-xs font-medium">First &amp; Last Name</span>
+</div>
+<div class="flex items-center gap-2 p-3 bg-slate-50 dark:bg-slate-800/50 rounded-xl border border-slate-100 dark:border-slate-800">
+<span class="material-symbols-outlined text-primary text-lg">business</span>
+<span class="text-xs font-medium">Company Name</span>
+</div>
+<div class="flex items-center gap-2 p-3 bg-slate-50 dark:bg-slate-800/50 rounded-xl border border-slate-100 dark:border-slate-800">
+<span class="material-symbols-outlined text-primary text-lg">language</span>
+<span class="text-xs font-medium">Domain</span>
+</div>
+</div>
+<div class="pt-4 flex items-center gap-4">
+<p class="text-xs font-bold text-slate-400 uppercase tracking-widest">Instant Sync</p>
+<div class="flex gap-2">
+<div class="size-8 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center p-1.5 grayscale opacity-70">
+<img alt="Salesforce" data-alt="Salesforce logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDeGKsXvHXHk4eOA1iha4f0aM0Gflx7-l4j3ksdXpLsHSulR7B7pS8gzvRrzf8n5pIEZ8yUYLb3F3qs-jP1RiPoguAdiN06ebXLibHvxGG9xPs0tC65s3_Bv8-GdIXR0ncTaUzNdRQjPapJyFe72WxGk-TQQEebPvHTZ-6rove22IQczWz3Sv0ksO1PWD-8xrpCFcFYjnVUpAYki4aJkoQyO9nZHFBEuFF1v3vGERcVn_uwRR4DdEZNkE-Iz0fBnEZ_CQcxJJh27KY"/>
+</div>
+<div class="size-8 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center p-1.5 grayscale opacity-70">
+<img alt="HubSpot" data-alt="HubSpot logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZSoRl6ENuEwr-fBZgvjnOLIA9-W2gnXNm2ZIHV2sl4Y-xeaGH7FcrRwJCKlpryApUKrKHOeuJ5nI6UZKpCefHAHb_5_wx7biKM0f9KYJDqF9XGW_-ppHnyhVjUS4SBZKytp-JycHGjB71CyTBXx6Z7S4b7Uy-EV-8N0K7jgn8BJKTe4BOqtXOCcAk5BuNkjWsCF75yk1jZ-iwaT2LIJXJwDFALxYBjFQG1SYyIfsBW6fc5YLpV-qCxBKrekhge2hRmzE-mjDqAmY"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Enrichment in Progress Table -->
+<section class="space-y-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="relative flex h-3 w-3">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+<span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+</span>
+<h2 class="text-xl font-bold">Enrichment in Progress</h2>
+</div>
+<div class="text-sm font-semibold text-slate-500">
+                            Batch #4092 • <span class="text-primary">82% Complete</span>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead class="bg-slate-50 dark:bg-slate-800/50 text-slate-500 dark:text-slate-400 text-xs font-bold uppercase tracking-wider">
+<tr>
+<th class="px-6 py-4">Contact</th>
+<th class="px-6 py-4">Status</th>
+<th class="px-6 py-4">Waterfall Stage</th>
+<th class="px-6 py-4">Verified Info</th>
+<th class="px-6 py-4">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100 dark:divide-slate-800">
+<tr class="group hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="size-9 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center font-bold text-primary">SC</div>
+<div>
+<p class="text-sm font-bold">Sarah Chen</p>
+<p class="text-xs text-slate-500">VP Marketing @ Vercel</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 text-[10px] font-bold">
+<span class="material-symbols-outlined text-xs">check</span> SUCCESS
+                                            </span>
+</td>
+<td class="px-6 py-4">
+<div class="flex flex-col gap-1">
+<p class="text-xs font-medium">Found via Lusha</p>
+<div class="w-24 h-1 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+<div class="w-full h-full bg-green-500"></div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex gap-2">
+<span class="material-symbols-outlined text-slate-400 text-lg" title="Personal Email">mail</span>
+<span class="material-symbols-outlined text-primary text-lg" title="Mobile Phone">smartphone</span>
+<span class="material-symbols-outlined text-primary text-lg" title="Direct Dial">call</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<button class="text-slate-400 hover:text-primary"><span class="material-symbols-outlined">more_horiz</span></button>
+</td>
+</tr>
+<tr class="group hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="size-9 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center font-bold text-primary">MJ</div>
+<div>
+<p class="text-sm font-bold">Marcus Johnson</p>
+<p class="text-xs text-slate-500">CTO @ Ramp</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 text-[10px] font-bold">
+<span class="material-symbols-outlined text-xs animate-spin">sync</span> MATCHING
+                                            </span>
+</td>
+<td class="px-6 py-4">
+<div class="flex flex-col gap-1">
+<p class="text-xs font-medium">Querying Clearbit...</p>
+<div class="w-24 h-1 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+<div class="w-3/5 h-full bg-amber-500 animate-pulse"></div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex gap-2">
+<span class="material-symbols-outlined text-slate-400 text-lg opacity-30">mail</span>
+<span class="material-symbols-outlined text-slate-400 text-lg opacity-30">smartphone</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<button class="text-slate-400 hover:text-primary"><span class="material-symbols-outlined">more_horiz</span></button>
+</td>
+</tr>
+<tr class="group hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="size-9 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center font-bold text-primary">AK</div>
+<div>
+<p class="text-sm font-bold">Ananya Kapoor</p>
+<p class="text-xs text-slate-500">Director of Sales @ Gong</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 text-[10px] font-bold">
+<span class="material-symbols-outlined text-xs">check</span> SUCCESS
+                                            </span>
+</td>
+<td class="px-6 py-4">
+<div class="flex flex-col gap-1">
+<p class="text-xs font-medium">Found via Hunter</p>
+<div class="w-24 h-1 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+<div class="w-full h-full bg-green-500"></div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex gap-2">
+<span class="material-symbols-outlined text-primary text-lg" title="Business Email">verified_user</span>
+<span class="material-symbols-outlined text-slate-400 text-lg opacity-30">smartphone</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<button class="text-slate-400 hover:text-primary"><span class="material-symbols-outlined">more_horiz</span></button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<!-- Footer Actions -->
+<div class="flex flex-col sm:flex-row items-center justify-between gap-6 p-6 bg-primary/5 dark:bg-primary/10 rounded-2xl border border-primary/20">
+<div class="flex items-center gap-4">
+<div class="size-12 rounded-full bg-white dark:bg-slate-800 flex items-center justify-center border border-primary/20">
+<span class="material-symbols-outlined text-primary text-3xl">sync_alt</span>
+</div>
+<div>
+<p class="font-bold text-slate-900 dark:text-white">Continuous CRM Sync</p>
+<p class="text-sm text-slate-500">Melioro AI can automatically push verified leads to your CRM.</p>
+</div>
+</div>
+<div class="flex flex-wrap justify-center gap-3">
+<button class="flex items-center gap-2 px-5 py-2.5 bg-green-600 text-white font-bold rounded-xl border border-green-600 hover:bg-green-700 transition-all shadow-sm">
+<span class="material-symbols-outlined text-lg">check</span>
+    Synced to Salesforce
+</button>
+<button class="flex items-center gap-2 px-5 py-2.5 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 font-bold rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-50 transition-all shadow-sm">
+<img alt="HS" class="size-4" data-alt="HubSpot mini logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8Kl-fYcO4ZJVfez-F23Av893BgO1afc043DeBgab4RJo5hfIGxE7sLPI5c_nWp-gh9K1uXeVrp8fBlHT39ThReu1ewk68JDNq6YVTHfOBOq6SaddT4HhnEfZReBFmGjAkHU2Qy1uGFMtoBGx14opbsTN9_-_zANrS8R_wBPt_m6QBoFqoILVeS6CeyPv0tPIoI9ZRv2vv5hBFWfjujnpFfrHmCtXZzdcerwuyTP1gyA_B5o2eKu4OQCj8W9yBZtpHk_n8sFJz2Go"/>
+                            Sync to HubSpot
+                        </button>
+</div>
+</div>
+<!-- Sync & Activity History Section -->
+<section class="space-y-4 pt-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">history</span>
+<h2 class="text-xl font-bold">Sync &amp; Activity History</h2>
+</div>
+<div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead class="bg-slate-50 dark:bg-slate-800/50 text-slate-500 dark:text-slate-400 text-xs font-bold uppercase tracking-wider">
+<tr>
+<th class="px-6 py-4">Activity Name</th>
+<th class="px-6 py-4">Type</th>
+<th class="px-6 py-4">Status</th>
+<th class="px-6 py-4">Leads</th>
+<th class="px-6 py-4">Timestamp</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100 dark:divide-slate-800">
+<tr class="group hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-green-600 text-lg">sync</span>
+<span class="text-sm font-bold">Salesforce Lead Sync</span>
+</div>
+</td>
+<td class="px-6 py-4 text-xs font-medium">Sync</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 text-[10px] font-bold">
+<span class="material-symbols-outlined text-xs">check_circle</span> COMPLETED
+                            </span>
+</td>
+<td class="px-6 py-4 text-sm">42 leads</td>
+<td class="px-6 py-4 text-xs text-slate-500 font-medium">Today, 10:45 AM</td>
+</tr>
+<tr class="group hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-lg">upload_file</span>
+<span class="text-sm font-bold">Bulk Upload #4092</span>
+</div>
+</td>
+<td class="px-6 py-4 text-xs font-medium">Upload</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 text-[10px] font-bold">
+<span class="material-symbols-outlined text-xs animate-spin">sync</span> IN PROGRESS
+                            </span>
+</td>
+<td class="px-6 py-4 text-sm">850 records</td>
+<td class="px-6 py-4 text-xs text-slate-500 font-medium">Today, 09:12 AM</td>
+</tr>
+<tr class="group hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-slate-400 text-lg">download</span>
+<span class="text-sm font-bold">Export: Sales_Qualified_Leads.csv</span>
+</div>
+</td>
+<td class="px-6 py-4 text-xs font-medium">Download</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 text-[10px] font-bold">
+<span class="material-symbols-outlined text-xs">check_circle</span> COMPLETED
+                            </span>
+</td>
+<td class="px-6 py-4 text-sm">124 records</td>
+<td class="px-6 py-4 text-xs text-slate-500 font-medium">Yesterday, 4:30 PM</td>
+</tr>
+<tr class="group hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-red-500 text-lg">sync_problem</span>
+<span class="text-sm font-bold">HubSpot Contact Sync</span>
+</div>
+</td>
+<td class="px-6 py-4 text-xs font-medium">Sync</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 text-[10px] font-bold">
+<span class="material-symbols-outlined text-xs">error</span> FAILED
+                            </span>
+</td>
+<td class="px-6 py-4 text-sm">0 records</td>
+<td class="px-6 py-4 text-xs text-slate-500 font-medium">Oct 24, 11:15 AM</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section></main>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,911 @@
+// ============================================
+// Melioro AI - Database Schema
+// Multi-tenant SaaS Platform
+// ============================================
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ============================================
+// TENANT & ORGANIZATION
+// ============================================
+
+model Organization {
+  id            String   @id @default(uuid())
+  name          String
+  slug          String   @unique
+  logo          String?
+  website       String?
+  industry      String?
+  size          String?
+  address       String?
+  city          String?
+  country       String?
+  postalCode    String?
+  phone         String?
+  settings      Json     @default("{}")
+  metadata      Json     @default("{}")
+  trialEndsAt   DateTime?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  deletedAt     DateTime?
+
+  // Relations
+  users           User[]
+  teams           Team[]
+  subscriptions   Subscription[]
+  billingAccounts BillingAccount[]
+  prospects       Prospect[]
+  companies       Company[]
+  campaigns       Campaign[]
+  sequences       Sequence[]
+  meetings        Meeting[]
+  analyticsEvents AnalyticsEvent[]
+
+  @@index([slug])
+  @@index([deletedAt])
+}
+
+model Team {
+  id             String   @id @default(uuid())
+  name           String
+  description    String?
+  organizationId String
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  // Relations
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  members      TeamMember[]
+
+  @@index([organizationId])
+}
+
+// ============================================
+// USER MANAGEMENT
+// ============================================
+
+model User {
+  id             String    @id @default(uuid())
+  email          String    @unique
+  passwordHash   String?
+  firstName      String
+  lastName       String
+  avatar         String?
+  phone          String?
+  jobTitle       String?
+  timezone       String    @default("UTC")
+  locale         String    @default("en")
+  emailVerified  Boolean   @default(false)
+  isActive       Boolean   @default(true)
+  isSuperAdmin   Boolean   @default(false)
+  lastLoginAt    DateTime?
+  lastLoginIp    String?
+  metadata       Json      @default("{}")
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+  deletedAt      DateTime?
+
+  // Relations
+  organizationId String?
+  organization   Organization? @relation(fields: [organizationId], references: [id], onDelete: SetNull)
+  sessions       Session[]
+  teamMemberships TeamMember[]
+  auditLogs      AuditLog[]
+  ownedCampaigns Campaign[]
+  activities     Activity[]
+
+  @@index([email])
+  @@index([organizationId])
+  @@index([deletedAt])
+}
+
+model TeamMember {
+  id        String   @id @default(uuid())
+  userId    String
+  teamId    String
+  role      TeamRole @default(MEMBER)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  user User  @relation(fields: [userId], references: [id], onDelete: Cascade)
+  team Team  @relation(fields: [teamId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, teamId])
+  @@index([userId])
+  @@index([teamId])
+}
+
+enum TeamRole {
+  OWNER
+  ADMIN
+  MEMBER
+  VIEWER
+}
+
+model Session {
+  id           String   @id @default(uuid())
+  userId       String
+  token        String   @unique
+  refreshToken String?  @unique
+  ipAddress    String?
+  userAgent    String?
+  expiresAt    DateTime
+  createdAt    DateTime @default(now())
+
+  // Relations
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([token])
+  @@index([userId])
+  @@index([expiresAt])
+}
+
+// ============================================
+// AUTHENTICATION & OAUTH
+// ============================================
+
+model SocialAccount {
+  id           String       @id @default(uuid())
+  userId       String
+  provider     AuthProvider
+  providerId   String
+  accessToken  String
+  refreshToken String?
+  expiresAt    DateTime?
+  metadata     Json         @default("{}")
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @updatedAt
+
+  // Relations
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerId])
+  @@index([userId])
+}
+
+enum AuthProvider {
+  GOOGLE
+  MICROSOFT
+  EMAIL
+}
+
+model AuditLog {
+  id             String   @id @default(uuid())
+  userId         String?
+  organizationId String?
+  action         String
+  entityType     String
+  entityId       String?
+  oldData        Json?
+  newData        Json?
+  ipAddress      String?
+  userAgent      String?
+  metadata       Json     @default("{}")
+  createdAt      DateTime @default(now())
+
+  // Relations
+  user         User?         @relation(fields: [userId], references: [id], onDelete: SetNull)
+  organization Organization? @relation(fields: [organizationId], references: [id], onDelete: SetNull)
+
+  @@index([userId])
+  @@index([organizationId])
+  @@index([entityType, entityId])
+  @@index([createdAt])
+}
+
+// ============================================
+// BILLING & SUBSCRIPTIONS
+// ============================================
+
+model Subscription {
+  id                   String            @id @default(uuid())
+  organizationId       String
+  stripeSubscriptionId String?           @unique
+  stripeCustomerId     String?
+  plan                 SubscriptionPlan
+  status               SubscriptionStatus
+  currentPeriodStart   DateTime
+  currentPeriodEnd     DateTime
+  cancelAtPeriodEnd    Boolean           @default(false)
+  metadata             Json              @default("{}")
+  createdAt            DateTime          @default(now())
+  updatedAt            DateTime          @updatedAt
+
+  // Relations
+  organization Organization          @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  invoices     Invoice[]
+  usageRecords UsageRecord[]
+
+  @@index([organizationId])
+  @@index([status])
+}
+
+enum SubscriptionPlan {
+  STARTER
+  PROFESSIONAL
+  ENTERPRISE
+}
+
+enum SubscriptionStatus {
+  ACTIVE
+  PAST_DUE
+  CANCELED
+  TRIALING
+  INCOMPLETE
+}
+
+model Invoice {
+  id                   String   @id @default(uuid())
+  subscriptionId       String
+  stripeInvoiceId      String?  @unique
+  number               String?
+  status               InvoiceStatus
+  amount               Int      // cents
+  currency             String   @default("usd")
+  paidAt               DateTime?
+  dueDate              DateTime?
+  hostedInvoiceUrl     String?
+  invoicePdf           String?
+  metadata             Json     @default("{}")
+  createdAt            DateTime @default(now())
+  updatedAt            DateTime @updatedAt
+
+  // Relations
+  subscription Subscription @relation(fields: [subscriptionId], references: [id], onDelete: Cascade)
+
+  @@index([subscriptionId])
+  @@index([status])
+}
+
+enum InvoiceStatus {
+  DRAFT
+  OPEN
+  PAID
+  VOID
+  UNCOLLECTIBLE
+}
+
+model UsageRecord {
+  id             String   @id @default(uuid())
+  subscriptionId String
+  feature        String
+  quantity       Int      @default(0)
+  periodStart    DateTime
+  periodEnd      DateTime
+  createdAt      DateTime @default(now())
+
+  // Relations
+  subscription Subscription @relation(fields: [subscriptionId], references: [id], onDelete: Cascade)
+
+  @@unique([subscriptionId, feature, periodStart])
+  @@index([subscriptionId])
+}
+
+model BillingAccount {
+  id             String   @id @default(uuid())
+  organizationId String
+  stripeCustomerId String @unique
+  defaultPaymentMethod String?
+  billingEmail   String?
+  billingName    String?
+  billingAddress Json?
+  vatNumber      String?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  // Relations
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+
+  @@index([organizationId])
+}
+
+// ============================================
+// PROSPECTS & COMPANIES
+// ============================================
+
+model Company {
+  id             String   @id @default(uuid())
+  organizationId String
+  name           String
+  domain         String?
+  logo           String?
+  description    String?
+  industry       String?
+  employeeCount  Int?
+  annualRevenue  BigInt?
+  headquarters   String?
+  city           String?
+  country        String?
+  linkedinUrl    String?
+  twitterHandle  String?
+  facebookUrl    String?
+  CrunchbaseUrl  String?
+  funding        Json     @default("[]")
+  technologies   String[] @default([])
+  news           Json     @default("[]")
+  intentSignals  Json     @default("{}")
+  icpScore       Float    @default(0)
+  icpMatched     Boolean  @default(false)
+  metadata       Json     @default("{}")
+  source         String?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  // Relations
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  contacts     Contact[]
+  prospects    Prospect[]
+
+  @@index([organizationId])
+  @@index([domain])
+  @@index([icpMatched])
+}
+
+model Contact {
+  id             String   @id @default(uuid())
+  companyId      String
+  firstName      String
+  lastName       String
+  email          String?
+  phone          String?
+  jobTitle       String?
+  department     String?
+  seniority      String?
+  linkedinUrl    String?
+  twitterHandle  String?
+  avatar         String?
+  location       String?
+  country        String?
+  timezone       String?
+  isVerified     Boolean  @default(false)
+  score          Float    @default(0)
+  lastEnrichedAt DateTime?
+  metadata       Json     @default("{}")
+  source         String?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  // Relations
+  company    Company    @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  prospects  Prospect[]
+  activities Activity[]
+
+  @@index([companyId])
+  @@index([email])
+  @@index([score])
+}
+
+model Prospect {
+  id             String         @id @default(uuid())
+  organizationId String
+  companyId      String
+  contactId      String
+  stage          ProspectStage  @default(NEW)
+  score          Float          @default(0)
+  status         ProspectStatus @default(ACTIVE)
+  priority       ProspectPriority @default(MEDIUM)
+  ownerId        String?
+  notes          String?
+  tags           String[]       @default([])
+  customFields   Json           @default("{}")
+  intentSignals  Json           @default("{}")
+  lastContactedAt DateTime?
+  nextContactAt   DateTime?
+  convertedAt     DateTime?
+  createdAt      DateTime       @default(now())
+  updatedAt      DateTime       @updatedAt
+
+  // Relations
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  company      Company      @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  contact      Contact      @relation(fields: [contactId], references: [id], onDelete: Cascade)
+  owner        User?        @relation(fields: [ownerId], references: [id], onDelete: SetNull)
+  sequences    ProspectSequence[]
+  activities   Activity[]
+  meetings     Meeting[]
+
+  @@index([organizationId])
+  @@index([stage])
+  @@index([status])
+  @@index([ownerId])
+}
+
+enum ProspectStage {
+  NEW
+  CONTACTED
+  ENGAGED
+  QUALIFIED
+  PROPOSAL
+  NEGOTIATION
+  WON
+  LOST
+}
+
+enum ProspectStatus {
+  ACTIVE
+  ARCHIVED
+  CONVERTED
+}
+
+enum ProspectPriority {
+  LOW
+  MEDIUM
+  HIGH
+  CRITICAL
+}
+
+// ============================================
+// CAMPAIGNS & SEQUENCES
+// ============================================
+
+model Campaign {
+  id             String        @id @default(uuid())
+  organizationId String
+  name           String
+  description    String?
+  type           CampaignType
+  status         CampaignStatus @default(DRAFT)
+  ownerId        String?
+  startDate      DateTime?
+  endDate        DateTime?
+  budget         Int?          // cents
+  settings       Json          @default("{}")
+  stats          Json          @default("{}")
+  createdAt      DateTime      @default(now())
+  updatedAt      DateTime      @updatedAt
+
+  // Relations
+  organization Organization      @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  owner        User?             @relation(fields: [ownerId], references: [id], onDelete: SetNull)
+  sequences    Sequence[]
+  emails       Email[]
+
+  @@index([organizationId])
+  @@index([status])
+  @@index([ownerId])
+}
+
+enum CampaignType {
+  EMAIL
+  LINKEDIN
+  MULTI_CHANNEL
+  OUTBOUND
+}
+
+enum CampaignStatus {
+  DRAFT
+  SCHEDULED
+  ACTIVE
+  PAUSED
+  COMPLETED
+  ARCHIVED
+}
+
+model Sequence {
+  id             String         @id @default(uuid())
+  campaignId     String
+  name           String
+  description    String?
+  isActive       Boolean        @default(true)
+  settings       Json           @default("{}")
+  stats          Json           @default("{}")
+  createdAt      DateTime       @default(now())
+  updatedAt      DateTime       @updatedAt
+
+  // Relations
+  campaign       Campaign            @relation(fields: [campaignId], references: [id], onDelete: Cascade)
+  steps          SequenceStep[]
+  prospectSteps  ProspectSequence[]
+
+  @@index([campaignId])
+}
+
+model SequenceStep {
+  id           String        @id @default(uuid())
+  sequenceId   String
+  stepOrder    Int
+  type         StepType
+  channel      ChannelType
+  subject      String?
+  bodyTemplate String
+  delayDays    Int           @default(0)
+  delayHours   Int           @default(0)
+  isActive     Boolean       @default(true)
+  settings     Json          @default("{}")
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+
+  // Relations
+  sequence Sequence @relation(fields: [sequenceId], references: [id], onDelete: Cascade)
+
+  @@unique([sequenceId, stepOrder])
+  @@index([sequenceId])
+}
+
+enum StepType {
+  EMAIL
+  LINKEDIN_MESSAGE
+  LINKEDIN_CONNECT
+  LINKEDIN_PROFILE_VISIT
+  TASK
+  DELAY
+}
+
+enum ChannelType {
+  EMAIL
+  LINKEDIN
+  TASK
+}
+
+model ProspectSequence {
+  id           String   @id @default(uuid())
+  prospectId   String
+  sequenceId   String
+  currentStep  Int      @default(0)
+  status       SequenceStatus @default(ACTIVE)
+  startedAt    DateTime @default(now())
+  completedAt  DateTime?
+  lastSentAt   DateTime?
+  nextSendAt   DateTime?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  // Relations
+  prospect Prospect      @relation(fields: [prospectId], references: [id], onDelete: Cascade)
+  sequence Sequence      @relation(fields: [sequenceId], references: [id], onDelete: Cascade)
+  activities Activity[]
+
+  @@unique([prospectId, sequenceId])
+  @@index([prospectId])
+  @@index([sequenceId])
+}
+
+enum SequenceStatus {
+  ACTIVE
+  COMPLETED
+  STOPPED
+  BOUNCED
+}
+
+// ============================================
+// COMMUNICATIONS
+// ============================================
+
+model Email {
+  id             String      @id @default(uuid())
+  campaignId     String
+  prospectId     String?
+  toEmail        String
+  fromEmail      String
+  subject        String
+  body           String
+  status         EmailStatus @default(PENDING)
+  sentAt         DateTime?
+  deliveredAt    DateTime?
+  openedAt       DateTime?
+  clickedAt      DateTime?
+  bouncedAt      DateTime?
+  repliedAt      DateTime?
+  error          String?
+  metadata       Json        @default("{}")
+  createdAt      DateTime    @default(now())
+  updatedAt      DateTime    @updatedAt
+
+  // Relations
+  campaign Campaign @relation(fields: [campaignId], references: [id], onDelete: Cascade)
+
+  @@index([campaignId])
+  @@index([status])
+  @@index([sentAt])
+}
+
+// ============================================
+// MEETINGS
+// ============================================
+
+model Meeting {
+  id             String         @id @default(uuid())
+  organizationId String
+  prospectId     String?
+  title          String
+  description    String?
+  startTime      DateTime
+  endTime        DateTime
+  timezone       String?
+  location       String?
+  meetingLink    String?
+  status         MeetingStatus  @default(SCHEDULED)
+  source         MeetingSource?
+  notes          String?
+  revenue        Int?           // cents
+  createdAt      DateTime       @default(now())
+  updatedAt      DateTime       @updatedAt
+
+  // Relations
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  prospect     Prospect?    @relation(fields: [prospectId], references: [id], onDelete: SetNull)
+
+  @@index([organizationId])
+  @@index([status])
+  @@index([startTime])
+}
+
+// ============================================
+// AI SDR & RESEARCH
+// ============================================
+
+model ResearchTask {
+  id             String          @id @default(uuid())
+  userId         String
+  prospectId     String?
+  type           ResearchType
+  status         ResearchStatus  @default(PENDING)
+  input          Json            @default("{}")
+  output         Json?           @default("{}")
+  error          String?
+  startedAt      DateTime?
+  completedAt    DateTime?
+  createdAt      DateTime        @default(now())
+  updatedAt      DateTime        @updatedAt
+
+  @@index([userId])
+  @@index([status])
+}
+
+enum ResearchType {
+  COMPANY_RESEARCH
+  CONTACT_RESEARCH
+  PERSONALIZATION
+  OUTREACH_GENERATION
+  QUALIFICATION
+}
+
+enum ResearchStatus {
+  PENDING
+  PROCESSING
+  COMPLETED
+  FAILED
+}
+
+model GeneratedContent {
+  id           String   @id @default(uuid())
+  userId       String
+  prospectId   String?
+  type         ContentType
+  content      String
+  metadata     Json     @default("{}")
+  isApproved   Boolean  @default(false)
+  isUsed       Boolean  @default(false)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@index([userId])
+  @@index([prospectId])
+  @@index([type])
+}
+
+enum ContentType {
+  EMAIL_SUBJECT
+  EMAIL_BODY
+  LINKEDIN_MESSAGE
+  PERSONALIZATION
+  FOLLOW_UP
+}
+
+// ============================================
+// ANALYTICS
+// ============================================
+
+model AnalyticsEvent {
+  id             String   @id @default(uuid())
+  organizationId String
+  userId         String?
+  eventType      String
+  eventCategory  String
+  eventData      Json     @default("{}")
+  sessionId      String?
+  ipAddress      String?
+  userAgent      String?
+  createdAt      DateTime @default(now())
+
+  // Relations
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+
+  @@index([organizationId])
+  @@index([eventType])
+  @@index([createdAt])
+}
+
+model DashboardMetric {
+  id             String   @id @default(uuid())
+  organizationId String
+  metricType     String
+  value          Float
+  period         String
+  periodStart    DateTime
+  periodEnd      DateTime
+  metadata       Json     @default("{}")
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  @@unique([organizationId, metricType, period, periodStart])
+  @@index([organizationId])
+}
+
+// ============================================
+// ACTIVITY TRACKING
+// ============================================
+
+model Activity {
+  id           String       @id @default(uuid())
+  userId       String?
+  prospectId   String?
+  contactId    String?
+  sequenceId   String?
+  type         ActivityType
+  title        String
+  description  String?
+  metadata     Json         @default("{}")
+  createdAt    DateTime     @default(now())
+
+  // Relations
+  user         User?              @relation(fields: [userId], references: [id], onDelete: SetNull)
+  prospect     Prospect?          @relation(fields: [prospectId], references: [id], onDelete: SetNull)
+  contact      Contact?           @relation(fields: [contactId], references: [id], onDelete: SetNull)
+  prospectSequence ProspectSequence? @relation(fields: [sequenceId], references: [id], onDelete: SetNull)
+
+  @@index([userId])
+  @@index([prospectId])
+  @@index([createdAt])
+}
+
+enum ActivityType {
+  EMAIL_SENT
+  EMAIL_OPENED
+  EMAIL_CLICKED
+  EMAIL_REPLIED
+  EMAIL_BOUNCED
+  LINKEDIN_MESSAGE_SENT
+  LINKEDIN_CONNECT_SENT
+  MEETING_SCHEDULED
+  MEETING_COMPLETED
+  MEETING_CANCELED
+  NOTE_ADDED
+  CALL_MADE
+  TASK_COMPLETED
+  SEQUENCE_STARTED
+  SEQUENCE_COMPLETED
+  SEQUENCE_STOPPED
+  PROSPECT_CREATED
+  PROSPECT_UPDATED
+  PROSPECT_STAGED
+}
+
+// ============================================
+// ADMIN & CONFIGURATION
+// ============================================
+
+model FeatureFlag {
+  id        String   @id @default(uuid())
+  key       String   @unique
+  name      String
+  description String?
+  isEnabled Boolean  @default(false)
+  metadata  Json     @default("{}")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([key])
+}
+
+model SystemSetting {
+  id        String   @id @default(uuid())
+  key       String   @unique
+  value     Json
+  metadata  Json     @default("{}")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([key])
+}
+
+model Webhook {
+  id             String   @id @default(uuid())
+  organizationId String
+  url            String
+  events         String[] @default([])
+  secret         String?
+  isActive       Boolean  @default(true)
+  headers        Json     @default("{}")
+  metadata       Json     @default("{}")
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  @@index([organizationId])
+}
+
+model WebhookDelivery {
+  id          String   @id @default(uuid())
+  webhookId   String
+  event       String
+  payload     Json
+  response    Json?
+  statusCode  Int?
+  error       String?
+  attempts    Int      @default(0)
+  deliveredAt DateTime?
+  createdAt   DateTime @default(now())
+
+  @@index([webhookId])
+  @@index([createdAt])
+}
+
+// ============================================
+// ICP (IDEAL CUSTOMER PROFILE)
+// ============================================
+
+model ICP {
+  id             String   @id @default(uuid())
+  organizationId String
+  name           String
+  description    String?
+  criteria       Json     // JSON schema for matching
+  isActive       Boolean  @default(true)
+  stats          Json     @default("{}")
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  @@index([organizationId])
+}
+
+// ============================================
+// DATA ENRICHMENT QUEUE
+// ============================================
+
+model EnrichmentJob {
+  id           String          @id @default(uuid())
+  userId       String
+  companyId    String?
+  contactId    String?
+  provider     String
+  type         EnrichmentType
+  status       JobStatus       @default(PENDING)
+  priority     Int             @default(0)
+  input        Json            @default("{}")
+  output       Json?           @default("{}")
+  error        String?
+  attempts     Int             @default(0)
+  maxAttempts  Int             @default(3)
+  scheduledAt  DateTime?
+  startedAt    DateTime?
+  completedAt  DateTime?
+  createdAt    DateTime        @default(now())
+  updatedAt    DateTime        @updatedAt
+
+  @@index([userId])
+  @@index([status])
+  @@index([scheduledAt])
+}
+
+enum EnrichmentType {
+  COMPANY_ENRICH
+  CONTACT_ENRICH
+  SOCIAL_LOOKUP
+  EMAIL_VERIFY
+}
+
+enum JobStatus {
+  PENDING
+  PROCESSING
+  COMPLETED
+  FAILED
+  CANCELLED
+}

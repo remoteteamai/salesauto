@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#6366f1",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#221610",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 antialiased">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 w-full bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-16">
+<div class="flex items-center gap-8">
+<a class="flex items-center gap-2" href="#">
+<div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-white">
+<span class="material-symbols-outlined">hub</span>
+</div>
+<span class="text-xl font-bold tracking-tight">Melioro AI</span>
+</a>
+<nav class="hidden md:flex items-center gap-6">
+<div class="group relative py-4">
+<button class="flex items-center gap-1 text-sm font-medium hover:text-primary transition-colors">
+                                Products <span class="material-symbols-outlined text-sm">expand_more</span>
+</button>
+</div>
+<div class="group relative py-4">
+<button class="flex items-center gap-1 text-sm font-medium hover:text-primary transition-colors">
+                                Solutions <span class="material-symbols-outlined text-sm">expand_more</span>
+</button>
+</div>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Use Cases</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Company</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Resources</a>
+</nav>
+</div>
+<div class="flex items-center gap-3">
+<button class="px-4 py-2 text-sm font-semibold hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors">Log In</button>
+<button class="px-4 py-2 bg-primary text-white text-sm font-semibold rounded-lg hover:bg-primary/90 transition-shadow shadow-sm">Get Started</button>
+</div>
+</div>
+</div>
+</header>
+<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+<!-- Hero Section -->
+<div class="mb-12">
+<h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">Integration Partners</h1>
+<p class="text-lg text-slate-600 dark:text-slate-400 max-w-2xl">
+                Supercharge your sales workflow by connecting Melioro AI with your existing stack. Automate data enrichment, lead routing, and engagement across all your favorite tools.
+            </p>
+</div>
+<!-- Search and Main Layout -->
+<div class="flex flex-col lg:flex-row gap-8">
+<!-- Sidebar Filters -->
+<aside class="w-full lg:w-64 flex-shrink-0">
+<div class="sticky top-24 space-y-8">
+<div>
+<h3 class="text-sm font-bold uppercase tracking-wider text-slate-500 mb-4">Categories</h3>
+<nav class="space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/10 text-primary font-semibold" href="#">
+<span class="material-symbols-outlined text-[20px]">apps</span>
+                                All Integrations
+                            </a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">database</span>
+                                CRM
+                            </a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">send</span>
+                                Sales Engagement
+                            </a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">insights</span>
+                                Data &amp; Intelligence
+                            </a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">mail</span>
+                                Email Marketing
+                            </a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+                                Operations
+                            </a>
+</nav>
+</div>
+<div class="p-4 bg-slate-100 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700">
+<p class="text-sm font-semibold mb-2">Can't find an integration?</p>
+<p class="text-xs text-slate-500 dark:text-slate-400 mb-4">Suggest a partner or explore our robust API documentation.</p>
+<button class="w-full py-2 text-xs font-bold border border-slate-300 dark:border-slate-600 rounded-lg hover:bg-white dark:hover:bg-slate-700 transition-colors">View API Docs</button>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<div class="flex-1">
+<!-- Search Bar -->
+<div class="relative mb-10">
+<span class="absolute inset-y-0 left-0 pl-4 flex items-center text-slate-400">
+<span class="material-symbols-outlined">search</span>
+</span>
+<input class="w-full pl-12 pr-4 py-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all shadow-sm" placeholder="Search 100+ integrations (e.g. Salesforce, Outreach, Apollo...)" type="text"/>
+</div>
+<!-- Featured Section (Bento Grid) -->
+<h2 class="text-xl font-bold mb-6">Featured Partners</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12">
+<!-- Bento Card 1 -->
+<div class="md:col-span-2 p-8 bg-slate-50 dark:bg-slate-800/50 rounded-2xl border border-slate-200 dark:border-slate-800 flex flex-col md:flex-row items-center gap-8 group">
+<div class="w-24 h-24 flex-shrink-0 bg-white dark:bg-slate-900 rounded-2xl shadow-sm flex items-center justify-center p-4">
+<img alt="Salesforce Logo" class="w-full h-full object-contain" data-alt="Salesforce blue cloud logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAX_d72bdGLNAgI8KZpnBvr78vlEWBP4Q6UAH_5c1Wi7yITiQ-o4coVwRAYmcXdiyJbDAMAnjPIQRXYrtUl5rrvS8-qH59GhOBOXI0OVH0cE11KLEnkXFiWqXG7Bn-gmETYMuZrKXX__vDw9mRRYoNM2_Igapb1y9UNCEpqISETA0rUxPRJS4WU9kG9_fzZ575rkbnlUaPzRVbFRTsJnfYkbCORIiQqMkrlXU8Hsi6klQFWFdnMdGY3a9o240xAnnxXK80MFBiWcgA"/>
+</div>
+<div class="flex-1">
+<div class="flex items-center gap-2 mb-2">
+<span class="px-2 py-0.5 rounded bg-primary/10 text-primary text-[10px] font-bold uppercase tracking-wider">Top Partner</span>
+<h3 class="text-2xl font-bold">Salesforce</h3>
+</div>
+<p class="text-slate-600 dark:text-slate-400 mb-6">Sync accounts, contacts, and opportunities bidirectionally with the world's #1 CRM. Keep your pipeline accurate in real-time.</p>
+<button class="bg-primary text-white px-6 py-2.5 rounded-lg font-bold text-sm hover:shadow-lg hover:shadow-primary/20 transition-all flex items-center gap-2">
+                                Integrate Now <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Bento Card 2 -->
+<div class="p-8 bg-slate-50 dark:bg-slate-800/50 rounded-2xl border border-slate-200 dark:border-slate-800 flex flex-col justify-between">
+<div>
+<div class="w-16 h-16 mb-6 bg-white dark:bg-slate-900 rounded-xl shadow-sm flex items-center justify-center p-3">
+<img alt="HubSpot Logo" class="w-full h-full object-contain" data-alt="HubSpot orange sprocket logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNQx6QuFzOu319N4XlJebE-HlYKAx4ze2x-WavUe-gKmnSz6JLnS7dyM6-Z88pyOKexojYbdNNgEROCk2Ybz_cId9tzQ672shJ2NCLtoc74tTjJi-Pm533ks5rsnnXLprBoerDGgrGBzbiSliSztvrtBlODK3jKL1wdIgNFiCmj2EvWqVMnNszqPEjnVId5BYImItEYhqU9XODW3HGRX4JxNbpa0__S17fAOitXmzfLBFUcgOB5k2-f10rS8c1SRMaP4VF4B4sUIs"/>
+</div>
+<h3 class="text-xl font-bold mb-2">HubSpot</h3>
+<p class="text-sm text-slate-600 dark:text-slate-400">Seamlessly connect your inbound marketing and sales activities.</p>
+</div>
+<button class="mt-8 text-primary font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all">
+                            Learn more <span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Directory Grid -->
+<div class="space-y-12">
+<!-- CRM Section -->
+<section>
+<div class="flex items-center justify-between mb-6 border-b border-slate-200 dark:border-slate-800 pb-2">
+<h2 class="text-lg font-bold">Customer Relationship Management (CRM)</h2>
+<a class="text-sm font-semibold text-primary" href="#">View all CRM</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Card -->
+<div class="p-6 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 hover:shadow-md transition-shadow">
+<div class="flex items-start justify-between mb-4">
+<div class="w-12 h-12 bg-slate-50 dark:bg-slate-800 rounded-lg flex items-center justify-center p-2">
+<img alt="Pipedrive" class="w-full h-full object-contain" data-alt="Pipedrive brand logo icon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_mx0k52yiJqOdGajdKlY97y8o9sBL_69rCqHEX3xz4C_WEb5yI5896o-zna8MT7Ig-GyG5-XAGm-5JuRDOZj6tFN9aJ-WkC-PIi3YF0XMU5dfa0HITzaMBzKMhBk4c1_nNamgqrTcEGqu812aYp-gcQSNYeXyliDG8E6Eaa2xctNFtbYxx1X6Y1DIXB17GYSDTeftMUwwqYAb_jeehSryMSbRJbKdGewlGHkrs8mdRKTmhVWnH2dIOH5Il7D8Sr0vseO0rE4A9vw"/>
+</div>
+<button class="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full text-slate-400">
+<span class="material-symbols-outlined text-[20px]">add_circle</span>
+</button>
+</div>
+<h4 class="font-bold mb-1">Pipedrive</h4>
+<p class="text-sm text-slate-500 dark:text-slate-400 line-clamp-2">Streamline your small business sales pipeline with automated data entry.</p>
+</div>
+<!-- Card -->
+<div class="p-6 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 hover:shadow-md transition-shadow">
+<div class="flex items-start justify-between mb-4">
+<div class="w-12 h-12 bg-slate-50 dark:bg-slate-800 rounded-lg flex items-center justify-center p-2">
+<img alt="Microsoft Dynamics" class="w-full h-full object-contain" data-alt="Microsoft Dynamics brand logo icon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBy8egUnA5_CWaSM_xm4ZWC46jdUApytHYYgh7BalyWSSlZe5Q0retmAiMUJdU-FHXz9OwvB9-1D2V5socSB5fsJSxoEexlX7BqZLA8EBUmtk5UGbIIBmeEr0VXsrk2QBQHG70er1JfeLF174PQypSkyzbdF5BxN586-dM9nmKZR--f8JB1CUhm3O18HG4w0gNZ-ON2c0sG4F5Pmg_w0BJ7GQnruE46HkEwdGxMfJ_z5KC28DPslWxJ0XfprDk5tkac-yann5zRFdI"/>
+</div>
+<button class="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full text-slate-400">
+<span class="material-symbols-outlined text-[20px]">add_circle</span>
+</button>
+</div>
+<h4 class="font-bold mb-1">MS Dynamics 365</h4>
+<p class="text-sm text-slate-500 dark:text-slate-400 line-clamp-2">Enterprise-grade sync for complex organizational structures.</p>
+</div>
+<!-- Card -->
+<div class="p-6 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 hover:shadow-md transition-shadow">
+<div class="flex items-start justify-between mb-4">
+<div class="w-12 h-12 bg-slate-50 dark:bg-slate-800 rounded-lg flex items-center justify-center p-2">
+<img alt="Zendesk" class="w-full h-full object-contain" data-alt="Zendesk brand logo icon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5RW_N1Z7LDncN2cbM7wy8LH8zgeQrkqbvAkOwY6LaUSVWG5a4x4u1YON9dxIRvoHAio4fEz_2W8ErB7nicng6fqF6j88zdSmMzekq9qnWhZ1HKcZq8ggauWxbfp3nMcNb57JcfqiW-kLeqpdyNMUDmQyRMBOdvXbrxQ9dttMUbdKVLUw6xnzRxw7jGSYz-vHsnzroHucHx2nxBnWy3Y1zNpz_OPD5EXbK7Dt-HbDYSMmUL9hlrGT78q4x_yaYj6EUPy9LWenhXz0"/>
+</div>
+<button class="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full text-slate-400">
+<span class="material-symbols-outlined text-[20px]">add_circle</span>
+</button>
+</div>
+<h4 class="font-bold mb-1">Zendesk Sell</h4>
+<p class="text-sm text-slate-500 dark:text-slate-400 line-clamp-2">Connect your sales and support data for a 360-degree view.</p>
+</div>
+</div>
+</section>
+<!-- Sales Engagement Section -->
+<section>
+<div class="flex items-center justify-between mb-6 border-b border-slate-200 dark:border-slate-800 pb-2">
+<h2 class="text-lg font-bold">Sales Engagement</h2>
+<a class="text-sm font-semibold text-primary" href="#">View all Sales Engagement</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Outreach -->
+<div class="p-6 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 hover:shadow-md transition-shadow">
+<div class="flex items-start justify-between mb-4">
+<div class="w-12 h-12 bg-slate-50 dark:bg-slate-800 rounded-lg flex items-center justify-center p-2">
+<img alt="Outreach" class="w-full h-full object-contain" data-alt="Outreach logo icon purple" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDh1fH9fp3UlwJE0UYO8oCjfj7t6WhqUmjxnF3dUonQEX_FV465RqTuDfJe87zBYwLI0EcjdSAIqQAz8eROmkI2kzHtfKudXgYwHYRAt9aVgvAb38F5X0ykSIAPnK3175MnzYpItHM-rl-PsKoAShk_CBcd2AvDDZRAlo695d3IIt52ylh2jZ1hHx7ermLHWy0vQz1wSc21vsIJkNpXyRA9jYeV8DEAxF0D8VFRRrM5ibGitoITJIdcp4tOU2jDxOuggjrD_iF-iJs"/>
+</div>
+<button class="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full text-slate-400">
+<span class="material-symbols-outlined text-[20px]">add_circle</span>
+</button>
+</div>
+<h4 class="font-bold mb-1">Outreach.io</h4>
+<p class="text-sm text-slate-500 dark:text-slate-400 line-clamp-2">Push enriched prospects directly into your Outreach sequences.</p>
+</div>
+<!-- Salesloft -->
+<div class="p-6 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 hover:shadow-md transition-shadow">
+<div class="flex items-start justify-between mb-4">
+<div class="w-12 h-12 bg-slate-50 dark:bg-slate-800 rounded-lg flex items-center justify-center p-2">
+<img alt="Salesloft" class="w-full h-full object-contain" data-alt="Salesloft logo icon blue" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGF95ccaW2scb6XKspO-blETBKMAfH2m2a6CFgNXpuQR9awA__Ps2KA_pqphSmdw5SXVUVvvqwWjiAT8TZhHuWtBJgQdzGDLyFitpCdERkE7Q7BEmXant4g4RuABW6pcwrB7JuDAixeXbl1oq7tu2Sddqam_nVKAncunE0018ZKBVIQPEljFP6oQpsLAGqIpAmNTHumvAoXQr07PtjubeokurbDqTCJyBxwTwTA-KgwrNGDwiZwv6XIriPRFVTdLE6qOORaYQdf_8"/>
+</div>
+<button class="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full text-slate-400">
+<span class="material-symbols-outlined text-[20px]">add_circle</span>
+</button>
+</div>
+<h4 class="font-bold mb-1">Salesloft</h4>
+<p class="text-sm text-slate-500 dark:text-slate-400 line-clamp-2">Scale your personalized outreach with high-quality intelligence data.</p>
+</div>
+<!-- Instantly -->
+<div class="p-6 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 hover:shadow-md transition-shadow">
+<div class="flex items-start justify-between mb-4">
+<div class="w-12 h-12 bg-slate-50 dark:bg-slate-800 rounded-lg flex items-center justify-center p-2">
+<img alt="Instantly" class="w-full h-full object-contain" data-alt="Instantly logo icon dark" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgHz25H6yoYLCF9JPRjwb41q3H8kP2kOoVgGLNswQ2Av5NbbtSKYJ5PSPeKxNe9KrFGcSeddCVUBpHHxb1x1Qu7h2v0qKR9exl9r5HaMOkBtjGEsw-vYRPfuz2iiym4P-SMe7qpal2zF9XSNf8nP7UKPRLbEhMTbSCXKoOV59KtrAAa8h0Uawac-FZyEHkMTWUd5dJ-ZDCt8fPK9eJAC5SAmJf_SKowAqmBA7rkd4r0EypIzOszkr6x3V8KR_NdP3pEyhxo5CpJEM"/>
+</div>
+<button class="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full text-slate-400">
+<span class="material-symbols-outlined text-[20px]">add_circle</span>
+</button>
+</div>
+<h4 class="font-bold mb-1">Instantly</h4>
+<p class="text-sm text-slate-500 dark:text-slate-400 line-clamp-2">Connect thousands of sender accounts for unlimited scaling.</p>
+</div>
+</div>
+</section>
+<!-- Data & Intelligence Section -->
+<section>
+<div class="flex items-center justify-between mb-6 border-b border-slate-200 dark:border-slate-800 pb-2">
+<h2 class="text-lg font-bold">Data &amp; Intelligence</h2>
+<a class="text-sm font-semibold text-primary" href="#">View all Data</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Clearbit -->
+<div class="p-6 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 hover:shadow-md transition-shadow">
+<div class="flex items-start justify-between mb-4">
+<div class="w-12 h-12 bg-slate-50 dark:bg-slate-800 rounded-lg flex items-center justify-center p-2">
+<img alt="Clearbit" class="w-full h-full object-contain" data-alt="Clearbit logo icon blue" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgH1rNW0B8vDL2bhCriWYxRexAzZs2iB50O-B9Ya8ObLoRTuLu1VZMhXqvMBIityjCiI9m81YGIXA4bwd11fSviPeqtc7974mGS_Quiizw7il9C_tr_t5pIsvxYenuIcl_I4bTYT3B7ggWSS9LY9aRmi0bLX0r2obiFjRmPn6EWxgbC-Yua-TVJvrQ3avf-6IWLLzJ3MwVJ0FrEcSS6ZyWuNJYNlfHS-Y1o5taUYNi8scajZDzhMta-HAWSZX5gLsutctMiaJqRE8"/>
+</div>
+<button class="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full text-slate-400">
+<span class="material-symbols-outlined text-[20px]">add_circle</span>
+</button>
+</div>
+<h4 class="font-bold mb-1">Clearbit</h4>
+<p class="text-sm text-slate-500 dark:text-slate-400 line-clamp-2">Automatic enrichment of every new lead that enters your CRM.</p>
+</div>
+<!-- 6sense -->
+<div class="p-6 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 hover:shadow-md transition-shadow">
+<div class="flex items-start justify-between mb-4">
+<div class="w-12 h-12 bg-slate-50 dark:bg-slate-800 rounded-lg flex items-center justify-center p-2">
+<img alt="6sense" class="w-full h-full object-contain" data-alt="6sense logo icon red" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFAuPVpxebT1COu-CFLvWklgR45fGgI2BxDGww1mz27gKDynsj3Blp0XQNrKyKvpOwPArDdH92g7ceVTfQ-LWRI7SWzdlsXoBCv5257MmWbTr3j3qaLUhHvAF6kIAyxLXWEzVCwJytweQmCtfsU17LLW97P_Jm40fwQnAlA9oMPHjwcJGfqWssZplYiAY0Lv5PhmKn5gtioaT4BvuoClRJiMMWHL3iBUsrb3wtJ3m5Ypwg997wfJwal7Gm_ZOww-ffv6fZ-KLJWl8"/>
+</div>
+<button class="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full text-slate-400">
+<span class="material-symbols-outlined text-[20px]">add_circle</span>
+</button>
+</div>
+<h4 class="font-bold mb-1">6sense</h4>
+<p class="text-sm text-slate-500 dark:text-slate-400 line-clamp-2">Capture intent data and orchestrate account-based marketing efforts.</p>
+</div>
+<!-- Apollo -->
+<div class="p-6 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 hover:shadow-md transition-shadow">
+<div class="flex items-start justify-between mb-4">
+<div class="w-12 h-12 bg-slate-50 dark:bg-slate-800 rounded-lg flex items-center justify-center p-2">
+<img alt="Apollo" class="w-full h-full object-contain" data-alt="Apollo.io logo icon orange" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0Cu4V1C1RMap9OkgxX_UEvGbgufVNs8kl8MVzYj7HDO3JvwAa8-vxvX34hf1pLKWTU2rQy2w_WqcUVMI60cDqQ5SQ5dpi6IGPyHLJKrdB86Ol2OQmekX6QIpkCNZ3w3giuyIV0dhmwjUgYZF0Xl32jUuyFB2bru5fgQQTY1BNvqZEcynS6CeqaXdrzoIXV_o-cYjBEJYihEPHHmjjI3Py01yayQQK6s6HzMMDyV7ODl0lMTyed_zVMkG2TJQxrQaurbBRql96oA0"/>
+</div>
+<button class="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full text-slate-400">
+<span class="material-symbols-outlined text-[20px]">add_circle</span>
+</button>
+</div>
+<h4 class="font-bold mb-1">Apollo.io</h4>
+<p class="text-sm text-slate-500 dark:text-slate-400 line-clamp-2">Access millions of accurate emails and direct dials instantly.</p>
+</div>
+</div>
+</section>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-slate-50 dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 pt-16 pb-8">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 mb-16">
+<!-- Column 1 -->
+<div>
+<h5 class="text-sm font-bold text-slate-900 dark:text-white mb-4">Features</h5>
+<ul class="space-y-2 text-sm text-slate-600 dark:text-slate-400">
+<li><a class="hover:text-primary transition-colors" href="#">Lead Enrichment</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Intent Detection</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Automated CRM</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Pipeline Analytics</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Workflows</a></li>
+</ul>
+</div>
+<!-- Column 2 -->
+<div>
+<h5 class="text-sm font-bold text-slate-900 dark:text-white mb-4">Platform</h5>
+<ul class="space-y-2 text-sm text-slate-600 dark:text-slate-400">
+<li><a class="hover:text-primary transition-colors" href="#">Integrations</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">API &amp; Docs</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Security</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Status</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Open Source</a></li>
+</ul>
+</div>
+<!-- Column 3 -->
+<div>
+<h5 class="text-sm font-bold text-slate-900 dark:text-white mb-4">Knowledge Base</h5>
+<ul class="space-y-2 text-sm text-slate-600 dark:text-slate-400">
+<li><a class="hover:text-primary transition-colors" href="#">Getting Started</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Best Practices</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Webinars</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Case Studies</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Release Notes</a></li>
+</ul>
+</div>
+<!-- Column 4 -->
+<div>
+<h5 class="text-sm font-bold text-slate-900 dark:text-white mb-4">Customer Resources</h5>
+<ul class="space-y-2 text-sm text-slate-600 dark:text-slate-400">
+<li><a class="hover:text-primary transition-colors" href="#">Support Center</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Community</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Office Hours</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Training</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Consulting</a></li>
+</ul>
+</div>
+<!-- Column 5 -->
+<div>
+<h5 class="text-sm font-bold text-slate-900 dark:text-white mb-4">Partnership</h5>
+<ul class="space-y-2 text-sm text-slate-600 dark:text-slate-400">
+<li><a class="hover:text-primary transition-colors" href="#">Partner Program</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Affiliates</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Find a Partner</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Build Apps</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Events</a></li>
+</ul>
+</div>
+<!-- Column 6 -->
+<div>
+<h5 class="text-sm font-bold text-slate-900 dark:text-white mb-4">Legal</h5>
+<ul class="space-y-2 text-sm text-slate-600 dark:text-slate-400">
+<li><a class="hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Terms of Service</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Cookie Policy</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">GDPR / SOC2</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">DPA</a></li>
+</ul>
+</div>
+</div>
+<div class="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-slate-200 dark:border-slate-800">
+<div class="flex items-center gap-2 mb-4 md:mb-0">
+<div class="w-6 h-6 bg-primary rounded flex items-center justify-center text-white text-[14px]">
+<span class="material-symbols-outlined text-sm">hub</span>
+</div>
+<span class="text-sm font-bold tracking-tight">© 2024 Melioro AI Inc. All rights reserved.</span>
+</div>
+<div class="flex gap-6">
+<a class="text-slate-400 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">alternate_email</span></a>
+<a class="text-slate-400 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">public</span></a>
+<a class="text-slate-400 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">smart_display</span></a>
+<a class="text-slate-400 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">share</span></a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>
