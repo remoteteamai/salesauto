@@ -21,6 +21,7 @@ import { AdminModule } from './modules/admin/admin.module';
 import { EmailModule } from './modules/email/email.module';
 import { WebhooksModule } from './modules/webhooks/webhooks.module';
 import { EnrichmentModule } from './modules/enrichment/enrichment.module';
+import { HealthModule } from './modules/health/health.module';
 
 // Configuration
 import configuration from './config/configuration';
@@ -56,6 +57,7 @@ import configuration from './config/configuration';
 
     // Core Modules
     LoggerModule,
+    HealthModule,
     AuthModule,
     UsersModule,
     OrganizationsModule,
