@@ -136,19 +136,20 @@ def _request_with_fallback(api_key: str, method: str, endpoint_path: str, payloa
         data = json.dumps(payload).encode("utf-8")
         headers["Content-Type"] = "application/json"
 
-    request = urllib.request.Request(endpoint, data=data, headers=headers, method=method.upper())
-
     print(f"Calling: {method.upper()} {endpoint}")
     if payload is not None:
         print("Payload:")
         print(json.dumps(payload, indent=2))
 
     print("Attempt 1: using environment/system proxy settings")
+    request = urllib.request.Request(endpoint, data=data, headers=headers, method=method.upper())
     if _run_request(urllib.request.build_opener(), request, timeout):
         return
 
     print("Attempt 2: bypassing proxies (direct connection)")
     with _temporary_proxy_env_cleared():
+        # Create a fresh Request object to avoid urllib caching proxy state from attempt 1
+        request = urllib.request.Request(endpoint, data=data, headers=headers, method=method.upper())
         if _run_request(urllib.request.build_opener(urllib.request.ProxyHandler({})), request, timeout):
             return
 
