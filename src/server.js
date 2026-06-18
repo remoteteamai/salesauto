@@ -8,7 +8,7 @@ if (process.env.NODE_ENV !== 'production') {
 const app = express();
 
 const PORT = Number.parseInt(process.env.PORT, 10) || 3000;
-const NODE_ENV = process.env.NODE_ENV || 'development';
+const NODE_ENV = process.env.NODE_ENV || 'production';
 const CORS_ORIGINS = (process.env.CORS_ORIGINS || '')
   .split(',')
   .map((origin) => origin.trim())
@@ -31,7 +31,7 @@ const corsOptions = {
       return callback(null, true);
     }
 
-    return callback(new Error('Origin not allowed by CORS'));
+    return callback(null, false);
   },
   credentials: true
 };

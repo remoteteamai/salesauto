@@ -9,15 +9,17 @@ This project is configured for Railway production deployment:
 - **Environment-driven config**: CORS and runtime behavior come from env vars
 - **CORS support**: `CORS_ORIGINS` controls allowed frontend origins
 - **Healthcheck endpoint**: `/health` (and `/api/health` alias)
+- **Production-safe defaults**: `NODE_ENV` defaults to `production` if unset
 
 ### Required environment variables
 
 Set these in Railway service variables:
 
-- `NODE_ENV=production`
-- `CORS_ORIGINS=https://your-frontend-domain.up.railway.app`
+- `CORS_ORIGINS=https://your-frontend-domain.up.railway.app` (required in production)
 - `DATABASE_URL` (if database-backed)
 - `JWT_SECRET` / `API_KEY` (if auth/integrations are used)
+
+> Note: `NODE_ENV` defaults to `production` if not set, so explicit setting is optional but recommended for clarity.
 
 > Railway injects `PORT` automatically at runtime.
 
