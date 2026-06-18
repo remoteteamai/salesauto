@@ -13,3 +13,11 @@ export const CurrentUser = createParamDecorator(
     return user;
   },
 );
+
+export const Public = () => {
+  return (target: any, key?: string | symbol, descriptor?: PropertyDescriptor) => {
+    if (descriptor) {
+      descriptor.enumerable = true;
+    }
+  };
+};

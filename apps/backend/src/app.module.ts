@@ -58,6 +58,7 @@ import configuration from './config/configuration';
     // Core Modules
     LoggerModule,
     HealthModule,
+    AdminModule,  // Must be before modules that depend on AuditLogService
     AuthModule,
     UsersModule,
     OrganizationsModule,
@@ -68,7 +69,6 @@ import configuration from './config/configuration';
     AISDRModule,
     IntentModule,
     AnalyticsModule,
-    AdminModule,
     EmailModule,
     WebhooksModule,
     EnrichmentModule,

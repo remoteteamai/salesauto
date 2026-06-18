@@ -4,6 +4,7 @@ import { PassportModule } from '@nestjs/passport';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { PrismaModule } from '../../database/prisma.module';
 import { LoggerModule } from '../../common/utils/logger.module';
+import { AdminModule } from '../admin/admin.module';
 
 // Controllers
 import { AuthController } from './auth.controller';
@@ -17,17 +18,6 @@ import { MicrosoftStrategy } from './strategies/microsoft.strategy';
 // Guards
 import { JwtAuthGuard } from './guards/jwt-auth.guard';
 import { RolesGuard } from './guards/roles.guard';
-
-// DTOs
-import {
-  RegisterDto,
-  LoginDto,
-  RefreshTokenDto,
-  ForgotPasswordDto,
-  ResetPasswordDto,
-  ChangePasswordDto,
-  VerifyEmailDto,
-} from './dto';
 
 @Module({
   imports: [
@@ -44,6 +34,7 @@ import {
     }),
     PrismaModule,
     LoggerModule,
+    AdminModule,
   ],
   controllers: [AuthController],
   providers: [

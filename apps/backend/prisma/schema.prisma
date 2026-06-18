@@ -17,24 +17,24 @@ datasource db {
 // ============================================
 
 model Organization {
-  id            String   @id @default(uuid())
-  name          String
-  slug          String   @unique
-  logo          String?
-  website       String?
-  industry      String?
-  size          String?
-  address       String?
-  city          String?
-  country       String?
-  postalCode    String?
-  phone         String?
-  settings      Json     @default("{}")
-  metadata      Json     @default("{}")
-  trialEndsAt   DateTime?
-  createdAt     DateTime @default(now())
-  updatedAt     DateTime @updatedAt
-  deletedAt     DateTime?
+  id          String    @id @default(uuid())
+  name        String
+  slug        String    @unique
+  logo        String?
+  website     String?
+  industry    String?
+  size        String?
+  address     String?
+  city        String?
+  country     String?
+  postalCode  String?
+  phone       String?
+  settings    Json      @default("{}")
+  metadata    Json      @default("{}")
+  trialEndsAt DateTime?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  deletedAt   DateTime?
 
   // Relations
   users           User[]
@@ -47,6 +47,7 @@ model Organization {
   sequences       Sequence[]
   meetings        Meeting[]
   analyticsEvents AnalyticsEvent[]
+  AuditLog        AuditLog[]
 
   @@index([slug])
   @@index([deletedAt])
@@ -72,34 +73,36 @@ model Team {
 // ============================================
 
 model User {
-  id             String    @id @default(uuid())
-  email          String    @unique
-  passwordHash   String?
-  firstName      String
-  lastName       String
-  avatar         String?
-  phone          String?
-  jobTitle       String?
-  timezone       String    @default("UTC")
-  locale         String    @default("en")
-  emailVerified  Boolean   @default(false)
-  isActive       Boolean   @default(true)
-  isSuperAdmin   Boolean   @default(false)
-  lastLoginAt    DateTime?
-  lastLoginIp    String?
-  metadata       Json      @default("{}")
-  createdAt      DateTime  @default(now())
-  updatedAt      DateTime  @updatedAt
-  deletedAt      DateTime?
+  id            String    @id @default(uuid())
+  email         String    @unique
+  passwordHash  String?
+  firstName     String
+  lastName      String
+  avatar        String?
+  phone         String?
+  jobTitle      String?
+  timezone      String    @default("UTC")
+  locale        String    @default("en")
+  emailVerified Boolean   @default(false)
+  isActive      Boolean   @default(true)
+  isSuperAdmin  Boolean   @default(false)
+  lastLoginAt   DateTime?
+  lastLoginIp   String?
+  metadata      Json      @default("{}")
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  deletedAt     DateTime?
 
   // Relations
-  organizationId String?
-  organization   Organization? @relation(fields: [organizationId], references: [id], onDelete: SetNull)
-  sessions       Session[]
+  organizationId  String?
+  organization    Organization?   @relation(fields: [organizationId], references: [id], onDelete: SetNull)
+  sessions        Session[]
   teamMemberships TeamMember[]
-  auditLogs      AuditLog[]
-  ownedCampaigns Campaign[]
-  activities     Activity[]
+  auditLogs       AuditLog[]
+  ownedCampaigns  Campaign[]
+  activities      Activity[]
+  SocialAccount   SocialAccount[]
+  Prospect        Prospect[]
 
   @@index([email])
   @@index([organizationId])
@@ -115,8 +118,8 @@ model TeamMember {
   updatedAt DateTime @updatedAt
 
   // Relations
-  user User  @relation(fields: [userId], references: [id], onDelete: Cascade)
-  team Team  @relation(fields: [teamId], references: [id], onDelete: Cascade)
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  team Team @relation(fields: [teamId], references: [id], onDelete: Cascade)
 
   @@unique([userId, teamId])
   @@index([userId])
@@ -206,21 +209,21 @@ model AuditLog {
 // ============================================
 
 model Subscription {
-  id                   String            @id @default(uuid())
+  id                   String             @id @default(uuid())
   organizationId       String
-  stripeSubscriptionId String?           @unique
+  stripeSubscriptionId String?            @unique
   stripeCustomerId     String?
   plan                 SubscriptionPlan
   status               SubscriptionStatus
   currentPeriodStart   DateTime
   currentPeriodEnd     DateTime
-  cancelAtPeriodEnd    Boolean           @default(false)
-  metadata             Json              @default("{}")
-  createdAt            DateTime          @default(now())
-  updatedAt            DateTime          @updatedAt
+  cancelAtPeriodEnd    Boolean            @default(false)
+  metadata             Json               @default("{}")
+  createdAt            DateTime           @default(now())
+  updatedAt            DateTime           @updatedAt
 
   // Relations
-  organization Organization          @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  organization Organization  @relation(fields: [organizationId], references: [id], onDelete: Cascade)
   invoices     Invoice[]
   usageRecords UsageRecord[]
 
@@ -243,20 +246,20 @@ enum SubscriptionStatus {
 }
 
 model Invoice {
-  id                   String   @id @default(uuid())
-  subscriptionId       String
-  stripeInvoiceId      String?  @unique
-  number               String?
-  status               InvoiceStatus
-  amount               Int      // cents
-  currency             String   @default("usd")
-  paidAt               DateTime?
-  dueDate              DateTime?
-  hostedInvoiceUrl     String?
-  invoicePdf           String?
-  metadata             Json     @default("{}")
-  createdAt            DateTime @default(now())
-  updatedAt            DateTime @updatedAt
+  id               String        @id @default(uuid())
+  subscriptionId   String
+  stripeInvoiceId  String?       @unique
+  number           String?
+  status           InvoiceStatus
+  amount           Int // cents
+  currency         String        @default("usd")
+  paidAt           DateTime?
+  dueDate          DateTime?
+  hostedInvoiceUrl String?
+  invoicePdf       String?
+  metadata         Json          @default("{}")
+  createdAt        DateTime      @default(now())
+  updatedAt        DateTime      @updatedAt
 
   // Relations
   subscription Subscription @relation(fields: [subscriptionId], references: [id], onDelete: Cascade)
@@ -290,16 +293,16 @@ model UsageRecord {
 }
 
 model BillingAccount {
-  id             String   @id @default(uuid())
-  organizationId String
-  stripeCustomerId String @unique
+  id                   String   @id @default(uuid())
+  organizationId       String
+  stripeCustomerId     String   @unique
   defaultPaymentMethod String?
-  billingEmail   String?
-  billingName    String?
-  billingAddress Json?
-  vatNumber      String?
-  createdAt      DateTime @default(now())
-  updatedAt      DateTime @updatedAt
+  billingEmail         String?
+  billingName          String?
+  billingAddress       Json?
+  vatNumber            String?
+  createdAt            DateTime @default(now())
+  updatedAt            DateTime @updatedAt
 
   // Relations
   organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
@@ -350,7 +353,7 @@ model Company {
 }
 
 model Contact {
-  id             String   @id @default(uuid())
+  id             String    @id @default(uuid())
   companyId      String
   firstName      String
   lastName       String
@@ -365,13 +368,13 @@ model Contact {
   location       String?
   country        String?
   timezone       String?
-  isVerified     Boolean  @default(false)
-  score          Float    @default(0)
+  isVerified     Boolean   @default(false)
+  score          Float     @default(0)
   lastEnrichedAt DateTime?
-  metadata       Json     @default("{}")
+  metadata       Json      @default("{}")
   source         String?
-  createdAt      DateTime @default(now())
-  updatedAt      DateTime @updatedAt
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
 
   // Relations
   company    Company    @relation(fields: [companyId], references: [id], onDelete: Cascade)
@@ -384,30 +387,30 @@ model Contact {
 }
 
 model Prospect {
-  id             String         @id @default(uuid())
-  organizationId String
-  companyId      String
-  contactId      String
-  stage          ProspectStage  @default(NEW)
-  score          Float          @default(0)
-  status         ProspectStatus @default(ACTIVE)
-  priority       ProspectPriority @default(MEDIUM)
-  ownerId        String?
-  notes          String?
-  tags           String[]       @default([])
-  customFields   Json           @default("{}")
-  intentSignals  Json           @default("{}")
+  id              String           @id @default(uuid())
+  organizationId  String
+  companyId       String
+  contactId       String
+  stage           ProspectStage    @default(NEW)
+  score           Float            @default(0)
+  status          ProspectStatus   @default(ACTIVE)
+  priority        ProspectPriority @default(MEDIUM)
+  ownerId         String?
+  notes           String?
+  tags            String[]         @default([])
+  customFields    Json             @default("{}")
+  intentSignals   Json             @default("{}")
   lastContactedAt DateTime?
   nextContactAt   DateTime?
   convertedAt     DateTime?
-  createdAt      DateTime       @default(now())
-  updatedAt      DateTime       @updatedAt
+  createdAt       DateTime         @default(now())
+  updatedAt       DateTime         @updatedAt
 
   // Relations
-  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
-  company      Company      @relation(fields: [companyId], references: [id], onDelete: Cascade)
-  contact      Contact      @relation(fields: [contactId], references: [id], onDelete: Cascade)
-  owner        User?        @relation(fields: [ownerId], references: [id], onDelete: SetNull)
+  organization Organization       @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  company      Company            @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  contact      Contact            @relation(fields: [contactId], references: [id], onDelete: Cascade)
+  owner        User?              @relation(fields: [ownerId], references: [id], onDelete: SetNull)
   sequences    ProspectSequence[]
   activities   Activity[]
   meetings     Meeting[]
@@ -447,7 +450,7 @@ enum ProspectPriority {
 // ============================================
 
 model Campaign {
-  id             String        @id @default(uuid())
+  id             String         @id @default(uuid())
   organizationId String
   name           String
   description    String?
@@ -456,15 +459,15 @@ model Campaign {
   ownerId        String?
   startDate      DateTime?
   endDate        DateTime?
-  budget         Int?          // cents
-  settings       Json          @default("{}")
-  stats          Json          @default("{}")
-  createdAt      DateTime      @default(now())
-  updatedAt      DateTime      @updatedAt
+  budget         Int? // cents
+  settings       Json           @default("{}")
+  stats          Json           @default("{}")
+  createdAt      DateTime       @default(now())
+  updatedAt      DateTime       @updatedAt
 
   // Relations
-  organization Organization      @relation(fields: [organizationId], references: [id], onDelete: Cascade)
-  owner        User?             @relation(fields: [ownerId], references: [id], onDelete: SetNull)
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  owner        User?        @relation(fields: [ownerId], references: [id], onDelete: SetNull)
   sequences    Sequence[]
   emails       Email[]
 
@@ -490,38 +493,40 @@ enum CampaignStatus {
 }
 
 model Sequence {
-  id             String         @id @default(uuid())
-  campaignId     String
-  name           String
-  description    String?
-  isActive       Boolean        @default(true)
-  settings       Json           @default("{}")
-  stats          Json           @default("{}")
-  createdAt      DateTime       @default(now())
-  updatedAt      DateTime       @updatedAt
+  id          String   @id @default(uuid())
+  campaignId  String
+  name        String
+  description String?
+  isActive    Boolean  @default(true)
+  settings    Json     @default("{}")
+  stats       Json     @default("{}")
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 
   // Relations
-  campaign       Campaign            @relation(fields: [campaignId], references: [id], onDelete: Cascade)
+  campaign       Campaign           @relation(fields: [campaignId], references: [id], onDelete: Cascade)
   steps          SequenceStep[]
   prospectSteps  ProspectSequence[]
+  Organization   Organization?      @relation(fields: [organizationId], references: [id])
+  organizationId String?
 
   @@index([campaignId])
 }
 
 model SequenceStep {
-  id           String        @id @default(uuid())
+  id           String      @id @default(uuid())
   sequenceId   String
   stepOrder    Int
   type         StepType
   channel      ChannelType
   subject      String?
   bodyTemplate String
-  delayDays    Int           @default(0)
-  delayHours   Int           @default(0)
-  isActive     Boolean       @default(true)
-  settings     Json          @default("{}")
-  createdAt    DateTime      @default(now())
-  updatedAt    DateTime      @updatedAt
+  delayDays    Int         @default(0)
+  delayHours   Int         @default(0)
+  isActive     Boolean     @default(true)
+  settings     Json        @default("{}")
+  createdAt    DateTime    @default(now())
+  updatedAt    DateTime    @updatedAt
 
   // Relations
   sequence Sequence @relation(fields: [sequenceId], references: [id], onDelete: Cascade)
@@ -546,21 +551,21 @@ enum ChannelType {
 }
 
 model ProspectSequence {
-  id           String   @id @default(uuid())
-  prospectId   String
-  sequenceId   String
-  currentStep  Int      @default(0)
-  status       SequenceStatus @default(ACTIVE)
-  startedAt    DateTime @default(now())
-  completedAt  DateTime?
-  lastSentAt   DateTime?
-  nextSendAt   DateTime?
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
+  id          String         @id @default(uuid())
+  prospectId  String
+  sequenceId  String
+  currentStep Int            @default(0)
+  status      SequenceStatus @default(ACTIVE)
+  startedAt   DateTime       @default(now())
+  completedAt DateTime?
+  lastSentAt  DateTime?
+  nextSendAt  DateTime?
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
 
   // Relations
-  prospect Prospect      @relation(fields: [prospectId], references: [id], onDelete: Cascade)
-  sequence Sequence      @relation(fields: [sequenceId], references: [id], onDelete: Cascade)
+  prospect   Prospect   @relation(fields: [prospectId], references: [id], onDelete: Cascade)
+  sequence   Sequence   @relation(fields: [sequenceId], references: [id], onDelete: Cascade)
   activities Activity[]
 
   @@unique([prospectId, sequenceId])
@@ -580,30 +585,29 @@ enum SequenceStatus {
 // ============================================
 
 model Email {
-  id             String      @id @default(uuid())
-  campaignId     String
-  prospectId     String?
-  toEmail        String
-  fromEmail      String
-  subject        String
-  body           String
-  status         EmailStatus @default(PENDING)
-  sentAt         DateTime?
-  deliveredAt    DateTime?
-  openedAt       DateTime?
-  clickedAt      DateTime?
-  bouncedAt      DateTime?
-  repliedAt      DateTime?
-  error          String?
-  metadata       Json        @default("{}")
-  createdAt      DateTime    @default(now())
-  updatedAt      DateTime    @updatedAt
+  id          String      @id @default(uuid())
+  campaignId  String
+  prospectId  String?
+  toEmail     String
+  fromEmail   String
+  subject     String
+  body        String
+  status      EmailStatus @default(PENDING)
+  sentAt      DateTime?
+  deliveredAt DateTime?
+  openedAt    DateTime?
+  clickedAt   DateTime?
+  bouncedAt   DateTime?
+  repliedAt   DateTime?
+  error       String?
+  metadata    Json        @default("{}")
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
 
   // Relations
   campaign Campaign @relation(fields: [campaignId], references: [id], onDelete: Cascade)
 
   @@index([campaignId])
-  @@index([status])
   @@index([sentAt])
 }
 
@@ -625,7 +629,7 @@ model Meeting {
   status         MeetingStatus  @default(SCHEDULED)
   source         MeetingSource?
   notes          String?
-  revenue        Int?           // cents
+  revenue        Int? // cents
   createdAt      DateTime       @default(now())
   updatedAt      DateTime       @updatedAt
 
@@ -634,7 +638,6 @@ model Meeting {
   prospect     Prospect?    @relation(fields: [prospectId], references: [id], onDelete: SetNull)
 
   @@index([organizationId])
-  @@index([status])
   @@index([startTime])
 }
 
@@ -643,18 +646,18 @@ model Meeting {
 // ============================================
 
 model ResearchTask {
-  id             String          @id @default(uuid())
-  userId         String
-  prospectId     String?
-  type           ResearchType
-  status         ResearchStatus  @default(PENDING)
-  input          Json            @default("{}")
-  output         Json?           @default("{}")
-  error          String?
-  startedAt      DateTime?
-  completedAt    DateTime?
-  createdAt      DateTime        @default(now())
-  updatedAt      DateTime        @updatedAt
+  id          String         @id @default(uuid())
+  userId      String
+  prospectId  String?
+  type        ResearchType
+  status      ResearchStatus @default(PENDING)
+  input       Json           @default("{}")
+  output      Json?          @default("{}")
+  error       String?
+  startedAt   DateTime?
+  completedAt DateTime?
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
 
   @@index([userId])
   @@index([status])
@@ -676,20 +679,46 @@ enum ResearchStatus {
 }
 
 model GeneratedContent {
-  id           String   @id @default(uuid())
-  userId       String
-  prospectId   String?
-  type         ContentType
-  content      String
-  metadata     Json     @default("{}")
-  isApproved   Boolean  @default(false)
-  isUsed       Boolean  @default(false)
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
+  id         String      @id @default(uuid())
+  userId     String
+  prospectId String?
+  type       ContentType
+  content    String
+  metadata   Json        @default("{}")
+  isApproved Boolean     @default(false)
+  isUsed     Boolean     @default(false)
+  createdAt  DateTime    @default(now())
+  updatedAt  DateTime    @updatedAt
 
   @@index([userId])
   @@index([prospectId])
   @@index([type])
+}
+
+enum EmailStatus {
+  PENDING
+  SENT
+  DELIVERED
+  OPENED
+  CLICKED
+  REPLIED
+  BOUNCED
+  FAILED
+}
+
+enum MeetingStatus {
+  SCHEDULED
+  CONFIRMED
+  COMPLETED
+  CANCELLED
+  NO_SHOW
+}
+
+enum MeetingSource {
+  MANUAL
+  AI_SDR
+  CALENDLY
+  OTHER
 }
 
 enum ContentType {
@@ -745,21 +774,21 @@ model DashboardMetric {
 // ============================================
 
 model Activity {
-  id           String       @id @default(uuid())
-  userId       String?
-  prospectId   String?
-  contactId    String?
-  sequenceId   String?
-  type         ActivityType
-  title        String
-  description  String?
-  metadata     Json         @default("{}")
-  createdAt    DateTime     @default(now())
+  id          String       @id @default(uuid())
+  userId      String?
+  prospectId  String?
+  contactId   String?
+  sequenceId  String?
+  type        ActivityType
+  title       String
+  description String?
+  metadata    Json         @default("{}")
+  createdAt   DateTime     @default(now())
 
   // Relations
-  user         User?              @relation(fields: [userId], references: [id], onDelete: SetNull)
-  prospect     Prospect?          @relation(fields: [prospectId], references: [id], onDelete: SetNull)
-  contact      Contact?           @relation(fields: [contactId], references: [id], onDelete: SetNull)
+  user             User?             @relation(fields: [userId], references: [id], onDelete: SetNull)
+  prospect         Prospect?         @relation(fields: [prospectId], references: [id], onDelete: SetNull)
+  contact          Contact?          @relation(fields: [contactId], references: [id], onDelete: SetNull)
   prospectSequence ProspectSequence? @relation(fields: [sequenceId], references: [id], onDelete: SetNull)
 
   @@index([userId])
@@ -794,14 +823,14 @@ enum ActivityType {
 // ============================================
 
 model FeatureFlag {
-  id        String   @id @default(uuid())
-  key       String   @unique
-  name      String
+  id          String   @id @default(uuid())
+  key         String   @unique
+  name        String
   description String?
-  isEnabled Boolean  @default(false)
-  metadata  Json     @default("{}")
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  isEnabled   Boolean  @default(false)
+  metadata    Json     @default("{}")
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 
   @@index([key])
 }
@@ -833,16 +862,16 @@ model Webhook {
 }
 
 model WebhookDelivery {
-  id          String   @id @default(uuid())
+  id          String    @id @default(uuid())
   webhookId   String
   event       String
   payload     Json
   response    Json?
   statusCode  Int?
   error       String?
-  attempts    Int      @default(0)
+  attempts    Int       @default(0)
   deliveredAt DateTime?
-  createdAt   DateTime @default(now())
+  createdAt   DateTime  @default(now())
 
   @@index([webhookId])
   @@index([createdAt])
@@ -857,7 +886,7 @@ model ICP {
   organizationId String
   name           String
   description    String?
-  criteria       Json     // JSON schema for matching
+  criteria       Json // JSON schema for matching
   isActive       Boolean  @default(true)
   stats          Json     @default("{}")
   createdAt      DateTime @default(now())
@@ -871,24 +900,24 @@ model ICP {
 // ============================================
 
 model EnrichmentJob {
-  id           String          @id @default(uuid())
-  userId       String
-  companyId    String?
-  contactId    String?
-  provider     String
-  type         EnrichmentType
-  status       JobStatus       @default(PENDING)
-  priority     Int             @default(0)
-  input        Json            @default("{}")
-  output       Json?           @default("{}")
-  error        String?
-  attempts     Int             @default(0)
-  maxAttempts  Int             @default(3)
-  scheduledAt  DateTime?
-  startedAt    DateTime?
-  completedAt  DateTime?
-  createdAt    DateTime        @default(now())
-  updatedAt    DateTime        @updatedAt
+  id          String         @id @default(uuid())
+  userId      String
+  companyId   String?
+  contactId   String?
+  provider    String
+  type        EnrichmentType
+  status      JobStatus      @default(PENDING)
+  priority    Int            @default(0)
+  input       Json           @default("{}")
+  output      Json?          @default("{}")
+  error       String?
+  attempts    Int            @default(0)
+  maxAttempts Int            @default(3)
+  scheduledAt DateTime?
+  startedAt   DateTime?
+  completedAt DateTime?
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
 
   @@index([userId])
   @@index([status])

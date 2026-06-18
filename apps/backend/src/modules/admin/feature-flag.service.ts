@@ -32,7 +32,7 @@ export class FeatureFlagService {
   async setFlag(key: string, isEnabled: boolean, description?: string) {
     return this.prisma.featureFlag.upsert({
       where: { key },
-      create: { key, isEnabled, description },
+      create: { key, name: key, isEnabled, description },
       update: { isEnabled, description },
     });
   }

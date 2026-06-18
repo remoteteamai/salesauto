@@ -59,7 +59,7 @@ export class AdminService {
           _count: {
             select: { users: true, prospects: true, campaigns: true },
           },
-          subscription: true,
+          subscriptions: true,
         },
       }),
       this.prisma.organization.count(),

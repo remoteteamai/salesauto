@@ -82,7 +82,7 @@ export class AdminController {
     @Query('limit') limit?: string,
   ) {
     return this.auditLogService.getLogs(
-      user.organizationId,
+      user.organizationId!,
       undefined,
       entityType,
       entityId,
