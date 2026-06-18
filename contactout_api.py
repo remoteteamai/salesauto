@@ -48,7 +48,8 @@ class ContactOutClient:
         payload: Optional[Dict[str, Any]] = None,
     ) -> Dict[str, Any]:
         normalized_path = path if path.startswith("/") else f"/{path}"
-        url = f"{self.base_url}{normalized_path}"
+        base = self.base_url.rstrip("/")
+        url = f"{base}{normalized_path}"
         if params:
             url = f"{url}?{urlencode(params)}"
 
