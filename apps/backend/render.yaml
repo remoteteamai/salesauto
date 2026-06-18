@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: melioro-backend
+    env: node
+    region: oregon
+    buildCommand: npm install && npm run build && npx prisma generate
+    startCommand: node dist/main
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+
+database:
+  - name: melioro-db
+    databaseName: melioro
+    plan: free
+    ipAllowList: []
