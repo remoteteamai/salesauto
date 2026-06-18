@@ -2,9 +2,9 @@
 # Melioro AI - Backend Dockerfile
 # ============================================
 
-FROM node:18-bullseye
+FROM node:18
 
-# Install OpenSSL for Prisma
+# Install build essentials for Prisma
 RUN apt-get update && apt-get install -y openssl && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
