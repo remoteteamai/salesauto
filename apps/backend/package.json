@@ -4,7 +4,7 @@
   "private": true,
   "description": "Melioro AI Backend API",
   "scripts": {
-    "build": "tsc -p tsconfig.build.json --skipLibCheck --noEmit false",
+    "build": "prisma generate && tsc -p tsconfig.build.json --skipLibCheck --noEmit false",
     "start": "nest start",
     "start:dev": "nest start --watch",
     "start:prod": "node dist/main.js",

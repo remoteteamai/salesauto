@@ -1,7 +1,7 @@
 import { Injectable, HttpException, HttpStatus } from '@nestjs/common';
 import { PrismaService } from '../../database/prisma.service';
 
-interface CalendlyEventType {
+export interface CalendlyEventType {
   uri: string;
   name: string;
   slug: string;
@@ -10,7 +10,7 @@ interface CalendlyEventType {
   active: boolean;
 }
 
-interface CalendlyScheduledEvent {
+export interface CalendlyScheduledEvent {
   uri: string;
   name: string;
   status: string;

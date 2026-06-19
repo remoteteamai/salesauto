@@ -193,7 +193,8 @@ jobs:
           images: ${{ env.BACKEND_IMAGE }}
           tags: |
             type=ref,event=branch
-            type=sha,prefix={{branch}}-
+            type=ref,event=pr
+            type=sha
             type=raw,value=latest,enable={{is_default_branch}}
 
       - name: Build and push Backend image
@@ -214,7 +215,8 @@ jobs:
           images: ${{ env.FRONTEND_IMAGE }}
           tags: |
             type=ref,event=branch
-            type=sha,prefix={{branch}}-
+            type=ref,event=pr
+            type=sha
             type=raw,value=latest,enable={{is_default_branch}}
 
       - name: Build and push Frontend image
