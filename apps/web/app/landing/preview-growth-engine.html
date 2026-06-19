@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sales Auto AI - The Autonomous Growth Engine</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1978e5",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#111821",
+                        "clay-grey": "#eef1f4",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .mega-menu { display: none; }
+        .group:hover .mega-menu { display: block; }
+        .clay-card {
+            background: #ffffff;
+            box-shadow: 8px 8px 16px #e0e4e8, -8px -8px 16px #ffffff;
+        }
+        .clay-button {
+            box-shadow: 4px 4px 8px rgba(0,0,0,0.1), inset -2px -2px 4px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display transition-colors duration-300">
+<!-- Sticky Header with Mega Menu -->
+<header class="sticky top-0 z-50 w-full bg-white/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+<nav class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+<!-- Logo -->
+<div class="flex items-center gap-2">
+<div class="bg-primary p-1.5 rounded-lg">
+<span class="material-symbols-outlined text-white text-2xl">neurology</span>
+</div>
+<span class="text-xl font-extrabold tracking-tight">Sales Auto AI</span>
+</div>
+<!-- Main Nav -->
+<ul class="hidden xl:flex items-center gap-8 h-full">
+<!-- Products Mega Menu -->
+<li class="group h-full flex items-center cursor-pointer">
+<span class="text-sm font-semibold flex items-center gap-1 hover:text-primary transition-colors">Products <span class="material-symbols-outlined text-sm">expand_more</span></span>
+<div class="mega-menu absolute top-20 left-0 w-full bg-white dark:bg-background-dark border-b border-slate-200 dark:border-slate-800 shadow-2xl p-8 animate-in fade-in slide-in-from-top-2">
+<div class="max-w-7xl mx-auto grid grid-cols-4 gap-8">
+<div class="flex gap-4 p-4 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors">
+<span class="material-symbols-outlined text-primary text-3xl">hub</span>
+<div><h4 class="font-bold">Sales Auto AI One</h4><p class="text-xs text-slate-500">All-in-one AI platform</p></div>
+</div>
+<div class="flex gap-4 p-4 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors">
+<span class="material-symbols-outlined text-primary text-3xl">smart_toy</span>
+<div><h4 class="font-bold">Prospecting Agents</h4><p class="text-xs text-slate-500">Autonomous lead gen</p></div>
+</div>
+<div class="flex gap-4 p-4 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors">
+<span class="material-symbols-outlined text-primary text-3xl">call</span>
+<div><h4 class="font-bold">AI Dialer</h4><p class="text-xs text-slate-500">High-velocity smart calling</p></div>
+</div>
+<div class="flex gap-4 p-4 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors">
+<span class="material-symbols-outlined text-primary text-3xl">settings_input_component</span>
+<div><h4 class="font-bold">Integrations</h4><p class="text-xs text-slate-500">Sync with your stack</p></div>
+</div>
+</div>
+</div>
+</li>
+<!-- Features Mega Menu -->
+<li class="group h-full flex items-center cursor-pointer">
+<span class="text-sm font-semibold flex items-center gap-1 hover:text-primary transition-colors">Features <span class="material-symbols-outlined text-sm">expand_more</span></span>
+<div class="mega-menu absolute top-20 left-0 w-full bg-white dark:bg-background-dark border-b border-slate-200 dark:border-slate-800 shadow-2xl p-8">
+<div class="max-w-7xl mx-auto grid grid-cols-5 gap-4">
+<div class="p-4"><span class="material-symbols-outlined text-primary mb-2">phone_iphone</span><h4 class="font-bold">Phone</h4></div>
+<div class="p-4"><span class="material-symbols-outlined text-primary mb-2">mail</span><h4 class="font-bold">Email</h4></div>
+<div class="p-4"><span class="material-symbols-outlined text-primary mb-2">share</span><h4 class="font-bold">Social</h4></div>
+<div class="p-4"><span class="material-symbols-outlined text-primary mb-2">signal_cellular_alt</span><h4 class="font-bold">Signals</h4></div>
+<div class="p-4"><span class="material-symbols-outlined text-primary mb-2">database</span><h4 class="font-bold">Enrichment</h4></div>
+</div>
+</div>
+</li>
+<!-- Use Cases -->
+<li class="group h-full flex items-center cursor-pointer">
+<span class="text-sm font-semibold flex items-center gap-1 hover:text-primary transition-colors">Use Cases <span class="material-symbols-outlined text-sm">expand_more</span></span>
+<div class="mega-menu absolute top-20 left-0 w-full bg-white dark:bg-background-dark border-b border-slate-200 dark:border-slate-800 shadow-2xl p-8">
+<div class="max-w-7xl mx-auto grid grid-cols-4 gap-4 text-center">
+<a class="p-6 border border-slate-100 dark:border-slate-800 rounded-xl hover:shadow-lg transition-all" href="#"><h4 class="font-bold">Overview</h4></a>
+<a class="p-6 border border-slate-100 dark:border-slate-800 rounded-xl hover:shadow-lg transition-all" href="#"><h4 class="font-bold">Inbound</h4></a>
+<a class="p-6 border border-slate-100 dark:border-slate-800 rounded-xl hover:shadow-lg transition-all" href="#"><h4 class="font-bold">Engage Web</h4></a>
+<a class="p-6 border border-slate-100 dark:border-slate-800 rounded-xl hover:shadow-lg transition-all" href="#"><h4 class="font-bold">Outbound</h4></a>
+</div>
+</div>
+</li>
+<li class="group h-full flex items-center cursor-pointer"><span class="text-sm font-semibold flex items-center gap-1 hover:text-primary">Company <span class="material-symbols-outlined text-sm">expand_more</span></span></li>
+<li class="group h-full flex items-center cursor-pointer"><span class="text-sm font-semibold flex items-center gap-1 hover:text-primary">Content Hub <span class="material-symbols-outlined text-sm">expand_more</span></span></li>
+</ul>
+<!-- Auth Buttons -->
+<div class="flex items-center gap-4">
+<button class="hidden md:block text-sm font-bold text-slate-700 dark:text-slate-300 px-4 py-2 hover:text-primary transition-colors">Login</button>
+<button class="hidden md:block text-sm font-bold bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-slate-100 px-6 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 clay-button transition-all hover:-translate-y-0.5">Book Demo</button>
+<button class="text-sm font-bold bg-primary text-white px-6 py-2.5 rounded-xl clay-button transition-all hover:-translate-y-0.5 active:translate-y-0">Start Free Trial</button>
+</div>
+</nav>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative pt-20 pb-32 overflow-hidden px-6">
+<div class="max-w-7xl mx-auto flex flex-col items-center text-center">
+<div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-bold mb-8 animate-pulse">
+<span class="material-symbols-outlined text-sm">auto_awesome</span>
+                    REVOLUTIONIZING B2B SALES PIPELINES
+                </div>
+<h1 class="text-6xl md:text-7xl font-black text-slate-900 dark:text-white leading-[1.1] mb-8 tracking-tight max-w-4xl">Sales Auto AI: The <span class="text-primary">Autonomous</span> Growth Engine</h1>
+<p class="text-lg md:text-xl text-slate-500 dark:text-slate-400 max-w-2xl leading-relaxed mb-10">
+                    Scale your pipeline on autopilot with AI-powered prospecting, smart dialing, and seamless integrations. The only platform built for modern GTM teams.
+                </p>
+<div class="flex flex-col sm:flex-row items-center gap-4">
+<button class="w-full sm:w-auto px-10 py-4 bg-primary text-white text-lg font-bold rounded-xl shadow-xl shadow-primary/25 hover:shadow-primary/40 transition-all hover:-translate-y-1">Start Your Free Trial</button>
+<button class="w-full sm:w-auto px-10 py-4 bg-white dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 text-lg font-bold rounded-xl transition-all hover:bg-slate-50">Watch Demo</button>
+</div>
+<!-- Dashboard Preview -->
+<div class="mt-20 w-full max-w-5xl relative group">
+<div class="absolute inset-0 bg-primary/20 blur-[100px] rounded-full -z-10 opacity-30 group-hover:opacity-50 transition-opacity"></div>
+<div class="clay-card rounded-2xl p-2 border border-white dark:border-slate-800 relative overflow-hidden">
+<img alt="Sales Auto AI Dashboard" class="w-full rounded-xl shadow-inner border border-slate-100" data-alt="Modern AI sales dashboard with analytics charts" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAT2vw2NSXIgEgQ94Z6qB5hMWjK0PJMQcFKXGcCCNgyOM6JfxH8oQ0FNLvFkJCD32l_NnNwCwshShdm7FtkOEANsf3PF7dyPb-Y1Yd1iKsyLw-imUJlEWQnOygZc7aMQHii00ENSve5aA8LQf7AeA5Cvusw25nKiQ64Xyox7k2HV-G9fVClHCJJbS0SbxpiT-9eGyw0IFS5M4RpR744ORwQmyM3QNJDg37oJn-WyuCio7z3Ts3z0nikUCwhbp2pB9os620Z3_26Bdo"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Bento Grid Feature Section -->
+<section class="py-24 bg-clay-grey/50 dark:bg-slate-900/50 px-6">
+<div class="max-w-7xl mx-auto">
+<div class="mb-16 text-center">
+<h2 class="text-4xl font-black mb-4">Powerful Features for Modern GTM</h2>
+<p class="text-slate-500">Everything you need to automate your outbound and scale inbound.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Feature Card 1 -->
+<div class="md:col-span-2 clay-card p-10 rounded-3xl flex flex-col md:flex-row items-center gap-8 overflow-hidden group">
+<div class="flex-1">
+<span class="material-symbols-outlined text-primary text-4xl mb-4">rocket_launch</span>
+<h3 class="text-2xl font-bold mb-3">Prospecting Agents</h3>
+<p class="text-slate-500 leading-relaxed mb-6">Deploy autonomous agents that find, verify, and research leads based on your ICP. No more manual list building.</p>
+<button class="text-primary font-bold flex items-center gap-2">Learn more <span class="material-symbols-outlined">arrow_forward</span></button>
+</div>
+<div class="flex-1 relative">
+<img alt="AI Prospecting" class="rounded-xl shadow-lg transform group-hover:scale-105 transition-transform duration-500" data-alt="Abstract visualization of digital lead generation" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDcZpgQNlv-FtZwJEovaj3KkwbR2_nfEmcYoIKIRGvi_FiVvv2VWVpw2L0IO0Sh_56rQ53iLIkaF7golI8ewnz_BecjaVFeRt-pWtUUOWQALUpK-80r85kUzBwJ3wTPcZGsJkpX2O9TbqZT2Ini62LNyUg6DDYPk5k7pF-6DubFvYp3w8buDnPVpHKb9XODymPQz7_hRttLhpwjX6DqToT-1PrDWSruWyGUh_RX5x7dF_LLqF8ThvuOQzxeXCeEAZHqdfI3ruXsVA"/>
+</div>
+</div>
+<!-- Feature Card 2 -->
+<div class="clay-card p-10 rounded-3xl flex flex-col group">
+<span class="material-symbols-outlined text-primary text-4xl mb-4">settings_suggest</span>
+<h3 class="text-2xl font-bold mb-3">AI Automation</h3>
+<p class="text-slate-500 leading-relaxed flex-grow">Set your sales workflow on autopilot with intelligent triggers and sequence optimizations.</p>
+<div class="mt-6 p-4 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700">
+<div class="flex justify-between items-center mb-2">
+<span class="text-xs font-bold text-slate-400">EFFICIENCY</span>
+<span class="text-xs font-bold text-primary">+85%</span>
+</div>
+<div class="w-full bg-slate-200 dark:bg-slate-700 h-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[85%] rounded-full"></div>
+</div>
+</div>
+</div>
+<!-- Feature Card 3 -->
+<div class="clay-card p-10 rounded-3xl flex flex-col group">
+<span class="material-symbols-outlined text-primary text-4xl mb-4">call</span>
+<h3 class="text-2xl font-bold mb-3">AI Dialer</h3>
+<p class="text-slate-500 leading-relaxed mb-6">High-velocity smart calling with real-time transcription and sentiment analysis.</p>
+<img alt="AI Calling" class="rounded-xl shadow-md grayscale group-hover:grayscale-0 transition-all" data-alt="People working in a modern sales office" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxhL-bJ0Dz8CsurktVsP9xSywI3yInrOuzZDTZPy-M3koP5m9LZtSBZRsrU7ld_7cygprE9NUtnuNOqZ806KaePU_ok25bIp1p4NNANHZnb9c8ufpRTK4C14rtqNyauhRplKlst7s9uM4-ngbg3ckxGZ1SCAh1a8YWSABgGGE7ofhnkjCK2HQOmIYgk4AFvCoaWE4j6NNM9wfzmU7dIAJJCPAg5s4O6s_s5cJ620oCuBfaPIUjsa8NGrl5TNSpgE6sfJSunXilCO0"/>
+</div>
+<!-- Feature Card 4 -->
+<div class="md:col-span-2 clay-card p-10 rounded-3xl flex flex-col md:flex-row-reverse items-center gap-8 overflow-hidden group">
+<div class="flex-1">
+<span class="material-symbols-outlined text-primary text-4xl mb-4">database</span>
+<h3 class="text-2xl font-bold mb-3">Data Enrichment</h3>
+<p class="text-slate-500 leading-relaxed mb-6">Real-time enrichment from 20+ sources to ensure your CRM data is always accurate and up-to-date.</p>
+<ul class="space-y-3">
+<li class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400 font-medium">
+<span class="material-symbols-outlined text-green-500">check_circle</span>
+                                    Verified Email &amp; Direct Dial
+                                </li>
+<li class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400 font-medium">
+<span class="material-symbols-outlined text-green-500">check_circle</span>
+                                    LinkedIn Social Insights
+                                </li>
+</ul>
+</div>
+<div class="flex-1">
+<div class="grid grid-cols-3 gap-2 p-4 bg-slate-100 dark:bg-slate-800 rounded-2xl">
+<div class="aspect-square bg-white dark:bg-slate-700 rounded-lg flex items-center justify-center font-bold text-primary shadow-sm">SF</div>
+<div class="aspect-square bg-white dark:bg-slate-700 rounded-lg flex items-center justify-center font-bold text-orange-500 shadow-sm">HS</div>
+<div class="aspect-square bg-white dark:bg-slate-700 rounded-lg flex items-center justify-center font-bold text-blue-400 shadow-sm">LK</div>
+<div class="aspect-square bg-white dark:bg-slate-700 rounded-lg flex items-center justify-center font-bold text-slate-400 shadow-sm">+10</div>
+<div class="aspect-square bg-white dark:bg-slate-700 rounded-lg flex items-center justify-center font-bold text-red-500 shadow-sm">ZD</div>
+<div class="aspect-square bg-white dark:bg-slate-700 rounded-lg flex items-center justify-center font-bold text-indigo-500 shadow-sm">AP</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Social Proof Strip -->
+<section class="py-12 bg-white dark:bg-background-dark px-6 border-y border-slate-100 dark:border-slate-800">
+<div class="max-w-7xl mx-auto flex flex-wrap justify-center gap-12 opacity-40 grayscale">
+<span class="text-2xl font-black italic tracking-tighter">Salesforce</span>
+<span class="text-2xl font-black italic tracking-tighter">HubSpot</span>
+<span class="text-2xl font-black italic tracking-tighter">Zendesk</span>
+<span class="text-2xl font-black italic tracking-tighter">Outreach</span>
+<span class="text-2xl font-black italic tracking-tighter">G2 Crowed</span>
+<span class="text-2xl font-black italic tracking-tighter">Apollo</span>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-24 px-6">
+<div class="max-w-5xl mx-auto bg-primary rounded-3xl p-12 md:p-20 text-center relative overflow-hidden">
+<div class="absolute inset-0 bg-white/10 opacity-20 pointer-events-none" style="background-image: radial-gradient(circle, #fff 1px, transparent 1px); background-size: 20px 20px;"></div>
+<h2 class="text-4xl md:text-5xl font-black text-white mb-6 relative z-10">Ready to put your growth on autopilot?</h2>
+<p class="text-primary-100 text-lg md:text-xl mb-10 text-white/80 relative z-10">Join 500+ high-growth companies using Sales Auto AI to dominate their market.</p>
+<div class="flex flex-col sm:flex-row justify-center gap-4 relative z-10">
+<button class="bg-white text-primary px-10 py-4 rounded-xl font-bold text-lg hover:bg-slate-50 transition-all shadow-xl">Get Started Free</button>
+<button class="bg-primary border-2 border-white/20 text-white px-10 py-4 rounded-xl font-bold text-lg hover:bg-white/10 transition-all">Contact Sales</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Detailed Footer -->
+<footer class="bg-white dark:bg-background-dark border-t border-slate-200 dark:border-slate-800 pt-20 pb-10 px-6">
+<div class="max-w-7xl mx-auto">
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-10 mb-20">
+<!-- Col 1 -->
+<div>
+<h5 class="text-sm font-bold text-slate-900 dark:text-white mb-6 uppercase tracking-wider">Features</h5>
+<ul class="space-y-4">
+<li><a class="text-sm text-slate-500 hover:text-primary transition-colors" href="#">Salesforce App</a></li>
+<li><a class="text-sm text-slate-500 hover:text-primary transition-colors" href="#">Hubspot App</a></li>
+<li><a class="text-sm text-slate-500 hover:text-primary transition-colors" href="#">AI Automation</a></li>
+<li><a class="text-sm text-slate-500 hover:text-primary transition-colors" href="#">AI Signals</a></li>
+<li><a class="text-sm text-slate-500 hover:text-primary transition-colors" href="#">AI Sequencer</a></li>
+<li><a class="text-sm text-slate-500 hover:text-primary transition-colors" href="#">GTM Jobs</a></li>
+</ul>
+</div>
+<!-- Col 2 -->
+<div>
+<h5 class="text-sm font-bold text-slate-900 dark:text-white mb-6 uppercase tracking-wider">Platform</h5>
+<ul class="space-y-4">
+<li><a class="text-sm text-slate-500 hover:text-primary transition-colors" href="#">Email Deliverability</a></li>
+<li><a class="text-sm text-slate-500 hover:text-primary transition-colors" href="#">Reply Data</a></li>
+<li><a class="text-sm text-slate-500 hover:text-primary transition-colors" href="#">Pricing</a></li>
+<li><a class="text-sm text-slate-500 hover:text-primary transition-colors" href="#">Sales Auto AI for Startups</a></li>
+<li><a class="text-sm text-slate-500 hover:text-primary transition-colors" href="#">Chrome Extension</a></li>
+<li><a class="text-sm text-slate-500 hover:text-primary transition-colors" href="#">Status</a></li>
+</ul>
+</div>
+<!-- Col 3 -->
+<div>
+<h5 class="text-sm font-bold text-slate-900 dark:text-white mb-6 uppercase tracking-wider">Knowledge Base</h5>
+<ul class="space-y-4">
+<li><a class="text-sm text-slate-500 hover:text-primary transition-colors" href="#">Help Center</a></li>
+<li><a class="text-sm text-slate-500 hover:text-primary transition-colors" href="#">Sales Tools Catalog</a></li>
+<li><a class="text-sm text-slate-500 hover:text-primary transition-colors" href="#">Sales Auto AI Academy</a></li>
+<li><a class="text-sm text-slate-500 hover:text-primary transition-colors" href="#">Migration</a></li>
+<li><a class="text-sm text-slate-500 hover:text-primary transition-colors" href="#">API &amp; MCP</a></li>
+<li><a class="text-sm text-slate-500 hover:text-primary transition-colors" href="#">AI SDR Alternatives</a></li>
+</ul>
+</div>
+<!-- Col 4 -->
+<div>
+<h5 class="text-sm font-bold text-slate-900 dark:text-white mb-6 uppercase tracking-wider">Customer Resources</h5>
+<ul class="space-y-4">
+<li><a class="text-sm text-slate-500 hover:text-primary transition-colors" href="#">GDPR Compliance</a></li>
+<li><a class="text-sm text-slate-500 hover:text-primary transition-colors" href="#">Product Updates</a></li>
+<li><a class="text-sm text-slate-500 hover:text-primary transition-colors" href="#">ROI Calculator</a></li>
+<li><a class="text-sm text-slate-500 hover:text-primary transition-colors" href="#">Value Corner</a></li>
+</ul>
+</div>
+<!-- Col 5 -->
+<div>
+<h5 class="text-sm font-bold text-slate-900 dark:text-white mb-6 uppercase tracking-wider">Partnership</h5>
+<ul class="space-y-4">
+<li><a class="text-sm text-slate-500 hover:text-primary transition-colors" href="#">Agency Partners</a></li>
+<li><a class="text-sm text-slate-500 hover:text-primary transition-colors" href="#">Affiliate Partners</a></li>
+<li><a class="text-sm text-slate-500 hover:text-primary transition-colors" href="#">Integration Partners</a></li>
+<li><a class="text-sm text-slate-500 hover:text-primary transition-colors" href="#">Expert Programs</a></li>
+<li><a class="text-sm text-slate-500 hover:text-primary transition-colors" href="#">Whitelabel</a></li>
+<li><a class="text-sm text-slate-500 hover:text-primary transition-colors" href="#">API Labs</a></li>
+</ul>
+</div>
+<!-- Col 6 -->
+<div>
+<h5 class="text-sm font-bold text-slate-900 dark:text-white mb-6 uppercase tracking-wider">Legal</h5>
+<ul class="space-y-4">
+<li><a class="text-sm text-slate-500 hover:text-primary transition-colors" href="#">Usage Policy</a></li>
+<li><a class="text-sm text-slate-500 hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="text-sm text-slate-500 hover:text-primary transition-colors" href="#">Terms of Service</a></li>
+<li><a class="text-sm text-slate-500 hover:text-primary transition-colors" href="#">Trust Center</a></li>
+<li><a class="text-sm text-slate-500 hover:text-primary transition-colors" href="#">AI Policy</a></li>
+</ul>
+</div>
+</div>
+<!-- Bottom Footer -->
+<div class="pt-8 border-t border-slate-100 dark:border-slate-800 flex flex-col md:flex-row items-center justify-between gap-6">
+<div class="flex items-center gap-4">
+<div class="bg-primary/10 p-2 rounded-lg">
+<span class="material-symbols-outlined text-primary">neurology</span>
+</div>
+<span class="text-sm text-slate-500 font-medium">© 2024 Sales Auto AI Technologies Inc. All rights reserved.</span>
+</div>
+<div class="flex items-center gap-6">
+<a class="text-slate-400 hover:text-primary transition-colors" href="#">
+<svg class="w-5 h-5 fill-currentColor" viewbox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg>
+</a>
+<a class="text-slate-400 hover:text-primary transition-colors" href="#">
+<svg class="w-5 h-5 fill-currentColor" viewbox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path></svg>
+</a>
+</div>
+</div>
+</div>
+</footer>
+<script src="../prototype-nav.js"></script>
+</body></html>

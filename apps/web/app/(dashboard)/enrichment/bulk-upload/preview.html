@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Bulk Upload Results | Neural AI</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec5b13",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#221610",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Public Sans', sans-serif; }
+        .material-symbols-outlined { font-size: 20px; }
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen font-display">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 px-6 py-3">
+<div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-3xl font-bold">hub</span>
+<h2 class="text-xl font-black tracking-tight text-slate-900 dark:text-slate-100">Neural AI</h2>
+</div>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-sm font-semibold text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="#">Dashboard</a>
+<a class="text-sm font-semibold text-primary" href="#">Batches</a>
+<a class="text-sm font-semibold text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="#">Enrichment</a>
+<a class="text-sm font-semibold text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="#">Settings</a>
+</nav>
+</div>
+<div class="flex items-center gap-4 flex-1 justify-end">
+<div class="relative max-w-xs w-full hidden lg:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+<input class="w-full bg-slate-100 dark:bg-slate-900 border-none rounded-xl py-2 pl-10 pr-4 text-sm focus:ring-2 focus:ring-primary/50 transition-all" placeholder="Search batches..." type="text"/>
+</div>
+<button class="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-primary/10 hover:text-primary transition-all">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="h-10 w-10 rounded-full bg-primary/20 border-2 border-primary flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="User avatar for profile section" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHNz0iaFHpnjDAd4IacLZiOJ3ycnG3cOuE37ESuTztZ-EV5afemxR1MUHUlt8gwBUW4hVZC1yVYGPdsrevtVKfbHM9_zoexv2Zog9cJzuwLZh88l73YrRadAWsSnm0jzAMi6Qc8KIROAoUf0rEEj2Omt6H1F9WMMSxRpac-teLnq_-h7ffhSZGeH0eXATdJxuyCl_odu5R2RPTIOS0BKpovAs2ZlRN_Fq28R2LLek8KmtB0hwSIAQuFca3FJho8OCLfszwn7IFt4g"/>
+</div>
+</div>
+</div>
+</header>
+<main class="max-w-7xl mx-auto px-6 py-8">
+<!-- Breadcrumbs & Header -->
+<div class="mb-8">
+<nav class="flex items-center gap-2 text-xs font-medium text-slate-500 dark:text-slate-400 mb-4">
+<a class="hover:text-primary transition-colors" href="#">Enrichment</a>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-slate-900 dark:text-slate-200">Batch #88291-B</span>
+</nav>
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+<div>
+<div class="flex items-center gap-3 mb-1">
+<h1 class="text-3xl font-black text-slate-900 dark:text-slate-100">Batch #88291-B</h1>
+<span class="bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400 text-xs font-bold px-3 py-1 rounded-full border border-emerald-200 dark:border-emerald-800/50">
+                            Enrichment Complete
+                        </span>
+</div>
+<p class="text-slate-500 dark:text-slate-400 font-medium">
+                        Uploaded Oct 24, 2023 • Source: <code class="bg-slate-100 dark:bg-slate-800 px-1.5 py-0.5 rounded text-primary">customer_list_v2.csv</code>
+</p>
+</div>
+<div class="flex items-center gap-3">
+<button class="flex items-center gap-2 px-4 py-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-sm font-bold text-slate-700 dark:text-slate-200 hover:border-primary transition-all shadow-sm">
+<span class="material-symbols-outlined">download</span>
+                        Export CSV
+                    </button>
+<button class="flex items-center gap-2 px-4 py-2.5 bg-primary text-white rounded-xl text-sm font-bold hover:opacity-90 transition-all shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined">sync</span>
+                        Sync to CRM
+                    </button>
+</div>
+</div>
+</div>
+<!-- Summary Widgets -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+<div class="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+<div class="flex items-center justify-between mb-3">
+<span class="text-xs font-bold uppercase tracking-wider text-slate-500">Total Leads</span>
+<div class="p-2 bg-slate-100 dark:bg-slate-800 rounded-lg">
+<span class="material-symbols-outlined text-slate-600">group</span>
+</div>
+</div>
+<div class="flex items-baseline gap-2">
+<p class="text-2xl font-black">1,240</p>
+<span class="text-emerald-500 text-xs font-bold">+100%</span>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+<div class="flex items-center justify-between mb-3">
+<span class="text-xs font-bold uppercase tracking-wider text-slate-500">Enriched Leads</span>
+<div class="p-2 bg-primary/10 rounded-lg">
+<span class="material-symbols-outlined text-primary">auto_awesome</span>
+</div>
+</div>
+<div class="flex items-baseline gap-2">
+<p class="text-2xl font-black">1,141</p>
+<span class="text-primary text-xs font-bold">92% Match</span>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+<div class="flex items-center justify-between mb-3">
+<span class="text-xs font-bold uppercase tracking-wider text-slate-500">Verified Emails</span>
+<div class="p-2 bg-blue-100 dark:bg-blue-900/30 rounded-lg">
+<span class="material-symbols-outlined text-blue-600">verified</span>
+</div>
+</div>
+<div class="flex items-baseline gap-2">
+<p class="text-2xl font-black">92%</p>
+<span class="text-blue-500 text-xs font-bold">88% Conf.</span>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+<div class="flex items-center justify-between mb-3">
+<span class="text-xs font-bold uppercase tracking-wider text-slate-500">Direct Dials</span>
+<div class="p-2 bg-amber-100 dark:bg-amber-900/30 rounded-lg">
+<span class="material-symbols-outlined text-amber-600">call</span>
+</div>
+</div>
+<div class="flex items-baseline gap-2">
+<p class="text-2xl font-black">842</p>
+<span class="text-amber-500 text-xs font-bold">68% Found</span>
+</div>
+</div>
+</div>
+<!-- Filter & Action Toolbar -->
+<div class="bg-white dark:bg-slate-900 rounded-t-2xl border-x border-t border-slate-200 dark:border-slate-800 p-4">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+<div class="flex flex-wrap items-center gap-2">
+<button class="flex items-center gap-2 px-3 py-1.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-xs font-bold hover:border-primary transition-all">
+<span class="material-symbols-outlined text-sm">filter_alt</span>
+                        Confidence &gt; 80%
+                    </button>
+<button class="flex items-center gap-2 px-3 py-1.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-xs font-bold hover:border-primary transition-all">
+<span class="material-symbols-outlined text-sm">work</span>
+                        Executive Roles
+                    </button>
+<button class="flex items-center gap-2 px-3 py-1.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-xs font-bold hover:border-primary transition-all">
+<span class="material-symbols-outlined text-sm">domain</span>
+                        Tech Companies
+                    </button>
+<div class="h-6 w-px bg-slate-200 dark:bg-slate-700 mx-1"></div>
+<button class="text-primary text-xs font-bold hover:underline">Clear all</button>
+</div>
+<div class="flex items-center gap-3">
+<span class="text-xs font-medium text-slate-500">Bulk Actions:</span>
+<button class="px-3 py-1.5 bg-primary/10 text-primary border border-primary/20 rounded-lg text-xs font-bold hover:bg-primary hover:text-white transition-all">
+                        Enroll in Sequence
+                    </button>
+</div>
+</div>
+</div>
+<!-- Results Table -->
+<div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-b-2xl shadow-sm overflow-hidden">
+<div class="overflow-x-auto custom-scrollbar">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-slate-50 dark:bg-slate-800/50 border-b border-slate-200 dark:border-slate-800">
+<th class="px-6 py-4 text-xs font-bold uppercase tracking-wider text-slate-500">
+<input class="rounded border-slate-300 text-primary focus:ring-primary" type="checkbox"/>
+</th>
+<th class="px-6 py-4 text-xs font-bold uppercase tracking-wider text-slate-500 whitespace-nowrap">Prospect</th>
+<th class="px-6 py-4 text-xs font-bold uppercase tracking-wider text-slate-500 whitespace-nowrap">Company</th>
+<th class="px-6 py-4 text-xs font-bold uppercase tracking-wider text-slate-500 whitespace-nowrap">Email Status</th>
+<th class="px-6 py-4 text-xs font-bold uppercase tracking-wider text-slate-500 whitespace-nowrap">Phone Status</th>
+<th class="px-6 py-4 text-xs font-bold uppercase tracking-wider text-slate-500 whitespace-nowrap">Waterfall Logs</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100 dark:divide-slate-800">
+<!-- Row 1 -->
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/40 transition-colors">
+<td class="px-6 py-4">
+<input class="rounded border-slate-300 text-primary focus:ring-primary" type="checkbox"/>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-3">
+<div class="h-9 w-9 rounded-xl bg-slate-100 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Profile avatar for Jane Smith" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNg-LHKGjHBIJXqTgBDA7RfNtpmRl0tx9VSAUTzNA2Lg0SLgZ8hxtGt5pgcWjdFCLVGsnbn-hnDaNWsowPuOB2nsa0PQR_U110gaUmRhytp4Vp3PohTzZW4Q2Rkv2s-x_jkDEQbgM8mEB6F6tSHmx7ZffdQuZuhvHK4V5Nk7ux5OEQlNAG7sC4jpiCAo5WJWK3QLTMmWnmNJBxoIUl989hUdjyJUMvT07RSPeEfwiDHSWHoxPN-2WDVjrk_Z-jUUNOzGWdt9twYl8"/>
+</div>
+<div>
+<p class="text-sm font-bold text-slate-900 dark:text-slate-100">Jane Smith</p>
+<p class="text-xs text-slate-500 dark:text-slate-400">VP of Engineering</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-2">
+<div class="h-6 w-6 rounded bg-slate-100 flex items-center justify-center p-1">
+<img class="w-full h-full object-contain" data-alt="Company logo for TechFlow Inc" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAls7Iz8AloxGmq6rJ_bozshffsc4nop0rN-9YHKF2mUkQh6Sr1dkv2VKEtgmB3PXDANyy0iVhax5wQFZqfG5asF1bTAWZAdvF5vD0_tRy88tEGSVvYfcNRm8Soz95DHbz3V1D-e0NvXRYJWSTN4H4xfb05--a593brvxuWFo5n-DFwM3_UWpNzqXWPzLLWkIbC1A3MbqeA0ns6Uia6HKpTd9V_F7a6sED_iBLJ_Er1Er0qIXSOrsX6LaIq5Oy9vxrnRlRVGCxOfl8"/>
+</div>
+<span class="text-sm font-medium">TechFlow Inc.</span>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-emerald-500 text-lg">check_circle</span>
+<span class="text-xs font-bold bg-emerald-50 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400 px-2 py-0.5 rounded-full border border-emerald-100 dark:border-emerald-800">Verified (98%)</span>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-slate-400 text-lg">phone_callback</span>
+<span class="text-xs font-medium text-slate-700 dark:text-slate-300">Direct Dial</span>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-1.5">
+<span class="h-2 w-2 rounded-full bg-blue-500" title="Clearbit"></span>
+<span class="h-2 w-2 rounded-full bg-primary" title="Lusha"></span>
+<span class="h-2 w-2 rounded-full bg-amber-500" title="Hunter"></span>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/40 transition-colors">
+<td class="px-6 py-4">
+<input class="rounded border-slate-300 text-primary focus:ring-primary" type="checkbox"/>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-3">
+<div class="h-9 w-9 rounded-xl bg-slate-100 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Profile avatar for Michael Chen" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCELV1TgkNETfWGgyNw8Q3oTkH2BIuNhIN317pnPcUnu9nJPyxmp32560DDprOi7zUYnR5cIK8ed0rojJNuZ7DO58TB6GfDPgw1efa8j3BK5CuHJgw5WlCmKnhvlsnfDEA56TB81nWW1HreyCpay3ZHHBSUuyUozJBfdPMkC5_P0F1KhqDI2XzxYsL-qFRAYeh2qYcjC29xBTDtN7XsXkl_Zsqe6OYUA3EitHgWDGIihr60w2_J06S5uBdxn6JWLymbW2rgar0Q67k"/>
+</div>
+<div>
+<p class="text-sm font-bold text-slate-900 dark:text-slate-100">Michael Chen</p>
+<p class="text-xs text-slate-500 dark:text-slate-400">Head of Product</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-2">
+<div class="h-6 w-6 rounded bg-slate-100 flex items-center justify-center p-1">
+<img class="w-full h-full object-contain" data-alt="Company logo for CloudScale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDK3IjFaWSs9J8JPfMs23JfVKluFSegd14zsBJQxQvMDVxPru_ej0XNQlXPsqQmur3mQl5DG-VJ1HsBC_kvCKLjjbUWqVmgiCCeX9C1_SnhMg7QD1APChIWBHKBXfk54kbwYWgQZcO8qan4qZfM0KLptoGBDqC-8NKeoDKCl8ivDhMAjmSLDJCk4TO1i4r3Xe-gU0sDPP2lVq2UHlyX2_ruig-ZqeJt2kmKxCseGCvuadWu1X8tUUzd3BtBfKGN1Q7l8xYcVtqJx0I"/>
+</div>
+<span class="text-sm font-medium">CloudScale</span>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-amber-500 text-lg">warning</span>
+<span class="text-xs font-bold bg-amber-50 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 px-2 py-0.5 rounded-full border border-amber-100 dark:border-amber-800">Catch-all (65%)</span>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-2 text-slate-400">
+<span class="material-symbols-outlined text-lg">block</span>
+<span class="text-xs font-medium">Not Found</span>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-1.5">
+<span class="h-2 w-2 rounded-full bg-slate-300 dark:bg-slate-700"></span>
+<span class="h-2 w-2 rounded-full bg-primary" title="Lusha"></span>
+<span class="h-2 w-2 rounded-full bg-slate-300 dark:bg-slate-700"></span>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/40 transition-colors">
+<td class="px-6 py-4">
+<input class="rounded border-slate-300 text-primary focus:ring-primary" type="checkbox"/>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-3">
+<div class="h-9 w-9 rounded-xl bg-slate-100 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Profile avatar for Sarah Johnson" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEIs3G3eWAHF3VmENKlQY9HrzLw7Z1OpuFQHii3C0BUy3rCGWUyh0civkkBJw7n56iTkOlzPkeIW-yxlewI0UXwAZLasT84V2ydCYTyzQQ66PV6bOd1VfKBwWCbRP5dSYyKOmW2EtiX4-T4NPXGjkZKMORpCHyrRO0C74M4Iqic1uRjqjf4LW3ka5o0vrk0qBNHNQxTpHDkW7-NXa5QUT2U5ymFIaD94EVyoQ6_xPD_NSvYpso_jvFRFdPbSQAWv4mxmNMj2lG4XE"/>
+</div>
+<div>
+<p class="text-sm font-bold text-slate-900 dark:text-slate-100">Sarah Johnson</p>
+<p class="text-xs text-slate-500 dark:text-slate-400">Chief Revenue Officer</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-2">
+<div class="h-6 w-6 rounded bg-slate-100 flex items-center justify-center p-1">
+<img class="w-full h-full object-contain" data-alt="Company logo for GreenOps" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsKjg_vgu14xSrl6R9O3RGbzroyM-F95AIU8ed_lUFrP98hyGo4ZOOT_GaQ8qHatfoW4IuiSciCLkp6BKXJOcTs8vxaXRG-N2ul5h1hed9dw39HBLmCW9TjRu-3YRNlYoJHmr4d66N6C-UAGnczAkvEcz_Wl3E_bFcri7NCxzAxEBnF0FIm0mrw4mV2sO5DLW1ooyH04PKYuNaQpwWCzSOz4Wpmoot3j5tw0WbDDeRzNoi5orUhlFYTjA-0OqlIvV9kBU76DNYjUs"/>
+</div>
+<span class="text-sm font-medium">GreenOps</span>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-emerald-500 text-lg">check_circle</span>
+<span class="text-xs font-bold bg-emerald-50 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400 px-2 py-0.5 rounded-full border border-emerald-100 dark:border-emerald-800">Verified (100%)</span>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-2 text-emerald-600 dark:text-emerald-400">
+<span class="material-symbols-outlined text-lg">verified</span>
+<span class="text-xs font-bold">Verified Mobile</span>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-1.5">
+<span class="h-2 w-2 rounded-full bg-blue-500" title="Clearbit"></span>
+<span class="h-2 w-2 rounded-full bg-primary" title="Lusha"></span>
+<span class="h-2 w-2 rounded-full bg-slate-300 dark:bg-slate-700"></span>
+</div>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/40 transition-colors">
+<td class="px-6 py-4">
+<input class="rounded border-slate-300 text-primary focus:ring-primary" type="checkbox"/>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-3">
+<div class="h-9 w-9 rounded-xl bg-slate-100 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Profile avatar for David Miller" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjX82n8QQ1IkQnpr22FR0Ai_eRXCOeFyFPBFzSrSx78d0jpsQH7oy0040snndcyR-i3_0lxHTxa2ASN2SjjVn4AVm3mMVexXNWlaqca7-9oh_v09Nk7XWSnEFBpB2x7okAoY69UPQw4wpKMEPUdz3HrLePLcxPtKSbz3rWC7ikS6jsFBDblkSkqEnYVzeO0BLtulWKEotCNHphYbmZBVLp9fFisPXmxyC1KTuiMxWP4nK9lv4K7_kEFWlqmh0ikdsAmJueh-07e2k"/>
+</div>
+<div>
+<p class="text-sm font-bold text-slate-900 dark:text-slate-100">David Miller</p>
+<p class="text-xs text-slate-500 dark:text-slate-400">Founder &amp; CEO</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-2">
+<div class="h-6 w-6 rounded bg-slate-100 flex items-center justify-center p-1">
+<img class="w-full h-full object-contain" data-alt="Company logo for NexaGen" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxPBEk022_BaD3JDqXGMcHQ98zF7uUbpuNM3EXSB5ndsmuDCvxx2sQTdmgjtHMAYdF1CgnqoLB05_lyyWLEIpbPa5kjCp4oHYS4jkMJDRTsLSGrlIcOyv15ixEV6H7g_0IEeZhC6KzMKmph9zqAyVDqPLdrnDZtJC9g7XTzQyv5wOHheDXLfzLu8-OpRR9XlfdkZuwmE5XwhNxOr9gcQ89ES_-Qz16ENe0iDZX04cIl4JZWiyU6rM5yzdxoMJPTmngfkU9h907yGc"/>
+</div>
+<span class="text-sm font-medium">NexaGen</span>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-emerald-500 text-lg">check_circle</span>
+<span class="text-xs font-bold bg-emerald-50 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400 px-2 py-0.5 rounded-full border border-emerald-100 dark:border-emerald-800">Verified (95%)</span>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-slate-400 text-lg">phone_callback</span>
+<span class="text-xs font-medium text-slate-700 dark:text-slate-300">Direct Dial</span>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-1.5">
+<span class="h-2 w-2 rounded-full bg-slate-300 dark:bg-slate-700"></span>
+<span class="h-2 w-2 rounded-full bg-slate-300 dark:bg-slate-700"></span>
+<span class="h-2 w-2 rounded-full bg-amber-500" title="Hunter"></span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination -->
+<div class="px-6 py-4 flex items-center justify-between bg-slate-50 dark:bg-slate-800/50 border-t border-slate-200 dark:border-slate-800">
+<span class="text-xs font-medium text-slate-500">Showing 1 to 4 of 1,141 enriched prospects</span>
+<div class="flex items-center gap-2">
+<button class="p-1 rounded bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 text-slate-500 disabled:opacity-50" disabled="">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="px-3 py-1 rounded bg-primary text-white text-xs font-bold">1</button>
+<button class="px-3 py-1 rounded bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 text-xs font-bold">2</button>
+<button class="px-3 py-1 rounded bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 text-xs font-bold">3</button>
+<button class="p-1 rounded bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 text-slate-500">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Provider Legend -->
+<div class="fixed bottom-6 right-6 flex flex-col items-end gap-2">
+<div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-4 shadow-xl">
+<h4 class="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-2">Provider Key</h4>
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-2">
+<span class="h-2.5 w-2.5 rounded-full bg-blue-500"></span>
+<span class="text-xs font-medium">Clearbit</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="h-2.5 w-2.5 rounded-full bg-primary"></span>
+<span class="text-xs font-medium">Lusha</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="h-2.5 w-2.5 rounded-full bg-amber-500"></span>
+<span class="text-xs font-medium">Hunter</span>
+</div>
+</div>
+</div>
+</div>
+<script src="../../../prototype-nav.js"></script>
+</body></html>

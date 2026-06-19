@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "primary": "#1978e5",
+                "background-light": "#f6f7f8",
+                "background-dark": "#111821",
+              },
+              fontFamily: {
+                "display": ["Inter", "sans-serif"]
+              },
+              borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+            },
+          },
+        }
+    </script>
+<title>Neural AI | Prompt Library</title>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased">
+<!-- Main Wrapper -->
+<div class="relative flex min-h-screen flex-col">
+<!-- Header / Navigation -->
+<header class="sticky top-0 z-50 w-full border-b border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md">
+<div class="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8 h-16">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-2">
+<div class="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-white">
+<span class="material-symbols-outlined text-xl">neurology</span>
+</div>
+<h1 class="text-xl font-bold tracking-tight text-slate-900 dark:text-white">Neural AI</h1>
+</div>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-sm font-medium text-slate-600 hover:text-primary dark:text-slate-400 dark:hover:text-primary transition-colors" href="#">Dashboard</a>
+<a class="text-sm font-semibold text-primary" href="#">Prompts</a>
+<a class="text-sm font-medium text-slate-600 hover:text-primary dark:text-slate-400 dark:hover:text-primary transition-colors" href="#">Sequences</a>
+<a class="text-sm font-medium text-slate-600 hover:text-primary dark:text-slate-400 dark:hover:text-primary transition-colors" href="#">Analytics</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">search</span>
+<input class="h-9 w-64 rounded-full border-none bg-slate-100 dark:bg-slate-800 pl-10 pr-4 text-sm focus:ring-2 focus:ring-primary/20" placeholder="Quick search..." type="text"/>
+</div>
+<button class="flex h-9 items-center justify-center rounded-full bg-primary px-4 text-sm font-bold text-white hover:bg-primary/90 transition-all">
+                        Get Started
+                    </button>
+<div class="h-9 w-9 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden ring-2 ring-white dark:ring-slate-800">
+<img class="h-full w-full object-cover" data-alt="User profile avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDoQOrk-qr7IUSvZQq_ZNoolRFNuE4HhgyC1Rcw2iIMtzJxWGCAYv753t5h7OGxh26IgoxQUJry3GJl1EAPAmxfkSfZ5HDAsdyHNXnvQXkdIv2i8N1orleoNw3x8bSIbCmWexSWD9Wrz4ro8KUDXbSuOmRYlGdip_dQNY7fsSc4px65dc7qX7d7N3jzKgFWrM4M-OIofUDRc3ADaMtgd3U6Rhwpgm0VNRDGCCzZnHax5WfGv37r5hQQGzcjXFZL85KQLWETbUFaM1c"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-1 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
+<!-- Hero Section -->
+<section class="mb-12">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
+<div class="max-w-2xl">
+<h2 class="text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-5xl">AI Prompt Library</h2>
+<p class="mt-4 text-lg text-slate-600 dark:text-slate-400">Engineered prompts for high-performance B2B sales teams. Scale your outreach with neural precision.</p>
+</div>
+<button class="flex items-center gap-2 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-5 py-2.5 text-sm font-semibold text-slate-900 dark:text-white shadow-sm hover:bg-slate-50 dark:hover:bg-slate-800 transition-all">
+<span class="material-symbols-outlined text-lg text-primary">add_circle</span>
+                        Submit New Prompt
+                    </button>
+</div>
+<!-- Search and Filters Bar -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-4 items-center rounded-2xl bg-white dark:bg-slate-900 p-4 shadow-sm border border-slate-200 dark:border-slate-800">
+<div class="lg:col-span-4 relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+<input class="w-full h-12 rounded-xl border-none bg-slate-50 dark:bg-slate-800 pl-12 pr-4 text-base focus:ring-2 focus:ring-primary/20" placeholder="Search prompts, tactics, or workflows..." type="text"/>
+</div>
+<div class="lg:col-span-8 flex flex-wrap gap-2">
+<button class="inline-flex h-10 items-center gap-2 rounded-xl bg-primary text-white px-4 text-sm font-semibold">
+<span class="material-symbols-outlined text-sm">filter_alt</span>
+                            All Categories
+                        </button>
+<button class="inline-flex h-10 items-center gap-2 rounded-xl bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 px-4 text-sm font-medium hover:bg-slate-100 dark:hover:bg-slate-700">
+                            Cold Outreach
+                        </button>
+<button class="inline-flex h-10 items-center gap-2 rounded-xl bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 px-4 text-sm font-medium hover:bg-slate-100 dark:hover:bg-slate-700">
+                            LinkedIn Messaging
+                        </button>
+<button class="inline-flex h-10 items-center gap-2 rounded-xl bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 px-4 text-sm font-medium hover:bg-slate-100 dark:hover:bg-slate-700">
+                            Objection Handling
+                        </button>
+<button class="inline-flex h-10 items-center gap-2 rounded-xl bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 px-4 text-sm font-medium hover:bg-slate-100 dark:hover:bg-slate-700">
+                            Follow-ups
+                        </button>
+<button class="inline-flex h-10 items-center gap-2 rounded-xl bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 px-4 text-sm font-medium hover:bg-slate-100 dark:hover:bg-slate-700">
+                            Discovery
+                        </button>
+</div>
+</div>
+</section>
+<!-- Featured Prompt -->
+<section class="mb-12">
+<div class="flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined text-primary fill-1">auto_awesome</span>
+<h3 class="text-xl font-bold text-slate-900 dark:text-white">Prompt of the Week</h3>
+</div>
+<div class="relative overflow-hidden rounded-3xl bg-slate-900 p-8 text-white shadow-xl dark:ring-1 dark:ring-white/10">
+<div class="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-primary/20 blur-3xl"></div>
+<div class="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+<div>
+<span class="inline-flex items-center rounded-full bg-primary/20 px-3 py-1 text-xs font-bold uppercase tracking-wider text-primary ring-1 ring-inset ring-primary/30">LinkedIn Outreach</span>
+<h4 class="mt-4 text-3xl font-bold leading-tight">Hyper-Personalized Sales Navigator Sequence</h4>
+<p class="mt-4 text-slate-400 text-lg leading-relaxed">
+                                This prompt uses a prospect's recent activity, shared connections, and company funding data to craft a triple-personalized opening that increases response rates by 40%.
+                            </p>
+<div class="mt-8 flex items-center gap-4">
+<button class="flex items-center gap-2 rounded-xl bg-white px-6 py-3 text-sm font-bold text-slate-900 hover:bg-slate-100 transition-colors">
+<span class="material-symbols-outlined text-lg">content_copy</span>
+                                    Copy Prompt
+                                </button>
+<button class="text-sm font-bold text-slate-400 hover:text-white transition-colors">View Details</button>
+</div>
+</div>
+<div class="rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 p-6 font-mono text-sm leading-relaxed text-slate-300">
+<div class="flex items-center justify-between mb-4 border-b border-white/10 pb-2">
+<span class="text-xs text-slate-500">PROMPT PREVIEW</span>
+<span class="material-symbols-outlined text-slate-500 text-sm">code</span>
+</div>
+                            "Act as a top-tier B2B SDR. Analyze the following LinkedIn profile activity... [Company] recently raised [Funding]. Construct an outreach message that bridges their recent post about [Topic] with our [Solution]..."
+                        </div>
+</div>
+</div>
+</section>
+<!-- Prompt Grid -->
+<section>
+<div class="flex items-center justify-between mb-6">
+<h3 class="text-xl font-bold text-slate-900 dark:text-white">Recent Prompts</h3>
+<div class="flex items-center gap-2">
+<button class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
+<span class="material-symbols-outlined text-xl">grid_view</span>
+</button>
+<button class="p-2 rounded-lg text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined text-xl">list</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Prompt Card 1 -->
+<div class="group flex flex-col rounded-2xl bg-white dark:bg-slate-900 p-6 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-all duration-300">
+<div class="flex items-start justify-between">
+<span class="inline-flex items-center rounded-lg bg-primary/10 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-primary ring-1 ring-inset ring-primary/20">Cold Outreach</span>
+<button class="text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">bookmark</span>
+</button>
+</div>
+<h4 class="mt-4 text-lg font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors leading-tight">The "No-Pressure" Referral Request</h4>
+<p class="mt-3 flex-1 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                            A low-friction email template designed to ask for internal referrals without sounding demanding or cold.
+                        </p>
+<div class="mt-6 flex items-center justify-between border-t border-slate-100 dark:border-slate-800 pt-4">
+<div class="flex items-center gap-2">
+<div class="h-6 w-6 rounded-full bg-slate-200">
+<img class="h-full w-full rounded-full object-cover" data-alt="Small avatar of prompt creator" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5FT2SkH6EmKHzr2xwhgTxg2KKZjK_Tkno2wq6XTpqNaF1p6eQrSe90TkkIgeata9eS-KQJZVPfcidVPI3Ss5dIT6N_tOniBEvBVwxSFhUDFD5h6ENzyr8uNjW85KtW706M2feqbdvxgvm3TGpXja-XiJAelMdetQVLE-b6UY23-gonK2mplLdoWMe4-GV-8I9c5iSJtsaQecu6kgI-P9MMPENbl3NaE0pTOM8f4UNaScmKWG5cfbp6wPXwqzsK2xV5v5-j8HJN9k"/>
+</div>
+<span class="text-xs font-medium text-slate-500">Alex R.</span>
+</div>
+<button class="flex items-center gap-1.5 rounded-xl bg-slate-900 dark:bg-slate-800 px-4 py-2 text-xs font-bold text-white hover:bg-primary transition-all">
+<span class="material-symbols-outlined text-sm">content_copy</span>
+                                Copy
+                            </button>
+</div>
+</div>
+<!-- Prompt Card 2 -->
+<div class="group flex flex-col rounded-2xl bg-white dark:bg-slate-900 p-6 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-all duration-300">
+<div class="flex items-start justify-between">
+<span class="inline-flex items-center rounded-lg bg-amber-500/10 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-amber-600 ring-1 ring-inset ring-amber-500/20">Objection Handling</span>
+<button class="text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">bookmark</span>
+</button>
+</div>
+<h4 class="mt-4 text-lg font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors leading-tight">Price Anchor Reframe</h4>
+<p class="mt-3 flex-1 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                            How to use AI to flip "your price is too high" into a conversation about ROI and total cost of ownership.
+                        </p>
+<div class="mt-6 flex items-center justify-between border-t border-slate-100 dark:border-slate-800 pt-4">
+<div class="flex items-center gap-2">
+<div class="h-6 w-6 rounded-full bg-slate-200">
+<img class="h-full w-full rounded-full object-cover" data-alt="Small avatar of prompt creator" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYY2j8hACs1vHk7gt4wDyr5AffCuD_NsDkNMC113HaYz6zsCyAE5bu3ZPF3a5zoj2M7SWQzijqy8XkBdMO0cPvj258-V-iqFLvt-YDawj6WCNsgbhldlZ_vxN7mcrNHXA-Eg8HQzIFMFwfyRkKAi0e-WPOjRW2_Niyt-X6C7lK5p_da9pINbhV-5X_ciOymfA-sNxtYI1006XJAWSb5xeGbTd7J8EbAZEF6dQIZMSih76XXWrFmeGCbuns8fJMahWrUdTgvS_DlZ0"/>
+</div>
+<span class="text-xs font-medium text-slate-500">Sarah J.</span>
+</div>
+<button class="flex items-center gap-1.5 rounded-xl bg-slate-900 dark:bg-slate-800 px-4 py-2 text-xs font-bold text-white hover:bg-primary transition-all">
+<span class="material-symbols-outlined text-sm">content_copy</span>
+                                Copy
+                            </button>
+</div>
+</div>
+<!-- Prompt Card 3 -->
+<div class="group flex flex-col rounded-2xl bg-white dark:bg-slate-900 p-6 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-all duration-300">
+<div class="flex items-start justify-between">
+<span class="inline-flex items-center rounded-lg bg-emerald-500/10 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-emerald-600 ring-1 ring-inset ring-emerald-500/20">Discovery</span>
+<button class="text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">bookmark</span>
+</button>
+</div>
+<h4 class="mt-4 text-lg font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors leading-tight">The "Pain Gap" Deep Dive</h4>
+<p class="mt-3 flex-1 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                            Sequence of 5 critical discovery questions to uncover hidden technical debt in prospect workflows.
+                        </p>
+<div class="mt-6 flex items-center justify-between border-t border-slate-100 dark:border-slate-800 pt-4">
+<div class="flex items-center gap-2">
+<div class="h-6 w-6 rounded-full bg-slate-200">
+<img class="h-full w-full rounded-full object-cover" data-alt="Small avatar of prompt creator" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPD0jDcVa6p_eNdW7myL_aYXxsRmrzHjpryxGuZdjli-X4o0IDP4gaoSlpVGN_S46aHvfuhWzEHNtQgJTIS9q9RxEPqb-VOnY5xatz6mA-zs3K2RpHikYoMmN4SU0HAIrQf15aC6qBsUqA5lFtY3wEzBL6XBnye0SWkQ6cFDDSfZMMXi0twUusZQsrkNV7I3AZaZW6eTjoz0HsIJciPd8NejLagxMUMFaaCGDthd2k1x5tADurm_hI-5bpGGWGRaYCUrahCzB-6qw"/>
+</div>
+<span class="text-xs font-medium text-slate-500">David M.</span>
+</div>
+<button class="flex items-center gap-1.5 rounded-xl bg-slate-900 dark:bg-slate-800 px-4 py-2 text-xs font-bold text-white hover:bg-primary transition-all">
+<span class="material-symbols-outlined text-sm">content_copy</span>
+                                Copy
+                            </button>
+</div>
+</div>
+<!-- Prompt Card 4 -->
+<div class="group flex flex-col rounded-2xl bg-white dark:bg-slate-900 p-6 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-all duration-300">
+<div class="flex items-start justify-between">
+<span class="inline-flex items-center rounded-lg bg-purple-500/10 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-purple-600 ring-1 ring-inset ring-purple-500/20">Follow-ups</span>
+<button class="text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">bookmark</span>
+</button>
+</div>
+<h4 class="mt-4 text-lg font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors leading-tight">Ghosting Recovery Script</h4>
+<p class="mt-3 flex-1 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                            A high-EQ prompt to re-engage prospects who have gone quiet after the initial demo.
+                        </p>
+<div class="mt-6 flex items-center justify-between border-t border-slate-100 dark:border-slate-800 pt-4">
+<div class="flex items-center gap-2">
+<div class="h-6 w-6 rounded-full bg-slate-200">
+<img class="h-full w-full rounded-full object-cover" data-alt="Small avatar of prompt creator" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9va2fPW6VmjJTmzPR7nC0QgCLtmLFvxZ5UITsauakveU9rvoounYL6jdCojb8lii6QDjjL4FC19tXBGvx2FRCpAN_EzlI1CD4RDKQjmqXUNdjhRy2N6GFzcZL-cKSXy7i7996kzAk_dK9m9hIcXStFOCrovE0Bj38XUjE76hefEmWj3ZopBqcFKPVUlJYxYLT_zb9iOqWwYjf_4LAC1YFVMNHO_DdPoFrhmxMpD9Lc4gNEGBTIzGw4svajLBoPGRJyWlli64pfAs"/>
+</div>
+<span class="text-xs font-medium text-slate-500">Elena K.</span>
+</div>
+<button class="flex items-center gap-1.5 rounded-xl bg-slate-900 dark:bg-slate-800 px-4 py-2 text-xs font-bold text-white hover:bg-primary transition-all">
+<span class="material-symbols-outlined text-sm">content_copy</span>
+                                Copy
+                            </button>
+</div>
+</div>
+<!-- Prompt Card 5 -->
+<div class="group flex flex-col rounded-2xl bg-white dark:bg-slate-900 p-6 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-all duration-300">
+<div class="flex items-start justify-between">
+<span class="inline-flex items-center rounded-lg bg-primary/10 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-primary ring-1 ring-inset ring-primary/20">Cold Outreach</span>
+<button class="text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">bookmark</span>
+</button>
+</div>
+<h4 class="mt-4 text-lg font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors leading-tight">Event-Based Prospecting</h4>
+<p class="mt-3 flex-1 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                            Triggers based on executive shifts, hiring surges, or new tech stack additions.
+                        </p>
+<div class="mt-6 flex items-center justify-between border-t border-slate-100 dark:border-slate-800 pt-4">
+<div class="flex items-center gap-2">
+<div class="h-6 w-6 rounded-full bg-slate-200">
+<img class="h-full w-full rounded-full object-cover" data-alt="Small avatar of prompt creator" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9OG1bQ9XxJoTmqfgqoSMqpWkFPtuXSA1lYqHCA2Gj0TL51SR_bSQTz26McppmVzVUNl-oJ8PhUeA-3LHbG8nYQ_yrUTa5mY48bWeSKVvml5755mKpzYtRHGiVJLMhiRvNnOhrnc-rTtq8di2nHM7fzoFUoGr_NAUzAtlETTpV3-HoG5pw1fZwkRrDdOWpQyN_xQDfWG1iy4NfCSBiSY35k-zPsu7hTgef_qoVk7tZ3hnyHBmEX7hpS03jwtVar9QZsZsGMfZqT0I"/>
+</div>
+<span class="text-xs font-medium text-slate-500">Mark T.</span>
+</div>
+<button class="flex items-center gap-1.5 rounded-xl bg-slate-900 dark:bg-slate-800 px-4 py-2 text-xs font-bold text-white hover:bg-primary transition-all">
+<span class="material-symbols-outlined text-sm">content_copy</span>
+                                Copy
+                            </button>
+</div>
+</div>
+<!-- Prompt Card 6 -->
+<div class="group flex flex-col rounded-2xl bg-white dark:bg-slate-900 p-6 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-all duration-300">
+<div class="flex items-start justify-between">
+<span class="inline-flex items-center rounded-lg bg-indigo-500/10 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-indigo-600 ring-1 ring-inset ring-indigo-500/20">LinkedIn Messaging</span>
+<button class="text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">bookmark</span>
+</button>
+</div>
+<h4 class="mt-4 text-lg font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors leading-tight">LinkedIn Voice Clip Script</h4>
+<p class="mt-3 flex-1 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                            A script designed specifically for 30-second LinkedIn voice notes to break through the noise.
+                        </p>
+<div class="mt-6 flex items-center justify-between border-t border-slate-100 dark:border-slate-800 pt-4">
+<div class="flex items-center gap-2">
+<div class="h-6 w-6 rounded-full bg-slate-200">
+<img class="h-full w-full rounded-full object-cover" data-alt="Small avatar of prompt creator" src="https://lh3.googleusercontent.com/aida-public/AB6AXuANGvmp85533zIMzeBokqLzx3DbmzEKhsFyt4at0bZulB_OqZrNLh-GFqfS9woEGOWY98_dcrVykIDK3Tw1rEbYzvPuNrnlvQBn3NcSKDjJVp2agqSFu_Ze0tJz4iE6faZ4Ep_stN9J1AgQ-7prcbhkwNXqvtonYvEKfzqIEq0yrQLHVLUyEiCyAdAJhg9q9xxvOSNyBptg3cIykz0RgDXvtG2N_bkmGkZ2pp73vsdvFGHgFR94FXlpOLMpsi_9mJ8gq4FV5exbBUY"/>
+</div>
+<span class="text-xs font-medium text-slate-500">Lisa W.</span>
+</div>
+<button class="flex items-center gap-1.5 rounded-xl bg-slate-900 dark:bg-slate-800 px-4 py-2 text-xs font-bold text-white hover:bg-primary transition-all">
+<span class="material-symbols-outlined text-sm">content_copy</span>
+                                Copy
+                            </button>
+</div>
+</div>
+</div>
+<!-- Pagination/Load More -->
+<div class="mt-12 flex justify-center">
+<button class="inline-flex items-center gap-2 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-8 py-3 text-sm font-bold text-slate-900 dark:text-white shadow-sm hover:bg-slate-50 dark:hover:bg-slate-800 transition-all">
+                        Load More Prompts
+                        <span class="material-symbols-outlined text-sm">expand_more</span>
+</button>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="mt-auto border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/50">
+<div class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8">
+<div class="col-span-2">
+<div class="flex items-center gap-2">
+<div class="flex h-6 w-6 items-center justify-center rounded bg-primary text-white">
+<span class="material-symbols-outlined text-base">neurology</span>
+</div>
+<span class="text-lg font-bold text-slate-900 dark:text-white">Neural AI</span>
+</div>
+<p class="mt-4 text-sm text-slate-500 dark:text-slate-400 max-w-xs leading-relaxed">
+                            Empowering sales teams with the world's most advanced AI prompt library and sequence automation.
+                        </p>
+</div>
+<div>
+<h5 class="text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white">Platform</h5>
+<ul class="mt-4 space-y-2">
+<li><a class="text-sm text-slate-500 hover:text-primary transition-colors" href="#">Library</a></li>
+<li><a class="text-sm text-slate-500 hover:text-primary transition-colors" href="#">Integrations</a></li>
+<li><a class="text-sm text-slate-500 hover:text-primary transition-colors" href="#">API Docs</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white">Company</h5>
+<ul class="mt-4 space-y-2">
+<li><a class="text-sm text-slate-500 hover:text-primary transition-colors" href="#">About Us</a></li>
+<li><a class="text-sm text-slate-500 hover:text-primary transition-colors" href="#">Careers</a></li>
+<li><a class="text-sm text-slate-500 hover:text-primary transition-colors" href="#">Contact</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white">Social</h5>
+<ul class="mt-4 space-y-2">
+<li><a class="text-sm text-slate-500 hover:text-primary transition-colors" href="#">LinkedIn</a></li>
+<li><a class="text-sm text-slate-500 hover:text-primary transition-colors" href="#">X (Twitter)</a></li>
+<li><a class="text-sm text-slate-500 hover:text-primary transition-colors" href="#">Discord</a></li>
+</ul>
+</div>
+</div>
+<div class="mt-12 border-t border-slate-100 dark:border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-xs text-slate-400">© 2024 Neural AI Technology Inc. All rights reserved.</p>
+<div class="flex gap-6">
+<a class="text-xs text-slate-400 hover:text-slate-600 transition-colors" href="#">Privacy Policy</a>
+<a class="text-xs text-slate-400 hover:text-slate-600 transition-colors" href="#">Terms of Service</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<script src="../../prototype-nav.js"></script>
+</body></html>

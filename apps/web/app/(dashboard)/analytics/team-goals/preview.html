@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sales Auto AI - Team Goals Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1978e5",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#221610",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Public Sans', sans-serif;
+        }
+        .circular-progress {
+            background: conic-gradient(var(--progress-color) calc(var(--percentage) * 1%), #e2e8f0 0);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display">
+<div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden">
+<div class="layout-container flex h-full grow">
+<aside class="w-64 border-r border-slate-200 dark:border-slate-800 flex flex-col bg-white dark:bg-background-dark sticky top-0 h-screen">
+<div class="p-6 flex items-center gap-3">
+<div class="size-8 bg-primary rounded-lg flex items-center justify-center text-white">
+<span class="material-symbols-outlined">rocket_launch</span>
+</div>
+<h2 class="text-xl font-bold tracking-tight">Sales Auto AI</h2>
+</div>
+<nav class="flex-1 px-4 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-xl text-primary bg-[#1978e5]/10" href="#">
+<span class="material-symbols-outlined text-fill">target</span>
+<span class="text-sm font-medium">Team Goals</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined">trending_up</span>
+<span class="text-sm font-medium">Sales Pipeline</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined">bar_chart</span>
+<span class="text-sm font-medium">Performance</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined">description</span>
+<span class="text-sm font-medium">Reports</span>
+</a>
+</nav>
+<div class="p-4 border-t border-slate-200 dark:border-slate-800">
+<div class="flex items-center gap-3 px-2 py-3 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer">
+<img alt="User avatar" class="size-9 rounded-full" data-alt="Portrait of a professional sales manager" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrmzKflzudE979WBB99YO8nH1sLxyqJNymKb8q8igiXifcWAI0tsWlwqQA6htEHjRArok6MK7qDEqGSXG9XgeT5BUslZ8Yte0eg-rr2LnVM1mJMiuBzWMjEf1KA0_DUPm8XtbGfkNtkKeq1SJ7TvzGlVCYSiy_7WsAi22bZIt-0CYAfqyy-s4SWCY_yGM9oozFs2fJFO0dFU_hF-9ljo22Xa3bgcax2HACvXVXeeRcdARFW6UhgBYsPJaPyzuPxxMWQRN9hd4Jrz4"/>
+<div class="flex-1 min-w-0">
+<p class="text-sm font-semibold truncate">Alex Rivera</p>
+<p class="text-xs text-slate-500 truncate">Sales Director</p>
+</div>
+</div>
+</div>
+</aside>
+<main class="flex-1 flex flex-col min-w-0 bg-background-light dark:bg-background-dark">
+<header class="h-16 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between px-8 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md sticky top-0 z-10">
+<div class="flex items-center gap-4 flex-1">
+<div class="relative w-full max-w-md">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xl">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-slate-100 dark:bg-slate-800 border-none rounded-xl text-sm focus:ring-2 focus:ring-[#1978e5]/20" placeholder="Search analytics, goals, or reps..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 size-2 bg-primary rounded-full border-2 border-white dark:border-background-dark"></span>
+</button>
+<button class="p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="h-8 w-[1px] bg-slate-200 dark:border-slate-800 mx-2"></div>
+<button class="bg-primary text-white px-4 py-2 rounded-xl text-sm font-bold flex items-center gap-2 hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-lg">add</span>
+                        New Goal
+                    </button>
+</div>
+</header>
+<div class="p-8 max-w-7xl mx-auto w-full">
+<div class="mb-8">
+<h1 class="text-3xl font-extrabold tracking-tight mb-2">Team Goals Overview</h1>
+<p class="text-slate-500 dark:text-slate-400">Real-time progress tracking for Q3 objectives and key results.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+<div class="bg-white dark:bg-background-dark border border-slate-200 dark:border-slate-800 p-6 rounded-2xl flex flex-col items-center text-center shadow-sm">
+<div class="relative size-32 mb-4">
+<div class="absolute inset-0 rounded-full border-8 border-slate-100 dark:border-slate-800"></div>
+<div class="absolute inset-0 rounded-full border-8 border-primary border-t-transparent border-l-transparent rotate-[45deg]"></div>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="text-2xl font-bold">70%</span>
+<span class="text-[10px] uppercase font-bold text-slate-400">Reached</span>
+</div>
+</div>
+<h3 class="font-bold text-lg mb-1">Quarterly Revenue</h3>
+<p class="text-2xl font-black text-primary">$842,500 <span class="text-sm font-normal text-slate-400">/ $1.2M</span></p>
+<div class="mt-4 flex items-center gap-1 text-emerald-500 font-bold text-sm">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+                            +12% vs last month
+                        </div>
+</div>
+<div class="bg-white dark:bg-background-dark border border-slate-200 dark:border-slate-800 p-6 rounded-2xl flex flex-col items-center text-center shadow-sm">
+<div class="relative size-32 mb-4">
+<div class="absolute inset-0 rounded-full border-8 border-slate-100 dark:border-slate-800"></div>
+<div class="absolute inset-0 rounded-full border-8 border-primary border-b-transparent rotate-[220deg]"></div>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="text-2xl font-bold">68%</span>
+<span class="text-[10px] uppercase font-bold text-slate-400">Reached</span>
+</div>
+</div>
+<h3 class="font-bold text-lg mb-1">Meetings Booked</h3>
+<p class="text-2xl font-black text-primary">412 <span class="text-sm font-normal text-slate-400">/ 600</span></p>
+<div class="mt-4 flex items-center gap-1 text-emerald-500 font-bold text-sm">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+                            +5.4% vs last month
+                        </div>
+</div>
+<div class="bg-white dark:bg-background-dark border border-slate-200 dark:border-slate-800 p-6 rounded-2xl flex flex-col items-center text-center shadow-sm">
+<div class="relative size-32 mb-4">
+<div class="absolute inset-0 rounded-full border-8 border-slate-100 dark:border-slate-800"></div>
+<div class="absolute inset-0 rounded-full border-8 border-primary border-t-transparent rotate-[150deg]"></div>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="text-2xl font-bold">83%</span>
+<span class="text-[10px] uppercase font-bold text-slate-400">Reached</span>
+</div>
+</div>
+<h3 class="font-bold text-lg mb-1">Total Calls</h3>
+<p class="text-2xl font-black text-primary">12,450 <span class="text-sm font-normal text-slate-400">/ 15k</span></p>
+<div class="mt-4 flex items-center gap-1 text-rose-500 font-bold text-sm">
+<span class="material-symbols-outlined text-sm">trending_down</span>
+                            -2.1% vs target pace
+                        </div>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
+<div class="lg:col-span-2 bg-white dark:bg-background-dark border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-sm">
+<div class="flex items-center justify-between mb-6">
+<h3 class="text-xl font-bold">Performance vs. Target Trend</h3>
+<div class="flex gap-2">
+<span class="flex items-center gap-2 text-xs font-semibold text-slate-500">
+<span class="size-2 rounded-full bg-primary"></span> Actual
+                                </span>
+<span class="flex items-center gap-2 text-xs font-semibold text-slate-500">
+<span class="size-2 rounded-full bg-slate-200 dark:bg-slate-700"></span> Target
+                                </span>
+</div>
+</div>
+<div class="h-[300px] w-full relative pt-4">
+<div class="absolute inset-0 flex flex-col justify-between py-1">
+<div class="border-b border-slate-100 dark:border-slate-800 w-full h-0"></div>
+<div class="border-b border-slate-100 dark:border-slate-800 w-full h-0"></div>
+<div class="border-b border-slate-100 dark:border-slate-800 w-full h-0"></div>
+<div class="border-b border-slate-100 dark:border-slate-800 w-full h-0"></div>
+<div class="border-b border-slate-100 dark:border-slate-800 w-full h-0"></div>
+</div>
+<div class="absolute inset-0 flex items-end justify-between px-4 pb-2">
+<div class="w-12 h-[40%] rounded-t-lg relative group bg-[#1978e5]/20">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-slate-900 text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">Wk 1: 40%</div>
+<div class="w-full bg-primary h-[85%] rounded-t-lg absolute bottom-0"></div>
+<span class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] text-slate-400 font-bold">WK 1</span>
+</div>
+<div class="w-12 h-[55%] rounded-t-lg relative bg-[#1978e5]/20">
+<div class="w-full bg-primary h-[90%] rounded-t-lg absolute bottom-0"></div>
+<span class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] text-slate-400 font-bold">WK 2</span>
+</div>
+<div class="w-12 h-[65%] rounded-t-lg relative bg-[#1978e5]/20">
+<div class="w-full bg-primary h-[70%] rounded-t-lg absolute bottom-0"></div>
+<span class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] text-slate-400 font-bold">WK 3</span>
+</div>
+<div class="w-12 h-[75%] rounded-t-lg relative bg-[#1978e5]/20">
+<div class="w-full bg-primary h-[95%] rounded-t-lg absolute bottom-0"></div>
+<span class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] text-slate-400 font-bold">WK 4</span>
+</div>
+<div class="w-12 h-[85%] rounded-t-lg relative bg-[#1978e5]/20">
+<div class="w-full bg-primary h-[80%] rounded-t-lg absolute bottom-0"></div>
+<span class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] text-slate-400 font-bold">WK 5</span>
+</div>
+<div class="w-12 h-[95%] rounded-t-lg relative bg-[#1978e5]/20">
+<div class="w-full bg-primary h-[60%] rounded-t-lg absolute bottom-0"></div>
+<span class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] text-slate-400 font-bold">WK 6</span>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-background-dark border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-sm">
+<h3 class="text-xl font-bold mb-6">Leaderboard</h3>
+<div class="space-y-5">
+<div class="flex items-center gap-4">
+<div class="relative">
+<img alt="Sarah J" class="size-10 rounded-full" data-alt="Portrait of top performing female sales representative" src="https://lh3.googleusercontent.com/aida-public/AB6AXuABATWULSHjpHTUnfgXPQ7Q763vvTZ2M59tmX42HQS7HvJaukG3MhK4hbLOLxCj9Wbvfh7Hu5e7DuFWF6wYtUJeKlSOGgIPr4dNABoNpsYBUS7oAIshufFVw1FjF8d59EiMZ9OqE-S4G-rFcAPpGL-RlR56ZUEwxY8Nm-PpSBPpaZAd4-iWBlNzLSNPDw7WCAMatYgEMsdOMAPfxRXF9nykp-uTHo9YPO72NJ5zdDd-w-itWsSyaKOv95_7gqivgGH8xiFxOokXYLw"/>
+<span class="absolute -bottom-1 -right-1 bg-amber-400 text-[8px] font-bold text-white size-4 rounded-full flex items-center justify-center border-2 border-white dark:border-background-dark">1</span>
+</div>
+<div class="flex-1">
+<p class="text-sm font-bold">Sarah Jenkins</p>
+<div class="w-full bg-slate-100 dark:bg-slate-800 h-1.5 rounded-full mt-1">
+<div class="bg-primary h-full rounded-full" style="width: 105%"></div>
+</div>
+</div>
+<span class="text-xs font-black text-primary">105%</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative">
+<img alt="Marcus" class="size-10 rounded-full" data-alt="Portrait of male account executive" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkuyyBPLg6OJ8g5oa4TbZAwTw-oTk3xqDe8pOcIYptGdrxp8VSpzqbziLi3hEDcN7nrdJX6JQDEwd76dX4DkZ7MEdP15OPz58mTIwGsOYQzGWtm78NdsA4tTMhxcgoJ9_F-6j5hIis7oJMCQlo2v5Eh-7y30_OM-utz-2d32c8MYmpaKFcL49OBdASsITu5ZMaQFsH7hlyw6lHeEafP__Q55dxXv_KZzBXKNtOlvQ8LnyEpN8WeydrTkEeCVs8F8dmdLh9WOuO8YM"/>
+<span class="absolute -bottom-1 -right-1 bg-slate-300 text-[8px] font-bold text-white size-4 rounded-full flex items-center justify-center border-2 border-white dark:border-background-dark">2</span>
+</div>
+<div class="flex-1">
+<p class="text-sm font-bold">Marcus Chen</p>
+<div class="w-full bg-slate-100 dark:bg-slate-800 h-1.5 rounded-full mt-1">
+<div class="bg-primary h-full rounded-full" style="width: 98%"></div>
+</div>
+</div>
+<span class="text-xs font-black text-primary">98%</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative">
+<img alt="Elena" class="size-10 rounded-full" data-alt="Portrait of female SDR" src="https://lh3.googleusercontent.com/aida-public/AB6AXuARLP431m08PlmsO-53R4YWqlpj92FIhSDLxqA49lNi6DnIgHUFa_gqhNyF5Ro2bGMCpQMt650-rCpWUEJH_Vn_W07EkHFlEwlAZOqYCeT2z6Aud30U76aQb9jdE-zDWqcbQ1AofcuF2aHySLcy0CH4HyGR2e8ltw2wevXqLJoYMVkDOK7VYRMf-BYPFy6gz9CR_nvCQ599rCtNXdKkVdLyiRwU0QxSsw3iGpYB9j2wPIDpguTsVfIYZtQ7GVpTftmE0kJsD0EQcfs"/>
+<span class="absolute -bottom-1 -right-1 bg-orange-400 text-[8px] font-bold text-white size-4 rounded-full flex items-center justify-center border-2 border-white dark:border-background-dark">3</span>
+</div>
+<div class="flex-1">
+<p class="text-sm font-bold">Elena Rodriguez</p>
+<div class="w-full bg-slate-100 dark:bg-slate-800 h-1.5 rounded-full mt-1">
+<div class="bg-primary h-full rounded-full" style="width: 92%"></div>
+</div>
+</div>
+<span class="text-xs font-black text-primary">92%</span>
+</div>
+<div class="flex items-center gap-4">
+<img alt="James" class="size-10 rounded-full" data-alt="Portrait of male sales rep" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCz42CKK8mEPEVDEMuMymrLYVg3RBKQC4iF7V98GLuVs0gAf6X7tlm6yjplN8VYqWdcKBoXBghgOvtWmVpwtzY_6cxrGGxPc1slowosq-QYXyRS4oDZLq1Lib1skH42gYtYUHi9ItL68hKKhsIy7Q7t-cmbl5bV-yePQDphVOuxImixGczVR4zW-ET4efU8EMC7HG5NiyE_eYdGZ1NdcPHSEbwHc4kA-gmqPUZmbaUxpMnm2HNpVtdkLr9b7cPFFO5R8NKhMSENYtY"/>
+<div class="flex-1">
+<p class="text-sm font-bold">James Wilson</p>
+<div class="w-full bg-slate-100 dark:bg-slate-800 h-1.5 rounded-full mt-1">
+<div class="bg-primary h-full rounded-full" style="width: 88%"></div>
+</div>
+</div>
+<span class="text-xs font-black text-primary">88%</span>
+</div>
+</div>
+<button class="w-full mt-8 py-2 text-primary font-bold text-sm border rounded-xl transition-colors border-[#1978e5]/20 hover:bg-[#1978e5]/5">View Full Team</button>
+</div>
+</div>
+<div class="bg-white dark:bg-background-dark border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-sm">
+<h3 class="text-xl font-bold mb-6">Goal Breakdown by Department</h3>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-slate-100 dark:border-slate-800">
+<th class="pb-4 font-bold text-sm text-slate-500">Department</th>
+<th class="pb-4 font-bold text-sm text-slate-500">Active Reps</th>
+<th class="pb-4 font-bold text-sm text-slate-500">Quarterly Target</th>
+<th class="pb-4 font-bold text-sm text-slate-500">Progress</th>
+<th class="pb-4 font-bold text-sm text-slate-500 text-right">Forecasted</th>
+</tr>
+</thead>
+<tbody>
+<tr class="border-b border-slate-50 dark:border-slate-800/50 hover:bg-slate-50 dark:hover:bg-slate-800/20 transition-colors">
+<td class="py-4 font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-xl">contact_phone</span>
+                                        SDRs (Sales Dev)
+                                    </td>
+<td class="py-4 text-sm font-medium">12 Reps</td>
+<td class="py-4 text-sm font-medium">1,200 Opps</td>
+<td class="py-4 w-48">
+<div class="flex items-center gap-3">
+<div class="flex-1 bg-slate-100 dark:bg-slate-800 h-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full" style="width: 78%"></div>
+</div>
+<span class="text-xs font-black">78%</span>
+</div>
+</td>
+<td class="py-4 text-sm font-bold text-right text-emerald-500">On Track</td>
+</tr>
+<tr class="border-b border-slate-50 dark:border-slate-800/50 hover:bg-slate-50 dark:hover:bg-slate-800/20 transition-colors">
+<td class="py-4 font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-xl">handshake</span>
+                                        AEs (Account Execs)
+                                    </td>
+<td class="py-4 text-sm font-medium">8 Reps</td>
+<td class="py-4 text-sm font-medium">$2.4M Revenue</td>
+<td class="py-4 w-48">
+<div class="flex items-center gap-3">
+<div class="flex-1 bg-slate-100 dark:bg-slate-800 h-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full" style="width: 65%"></div>
+</div>
+<span class="text-xs font-black">65%</span>
+</div>
+</td>
+<td class="py-4 text-sm font-bold text-right text-amber-500">At Risk</td>
+</tr>
+<tr class="border-b border-slate-50 dark:border-slate-800/50 hover:bg-slate-50 dark:hover:bg-slate-800/20 transition-colors">
+<td class="py-4 font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-xl">group_add</span>
+                                        Account Management
+                                    </td>
+<td class="py-4 text-sm font-medium">6 Reps</td>
+<td class="py-4 text-sm font-medium">$800k Upsell</td>
+<td class="py-4 w-48">
+<div class="flex items-center gap-3">
+<div class="flex-1 bg-slate-100 dark:bg-slate-800 h-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full" style="width: 91%"></div>
+</div>
+<span class="text-xs font-black">91%</span>
+</div>
+</td>
+<td class="py-4 text-sm font-bold text-right text-emerald-500">Exceeding</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+<script src="../../../prototype-nav.js"></script>
+</body></html>

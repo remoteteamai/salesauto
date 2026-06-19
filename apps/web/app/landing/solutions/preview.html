@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Neural AI | Solutions for Sales</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1978e5",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#111821",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<!-- Header -->
+<header class="flex items-center justify-between border-b border-primary/10 px-6 py-4 lg:px-20 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md sticky top-0 z-50">
+<div class="flex items-center gap-2">
+<div class="text-primary">
+<span class="material-symbols-outlined text-3xl">neurology</span>
+</div>
+<h2 class="text-xl font-bold tracking-tight">Neural AI</h2>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Products</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Solutions</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Use Cases</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Resources</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Pricing</a>
+</nav>
+<div class="flex items-center gap-3">
+<button class="text-sm font-bold px-4 py-2 rounded-lg hover:bg-primary/10 transition-colors">Signin</button>
+<button class="bg-primary text-white text-sm font-bold px-5 py-2 rounded-lg hover:brightness-110 transition-all">Get Started</button>
+</div>
+</header>
+<!-- Hero Section -->
+<section class="px-6 lg:px-20 py-16 lg:py-24">
+<div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+<div class="flex flex-col gap-8">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider w-fit">
+<span class="material-symbols-outlined text-sm">rocket_launch</span>
+                        AI-Powered Sales
+                    </div>
+<h1 class="text-4xl lg:text-6xl font-black leading-tight tracking-tight text-slate-900 dark:text-white">
+                        Transform Your Sales Team into a <span class="text-primary">Pipeline Generation</span> Machine
+                    </h1>
+<p class="text-lg lg:text-xl text-slate-600 dark:text-slate-400 leading-relaxed">
+                        Deploy autonomous AI agents to handle prospecting, research, and outreach so your team can focus on closing deals.
+                    </p>
+<div class="flex flex-wrap gap-4">
+<button class="bg-primary text-white font-bold px-8 py-4 rounded-xl text-lg hover:scale-105 transition-transform shadow-lg shadow-primary/25">
+                            Start 14-Day Free Trial
+                        </button>
+<button class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 font-bold px-8 py-4 rounded-xl text-lg hover:bg-slate-50 transition-colors">
+                            Book a Strategy Call
+                        </button>
+</div>
+</div>
+<div class="relative">
+<div class="w-full aspect-square rounded-3xl overflow-hidden shadow-2xl border-8 border-white dark:border-slate-800">
+<img class="w-full h-full object-cover" data-alt="Modern sales team collaborating in a bright tech office" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD811l0N4cb7skva7JtQ2H2DMzF1m5crUwCnicfkE5n4LtascmxPzXIIKWyF9ODIvS9n1uW-4iTCFoBa5z-b2BXxgSsDgHlr64CWqxTBhHMQhr7z30zhAECBEF-Iq5tyfYOtapX3wHt8QW0_HKRbAdSsgSSIJuMfd-IeyP0RUej8i2MlpSG4AHpbd4BGPj7c-VpvkfMcrckU46st_99YpmxOZ5oUgSd7QbvGI2wlihqnDFl6Q2oRP8cKZVYQnvto-qYXChATi_TMSM"/>
+</div>
+<!-- Floating stats card -->
+<div class="absolute -bottom-6 -left-6 bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-xl border border-primary/10 max-w-[240px]">
+<div class="flex items-center gap-3 mb-2">
+<span class="material-symbols-outlined text-primary font-bold">trending_up</span>
+<span class="font-bold text-slate-900 dark:text-white">3X Pipeline</span>
+</div>
+<p class="text-xs text-slate-500">Average increase in qualified leads within the first 30 days of deployment.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- The Sales Problem Section -->
+<section class="bg-white dark:bg-background-dark/50 py-20 px-6 lg:px-20 border-y border-primary/5">
+<div class="max-w-7xl mx-auto">
+<div class="mb-16">
+<h2 class="text-3xl font-bold mb-4">The Sales Problem</h2>
+<p class="text-slate-600 dark:text-slate-400 max-w-2xl">Manual outreach is broken. It's time to fix the bottlenecks that slow down your revenue growth.</p>
+</div>
+<div class="grid md:grid-cols-3 gap-8">
+<div class="p-8 rounded-2xl bg-background-light dark:bg-slate-800/50 border border-slate-100 dark:border-slate-700">
+<span class="material-symbols-outlined text-red-500 text-4xl mb-4">local_fire_department</span>
+<h3 class="text-xl font-bold mb-2">SDR Burnout</h3>
+<p class="text-slate-600 dark:text-slate-400">Repetitive tasks lead to high turnover and low motivation. Give your team work that matters.</p>
+</div>
+<div class="p-8 rounded-2xl bg-background-light dark:bg-slate-800/50 border border-slate-100 dark:border-slate-700">
+<span class="material-symbols-outlined text-amber-500 text-4xl mb-4">search_insights</span>
+<h3 class="text-xl font-bold mb-2">Manual Research Grind</h3>
+<p class="text-slate-600 dark:text-slate-400">Hours spent digging through LinkedIn and news instead of selling. AI handles the deep dive in seconds.</p>
+</div>
+<div class="p-8 rounded-2xl bg-background-light dark:bg-slate-800/50 border border-slate-100 dark:border-slate-700">
+<span class="material-symbols-outlined text-blue-500 text-4xl mb-4">mail_lock</span>
+<h3 class="text-xl font-bold mb-2">Low Reply Rates</h3>
+<p class="text-slate-600 dark:text-slate-400">Generic outreach that gets ignored in crowded inboxes. Personalize at a scale that was previously impossible.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Solutions for Sales Leaders -->
+<section class="py-24 px-6 lg:px-20 bg-slate-50 dark:bg-background-dark">
+<div class="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16 items-center">
+<div class="lg:w-1/2 order-2 lg:order-1">
+<div class="grid grid-cols-1 gap-6">
+<div class="flex gap-4 p-6 bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700">
+<div class="bg-primary/10 p-3 rounded-lg h-fit text-primary">
+<span class="material-symbols-outlined">visibility</span>
+</div>
+<div>
+<h4 class="font-bold text-lg mb-1">Total Visibility</h4>
+<p class="text-slate-600 dark:text-slate-400 text-sm">Real-time dashboards showing exactly which signals are driving the most pipeline.</p>
+</div>
+</div>
+<div class="flex gap-4 p-6 bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700">
+<div class="bg-primary/10 p-3 rounded-lg h-fit text-primary">
+<span class="material-symbols-outlined">timeline</span>
+</div>
+<div>
+<h4 class="font-bold text-lg mb-1">Predictable Pipeline</h4>
+<p class="text-slate-600 dark:text-slate-400 text-sm">Eliminate the "feast or famine" cycle with autonomous agents that never stop prospecting.</p>
+</div>
+</div>
+<div class="flex gap-4 p-6 bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700">
+<div class="bg-primary/10 p-3 rounded-lg h-fit text-primary">
+<span class="material-symbols-outlined">group_add</span>
+</div>
+<div>
+<h4 class="font-bold text-lg mb-1">Scale Without Headcount</h4>
+<p class="text-slate-600 dark:text-slate-400 text-sm">Increase your sales output by 10x without hiring a single additional person.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="lg:w-1/2 order-1 lg:order-2">
+<h2 class="text-3xl lg:text-4xl font-bold mb-6">Solutions for Sales Leaders</h2>
+<p class="text-slate-600 dark:text-slate-400 mb-8 text-lg">Stop worrying about activity metrics and start focusing on revenue outcomes. Our platform gives you the control and predictability you need to hit your numbers every quarter.</p>
+<div class="w-full h-80 bg-primary/5 rounded-3xl flex items-center justify-center border-2 border-dashed border-primary/20 overflow-hidden relative">
+<img class="w-full h-full object-cover opacity-80 mix-blend-overlay" data-alt="Sales dashboard showing growth charts and pipeline data" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkD_M-1eI_ZSbY-s6WDI-T6vpYd7D2noT3Mw793n3lWEb3y41KbRRKRiLtrOwnX6Pej9Abbw6g-xe8cXI-LC_3mnY7sQ1amsZGq_hO313W_n5EB1pNWzUFNUkT5NEbj8fgDhg_KH85YxhwNE8lh5hZ0ssAhIp19TZYdS6YwTbdu82c9eqIa_3L_Vlc2bZfJ7pzFTj1ZLW8C-1AxYeCzK-1xtoa_1h25u8ev9WX6FGuaj3a5Iry1ptiS6Wiarz8IFAk1Z6XBW1279w"/>
+<div class="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent"></div>
+<span class="absolute bottom-6 left-6 text-white font-bold text-xl">Operational Intelligence</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Solutions for SDRs/AEs -->
+<section class="py-24 px-6 lg:px-20 bg-white dark:bg-slate-900">
+<div class="max-w-7xl mx-auto">
+<div class="text-center mb-16">
+<h2 class="text-3xl lg:text-4xl font-bold mb-4">Solutions for SDRs &amp; AEs</h2>
+<p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">Be the top performer on your team by working smarter, not harder. Let AI handle the grunt work while you handle the conversation.</p>
+</div>
+<div class="grid lg:grid-cols-3 gap-8">
+<div class="group p-8 rounded-3xl bg-background-light dark:bg-slate-800 transition-all hover:shadow-xl border border-transparent hover:border-primary/20">
+<div class="w-14 h-14 bg-white dark:bg-slate-700 rounded-xl flex items-center justify-center mb-6 shadow-sm group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined text-3xl">auto_delete</span>
+</div>
+<h3 class="text-xl font-bold mb-3">Research Elimination</h3>
+<p class="text-slate-600 dark:text-slate-400">Never manually research a lead again. Get a full breakdown of their recent activity, company news, and pain points instantly.</p>
+</div>
+<div class="group p-8 rounded-3xl bg-background-light dark:bg-slate-800 transition-all hover:shadow-xl border border-transparent hover:border-primary/20">
+<div class="w-14 h-14 bg-white dark:bg-slate-700 rounded-xl flex items-center justify-center mb-6 shadow-sm group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined text-3xl">edit_note</span>
+</div>
+<h3 class="text-xl font-bold mb-3">Hyper-Personalized Outreach</h3>
+<p class="text-slate-600 dark:text-slate-400">Generate 1-to-1 cold emails and LinkedIn messages that sound exactly like you, but took zero effort to write.</p>
+</div>
+<div class="group p-8 rounded-3xl bg-background-light dark:bg-slate-800 transition-all hover:shadow-xl border border-transparent hover:border-primary/20">
+<div class="w-14 h-14 bg-white dark:bg-slate-700 rounded-xl flex items-center justify-center mb-6 shadow-sm group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined text-3xl">event_available</span>
+</div>
+<h3 class="text-xl font-bold mb-3">Intelligent Meeting Booking</h3>
+<p class="text-slate-600 dark:text-slate-400">Autonomous agents handle the back-and-forth scheduling, syncing directly with your calendar for seamless booking.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Core Features for Sales -->
+<section class="py-24 px-6 lg:px-20 bg-slate-900 text-white relative overflow-hidden">
+<!-- Background Decoration -->
+<div class="absolute top-0 right-0 w-1/3 h-1/3 bg-primary/20 blur-[120px] rounded-full"></div>
+<div class="absolute bottom-0 left-0 w-1/4 h-1/4 bg-blue-600/10 blur-[100px] rounded-full"></div>
+<div class="max-w-7xl mx-auto relative z-10">
+<h2 class="text-3xl lg:text-4xl font-bold mb-16 text-center">Engineered for High-Performance Sales</h2>
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
+<div class="flex flex-col gap-4">
+<h4 class="text-primary font-bold tracking-widest text-sm uppercase">Discovery</h4>
+<h3 class="text-2xl font-bold">Autonomous Lead Discovery</h3>
+<p class="text-slate-400">Signal-based prospecting that monitors job changes, funding rounds, and technology stack shifts to find your perfect timing.</p>
+<ul class="flex flex-col gap-2 mt-4 text-sm text-slate-300">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-lg">check_circle</span> 50+ Signal types monitored</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-lg">check_circle</span> Real-time data refreshing</li>
+</ul>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="text-primary font-bold tracking-widest text-sm uppercase">Enrichment</h4>
+<h3 class="text-2xl font-bold">Waterfall Enrichment</h3>
+<p class="text-slate-400">Don't settle for one data provider. We query 15+ sources to ensure you have the most accurate direct dials and work emails.</p>
+<ul class="flex flex-col gap-2 mt-4 text-sm text-slate-300">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-lg">check_circle</span> 93% Verified data accuracy</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-lg">check_circle</span> GDPR &amp; CCPA compliant</li>
+</ul>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="text-primary font-bold tracking-widest text-sm uppercase">Engagement</h4>
+<h3 class="text-2xl font-bold">Multi-Channel Engagement</h3>
+<p class="text-slate-400">Be everywhere your prospects are. Orcherstrate touches across Email, LinkedIn, and Dialer within a single automated flow.</p>
+<ul class="flex flex-col gap-2 mt-4 text-sm text-slate-300">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-lg">check_circle</span> LinkedIn automation safety</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-lg">check_circle</span> Native dialer integration</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- Results / Testimonials -->
+<section class="py-24 px-6 lg:px-20 bg-background-light dark:bg-background-dark">
+<div class="max-w-7xl mx-auto">
+<div class="bg-primary rounded-[2rem] p-10 lg:p-20 text-white flex flex-col lg:flex-row gap-12 items-center">
+<div class="lg:w-1/2">
+<h2 class="text-3xl lg:text-5xl font-black mb-6 leading-tight">Proven Results for Sales Orgs</h2>
+<div class="grid grid-cols-2 gap-8 mt-10">
+<div>
+<div class="text-4xl lg:text-5xl font-black mb-2">3X</div>
+<div class="text-white/80 font-medium">Pipeline Increase</div>
+</div>
+<div>
+<div class="text-4xl lg:text-5xl font-black mb-2">65%</div>
+<div class="text-white/80 font-medium">Faster Sales Cycle</div>
+</div>
+</div>
+</div>
+<div class="lg:w-1/2 bg-white/10 backdrop-blur-sm p-8 rounded-3xl border border-white/20">
+<div class="flex gap-1 text-amber-400 mb-6">
+<span class="material-symbols-outlined fill-1">star</span>
+<span class="material-symbols-outlined fill-1">star</span>
+<span class="material-symbols-outlined fill-1">star</span>
+<span class="material-symbols-outlined fill-1">star</span>
+<span class="material-symbols-outlined fill-1">star</span>
+</div>
+<p class="text-xl font-medium leading-relaxed mb-8 italic">"Neural AI has completely changed how our SDR team operates. We went from spending 4 hours a day on research to spending 0, and our meeting book rate has tripled in just two months."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full overflow-hidden bg-slate-300">
+<img class="w-full h-full object-cover" data-alt="Portrait of a female sales executive" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOyv3rC-MX9vlhNi3GHoZ8VKXiJmclaYyRS4Bg3TL9MdKxEncsWXPlUE0rqsvtZvETB_I55tnGAtZibcaxEexh5M1odczyXliWipNdZAg3mmWqiGhRkYy81Wq5BF6hwd_Vv10tII_8SLYo6e6BZRsdZ7O9S_I428cLjT9s6rKTr5k2Q1us1udGCSFfVwoN5cj3TON_DB_l_PeLiQzGUYLYI0asKC_llyVFLT52KLJm9-i8bTW11i5BAMrz62pbcSW8sBU4fyRGSFU"/>
+</div>
+<div>
+<div class="font-bold">Sarah Jenkins</div>
+<div class="text-white/70 text-sm">VP of Sales at CloudScale</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-20 px-6 lg:px-20">
+<div class="max-w-4xl mx-auto text-center flex flex-col items-center gap-8">
+<h2 class="text-3xl lg:text-5xl font-black">Ready to scale your sales machine?</h2>
+<p class="text-lg text-slate-600 dark:text-slate-400">Join 500+ high-growth companies using Neural AI to automate their top-of-funnel.</p>
+<div class="flex flex-wrap justify-center gap-4">
+<button class="bg-primary text-white font-bold px-10 py-5 rounded-xl text-xl hover:scale-105 transition-all shadow-xl shadow-primary/30">
+                        Start Your 14-Day Free Trial
+                    </button>
+<button class="bg-slate-200 dark:bg-slate-800 text-slate-900 dark:text-white font-bold px-10 py-5 rounded-xl text-xl hover:bg-slate-300 dark:hover:bg-slate-700 transition-all">
+                        Book a Strategy Call
+                    </button>
+</div>
+<p class="text-sm text-slate-500">No credit card required. Cancel anytime.</p>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-white dark:bg-background-dark border-t border-primary/5 px-6 lg:px-20 py-16">
+<div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-12">
+<div class="col-span-2">
+<div class="flex items-center gap-2 mb-6">
+<div class="text-primary">
+<span class="material-symbols-outlined text-3xl">neurology</span>
+</div>
+<h2 class="text-xl font-bold tracking-tight">Neural AI</h2>
+</div>
+<p class="text-slate-500 text-sm max-w-xs mb-6 leading-relaxed">The next generation of autonomous sales agents for modern high-growth revenue teams.</p>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:bg-primary hover:text-white transition-all" href="#"><span class="material-symbols-outlined text-xl">share</span></a>
+<a class="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:bg-primary hover:text-white transition-all" href="#"><span class="material-symbols-outlined text-xl">public</span></a>
+</div>
+</div>
+<div>
+<h5 class="font-bold mb-6">Company</h5>
+<ul class="flex flex-col gap-4 text-sm text-slate-600 dark:text-slate-400">
+<li><a class="hover:text-primary transition-colors" href="#">About Us</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Careers</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Contact</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-bold mb-6">Product</h5>
+<ul class="flex flex-col gap-4 text-sm text-slate-600 dark:text-slate-400">
+<li><a class="hover:text-primary transition-colors" href="#">Industry</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Compare</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Pricing</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-bold mb-6">Resources</h5>
+<ul class="flex flex-col gap-4 text-sm text-slate-600 dark:text-slate-400">
+<li><a class="hover:text-primary transition-colors" href="#">Blog</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Help Center</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Guides</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-bold mb-6">Legal</h5>
+<ul class="flex flex-col gap-4 text-sm text-slate-600 dark:text-slate-400">
+<li><a class="hover:text-primary transition-colors" href="#">Privacy</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Terms</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Cookies</a></li>
+</ul>
+</div>
+</div>
+<div class="max-w-7xl mx-auto border-t border-slate-100 dark:border-slate-800 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-slate-500 text-xs">© 2024 Neural AI Technologies Inc. All rights reserved.</p>
+<div class="flex gap-6">
+<span class="text-slate-500 text-xs flex items-center gap-1"><span class="material-symbols-outlined text-sm text-green-500">fiber_manual_record</span> All systems operational</span>
+</div>
+</div>
+</footer>
+</div>
+<script src="../../prototype-nav.js"></script>
+</body></html>
