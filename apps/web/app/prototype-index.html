@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Neural AI - Prototype Sitemap</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+        darkMode: "class",
+        theme: {
+            extend: {
+                colors: {
+                    "primary": "#1978e5",
+                    "background-dark": "#111821",
+                    "card-dark": "#1a232e",
+                },
+                fontFamily: {
+                    "display": ["Inter", "sans-serif"]
+                },
+            },
+        },
+    }
+</script>
+<style>
+    body { font-family: 'Inter', sans-serif; background: #111821; }
+    .card-hover { transition: all 0.2s; }
+    .card-hover:hover { transform: translateY(-2px); border-color: rgba(25,120,229,0.5); box-shadow: 0 8px 25px rgba(25,120,229,0.15); }
+</style>
+</head>
+<body class="text-slate-100 min-h-screen">
+
+<div class="max-w-7xl mx-auto px-6 py-12">
+    <!-- Header -->
+    <div class="text-center mb-16">
+        <div class="flex items-center justify-center gap-3 mb-6">
+            <div class="bg-primary p-2 rounded-xl">
+                <span class="material-symbols-outlined text-white text-3xl">neurology</span>
+            </div>
+            <h1 class="text-4xl font-bold tracking-tight">Neural AI</h1>
+        </div>
+        <p class="text-slate-400 text-lg max-w-2xl mx-auto">Complete Prototype Sitemap &mdash; All screens organized by user journey phase. Click any card to open the prototype.</p>
+        <div class="mt-4 inline-flex items-center gap-2 bg-card-dark border border-white/10 rounded-full px-4 py-2 text-sm text-slate-400">
+            <span class="material-symbols-outlined text-primary text-base">layers</span>
+            <span id="page-count"></span> screens across 8 sections
+        </div>
+    </div>
+
+    <!-- Phase 1: Marketing & Onboarding -->
+    <section class="mb-12">
+        <div class="flex items-center gap-3 mb-6">
+            <div class="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-sm font-bold text-white">1</div>
+            <h2 class="text-xl font-bold">Marketing &amp; Onboarding</h2>
+            <div class="h-px flex-1 bg-white/10"></div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <a href="landing/preview.html" class="card-hover bg-card-dark border border-white/10 rounded-xl p-5 block">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="material-symbols-outlined text-primary">home</span>
+                    <span class="font-semibold">Landing Page</span>
+                </div>
+                <p class="text-sm text-slate-400">Main homepage - AI-Powered B2B Growth Platform</p>
+            </a>
+            <a href="landing/preview-alt.html" class="card-hover bg-card-dark border border-white/10 rounded-xl p-5 block">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="material-symbols-outlined text-primary">home</span>
+                    <span class="font-semibold">Landing Page (Alt)</span>
+                </div>
+                <p class="text-sm text-slate-400">Alternative landing with omnichannel features</p>
+            </a>
+            <a href="landing/preview-tech.html" class="card-hover bg-card-dark border border-white/10 rounded-xl p-5 block">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="material-symbols-outlined text-primary">code</span>
+                    <span class="font-semibold">Tech-Focused Landing</span>
+                </div>
+                <p class="text-sm text-slate-400">Developer and tech team oriented landing</p>
+            </a>
+            <a href="landing/preview-growth-engine.html" class="card-hover bg-card-dark border border-white/10 rounded-xl p-5 block">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="material-symbols-outlined text-primary">rocket_launch</span>
+                    <span class="font-semibold">Growth Engine Landing</span>
+                </div>
+                <p class="text-sm text-slate-400">The Autonomous Growth Engine positioning</p>
+            </a>
+            <a href="landing/preview-gtm.html" class="card-hover bg-card-dark border border-white/10 rounded-xl p-5 block">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="material-symbols-outlined text-primary">target</span>
+                    <span class="font-semibold">GTM Engine Landing</span>
+                </div>
+                <p class="text-sm text-slate-400">AI GTM Engine - Modern B2B SaaS</p>
+            </a>
+            <a href="landing/preview-gtm-alt.html" class="card-hover bg-card-dark border border-white/10 rounded-xl p-5 block">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="material-symbols-outlined text-primary">target</span>
+                    <span class="font-semibold">GTM Engine (Alt)</span>
+                </div>
+                <p class="text-sm text-slate-400">NeuralAI Ecosystem variant</p>
+            </a>
+            <a href="landing/preview-footer.html" class="card-hover bg-card-dark border border-white/10 rounded-xl p-5 block">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="material-symbols-outlined text-primary">bottom_navigation</span>
+                    <span class="font-semibold">Footer Component</span>
+                </div>
+                <p class="text-sm text-slate-400">Minimalist grid footer design</p>
+            </a>
+            <a href="landing/engagement/preview.html" class="card-hover bg-card-dark border border-white/10 rounded-xl p-5 block">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="material-symbols-outlined text-primary">forum</span>
+                    <span class="font-semibold">Engagement Engine</span>
+                </div>
+                <p class="text-sm text-slate-400">Intelligence layer for outreach engagement</p>
+            </a>
+            <a href="landing/pricing/preview.html" class="card-hover bg-card-dark border border-white/10 rounded-xl p-5 block">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="material-symbols-outlined text-primary">payments</span>
+                    <span class="font-semibold">Pricing Page</span>
+                </div>
+                <p class="text-sm text-slate-400">Scale Your Outbound Engine - Neural AI style</p>
+            </a>
+            <a href="landing/pricing/preview-alt.html" class="card-hover bg-card-dark border border-white/10 rounded-xl p-5 block">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="material-symbols-outlined text-primary">payments</span>
+                    <span class="font-semibold">Pricing Page (Alt)</span>
+                </div>
+                <p class="text-sm text-slate-400">Sales Auto AI pricing variant</p>
+            </a>
+            <a href="landing/faq/preview.html" class="card-hover bg-card-dark border border-white/10 rounded-xl p-5 block">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="material-symbols-outlined text-primary">help</span>
+                    <span class="font-semibold">FAQ</span>
+                </div>
+                <p class="text-sm text-slate-400">Frequently Asked Questions</p>
+            </a>
+            <a href="landing/terms/preview.html" class="card-hover bg-card-dark border border-white/10 rounded-xl p-5 block">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="material-symbols-outlined text-primary">gavel</span>
+                    <span class="font-semibold">Terms of Service</span>
+                </div>
+                <p class="text-sm text-slate-400">Legal terms and conditions</p>
+            </a>
+        </div>
+    </section>
+
+    <!-- Phase 2: Solutions & Use Cases -->
+    <section class="mb-12">
+        <div class="flex items-center gap-3 mb-6">
+            <div class="w-8 h-8 rounded-full bg-emerald-600 flex items-center justify-center text-sm font-bold text-white">2</div>
+            <h2 class="text-xl font-bold">Solutions &amp; Use Cases</h2>
+            <div class="h-px flex-1 bg-white/10"></div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <a href="landing/solutions/preview.html" class="card-hover bg-card-dark border border-white/10 rounded-xl p-5 block">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="material-symbols-outlined text-emerald-400">lightbulb</span>
+                    <span class="font-semibold">Solutions for Sales</span>
+                </div>
+                <p class="text-sm text-slate-400">Core sales solutions overview</p>
+            </a>
+            <a href="landing/solutions/preview-growth.html" class="card-hover bg-card-dark border border-white/10 rounded-xl p-5 block">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="material-symbols-outlined text-emerald-400">trending_up</span>
+                    <span class="font-semibold">Growth Solutions</span>
+                </div>
+                <p class="text-sm text-slate-400">Core solutions for growth teams</p>
+            </a>
+            <a href="landing/solutions/healthcare/preview.html" class="card-hover bg-card-dark border border-white/10 rounded-xl p-5 block">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="material-symbols-outlined text-emerald-400">health_and_safety</span>
+                    <span class="font-semibold">Healthcare Solutions</span>
+                </div>
+                <p class="text-sm text-slate-400">Healthcare &amp; Healthtech industry solutions</p>
+            </a>
+            <a href="landing/solutions/revops/preview.html" class="card-hover bg-card-dark border border-white/10 rounded-xl p-5 block">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="material-symbols-outlined text-emerald-400">analytics</span>
+                    <span class="font-semibold">RevOps Intelligence</span>
+                </div>
+                <p class="text-sm text-slate-400">Predictive intelligence for modern RevOps</p>
+            </a>
+            <a href="landing/use-cases/preview.html" class="card-hover bg-card-dark border border-white/10 rounded-xl p-5 block">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="material-symbols-outlined text-emerald-400">cases</span>
+                    <span class="font-semibold">Use Cases Overview</span>
+                </div>
+                <p class="text-sm text-slate-400">Comprehensive use case gallery</p>
+            </a>
+            <a href="landing/use-cases/preview-alt.html" class="card-hover bg-card-dark border border-white/10 rounded-xl p-5 block">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="material-symbols-outlined text-emerald-400">cases</span>
+                    <span class="font-semibold">Use Cases (Alt)</span>
+                </div>
+                <p class="text-sm text-slate-400">Why Choose Neural AI variant</p>
+            </a>
+            <a href="landing/resources/preview.html" class="card-hover bg-card-dark border border-white/10 rounded-xl p-5 block">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="material-symbols-outlined text-emerald-400">library_books</span>
+                    <span class="font-semibold">Resources Hub</span>
+                </div>
+                <p class="text-sm text-slate-400">Guides, templates, and learning resources</p>
+            </a>
+            <a href="landing/resources/academy/preview.html" class="card-hover bg-card-dark border border-white/10 rounded-xl p-5 block">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="material-symbols-outlined text-emerald-400">school</span>
+                    <span class="font-semibold">Academy - Cold Calling 101</span>
+                </div>
+                <p class="text-sm text-slate-400">Training course for cold calling mastery</p>
+            </a>
+            <a href="landing/partners/preview.html" class="card-hover bg-card-dark border border-white/10 rounded-xl p-5 block">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="material-symbols-outlined text-emerald-400">handshake</span>
+                    <span class="font-semibold">Partner Program</span>
+                </div>
+                <p class="text-sm text-slate-400">Partnership and referral program</p>
+            </a>
+            <a href="landing/partners/application-received/preview.html" class="card-hover bg-card-dark border border-white/10 rounded-xl p-5 block">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="material-symbols-outlined text-emerald-400">check_circle</span>
+                    <span class="font-semibold">Application Received</span>
+                </div>
+                <p class="text-sm text-slate-400">Partner application confirmation</p>
+            </a>
+        </div>
+    </section>
+
+    <!-- Phase 3: Prospecting & Discovery -->
+    <section class="mb-12">
+        <div class="flex items-center gap-3 mb-6">
+            <div class="w-8 h-8 rounded-full bg-violet-600 flex items-center justify-center text-sm font-bold text-white">3</div>
+            <h2 class="text-xl font-bold">Prospecting &amp; Discovery</h2>
+            <div class="h-px flex-1 bg-white/10"></div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <a href="(dashboard)/prospects/preview.html" class="card-hover bg-card-dark border border-white/10 rounded-xl p-5 block">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="material-symbols-outlined text-violet-400">person_search</span>
+                    <span class="font-semibold">B2B Intelligence Dashboard</span>
+                </div>
+                <p class="text-sm text-slate-400">Main prospect search and filtering</p>
+            </a>
+            <a href="(dashboard)/prospects/advanced/preview.html" class="card-hover bg-card-dark border border-white/10 rounded-xl p-5 block">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="material-symbols-outlined text-violet-400">tune</span>
+                    <span class="font-semibold">Advanced Prospecting</span>
+                </div>
+                <p class="text-sm text-slate-400">Deep firmographic and signal filters</p>
+            </a>
+            <a href="(dashboard)/prospects/discovery/preview.html" class="card-hover bg-card-dark border border-white/10 rounded-xl p-5 block">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="material-symbols-outlined text-violet-400">explore</span>
+                    <span class="font-semibold">Autonomous Lead Discovery</span>
+                </div>
+                <p class="text-sm text-slate-400">AI-powered lead discovery engine</p>
+            </a>
+            <a href="(dashboard)/prospects/discovery/preview-alt.html" class="card-hover bg-card-dark border border-white/10 rounded-xl p-5 block">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="material-symbols-outlined text-violet-400">explore</span>
+                    <span class="font-semibold">Lead Discovery (Alt)</span>
+                </div>
+                <p class="text-sm text-slate-400">Sales Auto AI discovery variant</p>
+            </a>
+            <a href="(dashboard)/prospects/preview-data-grid.html" class="card-hover bg-card-dark border border-white/10 rounded-xl p-5 block">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="material-symbols-outlined text-violet-400">grid_on</span>
+                    <span class="font-semibold">Data Grid View</span>
+                </div>
+                <p class="text-sm text-slate-400">Minimalist data-grid for prospect management</p>
+            </a>
+        </div>
+    </section>
+
+    <!-- Phase 4: Enrichment -->
+    <section class="mb-12">
+        <div class="flex items-center gap-3 mb-6">
+            <div class="w-8 h-8 rounded-full bg-amber-600 flex items-center justify-center text-sm font-bold text-white">4</div>
+            <h2 class="text-xl font-bold">Data Enrichment</h2>
+            <div class="h-px flex-1 bg-white/10"></div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <a href="(dashboard)/enrichment/preview.html" class="card-hover bg-card-dark border border-white/10 rounded-xl p-5 block">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="material-symbols-outlined text-amber-400">database</span>
+                    <span class="font-semibold">Data Enrichment Dashboard</span>
+                </div>
+                <p class="text-sm text-slate-400">Main enrichment workflow view</p>
+            </a>
+            <a href="(dashboard)/enrichment/results/preview.html" class="card-hover bg-card-dark border border-white/10 rounded-xl p-5 block">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="material-symbols-outlined text-amber-400">fact_check</span>
+                    <span class="font-semibold">Enrichment Results</span>
+                </div>
+                <p class="text-sm text-slate-400">Enrichment results and validation</p>
+            </a>
+            <a href="(dashboard)/enrichment/match-rate/preview.html" class="card-hover bg-card-dark border border-white/10 rounded-xl p-5 block">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="material-symbols-outlined text-amber-400">percent</span>
+                    <span class="font-semibold">93% Match Rate</span>
+                </div>
+                <p class="text-sm text-slate-400">Data match rate validation screen</p>
+            </a>
+            <a href="(dashboard)/enrichment/bulk-upload/preview.html" class="card-hover bg-card-dark border border-white/10 rounded-xl p-5 block">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="material-symbols-outlined text-amber-400">upload_file</span>
+                    <span class="font-semibold">Bulk Upload Results</span>
+                </div>
+                <p class="text-sm text-slate-400">Batch processing results view</p>
+            </a>
+        </div>
+    </section>
+
+    <!-- Phase 5: Campaigns & Engagement -->
+    <section class="mb-12">
+        <div class="flex items-center gap-3 mb-6">
+            <div class="w-8 h-8 rounded-full bg-orange-600 flex items-center justify-center text-sm font-bold text-white">5</div>
+            <h2 class="text-xl font-bold">Campaigns &amp; Engagement</h2>
+            <div class="h-px flex-1 bg-white/10"></div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <a href="(dashboard)/campaigns/preview.html" class="card-hover bg-card-dark border border-white/10 rounded-xl p-5 block">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="material-symbols-outlined text-orange-400">campaign</span>
+                    <span class="font-semibold">Campaign Dashboard</span>
+                </div>
+                <p class="text-sm text-slate-400">Campaign builder main view</p>
+            </a>
+            <a href="(dashboard)/campaigns/builder/preview.html" class="card-hover bg-card-dark border border-white/10 rounded-xl p-5 block">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="material-symbols-outlined text-orange-400">construction</span>
+                    <span class="font-semibold">Campaign Builder</span>
+                </div>
+                <p class="text-sm text-slate-400">Outreach sequence builder</p>
+            </a>
+            <a href="(dashboard)/campaigns/personalization/preview.html" class="card-hover bg-card-dark border border-white/10 rounded-xl p-5 block">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="material-symbols-outlined text-orange-400">person_pin</span>
+                    <span class="font-semibold">Campaign Personalization</span>
+                </div>
+                <p class="text-sm text-slate-400">AI-powered message personalization rules</p>
+            </a>
+            <a href="(dashboard)/campaigns/add-to-campaign.html" class="card-hover bg-card-dark border border-white/10 rounded-xl p-5 block">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="material-symbols-outlined text-orange-400">playlist_add</span>
+                    <span class="font-semibold">Add to Campaign</span>
+                </div>
+                <p class="text-sm text-slate-400">Add prospects to campaign flow</p>
+            </a>
+            <a href="(dashboard)/campaigns/review-launch/preview.html" class="card-hover bg-card-dark border border-white/10 rounded-xl p-5 block">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="material-symbols-outlined text-orange-400">rocket</span>
+                    <span class="font-semibold">Review &amp; Launch</span>
+                </div>
+                <p class="text-sm text-slate-400">Final review before campaign launch</p>
+            </a>
+            <a href="(dashboard)/sequences/preview.html" class="card-hover bg-card-dark border border-white/10 rounded-xl p-5 block">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="material-symbols-outlined text-orange-400">account_tree</span>
+                    <span class="font-semibold">Sequence Builder</span>
+                </div>
+                <p class="text-sm text-slate-400">Visual outreach flow designer</p>
+            </a>
+            <a href="(dashboard)/dialer/preview.html" class="card-hover bg-card-dark border border-white/10 rounded-xl p-5 block">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="material-symbols-outlined text-orange-400">call</span>
+                    <span class="font-semibold">AI Power Dialer</span>
+                </div>
+                <p class="text-sm text-slate-400">AI-assisted calling interface</p>
+            </a>
+            <a href="(dashboard)/dialer/live/preview.html" class="card-hover bg-card-dark border border-white/10 rounded-xl p-5 block">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="material-symbols-outlined text-orange-400">phone_in_talk</span>
+                    <span class="font-semibold">Live Dialer Experience</span>
+                </div>
+                <p class="text-sm text-slate-400">Active call with real-time AI coaching</p>
+            </a>
+            <a href="(dashboard)/prompts/preview.html" class="card-hover bg-card-dark border border-white/10 rounded-xl p-5 block">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="material-symbols-outlined text-orange-400">auto_awesome</span>
+                    <span class="font-semibold">Prompt Library</span>
+                </div>
+                <p class="text-sm text-slate-400">AI prompt templates and management</p>
+            </a>
+        </div>
+    </section>
+
+    <!-- Phase 6: Revenue Intelligence -->
+    <section class="mb-12">
+        <div class="flex items-center gap-3 mb-6">
+            <div class="w-8 h-8 rounded-full bg-purple-600 flex items-center justify-center text-sm font-bold text-white">6</div>
+            <h2 class="text-xl font-bold">Revenue Intelligence</h2>
+            <div class="h-px flex-1 bg-white/10"></div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <a href="(dashboard)/intelligence/preview.html" class="card-hover bg-card-dark border border-white/10 rounded-xl p-5 block">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="material-symbols-outlined text-purple-400">psychology</span>
+                    <span class="font-semibold">Sales Intelligence</span>
+                </div>
+                <p class="text-sm text-slate-400">Meeting intelligence and call analysis</p>
+            </a>
+            <a href="(dashboard)/intelligence/deal-deep-dive/preview.html" class="card-hover bg-card-dark border border-white/10 rounded-xl p-5 block">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="material-symbols-outlined text-purple-400">search_insights</span>
+                    <span class="font-semibold">Deal Deep Dive</span>
+                </div>
+                <p class="text-sm text-slate-400">Detailed deal analysis and insights</p>
+            </a>
+            <a href="(dashboard)/intelligence/deal-deep-dive/preview-alt.html" class="card-hover bg-card-dark border border-white/10 rounded-xl p-5 block">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="material-symbols-outlined text-purple-400">search_insights</span>
+                    <span class="font-semibold">Deal Deep Dive (Alt)</span>
+                </div>
+                <p class="text-sm text-slate-400">Alternative deal analysis view</p>
+            </a>
+            <a href="(dashboard)/intelligence/deal-risk/preview.html" class="card-hover bg-card-dark border border-white/10 rounded-xl p-5 block">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="material-symbols-outlined text-purple-400">warning</span>
+                    <span class="font-semibold">Deal Risk Analysis</span>
+                </div>
+                <p class="text-sm text-slate-400">Proactive deal risk detection</p>
+            </a>
+            <a href="(dashboard)/intelligence/risk-detail/preview.html" class="card-hover bg-card-dark border border-white/10 rounded-xl p-5 block">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="material-symbols-outlined text-purple-400">shield</span>
+                    <span class="font-semibold">Risk Detail View</span>
+                </div>
+                <p class="text-sm text-slate-400">Individual risk factor breakdown</p>
+            </a>
+            <a href="(dashboard)/intelligence/next-best-action/preview.html" class="card-hover bg-card-dark border border-white/10 rounded-xl p-5 block">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="material-symbols-outlined text-purple-400">assistant</span>
+                    <span class="font-semibold">Next Best Action</span>
+                </div>
+                <p class="text-sm text-slate-400">AI-recommended next steps for deals</p>
+            </a>
+            <a href="(dashboard)/intelligence/deal-monitor/preview.html" class="card-hover bg-card-dark border border-white/10 rounded-xl p-5 block">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="material-symbols-outlined text-purple-400">monitor_heart</span>
+                    <span class="font-semibold">Deal Monitor</span>
+                </div>
+                <p class="text-sm text-slate-400">Real-time deal health monitoring</p>
+            </a>
+        </div>
+    </section>
+
+    <!-- Phase 7: Analytics & Team -->
+    <section class="mb-12">
+        <div class="flex items-center gap-3 mb-6">
+            <div class="w-8 h-8 rounded-full bg-cyan-600 flex items-center justify-center text-sm font-bold text-white">7</div>
+            <h2 class="text-xl font-bold">Analytics &amp; Team</h2>
+            <div class="h-px flex-1 bg-white/10"></div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <a href="(dashboard)/analytics/team-goals/preview.html" class="card-hover bg-card-dark border border-white/10 rounded-xl p-5 block">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="material-symbols-outlined text-cyan-400">flag</span>
+                    <span class="font-semibold">Team Goals Dashboard</span>
+                </div>
+                <p class="text-sm text-slate-400">Team performance and goal tracking</p>
+            </a>
+            <a href="(dashboard)/settings/team/invite/preview.html" class="card-hover bg-card-dark border border-white/10 rounded-xl p-5 block">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="material-symbols-outlined text-cyan-400">person_add</span>
+                    <span class="font-semibold">Invite Team Member</span>
+                </div>
+                <p class="text-sm text-slate-400">Team member invitation form</p>
+            </a>
+            <a href="(dashboard)/settings/team/invite-success/preview.html" class="card-hover bg-card-dark border border-white/10 rounded-xl p-5 block">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="material-symbols-outlined text-cyan-400">group_add</span>
+                    <span class="font-semibold">Invitation Success</span>
+                </div>
+                <p class="text-sm text-slate-400">Confirmation after sending invite</p>
+            </a>
+            <a href="(dashboard)/settings/team/invite-success/preview-alt.html" class="card-hover bg-card-dark border border-white/10 rounded-xl p-5 block">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="material-symbols-outlined text-cyan-400">group_add</span>
+                    <span class="font-semibold">Invitation Success (Alt)</span>
+                </div>
+                <p class="text-sm text-slate-400">Alternative invitation confirmation</p>
+            </a>
+        </div>
+    </section>
+
+    <!-- Phase 8: Settings & Billing -->
+    <section class="mb-12">
+        <div class="flex items-center gap-3 mb-6">
+            <div class="w-8 h-8 rounded-full bg-rose-600 flex items-center justify-center text-sm font-bold text-white">8</div>
+            <h2 class="text-xl font-bold">Settings &amp; Billing</h2>
+            <div class="h-px flex-1 bg-white/10"></div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <a href="(dashboard)/settings/security/preview.html" class="card-hover bg-card-dark border border-white/10 rounded-xl p-5 block">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="material-symbols-outlined text-rose-400">security</span>
+                    <span class="font-semibold">Security Settings</span>
+                </div>
+                <p class="text-sm text-slate-400">Authentication and security configuration</p>
+            </a>
+            <a href="(dashboard)/settings/billing/credits/preview.html" class="card-hover bg-card-dark border border-white/10 rounded-xl p-5 block">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="material-symbols-outlined text-rose-400">credit_card</span>
+                    <span class="font-semibold">Credit Usage History</span>
+                </div>
+                <p class="text-sm text-slate-400">Credit consumption tracking</p>
+            </a>
+            <a href="(dashboard)/settings/billing/top-up/preview.html" class="card-hover bg-card-dark border border-white/10 rounded-xl p-5 block">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="material-symbols-outlined text-rose-400">add_card</span>
+                    <span class="font-semibold">Top Up Credits</span>
+                </div>
+                <p class="text-sm text-slate-400">Purchase additional credits</p>
+            </a>
+            <a href="(dashboard)/settings/billing/checkout/preview.html" class="card-hover bg-card-dark border border-white/10 rounded-xl p-5 block">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="material-symbols-outlined text-rose-400">shopping_cart</span>
+                    <span class="font-semibold">Secure Checkout</span>
+                </div>
+                <p class="text-sm text-slate-400">Payment processing flow</p>
+            </a>
+            <a href="(dashboard)/settings/billing/usage/preview.html" class="card-hover bg-card-dark border border-white/10 rounded-xl p-5 block">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="material-symbols-outlined text-rose-400">data_usage</span>
+                    <span class="font-semibold">Usage Dashboard</span>
+                </div>
+                <p class="text-sm text-slate-400">Overall platform usage metrics</p>
+            </a>
+            <a href="(dashboard)/settings/billing/trial-expired/preview.html" class="card-hover bg-card-dark border border-white/10 rounded-xl p-5 block">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="material-symbols-outlined text-rose-400">timer_off</span>
+                    <span class="font-semibold">Trial Expired</span>
+                </div>
+                <p class="text-sm text-slate-400">Trial expiration upgrade prompt</p>
+            </a>
+        </div>
+    </section>
+
+    <!-- Roadmap -->
+    <section class="mb-12">
+        <div class="flex items-center gap-3 mb-6">
+            <div class="w-8 h-8 rounded-full bg-slate-600 flex items-center justify-center text-sm font-bold text-white"><span class="material-symbols-outlined text-base">map</span></div>
+            <h2 class="text-xl font-bold">Product Roadmap</h2>
+            <div class="h-px flex-1 bg-white/10"></div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <a href="../../docs/roadmap-prototype.html" class="card-hover bg-card-dark border border-white/10 rounded-xl p-5 block">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="material-symbols-outlined text-slate-400">route</span>
+                    <span class="font-semibold">Product Prototype Roadmap</span>
+                </div>
+                <p class="text-sm text-slate-400">End-to-end user journey and technical workflow</p>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/10 pt-8 text-center text-sm text-slate-500">
+        <p>&copy; 2026 Neural AI Technologies Inc. All rights reserved.</p>
+        <p class="mt-2">Prototype Sitemap &mdash; <span id="total-count"></span> screens</p>
+    </footer>
+</div>
+
+<script>
+    const links = document.querySelectorAll('a[href$=".html"]');
+    document.getElementById('page-count').textContent = links.length;
+    document.getElementById('total-count').textContent = links.length;
+</script>
+</body>
+</html>

@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Security Settings | Neural AI</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1978e5",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#111821",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display">
+<div class="flex min-h-screen">
+<!-- SideNavBar -->
+<aside class="w-64 border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 flex flex-col fixed h-full">
+<div class="p-6 flex items-center gap-3">
+<div class="size-10 bg-primary rounded-lg flex items-center justify-center text-white">
+<span class="material-symbols-outlined">hub</span>
+</div>
+<div>
+<h1 class="text-slate-900 dark:text-white text-base font-bold leading-none">Neural AI</h1>
+<p class="text-slate-500 text-xs mt-1">Revenue OS</p>
+</div>
+</div>
+<nav class="flex-1 px-4 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">account_tree</span>
+<span class="text-sm font-medium">Workflows</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">database</span>
+<span class="text-sm font-medium">Data Enrichment</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 bg-primary/10 text-primary rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">shield</span>
+<span class="text-sm font-medium">Security</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">group</span>
+<span class="text-sm font-medium">Team</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">key</span>
+<span class="text-sm font-medium">API Settings</span>
+</a>
+</nav>
+<div class="p-4 border-t border-slate-200 dark:border-slate-800">
+<div class="flex items-center gap-3 px-2 py-2">
+<div class="size-8 rounded-full bg-slate-200 overflow-hidden">
+<img alt="User Avatar" data-alt="User profile avatar of a professional" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_ilrD_Pb0nqsCS7hfq5PuZzuGQ9bqFaVtes29XMyUzwJpuOYXT7SYafOXaxQWrKs4CPKNhNoZ41ACMLpNV4jCSE4u3a9WZnaqGcCym81Ojdbqp1oTkL03p9AVsqYphd58vMWkFPlz_jy2bmg5hm610sedN51WAY57oX7U_nvUqUCNaPDIsuYQzEfdZyFlpE73kbMighYbeWOzhxM4ix9JRJYop7uEVq6bGxadwWk0Bawmxk72zXTnHOTHMqvrUvKOjYPpOGxG67o"/>
+</div>
+<div class="flex-1 overflow-hidden">
+<p class="text-xs font-semibold truncate">Alex Rivera</p>
+<p class="text-[10px] text-slate-500 truncate">Admin Access</p>
+</div>
+<span class="material-symbols-outlined text-slate-400 text-sm">settings</span>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 ml-64 flex flex-col">
+<!-- Header -->
+<header class="h-16 border-b border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md sticky top-0 z-10 px-8 flex items-center justify-between">
+<div class="flex items-center gap-2 text-sm text-slate-500">
+<span>Settings</span>
+<span class="material-symbols-outlined text-xs">chevron_right</span>
+<span class="text-slate-900 dark:text-white font-medium">Security &amp; Authentication</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">search</span>
+<input class="pl-10 pr-4 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-sm focus:ring-2 focus:ring-primary/20 outline-none w-64" placeholder="Search security settings..." type="text"/>
+</div>
+<button class="size-8 flex items-center justify-center rounded-lg border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800">
+<span class="material-symbols-outlined text-[20px]">notifications</span>
+</button>
+</div>
+</header>
+<div class="p-8 max-w-5xl mx-auto w-full space-y-8 pb-20">
+<!-- Title Section -->
+<div class="flex justify-between items-end">
+<div>
+<h2 class="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">Security &amp; Authentication</h2>
+<p class="text-slate-500 mt-2">Manage your account security, SSO integrations, and monitor active access sessions.</p>
+</div>
+<div class="flex gap-3">
+<button class="px-4 py-2 text-sm font-semibold border border-slate-200 dark:border-slate-700 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">Download Report</button>
+<button class="px-4 py-2 text-sm font-semibold bg-primary text-white rounded-lg hover:bg-primary/90 transition-shadow shadow-sm">Review Incidents</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- 2FA Section -->
+<section class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 p-6 shadow-sm">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-lg bg-green-50 dark:bg-green-900/20 flex items-center justify-center text-green-600">
+<span class="material-symbols-outlined">verified_user</span>
+</div>
+<div>
+<h3 class="font-bold text-slate-900 dark:text-white leading-none">Two-Factor Authentication</h3>
+<p class="text-xs text-green-600 mt-1 font-medium flex items-center gap-1">
+<span class="size-1.5 rounded-full bg-green-600"></span> Enabled
+                                </p>
+</div>
+</div>
+<button class="text-xs font-semibold text-primary hover:underline">Change Method</button>
+</div>
+<p class="text-sm text-slate-500 mb-6">Secure your account with an additional layer of verification. Currently using Google Authenticator.</p>
+<div class="space-y-3">
+<div class="p-3 rounded-lg border border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/30 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-slate-400">key_visualizer</span>
+<span class="text-sm font-medium">Backup Codes</span>
+</div>
+<button class="px-3 py-1 text-xs font-bold bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded">Regenerate</button>
+</div>
+<p class="text-[11px] text-slate-400 italic">8 backup codes remaining. Keep these in a safe place.</p>
+</div>
+</section>
+<!-- Password Management -->
+<section class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 p-6 shadow-sm">
+<div class="flex items-center gap-3 mb-4">
+<div class="size-10 rounded-lg bg-primary/5 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">lock_reset</span>
+</div>
+<h3 class="font-bold text-slate-900 dark:text-white">Password Management</h3>
+</div>
+<div class="space-y-4">
+<div class="space-y-1">
+<div class="flex justify-between text-xs mb-1">
+<span class="text-slate-500">Current Strength</span>
+<span class="text-green-600 font-bold uppercase">Strong</span>
+</div>
+<div class="h-1.5 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+<div class="h-full bg-green-500 rounded-full" style="width: 85%"></div>
+</div>
+</div>
+<p class="text-sm text-slate-500">Last changed 42 days ago. We recommend updating your password every 90 days.</p>
+<button class="w-full py-2 text-sm font-semibold border border-primary text-primary rounded-lg hover:bg-primary/5 transition-colors">Update Password</button>
+</div>
+</section>
+<!-- SSO Configuration -->
+<section class="md:col-span-2 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 p-6 shadow-sm">
+<div class="flex items-center justify-between mb-6">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-lg bg-orange-50 dark:bg-orange-900/20 flex items-center justify-center text-orange-600">
+<span class="material-symbols-outlined">corporate_fare</span>
+</div>
+<div>
+<h3 class="font-bold text-slate-900 dark:text-white">Single Sign-On (SSO)</h3>
+<p class="text-xs text-slate-500 mt-1">Enterprise-grade authentication for your team</p>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">ADMIN ONLY</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<div class="p-4 rounded-xl border border-slate-200 dark:border-slate-800 hover:border-primary/50 transition-all group">
+<div class="flex justify-between items-start mb-3">
+<div class="size-8 bg-slate-50 dark:bg-slate-800 rounded flex items-center justify-center grayscale group-hover:grayscale-0 transition-all">
+<span class="material-symbols-outlined text-primary">security_update_good</span>
+</div>
+<span class="text-[10px] font-bold text-green-600 bg-green-50 dark:bg-green-900/20 px-1.5 py-0.5 rounded">ACTIVE</span>
+</div>
+<p class="font-bold text-sm mb-1">SAML 2.0</p>
+<p class="text-xs text-slate-500 mb-4">Neural-ai.com domain verified</p>
+<button class="text-xs font-bold text-slate-400 hover:text-primary transition-colors">Configure Settings</button>
+</div>
+<div class="p-4 rounded-xl border border-dashed border-slate-300 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all flex flex-col justify-center items-center py-8">
+<span class="material-symbols-outlined text-slate-400 mb-2">add_circle</span>
+<p class="font-bold text-sm mb-1">Google Workspace</p>
+<button class="text-xs font-bold text-primary">Connect</button>
+</div>
+<div class="p-4 rounded-xl border border-dashed border-slate-300 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all flex flex-col justify-center items-center py-8">
+<span class="material-symbols-outlined text-slate-400 mb-2">add_circle</span>
+<p class="font-bold text-sm mb-1">Okta / Auth0</p>
+<button class="text-xs font-bold text-primary">Connect</button>
+</div>
+</div>
+</section>
+<!-- Active Sessions -->
+<section class="md:col-span-2 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm">
+<div class="p-6 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between">
+<h3 class="font-bold text-slate-900 dark:text-white flex items-center gap-2">
+<span class="material-symbols-outlined text-slate-400">devices</span>
+                            Active Sessions
+                        </h3>
+<button class="text-xs font-bold text-red-500 hover:text-red-600">Logout of all other devices</button>
+</div>
+<div class="divide-y divide-slate-100 dark:divide-slate-800">
+<!-- Current Session -->
+<div class="p-4 flex items-center justify-between hover:bg-slate-50/50 dark:hover:bg-slate-800/50 transition-colors">
+<div class="flex items-center gap-4">
+<div class="size-10 bg-slate-100 dark:bg-slate-800 rounded-lg flex items-center justify-center text-slate-600">
+<span class="material-symbols-outlined">laptop_mac</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<p class="text-sm font-bold">MacBook Pro 16" - Chrome</p>
+<span class="text-[10px] px-1.5 py-0.5 rounded bg-blue-100 text-blue-700 font-bold">THIS DEVICE</span>
+</div>
+<p class="text-xs text-slate-500">San Francisco, USA • 192.168.1.1</p>
+</div>
+</div>
+<p class="text-xs text-slate-400">Active now</p>
+</div>
+<!-- Other Session -->
+<div class="p-4 flex items-center justify-between hover:bg-slate-50/50 dark:hover:bg-slate-800/50 transition-colors">
+<div class="flex items-center gap-4">
+<div class="size-10 bg-slate-100 dark:bg-slate-800 rounded-lg flex items-center justify-center text-slate-600">
+<span class="material-symbols-outlined">smartphone</span>
+</div>
+<div>
+<p class="text-sm font-bold">iPhone 15 Pro - Neural Mobile App</p>
+<p class="text-xs text-slate-500">New York, USA • 172.16.254.1</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<p class="text-xs text-slate-400">3 hours ago</p>
+<button class="text-xs font-bold text-slate-600 hover:text-red-500">Revoke</button>
+</div>
+</div>
+</div>
+</section>
+<!-- API Security -->
+<section class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 p-6 shadow-sm">
+<div class="flex items-center gap-3 mb-6">
+<div class="size-10 rounded-lg bg-indigo-50 dark:bg-indigo-900/20 flex items-center justify-center text-indigo-600">
+<span class="material-symbols-outlined">api</span>
+</div>
+<h3 class="font-bold text-slate-900 dark:text-white">API Security</h3>
+</div>
+<div class="space-y-4">
+<div class="p-3 rounded-lg border border-slate-100 dark:border-slate-800">
+<div class="flex justify-between items-center mb-1">
+<p class="text-xs font-bold text-slate-500">Live API Key</p>
+<span class="text-[10px] text-slate-400">Used 2m ago</span>
+</div>
+<div class="flex items-center gap-2">
+<code class="text-xs bg-slate-50 dark:bg-slate-800 px-2 py-1 rounded flex-1 truncate">sk_live_51Mv9...p9z2</code>
+<button class="material-symbols-outlined text-slate-400 text-lg hover:text-primary">content_copy</button>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="flex-1 py-2 text-xs font-bold border border-slate-200 dark:border-slate-700 rounded-lg hover:bg-slate-50 transition-colors">Rotate Key</button>
+<button class="flex-1 py-2 text-xs font-bold bg-slate-900 dark:bg-slate-700 text-white rounded-lg hover:bg-slate-800 transition-colors">Manage Secrets</button>
+</div>
+</div>
+</section>
+<!-- Security Audit Log -->
+<section class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 p-6 shadow-sm">
+<div class="flex items-center justify-between mb-6">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600">
+<span class="material-symbols-outlined">history_edu</span>
+</div>
+<h3 class="font-bold text-slate-900 dark:text-white">Security Audit Log</h3>
+</div>
+<button class="text-xs font-bold text-primary hover:underline">View All</button>
+</div>
+<div class="space-y-4">
+<div class="flex gap-3 items-start">
+<div class="size-2 rounded-full bg-green-500 mt-1.5 shrink-0"></div>
+<div>
+<p class="text-xs font-medium">Successful login from New Device</p>
+<p class="text-[10px] text-slate-400">Today at 9:42 AM • Chrome on MacOS</p>
+</div>
+</div>
+<div class="flex gap-3 items-start">
+<div class="size-2 rounded-full bg-orange-400 mt-1.5 shrink-0"></div>
+<div>
+<p class="text-xs font-medium">2FA method updated</p>
+<p class="text-[10px] text-slate-400">Yesterday at 4:15 PM</p>
+</div>
+</div>
+<div class="flex gap-3 items-start">
+<div class="size-2 rounded-full bg-slate-300 mt-1.5 shrink-0"></div>
+<div>
+<p class="text-xs font-medium">API key sk_live_... rotated</p>
+<p class="text-[10px] text-slate-400">Oct 24, 2023 at 11:20 AM</p>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Footer Help -->
+<div class="bg-primary/5 rounded-xl p-6 border border-primary/10 flex items-center gap-6">
+<div class="size-12 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-2xl">help</span>
+</div>
+<div class="flex-1">
+<h4 class="font-bold text-slate-900 dark:text-white">Confused about security policies?</h4>
+<p class="text-sm text-slate-600 dark:text-slate-400">Read our <a class="text-primary hover:underline" href="#">Security Best Practices Guide</a> or contact our compliance team for assistance with enterprise setups.</p>
+</div>
+<button class="px-4 py-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-bold rounded-lg hover:shadow-md transition-all shrink-0">Talk to Support</button>
+</div>
+</div>
+</main>
+</div>
+<script src="../../../prototype-nav.js"></script>
+</body></html>

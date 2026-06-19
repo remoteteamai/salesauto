@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1978e5",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#111821",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #d1d5db;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased">
+<div class="relative flex h-screen w-full flex-col overflow-hidden">
+<!-- Top Navigation Bar -->
+<header class="flex h-16 items-center justify-between border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-6 shrink-0 z-20">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-3">
+<div class="flex items-center justify-center size-9 bg-primary rounded-lg text-white">
+<span class="material-symbols-outlined !text-2xl">neurology</span>
+</div>
+<h2 class="text-xl font-bold tracking-tight">Neural AI</h2>
+</div>
+<nav class="hidden md:flex items-center gap-1">
+<button class="flex items-center gap-2 px-3 py-2 rounded-lg bg-primary/10 text-primary font-semibold text-sm">
+<span class="material-symbols-outlined !text-xl">dashboard</span> Dashboard
+                </button>
+<button class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 font-medium text-sm transition-colors">
+<span class="material-symbols-outlined !text-xl">handshake</span> Deals
+                </button>
+<button class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 font-medium text-sm transition-colors">
+<span class="material-symbols-outlined !text-xl">monitoring</span> Analytics
+                </button>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+<input class="h-10 w-64 rounded-xl border-none bg-slate-100 dark:bg-slate-800 pl-10 pr-4 text-sm focus:ring-2 focus:ring-primary/50 transition-all" placeholder="Search pipeline..." type="text"/>
+</div>
+<div class="flex items-center gap-2 border-l border-slate-200 dark:border-slate-800 ml-2 pl-4">
+<button class="p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="size-9 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden ml-2 ring-2 ring-primary/20" data-alt="User profile professional portrait">
+<img alt="Avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZquSshxxtiy_VIofnx69RfIGqvR0TzGDnN3zapRMzNlakCAdY_ehU2GIhUL4Mzr2KwF3ubNlyHoSHj8Kwinbq8c6Ljm52rXG2Nu0Ispaf2qHvRYo32dBReotFbrWAV8hBadzPjX4X7Nw2b2GKI7X4HQBbv3ZEZEh3taIG_KiK4uNQoGsFPsNhcyjHy8Qs3FbqNKVzKrOZANxUFLH8GR0GZxYyABuj6mQYJaeq166XOchF3q-OpIsTvqHe1Yr0UDZvGdlWVzTPNOw"/>
+</div>
+</div>
+</div>
+</header>
+<div class="flex flex-1 overflow-hidden">
+<!-- Sidebar Navigation -->
+<aside class="hidden lg:flex w-64 flex-col border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 overflow-y-auto shrink-0">
+<div class="p-6">
+<p class="text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-4">Pipeline Overview</p>
+<div class="space-y-1">
+<a class="flex items-center justify-between group px-3 py-2.5 rounded-xl bg-primary text-white shadow-lg shadow-primary/20 transition-all" href="#">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined !text-xl">view_kanban</span>
+<span class="text-sm font-semibold">Deal Monitor</span>
+</div>
+<span class="text-[10px] bg-white/20 px-1.5 py-0.5 rounded font-bold">12</span>
+</a>
+<a class="flex items-center justify-between group px-3 py-2.5 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-all" href="#">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined !text-xl">warning</span>
+<span class="text-sm font-medium">At-Risk Deals</span>
+</div>
+<span class="text-[10px] bg-red-100 text-red-600 px-1.5 py-0.5 rounded font-bold">4</span>
+</a>
+<a class="flex items-center justify-between group px-3 py-2.5 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-all" href="#">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined !text-xl">trending_up</span>
+<span class="text-sm font-medium">Forecast</span>
+</div>
+</a>
+</div>
+<div class="mt-8">
+<p class="text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-4">Teams &amp; Markets</p>
+<div class="space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/50" href="#">
+<div class="size-2 rounded-full bg-blue-500"></div>
+<span class="text-sm font-medium">North America Enterprise</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/50" href="#">
+<div class="size-2 rounded-full bg-emerald-500"></div>
+<span class="text-sm font-medium">EMEA Strategic</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/50" href="#">
+<div class="size-2 rounded-full bg-amber-500"></div>
+<span class="text-sm font-medium">APAC High Growth</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Ask Neural AI Section -->
+<div class="mt-auto p-4 border-t border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/20">
+<div class="rounded-xl bg-white dark:bg-slate-900 p-4 border border-primary/20 shadow-sm">
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-primary !text-lg">psychology</span>
+<p class="text-xs font-bold text-slate-900 dark:text-slate-100 uppercase tracking-tighter">Ask Neural AI</p>
+</div>
+<div class="relative">
+<textarea class="w-full text-xs bg-slate-50 dark:bg-slate-800 border-none rounded-lg p-2 focus:ring-1 focus:ring-primary resize-none placeholder:italic" placeholder="Query your pipeline..." rows="2"></textarea>
+<button class="absolute bottom-2 right-2 text-primary">
+<span class="material-symbols-outlined !text-lg">send</span>
+</button>
+</div>
+<p class="text-[9px] text-slate-400 mt-2 leading-tight">Try: "Show me deals closing in Q3 with no activity in 7 days"</p>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col min-w-0 bg-slate-50/50 dark:bg-slate-950 overflow-hidden">
+<!-- Secondary Header -->
+<div class="px-8 pt-8 pb-4 shrink-0">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<div class="flex items-center gap-2 text-sm text-slate-500 mb-1">
+<span>Workspace</span>
+<span class="material-symbols-outlined !text-xs">chevron_right</span>
+<span class="font-medium text-slate-900 dark:text-slate-100">Revenue Operations</span>
+</div>
+<h1 class="text-3xl font-black text-slate-900 dark:text-slate-100 tracking-tight">Deal Monitor</h1>
+<p class="text-slate-500 mt-1 max-w-lg">Unified CRM view with predictive health scoring and risk detection.</p>
+</div>
+<div class="flex items-center gap-3">
+<button class="flex items-center gap-2 px-4 py-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl text-sm font-semibold hover:bg-slate-50 transition-colors">
+<span class="material-symbols-outlined !text-xl">filter_list</span> Filter
+                        </button>
+<button class="flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-xl text-sm font-semibold shadow-lg shadow-primary/30 hover:bg-primary/90 transition-all">
+<span class="material-symbols-outlined !text-xl">add</span> Create Deal
+                        </button>
+</div>
+</div>
+<!-- Stats Summary -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-8">
+<div class="p-4 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+<p class="text-xs font-medium text-slate-500 uppercase tracking-wider">Total Pipeline</p>
+<div class="flex items-end justify-between mt-2">
+<h3 class="text-2xl font-bold text-slate-900 dark:text-slate-100">$4.24M</h3>
+<span class="text-xs font-bold text-emerald-500 flex items-center gap-0.5">+12.4% <span class="material-symbols-outlined !text-sm">arrow_upward</span></span>
+</div>
+</div>
+<div class="p-4 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+<p class="text-xs font-medium text-slate-500 uppercase tracking-wider">Weighted Forecast</p>
+<div class="flex items-end justify-between mt-2">
+<h3 class="text-2xl font-bold text-slate-900 dark:text-slate-100">$2.18M</h3>
+<span class="text-xs font-bold text-slate-400 flex items-center gap-0.5">Stable <span class="material-symbols-outlined !text-sm">trending_flat</span></span>
+</div>
+</div>
+<div class="p-4 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm ring-1 ring-red-500/20">
+<p class="text-xs font-medium text-slate-500 uppercase tracking-wider">At-Risk Value</p>
+<div class="flex items-end justify-between mt-2">
+<h3 class="text-2xl font-bold text-red-500">$840K</h3>
+<span class="text-xs font-bold text-red-500 flex items-center gap-0.5">4 Deals <span class="material-symbols-outlined !text-sm">priority_high</span></span>
+</div>
+</div>
+<div class="p-4 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+<p class="text-xs font-medium text-slate-500 uppercase tracking-wider">Avg Deal Cycle</p>
+<div class="flex items-end justify-between mt-2">
+<h3 class="text-2xl font-bold text-slate-900 dark:text-slate-100">42 Days</h3>
+<span class="text-xs font-bold text-emerald-500 flex items-center gap-0.5">-3 Days <span class="material-symbols-outlined !text-sm">arrow_downward</span></span>
+</div>
+</div>
+</div>
+</div>
+<!-- Kanban Board -->
+<div class="flex-1 overflow-x-auto px-8 pb-8">
+<div class="flex h-full gap-6 min-w-max">
+<!-- Column: Discovery -->
+<div class="flex flex-col w-80 shrink-0">
+<div class="flex items-center justify-between mb-4 px-2">
+<div class="flex items-center gap-2">
+<span class="text-sm font-bold text-slate-900 dark:text-slate-100">Discovery</span>
+<span class="px-2 py-0.5 bg-slate-200 dark:bg-slate-800 rounded-full text-[10px] font-bold">4</span>
+</div>
+<span class="text-xs font-medium text-slate-400">$1.2M</span>
+</div>
+<div class="flex flex-col gap-3 h-full overflow-y-auto pr-1">
+<!-- Card 1 -->
+<div class="bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm hover:border-primary/50 cursor-pointer group transition-all">
+<div class="flex justify-between items-start mb-2">
+<span class="text-[10px] font-bold text-primary uppercase tracking-wider">Acme Corp</span>
+<span class="material-symbols-outlined !text-lg text-slate-300 group-hover:text-primary transition-colors">more_horiz</span>
+</div>
+<h4 class="text-sm font-bold text-slate-900 dark:text-slate-100 leading-tight">Enterprise Global Platform Expansion</h4>
+<div class="mt-4 flex items-center justify-between">
+<span class="text-sm font-bold text-slate-900 dark:text-slate-100">$450,000</span>
+<div class="size-7 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center border border-white dark:border-slate-900">
+<span class="text-[10px] font-bold">JD</span>
+</div>
+</div>
+<div class="mt-3 pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center gap-3">
+<div class="flex items-center gap-1 text-[10px] font-medium text-slate-400">
+<span class="material-symbols-outlined !text-sm">calendar_today</span> Oct 12
+                                    </div>
+<div class="flex items-center gap-1 text-[10px] font-medium text-slate-400">
+<span class="material-symbols-outlined !text-sm">chat_bubble</span> 3
+                                    </div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm hover:border-primary/50 cursor-pointer transition-all">
+<div class="flex justify-between items-start mb-2">
+<span class="text-[10px] font-bold text-primary uppercase tracking-wider">Globex Ltd</span>
+<span class="px-1.5 py-0.5 bg-red-100 text-red-600 rounded text-[9px] font-bold">STALLED</span>
+</div>
+<h4 class="text-sm font-bold text-slate-900 dark:text-slate-100 leading-tight">Q4 Software Renewal</h4>
+<div class="mt-4 flex items-center justify-between">
+<span class="text-sm font-bold text-slate-900 dark:text-slate-100">$125,000</span>
+<div class="size-7 rounded-full bg-slate-100 dark:bg-slate-800 overflow-hidden ring-2 ring-red-500/20" data-alt="Account executive headshot">
+<img alt="AE" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbcEBCICRFq89hJ_UBcYW2sHMOv-pQWAe3QI-lwMec3G9s5Y4WrdC6x-1WjLvajO2yxinVPQO_BtvlNiS_T7tZ3j9elU1NbeuglXmJZ4ADjXLCJ8Ne05QVPPRUwn5Xa_iC-YSn6rMD2QU2-kriWUmR2B3bU51zsmCbVmVgbeVr_nDFdCA84iDQ7b9vukixKEwbO0KajdI60-SjIOQ6TqAZD2KUKliP9DkDJz5mfCN0qEikst2a8mAMJ6-l4gcT_AinunQAl62cvh0"/>
+</div>
+</div>
+<div class="mt-3 flex items-center gap-2">
+<div class="flex-1 h-1 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+<div class="w-1/4 h-full bg-red-500"></div>
+</div>
+<span class="text-[9px] font-bold text-red-500">LOW ACTIVITY</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Column: Evaluation -->
+<div class="flex flex-col w-80 shrink-0">
+<div class="flex items-center justify-between mb-4 px-2">
+<div class="flex items-center gap-2">
+<span class="text-sm font-bold text-slate-900 dark:text-slate-100">Evaluation</span>
+<span class="px-2 py-0.5 bg-slate-200 dark:bg-slate-800 rounded-full text-[10px] font-bold">3</span>
+</div>
+<span class="text-xs font-medium text-slate-400">$820K</span>
+</div>
+<div class="flex flex-col gap-3 h-full overflow-y-auto pr-1">
+<!-- Card 1 -->
+<div class="bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm border-l-4 border-l-primary cursor-pointer transition-all">
+<div class="flex justify-between items-start mb-2">
+<span class="text-[10px] font-bold text-primary uppercase tracking-wider">Initech</span>
+<span class="px-1.5 py-0.5 bg-emerald-100 text-emerald-600 rounded text-[9px] font-bold">TECH WIN</span>
+</div>
+<h4 class="text-sm font-bold text-slate-900 dark:text-slate-100 leading-tight">Infrastructure Modernization</h4>
+<div class="mt-4 flex items-center justify-between">
+<span class="text-sm font-bold text-slate-900 dark:text-slate-100">$290,000</span>
+<div class="size-7 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center">
+<span class="text-[10px] font-bold">AM</span>
+</div>
+</div>
+</div>
+<!-- At-Risk Card -->
+<div class="bg-red-50/50 dark:bg-red-950/20 p-4 rounded-xl border border-red-200 dark:border-red-900/50 shadow-sm relative overflow-hidden cursor-pointer group">
+<div class="absolute top-0 right-0 p-1.5">
+<span class="material-symbols-outlined text-red-500 !text-xl">priority_high</span>
+</div>
+<div class="flex justify-between items-start mb-2">
+<span class="text-[10px] font-bold text-red-600 dark:text-red-400 uppercase tracking-wider">Wayne Ent.</span>
+</div>
+<h4 class="text-sm font-bold text-slate-900 dark:text-slate-100 leading-tight">Identity Suite Migration</h4>
+<p class="text-[11px] text-red-600 dark:text-red-400 mt-2 font-medium">Champion left the company 3 days ago.</p>
+<div class="mt-4 flex items-center justify-between">
+<span class="text-sm font-bold text-slate-900 dark:text-slate-100">$530,000</span>
+<div class="size-7 rounded-full bg-slate-100 dark:bg-slate-800 overflow-hidden border border-red-200">
+<img alt="AE" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvgcLmGOX5_EzXXxPaj4IchXZy1hICgCFAchdpKALjpDMqmRv1PFWqwhPmJH82tBTjnDGvn2Dt1Zm56nMpch5rq9hI1tuAcDRn8dQ3IEyqifxHJS7YMvRmptBkZcSTz6oDC-qeMMXS45KgGpaKY8BnkmFEEdX3_qj3rJOwPyGSc8vaE2-fFa7ybRZHcrwTnK_bjyxBq-4LPbSReGURWhpDPYvCmEs5TDucpCiZLrAZPBOGeld38wsKmFvduwaByrHAInmJ2Kj_DUc"/>
+</div>
+</div>
+<div class="mt-3">
+<button class="w-full py-2 bg-red-500 text-white text-[10px] font-bold rounded-lg opacity-0 group-hover:opacity-100 transition-opacity">ASSIGN ESCALATION</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Column: Negotiation -->
+<div class="flex flex-col w-80 shrink-0">
+<div class="flex items-center justify-between mb-4 px-2">
+<div class="flex items-center gap-2">
+<span class="text-sm font-bold text-slate-900 dark:text-slate-100">Negotiation</span>
+<span class="px-2 py-0.5 bg-slate-200 dark:bg-slate-800 rounded-full text-[10px] font-bold">2</span>
+</div>
+<span class="text-xs font-medium text-slate-400">$1.65M</span>
+</div>
+<div class="flex flex-col gap-3 h-full overflow-y-auto pr-1">
+<!-- Card 1 -->
+<div class="bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm cursor-pointer hover:shadow-md transition-all">
+<div class="flex justify-between items-start mb-2">
+<span class="text-[10px] font-bold text-primary uppercase tracking-wider">Hooli</span>
+<span class="px-1.5 py-0.5 bg-blue-100 text-blue-600 rounded text-[9px] font-bold">LEGAL REVIEW</span>
+</div>
+<h4 class="text-sm font-bold text-slate-900 dark:text-slate-100 leading-tight">Data Cloud Migration 2.0</h4>
+<div class="mt-4 flex items-center justify-between">
+<span class="text-sm font-bold text-slate-900 dark:text-slate-100">$1,200,000</span>
+<div class="size-7 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center">
+<span class="text-[10px] font-bold">GB</span>
+</div>
+</div>
+<div class="mt-3 flex items-center justify-between text-[10px] text-slate-400">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined !text-sm">attach_file</span> 2 Contracts</span>
+<span class="font-bold text-slate-900 dark:text-slate-100">95% Confidence</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Column: Closed -->
+<div class="flex flex-col w-80 shrink-0">
+<div class="flex items-center justify-between mb-4 px-2">
+<div class="flex items-center gap-2">
+<span class="text-sm font-bold text-slate-900 dark:text-slate-100">Closed Won (MTD)</span>
+<span class="px-2 py-0.5 bg-emerald-100 dark:bg-emerald-950/30 text-emerald-600 rounded-full text-[10px] font-bold">3</span>
+</div>
+<span class="text-xs font-medium text-emerald-600">$570K</span>
+</div>
+<div class="flex flex-col gap-3 h-full overflow-y-auto pr-1">
+<div class="bg-emerald-50/30 dark:bg-emerald-950/10 p-4 rounded-xl border border-dashed border-emerald-200 dark:border-emerald-800/50 opacity-70">
+<div class="flex justify-between items-start mb-2">
+<span class="text-[10px] font-bold text-emerald-600 uppercase tracking-wider">Umbrella Corp</span>
+<span class="material-symbols-outlined text-emerald-500">verified</span>
+</div>
+<h4 class="text-sm font-bold text-slate-900 dark:text-slate-100 leading-tight">Global Endpoint Security</h4>
+<div class="mt-4 flex items-center justify-between">
+<span class="text-sm font-bold text-slate-900 dark:text-slate-100">$350,000</span>
+<span class="text-[10px] text-slate-400 italic">Closed Oct 03</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+<script src="../../../prototype-nav.js"></script>
+</body></html>

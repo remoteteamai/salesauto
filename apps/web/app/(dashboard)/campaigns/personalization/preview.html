@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sales Auto AI - Campaign Personalization</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#135bec",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#221610",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen">
+<div class="relative flex h-auto min-screen w-full flex-col overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<!-- Top Navigation Bar -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-primary/20 bg-background-light dark:bg-background-dark px-6 md:px-10 py-3 sticky top-0 z-50">
+<div class="flex items-center gap-4">
+<div class="text-primary">
+<span class="material-symbols-outlined text-4xl">neurology</span>
+</div>
+<h2 class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight tracking-tight">Sales Auto AI</h2>
+</div>
+<div class="flex flex-1 justify-end gap-4 md:gap-8 items-center">
+<div class="flex gap-2">
+<button class="text-primary">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="text-primary">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+</div>
+<div class="h-10 w-10 rounded-full border-2 border-primary bg-cover bg-center" data-alt="User profile avatar with colorful geometric pattern" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCLUDnspcKcuNiKWDPZ15VZRupIiucdw0igcVbh9oryCsmQm1ZCZowHqHm_Ff66aPB3CqShWr5BWszW6KPNGn_iF0gQpNVJSp4R8FqdbmtEbSRECI4xfCL4oX5khoDwfrajJSDogC9rqAoawckZ4z-QJvMTVnvL55hdyn6Tp5KomXgrOk3Lm3mDTf1dP4dD4u1P-NgAykMJon6SGEGkaYZRMWwOtuFmcXV0COZRO0m6kMA-W2zyPbO0OzDRo2QT5_PzHJXU5FY3AZQ');"></div>
+</div>
+</header>
+<main class="flex flex-1 justify-center py-8 px-4 md:px-10">
+<div class="layout-content-container flex flex-col max-w-[960px] flex-1 gap-8">
+<!-- Progress Stepper -->
+<div class="flex flex-col gap-3">
+<div class="flex gap-6 justify-between items-end">
+<div class="flex flex-col">
+<span class="text-primary text-xs font-bold uppercase tracking-widest">Campaign Setup</span>
+<p class="text-slate-900 dark:text-slate-100 text-base font-semibold leading-normal">Step 3 of 4: AI Personalization Rules</p>
+</div>
+<p class="text-slate-600 dark:text-slate-400 text-sm font-medium">75% Complete</p>
+</div>
+<div class="rounded-full bg-slate-200 dark:bg-slate-800 h-2.5 overflow-hidden">
+<div class="h-full rounded-full bg-primary" style="width: 75%;"></div>
+</div>
+</div>
+<!-- Header Section -->
+<div class="flex flex-col gap-2">
+<h1 class="text-slate-900 dark:text-slate-100 text-3xl md:text-4xl font-black leading-tight tracking-tight">Personalization Rules</h1>
+<p class="text-slate-600 dark:text-slate-400 text-base max-w-2xl">Define how your AI agents research prospects and craft custom messages. These rules ensure brand consistency and hyper-relevance.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Configuration Panels -->
+<div class="lg:col-span-2 flex flex-col gap-8">
+<!-- Icebreaker Style -->
+<section class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary">auto_awesome</span>
+<h3 class="text-slate-900 dark:text-slate-100 text-xl font-bold">Icebreaker Style</h3>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+<button class="px-6 py-3 rounded-xl border border-primary text-primary font-bold hover:bg-primary/5 transition-colors">
+<span class="material-symbols-outlined">work</span>
+<span class="text-xs font-bold">Professional</span>
+</button>
+<button class="flex flex-col items-center justify-center gap-2 p-4 rounded-xl border-2 border-transparent bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:border-primary/50 transition-all">
+<span class="material-symbols-outlined">mood</span>
+<span class="text-xs font-bold">Friendly</span>
+</button>
+<button class="flex flex-col items-center justify-center gap-2 p-4 rounded-xl border-2 border-transparent bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:border-primary/50 transition-all">
+<span class="material-symbols-outlined">query_stats</span>
+<span class="text-xs font-bold">Data-Driven</span>
+</button>
+<button class="flex flex-col items-center justify-center gap-2 p-4 rounded-xl border-2 border-transparent bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:border-primary/50 transition-all">
+<span class="material-symbols-outlined">lightbulb</span>
+<span class="text-xs font-bold">Insightful</span>
+</button>
+</div>
+</section>
+<!-- Custom Research Agents -->
+<section class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800">
+<div class="flex items-center justify-between mb-6">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">search_insights</span>
+<h3 class="text-slate-900 dark:text-slate-100 text-xl font-bold">Research Agents</h3>
+</div>
+<button class="text-primary text-sm font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">add</span> Add Agent
+                                    </button>
+</div>
+<div class="space-y-4">
+<!-- Agent 1 -->
+<div class="flex items-center justify-between p-4 rounded-lg bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700">
+<div class="flex items-center gap-4">
+<div class="size-10 rounded-lg bg-blue-500/20 text-blue-500 flex items-center justify-center">
+<span class="material-symbols-outlined">share</span>
+</div>
+<div>
+<p class="text-sm font-bold">LinkedIn Activity Agent</p>
+<p class="text-xs text-slate-500">Pulls last 3 posts and shared articles</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<input checked="" class="rounded border-slate-300 text-primary focus:ring-primary h-5 w-5" type="checkbox"/>
+</div>
+</div>
+<!-- Agent 2 -->
+<div class="flex items-center justify-between p-4 rounded-lg bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700">
+<div class="flex items-center gap-4">
+<div class="size-10 rounded-lg bg-green-500/20 text-green-500 flex items-center justify-center">
+<span class="material-symbols-outlined">description</span>
+</div>
+<div>
+<p class="text-sm font-bold">10-K Filing Researcher</p>
+<p class="text-xs text-slate-500">Extracts key growth initiatives &amp; risks</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<input checked="" class="rounded border-slate-300 text-primary focus:ring-primary h-5 w-5" type="checkbox"/>
+</div>
+</div>
+<!-- Agent 3 -->
+<div class="flex items-center justify-between p-4 rounded-lg bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 opacity-60">
+<div class="flex items-center gap-4">
+<div class="size-10 rounded-lg bg-purple-500/20 text-purple-500 flex items-center justify-center">
+<span class="material-symbols-outlined">rss_feed</span>
+</div>
+<div>
+<p class="text-sm font-bold">Podcast Guest Scraper</p>
+<p class="text-xs text-slate-500">Finds recent podcast appearances</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<input class="rounded border-slate-300 text-primary focus:ring-primary h-5 w-5" type="checkbox"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Brand Voice Parameters -->
+<section class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary">record_voice_over</span>
+<h3 class="text-slate-900 dark:text-slate-100 text-xl font-bold">Brand Voice</h3>
+</div>
+<div class="space-y-6">
+<div>
+<label class="block text-sm font-medium mb-2">Tone Intensity</label>
+<input class="w-full accent-primary bg-slate-200 dark:bg-slate-800 h-1.5 rounded-lg appearance-none cursor-pointer" type="range"/>
+<div class="flex justify-between text-[10px] text-slate-400 mt-2 font-bold uppercase tracking-tighter">
+<span>Subtle</span>
+<span>Balanced</span>
+<span>Aggressive</span>
+</div>
+</div>
+<div>
+<label class="block text-sm font-medium mb-2">Custom Instructions</label>
+<textarea class="w-full rounded-xl border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800 p-4 text-sm focus:border-primary focus:ring-primary" placeholder="e.g. Always mention our SOC-2 compliance when talking about security. Avoid using the word 'synergy'." rows="3"></textarea>
+</div>
+</div>
+</section>
+</div>
+<!-- Preview Sidebar -->
+<div class="lg:col-span-1">
+<div class="sticky top-24 space-y-4">
+<div class="bg-primary/5 border border-primary/20 rounded-xl p-6">
+<h4 class="text-primary font-bold mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">visibility</span>
+                                        Live AI Draft
+                                    </h4>
+<div class="bg-white dark:bg-slate-950 p-4 rounded-lg shadow-sm text-sm italic text-slate-600 dark:text-slate-300 min-h-[200px] flex flex-col justify-between">
+<div>
+<p class="mb-4">"Hi Sarah, noticed your recent LinkedIn post about scaling the engineering team at TechFlow. Given the risk factors mentioned in your latest 10-K regarding operational complexity..."</p>
+</div>
+<div class="pt-4 border-t border-slate-100 dark:border-slate-800">
+<span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Confidence Score: 94%</span>
+</div>
+</div>
+<button class="h-full rounded-full bg-primary">
+<span class="material-symbols-outlined">science</span>
+                                        Test AI Draft
+                                    </button>
+</div>
+<div class="p-4 bg-slate-100 dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800">
+<div class="flex items-center gap-2 mb-2 text-slate-500">
+<span class="material-symbols-outlined text-sm">info</span>
+<span class="text-xs font-semibold">Usage Tip</span>
+</div>
+<p class="text-xs leading-relaxed">Selecting 'Data-Driven' with the 10-K Agent often increases C-level response rates by 24% for enterprise segments.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Actions -->
+<div class="flex items-center justify-between border-t border-slate-200 dark:border-slate-800 pt-8 mt-4">
+<button class="px-6 py-3 rounded-xl border border-slate-200 dark:border-slate-800 font-bold hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                            Back
+                        </button>
+<div class="flex gap-4">
+<button class="px-6 py-3 rounded-xl border border-primary text-primary font-bold hover:bg-primary/5 transition-colors">
+                                Save Draft
+                            </button>
+<button class="h-full rounded-full bg-primary">
+                                Continue to Review
+                            </button>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+<script src="../../../prototype-nav.js"></script>
+</body></html>

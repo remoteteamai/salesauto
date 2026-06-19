@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Invite Member - Neural AI</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1978e5",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#111821",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        :root {
+            --radio-dot-svg: url('data:image/svg+xml,%3csvg viewBox=%270 0 16 16%27 fill=%27%231978e5%27 xmlns=%27http://www.w3.org/2000/svg%27%3e%3ccircle cx=%278%27 cy=%278%27 r=%273%27/%3e%3c/svg%3e');
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display">
+<!-- Background Dashboard (Mockup) -->
+<div class="relative min-h-screen w-full flex flex-col overflow-hidden">
+<!-- Top Nav -->
+<header class="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-8 py-4">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-3">
+<div class="bg-primary p-1.5 rounded-lg text-white">
+<span class="material-symbols-outlined block">neurology</span>
+</div>
+<h2 class="text-xl font-bold tracking-tight">Neural AI</h2>
+</div>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-sm font-medium text-slate-500 hover:text-primary" href="#">Dashboard</a>
+<a class="text-sm font-medium text-primary border-b-2 border-primary pb-1" href="#">Team Management</a>
+<a class="text-sm font-medium text-slate-500 hover:text-primary" href="#">Projects</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="h-8 w-8 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold">JD</div>
+</div>
+</header>
+<!-- Dashboard Content -->
+<main class="p-8 max-w-7xl mx-auto w-full">
+<div class="flex items-center justify-between mb-8">
+<div>
+<h1 class="text-3xl font-bold">Team Management</h1>
+<p class="text-slate-500">Manage your workspace members and their roles.</p>
+</div>
+<button class="bg-primary text-white px-5 py-2.5 rounded-lg font-semibold flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">person_add</span>
+                    Invite Member
+                </button>
+</div>
+<!-- Table Mockup -->
+<div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 overflow-hidden">
+<table class="w-full text-left">
+<thead class="bg-slate-50 dark:bg-slate-800/50 text-slate-500 text-xs uppercase tracking-wider font-semibold">
+<tr>
+<th class="px-6 py-4">Member</th>
+<th class="px-6 py-4">Role</th>
+<th class="px-6 py-4">Status</th>
+<th class="px-6 py-4">Last Active</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100 dark:divide-slate-800">
+<tr>
+<td class="px-6 py-4 flex items-center gap-3">
+<div class="h-10 w-10 rounded-full bg-slate-200" data-alt="Profile placeholder for team member"></div>
+<div>
+<div class="font-medium">Sarah Jenkins</div>
+<div class="text-xs text-slate-500">sarah@neural.ai</div>
+</div>
+</td>
+<td class="px-6 py-4 text-sm">Admin</td>
+<td class="px-6 py-4"><span class="px-2 py-1 bg-green-100 text-green-700 rounded-full text-xs font-medium">Active</span></td>
+<td class="px-6 py-4 text-sm text-slate-500">2 hours ago</td>
+</tr>
+<tr>
+<td class="px-6 py-4 flex items-center gap-3">
+<div class="h-10 w-10 rounded-full bg-slate-200" data-alt="Profile placeholder for team member"></div>
+<div>
+<div class="font-medium">Mark Thompson</div>
+<div class="text-xs text-slate-500">mark@neural.ai</div>
+</div>
+</td>
+<td class="px-6 py-4 text-sm">Member</td>
+<td class="px-6 py-4"><span class="px-2 py-1 bg-green-100 text-green-700 rounded-full text-xs font-medium">Active</span></td>
+<td class="px-6 py-4 text-sm text-slate-500">Yesterday</td>
+</tr>
+</tbody>
+</table>
+</div>
+</main>
+<!-- Modal Overlay -->
+<div class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm">
+<!-- Modal Container -->
+<div class="bg-white dark:bg-slate-900 w-full max-w-[560px] rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-800 overflow-hidden">
+<!-- Modal Header -->
+<div class="px-8 pt-8 pb-4">
+<div class="flex justify-between items-start">
+<div class="flex flex-col gap-1">
+<h2 class="text-2xl font-bold text-slate-900 dark:text-slate-50 tracking-tight">Invite New Member</h2>
+<p class="text-slate-500 text-sm">Add a new member to your workspace to start collaborating.</p>
+</div>
+<button class="p-2 text-slate-400 hover:text-slate-600 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+</div>
+<!-- Modal Body -->
+<div class="px-8 py-4 flex flex-col gap-6">
+<!-- Email Input Section -->
+<div class="flex flex-col gap-3">
+<label class="text-sm font-semibold text-slate-700 dark:text-slate-300" for="email">Email Address</label>
+<div class="flex flex-col gap-3">
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400 group-focus-within:text-primary">
+<span class="material-symbols-outlined text-[20px]">mail</span>
+</div>
+<input class="block w-full pl-10 pr-4 py-3 bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-xl text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all outline-none placeholder:text-slate-400" id="email" placeholder="e.g. sarah@neural.ai" type="email"/>
+</div>
+<button class="self-start flex items-center gap-1.5 text-primary text-sm font-semibold hover:underline bg-primary/5 px-3 py-1.5 rounded-lg">
+<span class="material-symbols-outlined text-[18px]">add</span>
+                                Add another
+                            </button>
+</div>
+</div>
+<!-- Role Selection -->
+<div class="flex flex-col gap-3">
+<label class="text-sm font-semibold text-slate-700 dark:text-slate-300">Select Role</label>
+<div class="grid grid-cols-1 gap-3">
+<!-- Admin Role -->
+<label class="relative flex items-center p-4 border border-slate-200 dark:border-slate-700 rounded-xl cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors has-[:checked]:border-primary has-[:checked]:bg-primary/5">
+<input checked="" class="h-5 w-5 border-2 border-slate-300 dark:border-slate-600 bg-transparent text-primary checked:border-primary checked:bg-[image:--radio-dot-svg] focus:ring-0 focus:ring-offset-0 transition-all cursor-pointer" name="role" type="radio"/>
+<div class="ml-4">
+<span class="block text-sm font-bold text-slate-900 dark:text-slate-50">Admin</span>
+<span class="block text-xs text-slate-500">Full access to settings, billing, and team management</span>
+</div>
+</label>
+<!-- Member Role -->
+<label class="relative flex items-center p-4 border border-slate-200 dark:border-slate-700 rounded-xl cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors has-[:checked]:border-primary has-[:checked]:bg-primary/5">
+<input class="h-5 w-5 border-2 border-slate-300 dark:border-slate-600 bg-transparent text-primary checked:border-primary checked:bg-[image:--radio-dot-svg] focus:ring-0 focus:ring-offset-0 transition-all cursor-pointer" name="role" type="radio"/>
+<div class="ml-4">
+<span class="block text-sm font-bold text-slate-900 dark:text-slate-50">Member</span>
+<span class="block text-xs text-slate-500">Can create, edit and delete projects and view analytics</span>
+</div>
+</label>
+<!-- Viewer Role -->
+<label class="relative flex items-center p-4 border border-slate-200 dark:border-slate-700 rounded-xl cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors has-[:checked]:border-primary has-[:checked]:bg-primary/5">
+<input class="h-5 w-5 border-2 border-slate-300 dark:border-slate-600 bg-transparent text-primary checked:border-primary checked:bg-[image:--radio-dot-svg] focus:ring-0 focus:ring-offset-0 transition-all cursor-pointer" name="role" type="radio"/>
+<div class="ml-4">
+<span class="block text-sm font-bold text-slate-900 dark:text-slate-50">Viewer</span>
+<span class="block text-xs text-slate-500">View-only access to projects and workspace content</span>
+</div>
+</label>
+</div>
+</div>
+</div>
+<!-- Modal Footer -->
+<div class="px-8 py-6 mt-4 bg-slate-50 dark:bg-slate-800/30 flex items-center justify-end gap-3 border-t border-slate-200 dark:border-slate-800">
+<button class="px-6 py-2.5 rounded-xl font-semibold text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                        Cancel
+                    </button>
+<button class="px-8 py-2.5 rounded-xl font-bold bg-primary text-white hover:bg-primary/90 shadow-lg shadow-primary/20 transition-all">
+                        Send Invitation
+                    </button>
+</div>
+</div>
+</div>
+</div>
+<script src="../../../../prototype-nav.js"></script>
+</body></html>

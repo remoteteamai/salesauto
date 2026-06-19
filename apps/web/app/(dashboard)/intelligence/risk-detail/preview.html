@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Neural AI - Risk Detail View</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec5b13",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#221610",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Public Sans', sans-serif; }
+        .material-symbols-outlined { font-size: 20px; }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<!-- Top Navigation -->
+<header class="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 px-6 py-4 bg-white dark:bg-background-dark sticky top-0 z-50">
+<div class="flex items-center gap-4">
+<div class="bg-primary p-1.5 rounded-lg text-white flex items-center justify-center">
+<span class="material-symbols-outlined">analytics</span>
+</div>
+<div>
+<h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight">Neural AI</h2>
+<p class="text-slate-500 dark:text-slate-400 text-xs font-medium">Deal Intelligence / Risk Monitor</p>
+</div>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-slate-600 dark:text-slate-300 text-sm font-semibold hover:text-primary transition-colors" href="#">Dashboard</a>
+<a class="text-primary text-sm font-semibold border-b-2 border-primary pb-1" href="#">Deals</a>
+<a class="text-slate-600 dark:text-slate-300 text-sm font-semibold hover:text-primary transition-colors" href="#">Analytics</a>
+<a class="text-slate-600 dark:text-slate-300 text-sm font-semibold hover:text-primary transition-colors" href="#">Settings</a>
+</nav>
+<div class="flex items-center gap-3">
+<button class="flex items-center justify-center rounded-xl h-10 w-10 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="h-10 w-10 rounded-full bg-primary/20 border-2 border-primary overflow-hidden">
+<img class="h-full w-full object-cover" data-alt="User avatar profile picture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVFmOr1ybXJvX17f1Wf5m6pXe2Mt0jqTzuZqDD0Y41T3Mx4ApWFRJhUlblptSOID9QJV5HKJ-_ek6WLO_VQXNiAyAJch_5YOWf32qxX_s_NK-eY7-0Ux7uCBK3tukn0ZYSAxdb8rft9a-kiNQgi4ipMzGM7JWDdmv2lunATRxpXcF6--4_px5NakWsCCeQlLmuabXXIyOaIpz2td69kfmSX7cXCDKIbNO9DudsbOEuzrdsHY8fFKA3JXWCoYpTo6UESUzPGq2KezM"/>
+</div>
+</div>
+</header>
+<main class="flex-1 max-w-6xl mx-auto w-full px-6 py-8">
+<!-- Header Section -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
+<div class="space-y-2">
+<div class="flex items-center gap-2 mb-2">
+<span class="px-2.5 py-0.5 rounded-full bg-red-100 text-red-700 dark:bg-red-900/40 dark:text-red-300 text-xs font-bold flex items-center gap-1">
+<span class="material-symbols-outlined !text-sm">warning</span> HIGH RISK
+                        </span>
+<span class="text-slate-400">/</span>
+<span class="text-sm font-medium text-slate-500">Enterprise Segment</span>
+</div>
+<h1 class="text-3xl md:text-4xl font-black tracking-tight text-slate-900 dark:text-white">Project Apollo: Acme Corp</h1>
+<p class="text-slate-500 dark:text-slate-400 text-lg">Engagement score dropped by 42% in the last 7 business days.</p>
+</div>
+<div class="flex gap-3">
+<button class="flex items-center gap-2 px-5 py-2.5 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-xl text-sm font-bold shadow-lg shadow-slate-200 dark:shadow-none transition-transform active:scale-95">
+<span class="material-symbols-outlined">bolt</span> Add to Recovery Sequence
+                    </button>
+<button class="flex items-center gap-2 px-5 py-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 rounded-xl text-sm font-bold transition-transform active:scale-95">
+<span class="material-symbols-outlined">chat_bubble</span> Slack AE
+                    </button>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<!-- Left Column: Risk Breakdown & Timeline -->
+<div class="lg:col-span-2 space-y-6">
+<!-- Detailed Risk Breakdown -->
+<div class="bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 rounded-2xl p-6">
+<div class="flex items-center justify-between mb-6">
+<h3 class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">analytics</span> Engagement Drop-off Timeline
+                            </h3>
+<select class="bg-slate-100 dark:bg-slate-800 border-none rounded-lg text-xs font-bold text-slate-600 dark:text-slate-300 px-3 py-1.5 focus:ring-primary">
+<option>Last 14 Days</option>
+<option>Last 30 Days</option>
+</select>
+</div>
+<!-- Timeline Visualization Placeholder -->
+<div class="h-48 w-full bg-slate-50 dark:bg-slate-800/30 rounded-xl relative overflow-hidden mb-6 flex items-end px-4 gap-2">
+<div class="flex-1 bg-primary/20 h-4/5 rounded-t-lg"></div>
+<div class="flex-1 bg-primary/30 h-full rounded-t-lg"></div>
+<div class="flex-1 bg-primary/40 h-[90%] rounded-t-lg"></div>
+<div class="flex-1 bg-primary/50 h-[85%] rounded-t-lg"></div>
+<div class="flex-1 bg-primary/40 h-[70%] rounded-t-lg relative">
+<div class="absolute -top-10 left-1/2 -translate-x-1/2 bg-red-500 text-white text-[10px] px-2 py-1 rounded font-bold shadow-sm whitespace-nowrap">Champion Left</div>
+</div>
+<div class="flex-1 bg-primary/30 h-[45%] rounded-t-lg"></div>
+<div class="flex-1 bg-red-500 h-[30%] rounded-t-lg"></div>
+<div class="flex-1 bg-red-500 h-[25%] rounded-t-lg"></div>
+</div>
+<div class="space-y-4">
+<div class="flex items-start gap-4 p-4 rounded-xl bg-red-50 dark:bg-red-900/10 border-l-4 border-red-500">
+<span class="material-symbols-outlined text-red-500 mt-1">warning</span>
+<div>
+<p class="text-sm font-bold text-slate-900 dark:text-white">Critical Engagement Threshold Breached</p>
+<p class="text-xs text-slate-600 dark:text-slate-400 mt-1">Zero response from the Decision Maker (Jane Doe) since Feb 12th. Velocity decreased by 65% compared to baseline for similar deals.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Competitor Intel -->
+<div class="bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 rounded-2xl p-6">
+<h3 class="text-lg font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">visibility</span> Competitor Activity
+                        </h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/50">
+<div class="flex justify-between items-center mb-3">
+<span class="text-sm font-black text-slate-900 dark:text-white">ScaleFlow AI</span>
+<span class="px-2 py-0.5 bg-orange-100 text-orange-700 dark:bg-orange-900/30 dark:text-orange-300 text-[10px] font-bold rounded">MENTIONED 3X</span>
+</div>
+<p class="text-xs text-slate-600 dark:text-slate-400 mb-3 italic">"We're seeing ScaleFlow offer a very aggressive pricing tier for their enterprise plan..."</p>
+<div class="flex items-center gap-2 text-[10px] font-bold text-primary">
+<span class="material-symbols-outlined !text-xs">play_circle</span> TRANSCRIPT: CALL FEB 14
+                                </div>
+</div>
+<div class="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/50">
+<div class="flex justify-between items-center mb-3">
+<span class="text-sm font-black text-slate-900 dark:text-white">DataBridge Corp</span>
+<span class="px-2 py-0.5 bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300 text-[10px] font-bold rounded">MENTIONED 1X</span>
+</div>
+<p class="text-xs text-slate-600 dark:text-slate-400 mb-3 italic">"How does your latency compare to DataBridge's new Edge nodes?"</p>
+<div class="flex items-center gap-2 text-[10px] font-bold text-primary">
+<span class="material-symbols-outlined !text-xs">play_circle</span> TRANSCRIPT: CALL FEB 11
+                                </div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: AI Recovery Plan -->
+<div class="space-y-6">
+<div class="bg-gradient-to-br from-slate-900 to-slate-800 dark:from-slate-800 dark:to-slate-900 rounded-2xl p-6 text-white shadow-xl">
+<div class="flex items-center gap-2 mb-6">
+<div class="p-1.5 bg-primary rounded-lg">
+<span class="material-symbols-outlined !text-sm">auto_awesome</span>
+</div>
+<h3 class="text-lg font-bold">AI Recovery Plan</h3>
+</div>
+<div class="space-y-6">
+<!-- Step 1 -->
+<div class="relative pl-8">
+<div class="absolute left-0 top-1 w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center text-[10px] font-bold">1</div>
+<div class="absolute left-3 top-7 bottom-[-24px] w-[1px] bg-slate-700"></div>
+<p class="text-sm font-bold text-white mb-1">Send Technical Case Study</p>
+<p class="text-xs text-slate-400 mb-3">Address the latency concerns raised by sending the 'Edge Performance v3' study.</p>
+<button class="text-[10px] font-bold px-3 py-1.5 bg-white/10 hover:bg-white/20 rounded-lg transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined !text-xs">attachment</span> ATTACH STUDY
+                                </button>
+</div>
+<!-- Step 2 -->
+<div class="relative pl-8">
+<div class="absolute left-0 top-1 w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center text-[10px] font-bold">2</div>
+<div class="absolute left-3 top-7 bottom-[-24px] w-[1px] bg-slate-700"></div>
+<p class="text-sm font-bold text-white mb-1">Book Executive Sync</p>
+<p class="text-xs text-slate-400 mb-3">Arrange a 15-min call between our VP Engineering and their CTO to counter ScaleFlow.</p>
+<button class="text-[10px] font-bold px-3 py-1.5 bg-white/10 hover:bg-white/20 rounded-lg transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined !text-xs">calendar_today</span> OPEN CALENDAR
+                                </button>
+</div>
+<!-- Step 3 -->
+<div class="relative pl-8">
+<div class="absolute left-0 top-1 w-6 h-6 rounded-full bg-slate-700 text-slate-400 flex items-center justify-center text-[10px] font-bold">3</div>
+<p class="text-sm font-bold text-white mb-1">Price Matching Review</p>
+<p class="text-xs text-slate-400">Trigger a 'Competitor Match' request to the Finance team for approval.</p>
+</div>
+</div>
+<button class="w-full mt-8 py-3 bg-primary hover:bg-primary/90 rounded-xl text-sm font-black transition-all transform active:scale-[0.98]">
+                            EXECUTE FULL PLAN
+                        </button>
+</div>
+<!-- Deal Context Card -->
+<div class="bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 rounded-2xl p-6">
+<h4 class="text-xs font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-4">Deal Information</h4>
+<div class="space-y-4">
+<div class="flex justify-between items-center">
+<span class="text-sm text-slate-500 dark:text-slate-400">Deal Value</span>
+<span class="text-sm font-bold text-slate-900 dark:text-white">$145,000 / year</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-sm text-slate-500 dark:text-slate-400">Forecast Date</span>
+<span class="text-sm font-bold text-slate-900 dark:text-white">March 30, 2024</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-sm text-slate-500 dark:text-slate-400">Account Owner</span>
+<div class="flex items-center gap-2">
+<div class="size-6 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden">
+<img class="h-full w-full object-cover" data-alt="Account Executive Profile" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBl1zEg1IGH5guJBbxZTSs4zmZaFiuY9DRY_uKAPohdDXVwcipYQFAlIafGdGGNnZ-k0ZeK1hIsPZN9xhSTHJ7azSREn1WXkNhwMzpC8LEzWvS83hBKulU0HUu5x6kEOrzs2hJbnKZkn3Wrzlrat9vKOdkY7Qahtv9bK8M2zAStwA5KNAPj9HYSyq72OpO7fObTofvBAmio4xgxbcHuaWDGifcfm7NIyhiiwXgQ9xiqHvD2GKjeEgBTjy0hzXPwhVAghPU69M8I-k4"/>
+</div>
+<span class="text-sm font-bold text-slate-900 dark:text-white">Mark Stevens</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer Stats Bar -->
+<footer class="mt-auto border-t border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-background-dark/50 backdrop-blur-sm px-6 py-4">
+<div class="max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-4">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-2">
+<span class="text-xs font-bold text-slate-400">HEALTH SCORE</span>
+<div class="w-24 h-2 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
+<div class="h-full bg-red-500 w-[28%]"></div>
+</div>
+<span class="text-xs font-black text-red-500">28/100</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-xs font-bold text-slate-400">NEXT MILESTONE</span>
+<span class="text-xs font-black text-slate-900 dark:text-white">Security Review</span>
+</div>
+</div>
+<div class="flex items-center gap-2 text-[10px] font-bold text-slate-400">
+<span class="material-symbols-outlined !text-sm">sync</span> LAST UPDATED 12 MINUTES AGO
+                </div>
+</div>
+</footer>
+</div>
+<script src="../../../prototype-nav.js"></script>
+</body></html>

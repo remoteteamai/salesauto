@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sales Auto AI - Campaign Builder</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2563eb",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#221610",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Public Sans', sans-serif; }
+        .node-line { position: absolute; left: 20px; top: 40px; bottom: -20px; width: 2px; }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display min-h-screen">
+<div class="flex flex-col h-screen">
+<!-- Top Navigation Bar -->
+<header class="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-6 py-3 shrink-0">
+<div class="flex items-center gap-4">
+<div class="text-primary">
+<span class="material-symbols-outlined text-3xl">neurology</span>
+</div>
+<h2 class="text-xl font-bold tracking-tight">Sales Auto AI</h2>
+</div>
+<!-- Progress Stepper -->
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2">
+<span class="flex h-6 w-6 items-center justify-center rounded-full bg-slate-200 dark:bg-slate-700 text-xs font-bold">1</span>
+<span class="text-sm font-medium text-slate-500">Campaign Basics</span>
+</div>
+<div class="h-px w-8 bg-slate-200 dark:bg-slate-700"></div>
+<div class="flex items-center gap-2">
+<span class="flex h-6 w-6 items-center justify-center rounded-full bg-primary text-white text-xs font-bold">2</span>
+<span class="text-sm font-bold text-slate-900 dark:text-slate-100">Sequence Builder</span>
+</div>
+<div class="h-px w-8 bg-slate-200 dark:border-slate-700"></div>
+<div class="flex items-center gap-2">
+<span class="flex h-6 w-6 items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800 text-slate-400 text-xs font-bold">3</span>
+<span class="text-sm font-medium text-slate-400">Launch</span>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="px-4 py-2 text-sm font-medium text-slate-600 hover:bg-slate-100 rounded-lg transition-colors">Save Draft</button>
+<button class="bg-primary text-white px-6 py-2 rounded-xl text-sm font-bold shadow-sm shadow-primary/20 hover:bg-primary/90 transition-all">Next: Review</button>
+<div class="h-10 w-10 rounded-full bg-slate-200 border-2 border-white dark:border-slate-800" data-alt="User profile avatar placeholder" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAUFIAqlt8PPl0RtlhoUZ50N-mbfaVH6YWQAomyA4TmtENgx-ht4qlsnASVkOS96PtO4puxP7E2K9JPi0661274SDV1i9iwLN7JZVt-sJRz8uDTAJXquNiRafp3NMcgrwa1WgYSMoQv1V3F2Pee9Bew_6XcqdrpAtGiEWZjKeMS2hRAl1ZAImF2cqUO7L0r3_DayoK11PmkRPhZsHA2qKWW-HAPU6rBbGlbd-HQywerhMNLZrgQMTpOe-jNM7h50mb2pmbH3ubi4I4'); background-size: cover;"></div>
+</div>
+</header>
+<div class="flex flex-1 overflow-hidden">
+<!-- Left Sidebar: Components Library -->
+<aside class="w-72 border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 flex flex-col gap-8 overflow-y-auto">
+<div>
+<h3 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-4">Step Nodes</h3>
+<div class="space-y-2">
+<div class="flex items-center gap-3 p-3 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-primary/50 cursor-grab bg-slate-50 dark:bg-slate-800/50 transition-all">
+<span class="material-symbols-outlined text-primary">mail</span>
+<span class="text-sm font-medium">Email Message</span>
+</div>
+<div class="flex items-center gap-3 p-3 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-primary/50 cursor-grab bg-slate-50 dark:bg-slate-800/50 transition-all">
+<span class="material-symbols-outlined text-blue-600">share</span>
+<span class="text-sm font-medium">LinkedIn Connect</span>
+</div>
+<div class="flex items-center gap-3 p-3 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-primary/50 cursor-grab bg-slate-50 dark:bg-slate-800/50 transition-all">
+<span class="material-symbols-outlined text-blue-500">chat_bubble</span>
+<span class="text-sm font-medium">LinkedIn InMail</span>
+</div>
+<div class="flex items-center gap-3 p-3 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-primary/50 cursor-grab bg-slate-50 dark:bg-slate-800/50 transition-all">
+<span class="material-symbols-outlined text-slate-500">schedule</span>
+<span class="text-sm font-medium">Delay / Wait</span>
+</div>
+</div>
+</div>
+<div>
+<h3 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-4">Control Logic</h3>
+<div class="space-y-2">
+<div class="flex items-center gap-3 p-3 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-primary/50 cursor-grab bg-slate-50 dark:bg-slate-800/50 transition-all">
+<span class="material-symbols-outlined text-purple-500">account_tree</span>
+<span class="text-sm font-medium">Conditional Split</span>
+</div>
+<div class="flex items-center gap-3 p-3 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-primary/50 cursor-grab bg-slate-50 dark:bg-slate-800/50 transition-all">
+<span class="material-symbols-outlined text-green-500">check_circle</span>
+<span class="text-sm font-medium">Exit Goal</span>
+</div>
+</div>
+</div>
+<div class="mt-auto p-4 bg-primary/5 rounded-xl border border-primary/20">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-primary text-sm">auto_awesome</span>
+<span class="text-xs font-bold text-primary uppercase">Neural Insights</span>
+</div>
+<p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                        Based on your industry, adding a <b>LinkedIn InMail</b> step after 2 days increases conversion by 24%.
+                    </p>
+<button class="mt-3 text-xs font-bold text-primary hover:underline">Apply Optimization</button>
+</div>
+</aside>
+<!-- Main Timeline Area -->
+<main class="flex-1 bg-background-light dark:bg-background-dark overflow-y-auto p-12">
+<div class="max-w-3xl mx-auto space-y-0 relative">
+<!-- Vertical Connector Line -->
+<div class="absolute left-6 top-8 bottom-0 w-0.5 bg-slate-200 dark:bg-slate-800 -z-10"></div>
+<!-- Step 0: Sender Account -->
+<div class="relative flex items-start gap-6 mb-12">
+<div class="z-10 flex h-12 w-12 items-center justify-center rounded-full border-4 border-background-light dark:border-background-dark bg-slate-900 text-white">
+<span class="material-symbols-outlined">alternate_email</span>
+</div>
+<div class="flex-1 bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+<div class="flex justify-between items-center">
+<div>
+<p class="text-xs font-bold uppercase tracking-wider text-slate-400">Campaign Entry</p>
+<h4 class="font-bold text-slate-900 dark:text-slate-100" data-original-text="j.smith@salesautoai.com">j.smith@salesautoai.com</h4>
+</div>
+<span class="px-2 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-[10px] font-bold rounded uppercase">Active</span>
+</div>
+</div>
+</div>
+<!-- Step 1: Delay -->
+<div class="relative flex items-start gap-6 mb-12">
+<div class="z-10 flex h-12 w-12 items-center justify-center rounded-full border-4 border-background-light dark:border-background-dark bg-slate-100 dark:bg-slate-800 text-slate-500">
+<span class="material-symbols-outlined">hourglass_top</span>
+</div>
+<div class="flex-1 py-3">
+<p class="text-sm font-medium text-slate-500">Wait 2 Days before starting</p>
+</div>
+</div>
+<!-- Step 2: Email Step -->
+<div class="relative flex items-start gap-6 mb-12">
+<div class="z-10 flex h-12 w-12 items-center justify-center rounded-full border-4 border-background-light dark:border-background-dark bg-primary text-white">
+<span class="material-symbols-outlined">mail</span>
+</div>
+<div class="flex-1 bg-white dark:bg-slate-900 p-5 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm group">
+<div class="flex justify-between items-start mb-4">
+<div>
+<p class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Step 1: Outbound Email</p>
+<h4 class="font-bold" data-original-text="j.smith@salesautoai.com">j.smith@salesautoai.com</h4>
+</div>
+<div class="flex gap-2">
+<button class="p-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800"><span class="material-symbols-outlined text-slate-400 text-sm">settings</span></button>
+<button class="p-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800"><span class="material-symbols-outlined text-slate-400 text-sm">delete</span></button>
+</div>
+</div>
+<div class="p-3 bg-slate-50 dark:bg-slate-800/50 rounded-lg border border-dashed border-slate-200 dark:border-slate-700">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-primary text-sm">auto_awesome</span>
+<span class="text-xs font-medium text-primary">AI Icebreaker Writer Active</span>
+</div>
+<p class="text-xs text-slate-500 line-clamp-2">"Hi {{first_name}}, I noticed your recent work at {{company}} regarding {{topic}}..."</p>
+</div>
+</div>
+</div>
+<!-- Step 3: Logic Split -->
+<div class="relative flex flex-col mb-12">
+<div class="flex items-start gap-6">
+<div class="z-10 flex h-12 w-12 items-center justify-center rounded-full border-4 border-background-light dark:border-background-dark bg-purple-100 dark:bg-purple-900/30 text-purple-600">
+<span class="material-symbols-outlined">call_split</span>
+</div>
+<div class="flex-1 py-3 flex items-center gap-4">
+<span class="text-sm font-bold text-slate-700 dark:text-slate-300">Wait 3 Days then check:</span>
+<div class="px-3 py-1 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-full text-xs font-semibold">If Email Opened</div>
+</div>
+</div>
+<!-- Logic Branches -->
+<div class="ml-24 mt-4 grid grid-cols-2 gap-8 relative">
+<!-- Branch A: Yes -->
+<div class="space-y-6 relative">
+<div class="absolute -left-12 top-0 h-6 w-12 border-l-2 border-t-2 border-slate-200 dark:border-slate-800 rounded-tl-xl"></div>
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 bg-green-100 text-green-700 text-[10px] font-bold rounded uppercase">Yes</span>
+</div>
+<div class="bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm flex items-center gap-3">
+<div class="h-8 w-8 bg-blue-600 rounded-full flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-sm">share</span>
+</div>
+<div>
+<p class="text-[10px] font-bold text-slate-400 uppercase">LinkedIn</p>
+<p class="text-xs font-bold">Connection Request</p>
+</div>
+</div>
+</div>
+<!-- Branch B: No -->
+<div class="space-y-6 relative">
+<div class="absolute -left-12 top-0 h-6 w-12 border-l-2 border-t-2 border-slate-200 dark:border-slate-800 rounded-tl-xl"></div>
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 bg-red-100 text-red-700 text-[10px] font-bold rounded uppercase">No</span>
+</div>
+<div class="bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm flex items-center gap-3">
+<div class="h-8 w-8 bg-primary rounded-full flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-sm">mail</span>
+</div>
+<div>
+<p class="text-[10px] font-bold text-slate-400 uppercase">Email</p>
+<p class="text-xs font-bold">Follow-up Bump</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Drag and Drop Target -->
+<div class="relative flex items-start gap-6">
+<div class="z-10 flex h-12 w-12 items-center justify-center rounded-full border-2 border-dashed border-slate-300 dark:border-slate-700 bg-transparent text-slate-400">
+<span class="material-symbols-outlined">add</span>
+</div>
+<div class="flex-1 py-3">
+<button class="text-sm font-medium text-slate-400 hover:text-primary transition-colors italic">Drag a node here to continue the sequence...</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Right Sidebar: Configuration Panel -->
+<aside class="w-80 border-l border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 overflow-y-auto">
+<div class="flex items-center justify-between mb-6">
+<h3 class="font-bold text-lg">Step Editor</h3>
+<button class="text-slate-400 hover:text-slate-600"><span class="material-symbols-outlined">close</span></button>
+</div>
+<div class="space-y-6">
+<div>
+<label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Node Type</label>
+<div class="flex items-center gap-2 p-3 bg-slate-50 dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700">
+<span class="material-symbols-outlined text-primary">mail</span>
+<span class="text-sm font-bold">Email Step</span>
+</div>
+</div>
+<div class="p-4 bg-primary/5 rounded-xl border border-primary/20 space-y-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">auto_awesome</span>
+<span class="text-xs font-bold text-primary">AI CONTENT AGENT</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-slate-200 peer-focus:outline-none rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<div>
+<label class="block text-[10px] font-bold text-primary uppercase mb-1">Agent Strategy</label>
+<select class="w-full bg-white dark:bg-slate-900 border border-primary/20 rounded-lg text-sm p-2 focus:ring-primary focus:border-primary">
+<option>Icebreaker Writer</option>
+<option>Value Proposition Pitcher</option>
+<option>Case Study Recommender</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="block text-[10px] font-bold text-slate-500 uppercase">Writing Style</label>
+<div class="flex gap-2">
+<button class="px-2 py-1 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded text-[10px] font-bold hover:border-primary transition-colors">Professional</button>
+<button class="px-2 py-1 bg-primary text-white border border-primary rounded text-[10px] font-bold">Casual</button>
+<button class="px-2 py-1 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded text-[10px] font-bold hover:border-primary transition-colors">Direct</button>
+</div>
+</div>
+</div>
+<div class="space-y-4">
+<div>
+<label class="block text-xs font-bold text-slate-400 uppercase mb-2">Subject Line</label>
+<input class="w-full border-slate-200 dark:border-slate-800 dark:bg-slate-900 rounded-lg text-sm" type="text" value="Quick question about {{company}}'s GTM"/>
+</div>
+<div>
+<div class="flex items-center justify-between mb-2">
+<label class="text-xs font-bold text-slate-400 uppercase">Email Body</label>
+<div class="flex bg-slate-100 dark:bg-slate-800 p-0.5 rounded-md">
+<button class="px-2 py-1 text-[10px] font-bold rounded bg-white dark:bg-slate-700 shadow-sm text-slate-900 dark:text-white">Edit</button>
+<button class="px-2 py-1 text-[10px] font-bold rounded text-slate-500 hover:text-slate-700 dark:hover:text-slate-300">AI Preview</button>
+</div>
+</div>
+<textarea class="w-full h-48 border-slate-200 dark:border-slate-800 dark:bg-slate-900 rounded-lg text-sm p-3" placeholder="Start typing or let AI draft it...">Hi {{first_name}}, 
+
+I was doing some research on {{company}} and noticed that your team is scaling fast. 
+
+Our AI-powered sequence builder has helped companies like {{competitor_1}} and {{competitor_2}} automate their outbound without losing the human touch.
+
+Would you be open to a 10-minute chat next Tuesday?</textarea><div class="mt-4 p-4 bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-lg text-sm leading-relaxed">
+<div class="flex items-center gap-2 mb-3 pb-2 border-b border-slate-200 dark:border-slate-700"><div class="flex items-center gap-3 w-full">
+<button class="flex items-center gap-1 pb-2 border-b-2 border-primary text-primary whitespace-nowrap">
+<span class="material-symbols-outlined text-sm">mail</span>
+<span class="text-[9px] font-bold uppercase tracking-tight">Email</span>
+</button>
+<button class="flex items-center gap-1 pb-2 border-b-2 border-transparent text-slate-400 hover:text-slate-600 transition-colors whitespace-nowrap">
+<span class="material-symbols-outlined text-sm text-blue-600">share</span>
+<span class="text-[9px] font-bold uppercase tracking-tight">LinkedIn</span>
+</button>
+<button class="flex items-center gap-1 pb-2 border-b-2 border-transparent text-slate-400 hover:text-slate-600 transition-colors whitespace-nowrap">
+<span class="material-symbols-outlined text-sm text-green-600">call</span>
+<span class="text-[9px] font-bold uppercase tracking-tight">Call</span>
+</button>
+</div></div>
+<div class="space-y-3">
+<p>Hi <span class="px-1.5 py-0.5 bg-primary/10 text-primary border border-primary/20 rounded font-medium">{{first_name}}</span>,</p>
+<p>I was doing some research on <span class="px-1.5 py-0.5 bg-primary/10 text-primary border border-primary/20 rounded font-medium">{{company}}</span> and noticed that your team is scaling fast.</p>
+<p><span class="px-1.5 py-0.5 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 border border-blue-200 dark:border-blue-800/50 rounded font-medium italic">{{icebreaker}}</span></p>
+<p>Our AI-powered sequence builder has helped companies like <span class="px-1.5 py-0.5 bg-primary/10 text-primary border border-primary/20 rounded font-medium">{{competitor_1}}</span> and <span class="px-1.5 py-0.5 bg-primary/10 text-primary border border-primary/20 rounded font-medium">{{competitor_2}}</span> automate their outbound without losing the human touch.</p>
+<p>Would you be open to a 10-minute chat next Tuesday?</p>
+</div><div class="mt-6 pt-4 border-t border-slate-200 dark:border-slate-700">
+<div class="flex items-center gap-2 mb-3">
+<div class="h-8 w-8 rounded-full bg-blue-600 flex items-center justify-center text-white shrink-0">
+<span class="material-symbols-outlined text-sm">share</span>
+</div>
+<div class="min-w-0">
+<p class="text-[10px] font-bold text-slate-900 dark:text-white truncate">LinkedIn Connection Request</p>
+<p class="text-[9px] text-slate-500">AI Generated</p>
+</div>
+</div>
+<div class="p-3 rounded-lg" style="background-color: #f3f6f8; border: 1px solid #e0e0e0;">
+<p class="text-xs text-slate-800 leading-normal">Hi <span class="font-semibold text-blue-700">John</span>, I noticed your recent work at <span class="font-semibold text-blue-700">Sales Auto AI</span> regarding <span class="font-semibold text-blue-700">automated outreach</span>. Your focus on scaling teams effectively is impressive. I'd love to connect and share how we're helping similar companies.</p>
+</div>
+<div class="mt-2 flex justify-end">
+<span class="text-[9px] text-slate-400">298/300 characters</span>
+</div>
+</div><div class="mt-6 pt-4 border-t border-slate-200 dark:border-slate-700">
+<div class="flex items-center gap-2 mb-3">
+<div class="h-8 w-8 rounded-full bg-green-600 flex items-center justify-center text-white shrink-0">
+<span class="material-symbols-outlined text-sm">call</span>
+</div>
+<div class="min-w-0">
+<p class="text-[10px] font-bold text-slate-900 dark:text-white truncate">AI Generated Call Script</p>
+<p class="text-[9px] text-slate-500">Strategy: Value Prop Pitch</p>
+</div>
+</div>
+<div class="p-3 rounded-lg space-y-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700">
+<div>
+<p class="text-[9px] font-bold text-slate-400 uppercase mb-1">Greeting</p>
+<p class="text-xs text-slate-800 dark:text-slate-200">"Hi <span class="text-primary font-medium">John</span>, this is Neural AI. I'm calling because I saw <span class="text-primary font-medium">Neural AI</span> is expanding their sales team and I wanted to share a quick insight on your sequence efficiency."</p>
+</div>
+<div>
+<p class="text-[9px] font-bold text-slate-400 uppercase mb-1">Value Prop</p>
+<p class="text-xs text-slate-800 dark:text-slate-200">"We help companies like <span class="text-primary font-medium">Competitor A</span> automate their outbound without losing the human touch, typically increasing reply rates by 24%."</p>
+</div>
+<div>
+<p class="text-[9px] font-bold text-slate-400 uppercase mb-1">Rebuttals</p>
+<div class="bg-slate-50 dark:bg-slate-800 p-2 rounded border border-slate-100 dark:border-slate-700">
+<p class="text-[9px] font-bold text-slate-500 italic">"Not interested / Send an email"</p>
+<p class="text-[10px] text-slate-600 dark:text-slate-400">"Understood. I'll send over the case study, but would it make sense to sync for 5 mins after you've seen the data?"</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="pt-6 border-t border-slate-200 dark:border-slate-800">
+<button class="w-full bg-slate-900 dark:bg-white dark:text-slate-900 text-white font-bold py-3 rounded-xl transition-all hover:opacity-90">Update Step</button>
+</div>
+</div>
+</aside>
+</div>
+</div>
+<script src="../../prototype-nav.js"></script>
+</body></html>

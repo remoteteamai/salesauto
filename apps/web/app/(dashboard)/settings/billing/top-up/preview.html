@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec5b13",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#221610",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen">
+<div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<!-- Header -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-slate-200 dark:border-slate-800 px-6 py-4 lg:px-20 bg-white dark:bg-background-dark/50 backdrop-blur-md sticky top-0 z-50">
+<div class="flex items-center gap-3">
+<div class="size-8 bg-primary rounded flex items-center justify-center text-white">
+<span class="material-symbols-outlined !text-2xl">neurology</span>
+</div>
+<h2 class="text-slate-900 dark:text-white text-xl font-bold leading-tight tracking-tight">Neural AI</h2>
+</div>
+<div class="flex items-center gap-6">
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-slate-600 dark:text-slate-300 text-sm font-medium hover:text-primary transition-colors" href="#">Dashboard</a>
+<a class="text-slate-600 dark:text-slate-300 text-sm font-medium hover:text-primary transition-colors" href="#">Usage</a>
+<a class="text-slate-900 dark:text-white text-sm font-bold border-b-2 border-primary pb-1" href="#">Billing</a>
+</nav>
+<div class="bg-slate-200 dark:bg-slate-700 rounded-full size-9 flex items-center justify-center overflow-hidden border border-slate-300 dark:border-slate-600">
+<img class="w-full h-full object-cover" data-alt="User profile avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuMg162T2D1CQFxAbFrLtI2TnQsiT_txvot2ifX67ism2rQef31rDZnDfGLwvhpR42no7Uc_VUgWSkDYxIvcQtoqdYfk2q3ntqcCKhi6psjec1hnqQuwTDM_oUxIYcXuBnK5oV44XVhZYuTS-uY23MCpnSLyeXDf-o7Yp4st1UfJlhRBHex5PloQaiXkDCP_Xykq2X4wBTkQLXnpVRmNpd9_YTXTbH7pE2Xaf_k0GOpEcFtJs42uAa5Na-M2tU3S08P1K-ewOZpdM"/>
+</div>
+</div>
+</header>
+<main class="flex-1 px-4 py-8 lg:px-20 max-w-6xl mx-auto w-full">
+<div class="mb-8">
+<div class="flex items-center gap-2 text-primary mb-2">
+<span class="material-symbols-outlined text-sm">arrow_back</span>
+<a class="text-sm font-semibold uppercase tracking-wider" href="#">Back to Billing</a>
+</div>
+<h1 class="text-4xl font-black text-slate-900 dark:text-white tracking-tight">Top Up Credits</h1>
+<p class="text-slate-500 dark:text-slate-400 mt-2 text-lg">Fuel your sales outreach with high-performance AI credits.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- Left Column: Package Selection -->
+<div class="lg:col-span-7 space-y-6">
+<!-- Current Balance Widget -->
+<div class="bg-white dark:bg-slate-900 rounded-xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm flex justify-between items-center">
+<div>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium">Current Balance</p>
+<p class="text-3xl font-bold text-slate-900 dark:text-white">142 <span class="text-lg font-normal text-slate-400">Credits</span></p>
+</div>
+<div class="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest">Low Balance</div>
+</div>
+<section>
+<h2 class="text-xl font-bold mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">package_2</span>
+                                Select a Credit Package
+                            </h2>
+<div class="space-y-3">
+<label class="relative flex items-center justify-between gap-4 rounded-xl border-2 border-primary bg-primary/5 p-5 cursor-pointer transition-all hover:bg-primary/10">
+<div class="flex items-center gap-4">
+<input checked="" class="h-5 w-5 border-2 border-primary text-primary focus:ring-primary" name="credit_package" type="radio"/>
+<div>
+<p class="text-slate-900 dark:text-white text-lg font-bold">5,000 Credits</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium">Standard outreach pack</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-slate-900 dark:text-white text-xl font-black">$399.00</p>
+<span class="bg-primary text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase">Save 20%</span>
+</div>
+</label>
+<label class="relative flex items-center justify-between gap-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-5 cursor-pointer transition-all hover:border-primary/50">
+<div class="flex items-center gap-4">
+<input class="h-5 w-5 border-2 border-slate-300 text-primary focus:ring-primary" name="credit_package" type="radio"/>
+<div>
+<p class="text-slate-900 dark:text-white text-lg font-bold">1,000 Credits</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium">Starter pack</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-slate-900 dark:text-white text-xl font-black">$99.00</p>
+</div>
+</label>
+<label class="relative flex items-center justify-between gap-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-5 cursor-pointer transition-all hover:border-primary/50">
+<div class="flex items-center gap-4">
+<input class="h-5 w-5 border-2 border-slate-300 text-primary focus:ring-primary" name="credit_package" type="radio"/>
+<div>
+<p class="text-slate-900 dark:text-white text-lg font-bold">10,000 Credits</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium">Enterprise volume</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-slate-900 dark:text-white text-xl font-black">$699.00</p>
+<span class="bg-slate-900 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase">Best Value</span>
+</div>
+</label>
+</div>
+</section>
+<section class="pt-4">
+<h2 class="text-xl font-bold mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">credit_card</span>
+                                Payment Method
+                            </h2>
+<div class="bg-white dark:bg-slate-900 rounded-xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
+<div>
+<label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1">Cardholder Name</label>
+<input class="w-full rounded-lg border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 focus:border-primary focus:ring-primary" placeholder="John Doe" type="text"/>
+</div>
+<div>
+<label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1">Card Number</label>
+<div class="relative">
+<input class="w-full rounded-lg border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 focus:border-primary focus:ring-primary pl-10" placeholder="0000 0000 0000 0000" type="text"/>
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">payments</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1">Expiry Date</label>
+<input class="w-full rounded-lg border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 focus:border-primary focus:ring-primary" placeholder="MM/YY" type="text"/>
+</div>
+<div>
+<label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1">CVC</label>
+<input class="w-full rounded-lg border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 focus:border-primary focus:ring-primary" placeholder="123" type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-2 pt-2">
+<input class="rounded text-primary focus:ring-primary border-slate-300" id="save_card" type="checkbox"/>
+<label class="text-sm text-slate-600 dark:text-slate-400" for="save_card">Save card for future top-ups</label>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column: Order Summary -->
+<div class="lg:col-span-5 sticky top-24">
+<div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 shadow-xl overflow-hidden">
+<div class="bg-slate-50 dark:bg-slate-800/50 p-6 border-b border-slate-200 dark:border-slate-800">
+<h3 class="font-bold text-lg">Order Summary</h3>
+</div>
+<div class="p-6 space-y-4">
+<div class="flex justify-between text-slate-600 dark:text-slate-400">
+<span>5,000 Credits Package</span>
+<span class="font-semibold text-slate-900 dark:text-white">$399.00</span>
+</div>
+<div class="flex justify-between text-slate-600 dark:text-slate-400">
+<span>Subtotal</span>
+<span class="font-semibold text-slate-900 dark:text-white">$399.00</span>
+</div>
+<div class="flex justify-between text-slate-600 dark:text-slate-400">
+<span>Tax (0%)</span>
+<span class="font-semibold text-slate-900 dark:text-white">$0.00</span>
+</div>
+<div class="pt-4 border-t border-slate-200 dark:border-slate-800 flex justify-between items-center">
+<span class="text-xl font-bold">Total Amount</span>
+<span class="text-2xl font-black text-primary">$399.00</span>
+</div>
+<button class="w-full bg-primary hover:bg-primary/90 text-white font-bold py-4 rounded-xl transition-all shadow-lg shadow-primary/20 flex items-center justify-center gap-2 group">
+<span>Purchase Credits</span>
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">bolt</span>
+</button>
+<div class="space-y-4 pt-6 border-t border-slate-100 dark:border-slate-800">
+<div class="flex items-center gap-3 text-slate-500 dark:text-slate-400 text-xs">
+<span class="material-symbols-outlined !text-lg text-green-500">verified_user</span>
+<p>Secure SSL encrypted processing via Stripe</p>
+</div>
+<div class="flex items-center gap-3 text-slate-500 dark:text-slate-400 text-xs">
+<span class="material-symbols-outlined !text-lg text-primary">history</span>
+<p>Credits never expire and roll over monthly</p>
+</div>
+<div class="flex items-center gap-3 text-slate-500 dark:text-slate-400 text-xs">
+<span class="material-symbols-outlined !text-lg text-blue-500">assignment_return</span>
+<p>14-day 100% money-back guarantee</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Trust Badge -->
+<div class="mt-6 flex justify-center gap-8 grayscale opacity-50 dark:invert">
+<img class="h-6" data-alt="Stripe payment provider logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtWGjZfXjnEaSIGcqEhl0PTbA1AoLvFfVA7-xlirtCL7i7Q5UqWppaj9qYC35NIKoJ4y-iM1m5_bPfhkxFSAhjNDgeHb2n1u3pouhRNuW9mWy0z9EQkCXBFfcmdsGh1s2grHsdPUHEqKkC1iUHvcDnKPnK93D3e29excxM7VoXJ-4AQLUubRKGC7hnUEaodKfG2MC8PpL4CcmW6mXnLsoq7AKylWQlDTCrT5C_NpAMsUI2_Rbh-KIK2tZWZaYZ9a9_C4Iyb8TU6sE"/>
+<img class="h-4" data-alt="Visa payment logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEKSzmzX1euO9z8J6S3KDP5-rInhAlPujl2EmGlhFnVyRTQ34GtayivYKd3TkT2AawhMT1Cbtl4XBq3J37z0bIq6NvPwh0SUOcVTjjCScrKXl5N3YT6-BHpwXQR7MqPOzQqaFkdQkg1noD6Ace0LKieFqFpGgdAyTyhX9gbizGnVnCcf-J7V1PY9x0Dz5xXT9y3JGJpMh59dj1uPOqRCSPhPL5WOedUBnVDvfe1atN0-TWkK7gwmiGC8GVuNXZ9Xiu3AsMJiWTzFI"/>
+<img class="h-6" data-alt="Mastercard payment logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMZgIUMOTThA0Bu45rjsqU9xuM5pLbVabaZ8g6XRJka7cuYK6ixYJ21AbgV5NkW7fOO92eg2HlaBFKsxyDhc4G6vgDo74pZlPIf_KUJA7ZUxt1BqbzvKdhETWXccHJHgSekRAF02jI1MkNpL-kveKMqjC2SNKfaih6qPpJ20Sv0ZZiB2CK5Etct4qtq2hFNUf_fZxS7s3TzrR7lRQVPMUu8ATK6rBt8M9miWRJEx9DOr0t-r4ZO2xFxZGLrpCscQwkfdHoM7BbmWg"/>
+</div>
+</div>
+</div>
+</main>
+<footer class="mt-auto border-t border-slate-200 dark:border-slate-800 py-8 px-6 lg:px-20 text-center">
+<p class="text-slate-400 dark:text-slate-500 text-sm">© 2024 Neural AI SaaS. All payments are securely processed. <a class="underline" href="#">Terms of Service</a></p>
+</footer>
+</div>
+</div>
+<script src="../../../../prototype-nav.js"></script>
+</body></html>

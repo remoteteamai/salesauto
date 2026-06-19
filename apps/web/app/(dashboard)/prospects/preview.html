@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sales Auto AI - B2B Intelligence Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec5b13",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#221610",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Public Sans', sans-serif; }
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 10px; }
+        .dark .custom-scrollbar::-webkit-scrollbar-thumb { background: #33261f; }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 antialiased">
+<div class="flex h-screen overflow-hidden">
+<!-- Sidebar Navigation -->
+<aside class="w-72 flex-shrink-0 border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-background-dark flex flex-col">
+<!-- Logo Header -->
+<div class="p-6 flex items-center gap-3">
+<div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-xl">psychology</span>
+</div>
+<div>
+<h1 class="text-sm font-bold tracking-tight text-slate-900 dark:text-white uppercase">Sales Auto AI</h1>
+<p class="text-[10px] text-slate-500 dark:text-slate-400 font-medium">B2B INTELLIGENCE</p>
+</div>
+</div>
+<!-- Scrollable Content -->
+<div class="flex-1 overflow-y-auto custom-scrollbar px-4 space-y-6 pb-6">
+<!-- Search People & Companies -->
+<div>
+<p class="text-[11px] font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-3 px-2">Discovery</p>
+<div class="space-y-1">
+<button class="w-full flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-lg bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-[20px]">person_search</span>
+                        People
+                    </button>
+<button class="w-full flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined text-[20px]">domain</span>
+                        Companies
+                    </button>
+</div>
+</div>
+<!-- Advanced Filters -->
+<div>
+<p class="text-[11px] font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-3 px-2">Advanced Filters</p>
+<div class="space-y-3 px-2">
+<div class="space-y-1.5">
+<label class="text-[11px] font-medium text-slate-500">Firmographics</label>
+<select class="w-full text-xs bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-primary focus:border-primary py-2 px-3">
+<option>Industry, Revenue, Size</option>
+<option>Software (SaaS)</option>
+<option>Fintech</option>
+<option>Healthtech</option>
+</select>
+</div>
+<div class="space-y-1.5">
+<label class="text-[11px] font-medium text-slate-500">Demographics</label>
+<select class="w-full text-xs bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-primary focus:border-primary py-2 px-3">
+<option>Title, Seniority, Location</option>
+<option>VP Engineering</option>
+<option>Head of Sales</option>
+<option>Director of Ops</option>
+</select>
+</div>
+<div class="space-y-1.5">
+<label class="text-[11px] font-medium text-slate-500">Technographics</label>
+<select class="w-full text-xs bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-primary focus:border-primary py-2 px-3">
+<option>Tech Stack Categories</option>
+<option>AWS Users</option>
+<option>HubSpot CRM</option>
+<option>Salesforce</option>
+</select>
+</div>
+<div class="space-y-1.5">
+<label class="text-[11px] font-medium text-slate-500">Signals</label>
+<select class="w-full text-xs bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-primary focus:border-primary py-2 px-3">
+<option>Funding, Hiring, Growth</option>
+<option>Recently Funded</option>
+<option>Aggressive Hiring</option>
+<option>New Job Change</option>
+</select>
+</div>
+</div>
+</div>
+<!-- Workspace -->
+<div>
+<p class="text-[11px] font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-3 px-2">Tools &amp; Outreach</p>
+<div class="space-y-1">
+<button class="w-full flex items-center justify-between px-3 py-2 text-sm font-medium rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[20px]">database</span>
+                            Data Enrichment
+                        </div>
+</button>
+<button class="w-full flex items-center justify-between px-3 py-2 text-sm font-medium rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[20px]">send</span>
+                            Engagement
+                        </div>
+<span class="bg-primary/20 text-primary text-[10px] px-1.5 py-0.5 rounded-full">3</span>
+</button>
+<button class="w-full flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined text-[20px]">insights</span>
+                        Sell Insight
+                    </button>
+<button class="w-full flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+                        Monitor
+                    </button>
+<button class="w-full flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined text-[20px]">hub</span>
+                        Integrations
+                    </button>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col min-w-0 bg-white dark:bg-background-dark/50">
+<!-- Header -->
+<header class="h-16 border-b border-slate-200 dark:border-slate-800 px-8 flex items-center justify-between bg-white dark:bg-background-dark/80 backdrop-blur-md sticky top-0 z-10">
+<div class="flex-1 max-w-xl">
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-primary text-xl">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-slate-100 dark:bg-slate-800 border-none rounded-xl focus:ring-2 focus:ring-primary/20 text-sm placeholder:text-slate-500" placeholder="Quick find prospects or companies..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="relative p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-primary rounded-full border-2 border-white dark:border-background-dark"></span>
+</button>
+<div class="h-8 w-[1px] bg-slate-200 dark:border-slate-800 mx-1"></div>
+<div class="flex items-center gap-3 pl-2">
+<div class="text-right">
+<p class="text-xs font-semibold leading-tight">Alex Sterling</p>
+<p class="text-[10px] text-slate-500 font-medium">Pro Plan</p>
+</div>
+<div class="w-9 h-9 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden ring-2 ring-slate-100 dark:ring-slate-800">
+<img alt="User avatar" class="w-full h-full object-cover" data-alt="Portrait of a professional man in a business suit" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9nu6G1WAmBEImxkC1F8OW6jkYPGoedKe_C3oN7BNP60sPEU3UgXXEyUdUQNxxEPOhFaSeydCWxwf4IbNqyVEzy28OnJ8zU22j8XXYFxvjvfBwjL2qoymGTnhGEuJZGcRH7N2NHbP8_Y6Swag54YJCb07EKipNxaQupauYjCkTXzSAFpZ7N6Y6R4_1ZpXEMOQrMEKxOhqJKoJsmnHGw6yd3EeleXdXsP3TNvT-Mb4GNzhdfH8tJaM5FzPtGcwzSmHWTb8WJNIU0R8"/>
+</div>
+<button class="text-slate-400">
+<span class="material-symbols-outlined text-xl">expand_more</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content Wrapper -->
+<div class="flex-1 overflow-auto p-8 custom-scrollbar">
+<!-- Table Action Header -->
+<div class="flex items-center justify-between mb-6">
+<div>
+<h2 class="text-xl font-bold text-slate-900 dark:text-white">Recent Prospects</h2>
+<p class="text-sm text-slate-500 mt-1">Showing 1,248 matching results based on your criteria</p>
+</div>
+<div class="flex gap-3">
+<button class="flex items-center gap-2 px-4 py-2 border border-slate-200 dark:border-slate-700 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined text-lg">download</span>
+                        Export
+                    </button>
+<button class="flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg text-sm font-semibold hover:bg-primary/90 transition-colors shadow-sm shadow-primary/20">
+<span class="material-symbols-outlined text-lg">bolt</span>
+                        Bulk Enrich
+                    </button>
+</div>
+</div>
+<!-- Data Table Container -->
+<div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden shadow-sm">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-slate-50/50 dark:bg-slate-800/50 border-b border-slate-200 dark:border-slate-800">
+<th class="p-4 w-10">
+<input class="rounded border-slate-300 text-primary focus:ring-primary" type="checkbox"/>
+</th>
+<th class="p-4 text-xs font-semibold text-slate-500 uppercase tracking-wider">Prospect Name</th>
+<th class="p-4 text-xs font-semibold text-slate-500 uppercase tracking-wider">Company</th>
+<th class="p-4 text-xs font-semibold text-slate-500 uppercase tracking-wider">Title</th>
+<th class="p-4 text-xs font-semibold text-slate-500 uppercase tracking-wider">Tech Stack</th>
+<th class="p-4 text-xs font-semibold text-slate-500 uppercase tracking-wider">Recent Signals</th>
+<th class="p-4 text-xs font-semibold text-slate-500 uppercase tracking-wider text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100 dark:divide-slate-800/50">
+<!-- Row 1 -->
+<tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors group">
+<td class="p-4">
+<input class="rounded border-slate-300 text-primary focus:ring-primary" type="checkbox"/>
+</td>
+<td class="p-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold text-xs">JS</div>
+<div>
+<p class="text-sm font-semibold text-slate-900 dark:text-white">Jordan Smith</p>
+<p class="text-[11px] text-slate-500">San Francisco, CA</p>
+</div>
+</div>
+</td>
+<td class="p-4">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded bg-slate-100 flex items-center justify-center">
+<span class="material-symbols-outlined text-[14px]">corporate_fare</span>
+</div>
+<span class="text-sm font-medium text-slate-700 dark:text-slate-300">Vortex Tech</span>
+</div>
+</td>
+<td class="p-4">
+<span class="text-sm text-slate-600 dark:text-slate-400">Head of Engineering</span>
+</td>
+<td class="p-4">
+<div class="flex gap-1.5">
+<span class="px-2 py-0.5 bg-slate-100 dark:bg-slate-800 text-[10px] font-medium rounded text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700">AWS</span>
+<span class="px-2 py-0.5 bg-slate-100 dark:bg-slate-800 text-[10px] font-medium rounded text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700">React</span>
+<span class="px-2 py-0.5 bg-slate-100 dark:bg-slate-800 text-[10px] font-medium rounded text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700">+3</span>
+</div>
+</td>
+<td class="p-4">
+<div class="flex items-center gap-2 text-emerald-600 dark:text-emerald-400">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+<span class="text-xs font-semibold">Series B ( $42M )</span>
+</div>
+</td>
+<td class="p-4 text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="px-3 py-1.5 text-[11px] font-bold bg-primary/10 text-primary rounded-lg hover:bg-primary/20">Sequence</button>
+<button class="p-1.5 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200"><span class="material-symbols-outlined text-lg">more_horiz</span></button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors group">
+<td class="p-4">
+<input class="rounded border-slate-300 text-primary focus:ring-primary" type="checkbox"/>
+</td>
+<td class="p-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-purple-100 flex items-center justify-center text-purple-600 font-bold text-xs">ML</div>
+<div>
+<p class="text-sm font-semibold text-slate-900 dark:text-white">Morgan Lee</p>
+<p class="text-[11px] text-slate-500">London, UK</p>
+</div>
+</div>
+</td>
+<td class="p-4">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded bg-slate-100 flex items-center justify-center">
+<span class="material-symbols-outlined text-[14px]">corporate_fare</span>
+</div>
+<span class="text-sm font-medium text-slate-700 dark:text-slate-300">Stellar SaaS</span>
+</div>
+</td>
+<td class="p-4">
+<span class="text-sm text-slate-600 dark:text-slate-400">VP Marketing</span>
+</td>
+<td class="p-4">
+<div class="flex gap-1.5">
+<span class="px-2 py-0.5 bg-slate-100 dark:bg-slate-800 text-[10px] font-medium rounded text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700">HubSpot</span>
+<span class="px-2 py-0.5 bg-slate-100 dark:bg-slate-800 text-[10px] font-medium rounded text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700">6sense</span>
+</div>
+</td>
+<td class="p-4">
+<div class="flex items-center gap-2 text-blue-600 dark:text-blue-400">
+<span class="material-symbols-outlined text-sm">person_add</span>
+<span class="text-xs font-semibold">New Job ( 12d ago )</span>
+</div>
+</td>
+<td class="p-4 text-right">
+<div class="flex items-center justify-end gap-2 opacity-100">
+<button class="px-3 py-1.5 text-[11px] font-bold bg-primary text-white rounded-lg hover:bg-primary/90">Enrich</button>
+<button class="p-1.5 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200"><span class="material-symbols-outlined text-lg">more_horiz</span></button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors group">
+<td class="p-4">
+<input class="rounded border-slate-300 text-primary focus:ring-primary" type="checkbox"/>
+</td>
+<td class="p-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-orange-100 flex items-center justify-center text-orange-600 font-bold text-xs">RK</div>
+<div>
+<p class="text-sm font-semibold text-slate-900 dark:text-white">Ray Kapoor</p>
+<p class="text-[11px] text-slate-500">Austin, TX</p>
+</div>
+</div>
+</td>
+<td class="p-4">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded bg-slate-100 flex items-center justify-center">
+<span class="material-symbols-outlined text-[14px]">corporate_fare</span>
+</div>
+<span class="text-sm font-medium text-slate-700 dark:text-slate-300">CloudScale</span>
+</div>
+</td>
+<td class="p-4">
+<span class="text-sm text-slate-600 dark:text-slate-400">CTO</span>
+</td>
+<td class="p-4">
+<div class="flex gap-1.5">
+<span class="px-2 py-0.5 bg-slate-100 dark:bg-slate-800 text-[10px] font-medium rounded text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700">GCP</span>
+<span class="px-2 py-0.5 bg-slate-100 dark:bg-slate-800 text-[10px] font-medium rounded text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700">Docker</span>
+</div>
+</td>
+<td class="p-4">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-sm">campaign</span>
+<span class="text-xs font-semibold">New Product Launch</span>
+</div>
+</td>
+<td class="p-4 text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="px-3 py-1.5 text-[11px] font-bold bg-primary/10 text-primary rounded-lg hover:bg-primary/20">Sequence</button>
+<button class="p-1.5 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200"><span class="material-symbols-outlined text-lg">more_horiz</span></button>
+</div>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors group">
+<td class="p-4">
+<input class="rounded border-slate-300 text-primary focus:ring-primary" type="checkbox"/>
+</td>
+<td class="p-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-slate-200 flex items-center justify-center text-slate-600 font-bold text-xs">SW</div>
+<div>
+<p class="text-sm font-semibold text-slate-900 dark:text-white">Sarah Wong</p>
+<p class="text-[11px] text-slate-500">Toronto, CA</p>
+</div>
+</div>
+</td>
+<td class="p-4">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded bg-slate-100 flex items-center justify-center">
+<span class="material-symbols-outlined text-[14px]">corporate_fare</span>
+</div>
+<span class="text-sm font-medium text-slate-700 dark:text-slate-300">GrowthBox</span>
+</div>
+</td>
+<td class="p-4">
+<span class="text-sm text-slate-600 dark:text-slate-400">Head of Talent</span>
+</td>
+<td class="p-4">
+<div class="flex gap-1.5">
+<span class="px-2 py-0.5 bg-slate-100 dark:bg-slate-800 text-[10px] font-medium rounded text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700">Greenhouse</span>
+<span class="px-2 py-0.5 bg-slate-100 dark:bg-slate-800 text-[10px] font-medium rounded text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700">BambooHR</span>
+</div>
+</td>
+<td class="p-4">
+<div class="flex items-center gap-2 text-slate-500">
+<span class="material-symbols-outlined text-sm">group_add</span>
+<span class="text-xs font-semibold">Aggressive Hiring ( 24 posts )</span>
+</div>
+</td>
+<td class="p-4 text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="px-3 py-1.5 text-[11px] font-bold bg-primary/10 text-primary rounded-lg hover:bg-primary/20">Sequence</button>
+<button class="p-1.5 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200"><span class="material-symbols-outlined text-lg">more_horiz</span></button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- Pagination -->
+<div class="p-4 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between bg-slate-50/30 dark:bg-slate-900">
+<p class="text-xs text-slate-500">Showing <span class="font-semibold text-slate-700 dark:text-slate-300">1 - 25</span> of 1,248 prospects</p>
+<div class="flex items-center gap-2">
+<button class="p-2 border border-slate-200 dark:border-slate-700 rounded-lg text-slate-400 hover:text-slate-600 hover:bg-slate-50 transition-colors disabled:opacity-50" disabled="">
+<span class="material-symbols-outlined text-lg">chevron_left</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg bg-primary text-white text-xs font-bold">1</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-xs font-medium">2</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-xs font-medium">3</button>
+<button class="p-2 border border-slate-200 dark:border-slate-700 rounded-lg text-slate-400 hover:text-slate-600 hover:bg-slate-50 transition-colors">
+<span class="material-symbols-outlined text-lg">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Quick Actions Footer -->
+<div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="p-5 border border-slate-200 dark:border-slate-800 rounded-xl bg-white dark:bg-slate-900 flex items-start gap-4">
+<div class="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined">mail</span>
+</div>
+<div>
+<h4 class="text-sm font-bold text-slate-900 dark:text-white">Active Campaigns</h4>
+<p class="text-xs text-slate-500 mt-1">12 email sequences running for Q3 Outreach.</p>
+<button class="mt-3 text-xs font-bold text-primary flex items-center gap-1 hover:underline">View stats <span class="material-symbols-outlined text-sm">arrow_forward</span></button>
+</div>
+</div>
+<div class="p-5 border border-slate-200 dark:border-slate-800 rounded-xl bg-white dark:bg-slate-900 flex items-start gap-4">
+<div class="w-10 h-10 rounded-full bg-emerald-100 text-emerald-600 dark:bg-emerald-900/30 dark:text-emerald-400 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined">verified</span>
+</div>
+<div>
+<h4 class="text-sm font-bold text-slate-900 dark:text-white">Data Health</h4>
+<p class="text-xs text-slate-500 mt-1">98.2% contact accuracy across your lists.</p>
+<button class="mt-3 text-xs font-bold text-emerald-600 dark:text-emerald-400 flex items-center gap-1 hover:underline">Run audit <span class="material-symbols-outlined text-sm">arrow_forward</span></button>
+</div>
+</div>
+<div class="p-5 border border-slate-200 dark:border-slate-800 rounded-xl bg-white dark:bg-slate-900 flex items-start gap-4">
+<div class="w-10 h-10 rounded-full bg-blue-100 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined">api</span>
+</div>
+<div>
+<h4 class="text-sm font-bold text-slate-900 dark:text-white">CRM Connected</h4>
+<p class="text-xs text-slate-500 mt-1">Salesforce sync completed 5 mins ago.</p>
+<button class="mt-3 text-xs font-bold text-blue-600 dark:text-blue-400 flex items-center gap-1 hover:underline">Settings <span class="material-symbols-outlined text-sm">arrow_forward</span></button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<script src="../../prototype-nav.js"></script>
+</body></html>
