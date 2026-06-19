@@ -193,13 +193,14 @@ jobs:
           images: ${{ env.BACKEND_IMAGE }}
           tags: |
             type=ref,event=branch
-            type=sha,prefix={{branch}}-
+            type=ref,event=pr
+            type=sha
             type=raw,value=latest,enable={{is_default_branch}}
 
       - name: Build and push Backend image
         uses: docker/build-push-action@v5
         with:
-          context: .
+          context: ./apps/backend
           file: ./apps/backend/Dockerfile
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta-backend.outputs.tags }}
@@ -214,13 +215,14 @@ jobs:
           images: ${{ env.FRONTEND_IMAGE }}
           tags: |
             type=ref,event=branch
-            type=sha,prefix={{branch}}-
+            type=ref,event=pr
+            type=sha
             type=raw,value=latest,enable={{is_default_branch}}
 
       - name: Build and push Frontend image
         uses: docker/build-push-action@v5
         with:
-          context: .
+          context: ./apps/web
           file: ./apps/web/Dockerfile
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta-frontend.outputs.tags }}

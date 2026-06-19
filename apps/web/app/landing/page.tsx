@@ -1,6 +1,7 @@
 'use client';
 
-import { Zap, ArrowRight, PlayCircle, TrendingUp, Database, Bot, Rocket, Shield, Activity, Trophy, Globe, Mail, Network } from 'lucide-react';
+import Link from 'next/link';
+import { Zap, ArrowRight, PlayCircle, TrendingUp, Database, Bot, Rocket, Shield, Activity, Trophy, Globe, Mail, Network, Calendar } from 'lucide-react';
 
 export default function LandingPage() {
   return (
@@ -60,19 +61,19 @@ export default function LandingPage() {
           </p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <button className="w-full sm:w-auto px-8 py-4 bg-indigo-500 hover:bg-indigo-600 rounded-xl font-semibold text-lg transition-all transform hover:scale-105 flex items-center justify-center gap-2">
+            <Link href="/signup" className="w-full sm:w-auto px-8 py-4 bg-indigo-500 hover:bg-indigo-600 rounded-xl font-semibold text-lg transition-all transform hover:scale-105 flex items-center justify-center gap-2">
               Get Started Free
               <ArrowRight className="w-5 h-5" />
-            </button>
-            <button className="w-full sm:w-auto px-8 py-4 border border-gray-600 hover:border-gray-500 rounded-xl font-semibold text-lg transition-all flex items-center justify-center gap-2"
+            </Link>
+            <Link href="/demo" className="w-full sm:w-auto px-8 py-4 border border-gray-600 hover:border-gray-500 rounded-xl font-semibold text-lg transition-all flex items-center justify-center gap-2"
               style={{
                 background: 'rgba(255, 255, 255, 0.03)',
                 backdropFilter: 'blur(8px)',
               }}
             >
-              <PlayCircle className="w-5 h-5" />
-              Watch Demo
-            </button>
+              <Calendar className="w-5 h-5" />
+              Book a Demo
+            </Link>
           </div>
         </div>
       </section>

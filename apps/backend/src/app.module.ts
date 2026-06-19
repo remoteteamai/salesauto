@@ -21,6 +21,7 @@ import { AdminModule } from './modules/admin/admin.module';
 import { EmailModule } from './modules/email/email.module';
 import { WebhooksModule } from './modules/webhooks/webhooks.module';
 import { EnrichmentModule } from './modules/enrichment/enrichment.module';
+import { CalendlyModule } from './modules/calendly/calendly.module';
 import { HealthModule } from './modules/health/health.module';
 
 // Configuration
@@ -72,6 +73,7 @@ import configuration from './config/configuration';
     EmailModule,
     WebhooksModule,
     EnrichmentModule,
+    CalendlyModule,
   ],
   providers: [
     {
