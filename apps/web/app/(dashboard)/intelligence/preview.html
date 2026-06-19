@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec5b13",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#221610",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<title>Neural AI | Sales Intelligence</title>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 w-full border-b border-slate-200 dark:border-slate-800 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md px-6 lg:px-10 py-3">
+<div class="max-w-7xl mx-auto flex items-center justify-between">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-3xl font-bold">neurology</span>
+<h2 class="text-slate-900 dark:text-slate-100 text-xl font-black tracking-tight">Neural AI</h2>
+</div>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-slate-600 dark:text-slate-400 text-sm font-medium hover:text-primary transition-colors" href="#">Products</a>
+<a class="text-slate-600 dark:text-slate-400 text-sm font-medium hover:text-primary transition-colors" href="#">Solutions</a>
+<a class="text-slate-600 dark:text-slate-400 text-sm font-medium hover:text-primary transition-colors" href="#">Pricing</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden sm:flex relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm">search</span>
+<input class="bg-slate-100 dark:bg-slate-800 border-none rounded-xl pl-10 pr-4 py-2 text-sm focus:ring-2 focus:ring-primary/50 w-64" placeholder="Search recordings..."/>
+</div>
+<button class="bg-primary text-white text-sm font-bold px-5 py-2.5 rounded-xl hover:bg-primary/90 transition-all shadow-lg shadow-primary/20">
+                    Get Started
+                </button>
+<div class="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center border border-primary/20">
+<span class="material-symbols-outlined text-primary">person</span>
+</div>
+</div>
+</div>
+</header>
+<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+<!-- Breadcrumbs & Title -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+<div class="space-y-2">
+<nav class="flex items-center gap-2 text-xs font-medium text-slate-500 uppercase tracking-wider">
+<a class="hover:text-primary transition-colors" href="#">Workspace</a>
+<span class="material-symbols-outlined text-[10px]">chevron_right</span>
+<a class="hover:text-primary transition-colors" href="#">Sales Intelligence</a>
+<span class="material-symbols-outlined text-[10px]">chevron_right</span>
+<span class="text-primary">Q4 Enterprise Strategy Sync</span>
+</nav>
+<h1 class="text-3xl font-black text-slate-900 dark:text-slate-100 leading-tight">Q4 Strategy Sync: CloudOne Architecture</h1>
+<div class="flex flex-wrap items-center gap-4 text-sm text-slate-500">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">calendar_today</span> Oct 24, 2023</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">schedule</span> 45:12 Duration</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">person</span> Hosted by Sarah Chen</span>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<button class="flex items-center gap-2 px-4 py-2 rounded-xl border border-slate-200 dark:border-slate-800 font-semibold text-sm hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined text-sm">share</span> Share
+                </button>
+<button class="flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 font-semibold text-sm hover:opacity-90 transition-colors">
+<span class="material-symbols-outlined text-sm">download</span> Export Insights
+                </button>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Left Column: Video Player & Controls -->
+<div class="lg:col-span-7 space-y-6">
+<!-- Video Player Component -->
+<div class="relative group aspect-video rounded-2xl overflow-hidden bg-slate-900 shadow-2xl">
+<div class="absolute inset-0 bg-cover bg-center opacity-60" data-alt="Corporate video call screen with several participants" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCWMjKBDbFlq1xjswo_AifrMidj1nBttDZLcZu1BE30QnoRIveVKoYQ-NeDX7zRrdoKuA24LYKcj5qU1-M7ANsjros_48eRPrbLVVVM7zTSJloWzFewBseXLBiaYTZiEbLr__HKETl4kKMl1O27LNRUogwcYEMJMlDMNKhEWK6LYCprp8y1G74VLMnjg3TKBt7rYFdjA2FNsS6YiA_sRUzUxHIZFor2LxvVX5BFdqrX-1IDtlQHbO6MFPuQDBqc23SorZ8JJ_JQ22g')"></div>
+<!-- Overlay UI -->
+<div class="absolute inset-0 flex items-center justify-center">
+<button class="h-20 w-20 rounded-full bg-primary/90 text-white flex items-center justify-center hover:scale-110 transition-transform shadow-xl">
+<span class="material-symbols-outlined text-4xl fill-current">play_arrow</span>
+</button>
+</div>
+<!-- Video Controls -->
+<div class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
+<div class="space-y-2">
+<div class="h-1.5 w-full bg-white/20 rounded-full overflow-hidden relative cursor-pointer">
+<div class="absolute left-0 top-0 h-full w-1/3 bg-primary"></div>
+<div class="absolute left-1/3 top-1/2 -translate-y-1/2 -translate-x-1/2 h-4 w-4 rounded-full bg-white shadow-lg border-2 border-primary"></div>
+</div>
+<div class="flex items-center justify-between text-white text-xs font-medium">
+<div class="flex items-center gap-4">
+<span>14:22 / 45:12</span>
+<span class="material-symbols-outlined text-lg cursor-pointer">volume_up</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="px-1.5 py-0.5 rounded bg-white/10 text-[10px]">1.25x</span>
+<span class="material-symbols-outlined text-lg cursor-pointer">settings</span>
+<span class="material-symbols-outlined text-lg cursor-pointer">fullscreen</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Tabs for Bottom Section -->
+<div class="border-b border-slate-200 dark:border-slate-800 flex gap-8">
+<button class="pb-3 border-b-2 border-primary text-primary text-sm font-bold">Transcription</button>
+<button class="pb-3 text-slate-500 text-sm font-semibold hover:text-slate-900 dark:hover:text-slate-100">Meeting Notes</button>
+<button class="pb-3 text-slate-500 text-sm font-semibold hover:text-slate-900 dark:hover:text-slate-100">Participants (6)</button>
+</div>
+<!-- AI Transcription Feed -->
+<div class="space-y-6 max-h-[500px] overflow-y-auto pr-2 scrollbar-thin">
+<div class="flex gap-4">
+<div class="h-10 w-10 rounded-full bg-slate-200 flex-shrink-0 flex items-center justify-center font-bold text-slate-600">SC</div>
+<div class="space-y-1">
+<div class="flex items-center gap-2">
+<span class="text-sm font-bold">Sarah Chen</span>
+<span class="text-xs text-slate-400">12:04</span>
+</div>
+<p class="text-slate-700 dark:text-slate-300 text-sm leading-relaxed bg-white dark:bg-slate-800/50 p-4 rounded-xl border border-slate-100 dark:border-slate-800">
+                                "So, when we look at the Q4 roadmap, our main priority is integrating the Neural AI core into the existing CRM. David, can you speak to the technical hurdles there?"
+                            </p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="h-10 w-10 rounded-full bg-primary/20 flex-shrink-0 flex items-center justify-center font-bold text-primary">DM</div>
+<div class="space-y-1">
+<div class="flex items-center gap-2">
+<span class="text-sm font-bold">David Miller</span>
+<span class="text-xs text-slate-400">12:45</span>
+<span class="px-2 py-0.5 rounded-full bg-primary/10 text-primary text-[10px] font-bold uppercase tracking-tighter">Key Insight</span>
+</div>
+<p class="text-slate-700 dark:text-slate-300 text-sm leading-relaxed bg-primary/5 p-4 rounded-xl border border-primary/10">
+                                "The main challenge is the API rate limiting on the legacy systems. We'll need a robust caching layer. I'm estimating about 3 weeks for the initial bridge."
+                            </p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="h-10 w-10 rounded-full bg-slate-200 flex-shrink-0 flex items-center justify-center font-bold text-slate-600">JS</div>
+<div class="space-y-1">
+<div class="flex items-center gap-2">
+<span class="text-sm font-bold">James Smith</span>
+<span class="text-xs text-slate-400">13:30</span>
+</div>
+<p class="text-slate-700 dark:text-slate-300 text-sm leading-relaxed bg-white dark:bg-slate-800/50 p-4 rounded-xl border border-slate-100 dark:border-slate-800">
+                                "Three weeks sounds reasonable. Does that align with the marketing launch in mid-November?"
+                            </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Conversation Intelligence -->
+<div class="lg:col-span-5 space-y-6">
+<!-- Conversation Sentiment & Stats -->
+<div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-sm">
+<h3 class="text-sm font-bold uppercase tracking-wider text-slate-500 mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-lg">analytics</span> Conversation Intelligence
+                    </h3>
+<div class="grid grid-cols-2 gap-4">
+<div class="p-4 rounded-xl bg-green-50 dark:bg-green-950/20 border border-green-100 dark:border-green-900/30">
+<p class="text-[10px] font-bold text-green-600 dark:text-green-400 uppercase">Sentiment Score</p>
+<p class="text-2xl font-black text-green-700 dark:text-green-300">88% <span class="text-xs font-normal">Positive</span></p>
+</div>
+<div class="p-4 rounded-xl bg-primary/5 border border-primary/10">
+<p class="text-[10px] font-bold text-primary uppercase">Talk Ratio</p>
+<p class="text-2xl font-black text-slate-900 dark:text-slate-100">42/58</p>
+</div>
+</div>
+</div>
+<!-- AI Highlights & Action Items -->
+<div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-sm space-y-6">
+<div>
+<h3 class="text-sm font-bold uppercase tracking-wider text-slate-500 mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-lg">bolt</span> AI Summary
+                        </h3>
+<p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                            The meeting focused on the technical integration of Neural AI into the CRM. David Miller identified API rate limiting as a bottleneck, proposing a 3-week caching layer solution. Budget and marketing alignment are confirmed.
+                        </p>
+</div>
+<div>
+<h3 class="text-sm font-bold uppercase tracking-wider text-slate-500 mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-lg">checklist</span> Action Items
+                        </h3>
+<ul class="space-y-3">
+<li class="flex items-start gap-3 text-sm group">
+<div class="mt-1 h-4 w-4 rounded border border-slate-300 flex-shrink-0 group-hover:border-primary transition-colors cursor-pointer"></div>
+<span class="text-slate-700 dark:text-slate-300">David Miller to draft technical specs for the caching layer by Friday.</span>
+</li>
+<li class="flex items-start gap-3 text-sm group">
+<div class="mt-1 h-4 w-4 rounded border border-slate-300 flex-shrink-0 group-hover:border-primary transition-colors cursor-pointer"></div>
+<span class="text-slate-700 dark:text-slate-300">Sarah to follow up with the Marketing team regarding the bridge timeline.</span>
+</li>
+<li class="flex items-start gap-3 text-sm group">
+<div class="mt-1 h-4 w-4 rounded border border-slate-300 flex-shrink-0 group-hover:border-primary transition-colors cursor-pointer"></div>
+<span class="text-slate-700 dark:text-slate-300">Schedule next sync for Monday at 10 AM EST.</span>
+</li>
+</ul>
+</div>
+</div>
+<!-- Smart Email Composer -->
+<div class="bg-slate-900 rounded-2xl p-6 shadow-xl border border-primary/20 relative overflow-hidden group">
+<div class="absolute -right-12 -top-12 h-32 w-32 bg-primary/20 blur-3xl rounded-full"></div>
+<div class="relative z-10 space-y-4">
+<div class="flex items-center justify-between">
+<h3 class="text-sm font-bold uppercase tracking-wider text-primary flex items-center gap-2">
+<span class="material-symbols-outlined">auto_fix</span> Smart Follow-up
+                            </h3>
+<span class="px-2 py-1 rounded bg-primary text-white text-[10px] font-bold">AI GENERATED</span>
+</div>
+<div class="bg-white/5 border border-white/10 rounded-xl p-4 space-y-3">
+<div class="text-[10px] text-slate-400 space-y-1">
+<p>To: CloudOne Leadership Team</p>
+<p class="border-b border-white/10 pb-2">Subject: Follow-up: Q4 Architecture &amp; Timeline Alignment</p>
+</div>
+<p class="text-sm text-slate-200 leading-relaxed italic">
+                                "Hi Team, great sync today. As discussed, David is moving forward with the 3-week sprint for the caching layer to mitigate API bottlenecks. We are still on track for the November launch..."
+                            </p>
+</div>
+<div class="flex gap-2 pt-2">
+<button class="flex-1 bg-primary text-white text-xs font-bold py-3 rounded-xl hover:bg-primary/90 transition-colors">
+                                Edit &amp; Send
+                            </button>
+<button class="px-4 bg-white/10 text-white rounded-xl hover:bg-white/20 transition-colors">
+<span class="material-symbols-outlined text-sm">refresh</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="mt-20 border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/50 py-12">
+<div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="flex items-center gap-2 text-primary opacity-80">
+<span class="material-symbols-outlined text-2xl">neurology</span>
+<span class="text-lg font-black tracking-tight text-slate-900 dark:text-slate-100">Neural AI</span>
+</div>
+<div class="flex gap-8">
+<a class="text-sm text-slate-500 hover:text-primary transition-colors" href="#">Documentation</a>
+<a class="text-sm text-slate-500 hover:text-primary transition-colors" href="#">API Reference</a>
+<a class="text-sm text-slate-500 hover:text-primary transition-colors" href="#">Support</a>
+<a class="text-sm text-slate-500 hover:text-primary transition-colors" href="#">Privacy Policy</a>
+</div>
+<p class="text-xs text-slate-400">© 2023 Neural AI. All rights reserved.</p>
+</div>
+</footer>
+<script src="../../prototype-nav.js"></script>
+</body></html>

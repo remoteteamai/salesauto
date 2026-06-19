@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Team Management - Invitation Success</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1978e5",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#111821",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: { "DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100">
+<div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<!-- Top Navigation Bar -->
+<header class="flex items-center justify-between border-b border-primary/10 bg-white dark:bg-slate-900 px-4 md:px-10 py-3 sticky top-0 z-50">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-4 text-primary">
+<div class="size-8 flex items-center justify-center bg-primary/10 rounded-lg">
+<span class="material-symbols-outlined text-primary">hub</span>
+</div>
+<h2 class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight tracking-tight">Neural.ai</h2>
+</div>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-sm font-medium transition-colors" href="#">Dashboard</a>
+<a class="text-primary text-sm font-semibold border-b-2 border-primary pb-1" href="#">Team</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-sm font-medium transition-colors" href="#">Projects</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-sm font-medium transition-colors" href="#">Settings</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<label class="hidden sm:flex items-center relative w-64">
+<span class="material-symbols-outlined absolute left-3 text-slate-400 text-lg">search</span>
+<input class="w-full h-10 pl-10 pr-4 bg-slate-100 dark:bg-slate-800 border-none rounded-xl text-sm focus:ring-2 focus:ring-primary/50" placeholder="Search members..." type="text"/>
+</label>
+<button class="p-2 bg-slate-100 dark:bg-slate-800 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-primary/10 hover:text-primary transition-all">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="h-10 w-10 rounded-full bg-primary/20 border-2 border-primary/10 bg-cover bg-center" data-alt="User profile avatar" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBxdfMJDZsrltYKnSWHfQyD1WhQ529Kjfbmz1yIuE47BpoqJwoFgCqVMWqY4dRp8pLMs_s4G4tsxOOEw_lz0ckTGWNeCxlxq9ReWz79bUTtxXLwlBPwcrfCuXuCCsO_IRTrl_T-vNP4KDwEyvjjt6ZqOqwBl-I6NXVmt1Rc66Mb2tan2UN8iE8vXhOC3Ip0UiVRv0QLjsNL_9_wd9HCCPIfjcJK_G7qx2gUNqEP86N876uioct_IAO4s52YNbcORePq9T6Up5G9jb4')"></div>
+</div>
+</header>
+<main class="flex-1 flex flex-col md:flex-row">
+<!-- Sidebar -->
+<aside class="w-full md:w-64 border-r border-primary/10 bg-white dark:bg-slate-900 p-4 space-y-6">
+<div>
+<h3 class="px-3 text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">Management</h3>
+<div class="space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">dashboard</span>
+<span class="text-sm font-medium">Overview</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 bg-primary/10 text-primary rounded-lg" href="#">
+<span class="material-symbols-outlined text-[20px]">group</span>
+<span class="text-sm font-medium">Team Members</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">verified_user</span>
+<span class="text-sm font-medium">Roles</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">monitoring</span>
+<span class="text-sm font-medium">Activity</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- Content Area -->
+<div class="flex-1 p-6 space-y-6">
+<!-- Success State Notification Overlay/Banner -->
+<div class="p-4 @container animate-in fade-in duration-500">
+<div class="flex flex-col md:flex-row items-center justify-between gap-4 rounded-xl border border-green-200 dark:border-green-900/30 bg-green-50 dark:bg-green-900/10 p-5 shadow-sm">
+<div class="flex items-start gap-4">
+<div class="flex-shrink-0 size-10 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center text-green-600 dark:text-green-400">
+<span class="material-symbols-outlined">check_circle</span>
+</div>
+<div class="flex flex-col gap-1">
+<p class="text-slate-900 dark:text-slate-100 text-base font-bold leading-tight">Invitation Sent Successfully</p>
+<p class="text-slate-600 dark:text-slate-400 text-sm font-normal leading-normal">
+                                    An email invitation has been sent to <span class="font-semibold text-slate-900 dark:text-slate-200">alex.r@neural.ai</span>. They will appear as active once they accept.
+                                </p>
+</div>
+</div>
+<button class="flex min-w-[100px] items-center justify-center rounded-xl h-10 px-6 bg-primary text-white text-sm font-bold shadow-md hover:bg-primary/90 transition-all active:scale-95">
+                            Done
+                        </button>
+</div>
+</div>
+<!-- Page Header -->
+<div class="flex flex-wrap justify-between items-end gap-3 px-4">
+<div class="flex flex-col gap-1">
+<h1 class="text-slate-900 dark:text-slate-100 text-3xl font-bold tracking-tight">Team Members</h1>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-normal">Manage your organization's members and their access levels.</p>
+</div>
+<button class="flex items-center gap-2 px-4 py-2.5 bg-primary text-white rounded-xl text-sm font-bold shadow-sm hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-lg">person_add</span>
+                        Invite Member
+                    </button>
+</div>
+<!-- Members Table -->
+<div class="px-4 py-3 @container">
+<div class="overflow-hidden rounded-xl border border-primary/10 bg-white dark:bg-slate-900 shadow-sm">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead class="bg-slate-50 dark:bg-slate-800/50">
+<tr>
+<th class="px-6 py-4 text-xs font-semibold text-slate-500 uppercase tracking-wider">Name</th>
+<th class="px-6 py-4 text-xs font-semibold text-slate-500 uppercase tracking-wider">Email</th>
+<th class="px-6 py-4 text-xs font-semibold text-slate-500 uppercase tracking-wider">Role</th>
+<th class="px-6 py-4 text-xs font-semibold text-slate-500 uppercase tracking-wider">Status</th>
+<th class="px-6 py-4 text-xs font-semibold text-slate-500 uppercase tracking-wider">Last Active</th>
+<th class="px-6 py-4 text-xs font-semibold text-slate-500 uppercase tracking-wider"></th>
+</tr>
+</thead>
+<tbody class="divide-y divide-primary/5">
+<!-- Newly Invited Member -->
+<tr class="hover:bg-primary/5 transition-colors bg-blue-50/30 dark:bg-primary/5">
+<td class="px-6 py-5 whitespace-nowrap">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded-full bg-slate-200 dark:bg-slate-700 flex items-center justify-center">
+<span class="material-symbols-outlined text-slate-400">person</span>
+</div>
+<span class="text-slate-900 dark:text-slate-100 font-medium">Alex R.</span>
+</div>
+</td>
+<td class="px-6 py-5 whitespace-nowrap text-slate-500 dark:text-slate-400 text-sm">alex.r@neural.ai</td>
+<td class="px-6 py-5 whitespace-nowrap text-slate-500 dark:text-slate-400 text-sm">Editor</td>
+<td class="px-6 py-5 whitespace-nowrap">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-400">
+<span class="size-1.5 rounded-full bg-orange-500 mr-2"></span>
+                                                Pending
+                                            </span>
+</td>
+<td class="px-6 py-5 whitespace-nowrap text-slate-400 dark:text-slate-600 text-sm italic">--</td>
+<td class="px-6 py-5 whitespace-nowrap text-right">
+<button class="text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Existing Members -->
+<tr class="hover:bg-primary/5 transition-colors">
+<td class="px-6 py-5 whitespace-nowrap">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded-full bg-cover bg-center" data-alt="Sarah Chen portrait" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDkdX3jKVqkZ_RXIf-34u8gh8Xe8-wZQRUrDcWjJrrO1UN_qU6zm0poCYu_2aNIypKa77yXzQcBM6cWZZAWhoWKBBEyHhzzdzqIYUgpklJQEWVICfRAmJg3hP50NdWdqsgnxK7A3-IXinDry4YifX_XtRAb_a4SD76efcIoEYi1uo5iobgRMLCl75TutLi5mIAxn_JOAxF_U9sCMg62WbiT9_f0-c0dVl4uDSsapGnwP_CyAesvomKQNhP0LGTvH50YIczgGPtdiMc')"></div>
+<span class="text-slate-900 dark:text-slate-100 font-medium">Sarah Chen</span>
+</div>
+</td>
+<td class="px-6 py-5 whitespace-nowrap text-slate-500 dark:text-slate-400 text-sm">sarah.c@neural.ai</td>
+<td class="px-6 py-5 whitespace-nowrap text-slate-500 dark:text-slate-400 text-sm">Admin</td>
+<td class="px-6 py-5 whitespace-nowrap">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400">
+<span class="size-1.5 rounded-full bg-green-500 mr-2"></span>
+                                                Active
+                                            </span>
+</td>
+<td class="px-6 py-5 whitespace-nowrap text-slate-500 dark:text-slate-400 text-sm">2 mins ago</td>
+<td class="px-6 py-5 whitespace-nowrap text-right">
+<button class="text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-primary/5 transition-colors">
+<td class="px-6 py-5 whitespace-nowrap">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded-full bg-cover bg-center" data-alt="Marcus Low portrait" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBZOLKNuJYG8UGHqTfSgne32gclG3YLaEm9PvdT2tKZeaPsDDiQIeXTQvcDbugFUiefUh51iTAqtSZOPvlJYC5EMd9VnWgVyeAZVc0WEe6hBOGO8GcWcb50eHbH1WEPgYZro5CWwHOBTomlPu9nyg3oMgJaqW5dLvefg7Qb8GWIH7mXl2UdTNpSwbdY03SLqXPaurOEcj78UNn4PX8L4Se3hh6duWefnCeXs2nR4swE4bhU-aVzqt7L-wYcMenrolcuoZhrZLgAwak')"></div>
+<span class="text-slate-900 dark:text-slate-100 font-medium">Marcus Low</span>
+</div>
+</td>
+<td class="px-6 py-5 whitespace-nowrap text-slate-500 dark:text-slate-400 text-sm">m.low@neural.ai</td>
+<td class="px-6 py-5 whitespace-nowrap text-slate-500 dark:text-slate-400 text-sm">Viewer</td>
+<td class="px-6 py-5 whitespace-nowrap">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400">
+<span class="size-1.5 rounded-full bg-green-500 mr-2"></span>
+                                                Active
+                                            </span>
+</td>
+<td class="px-6 py-5 whitespace-nowrap text-slate-500 dark:text-slate-400 text-sm">1 hour ago</td>
+<td class="px-6 py-5 whitespace-nowrap text-right">
+<button class="text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-primary/5 transition-colors">
+<td class="px-6 py-5 whitespace-nowrap">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded-full bg-cover bg-center" data-alt="Elena Rodriguez portrait" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAu-LetDLbAj8Gf-Ank63s_jt74YfVkd5IrdUSX0GjUieftJgxz8IU98-dlo3kK54Y1J_I-a9R0r8TIkWSOJ1VN5OATelqYF-8gbNjbp-lbjHwMjKv4qtkqs17jjc3XubuG_VFrxiQkyddtJkEvuoE4rdxsCZXrRYph7dVfnq6CcuTwt4A79hpBQooFtF6QFeODl8Pz6vMKyg19PTQN8e9BQbSEyeMVSME7svBqHdBkHhBuNSjJxmUy22flh7dSPNzO8AnLhk_cdcQ')"></div>
+<span class="text-slate-900 dark:text-slate-100 font-medium">Elena Rodriguez</span>
+</div>
+</td>
+<td class="px-6 py-5 whitespace-nowrap text-slate-500 dark:text-slate-400 text-sm">elena.r@neural.ai</td>
+<td class="px-6 py-5 whitespace-nowrap text-slate-500 dark:text-slate-400 text-sm">Editor</td>
+<td class="px-6 py-5 whitespace-nowrap">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400">
+<span class="size-1.5 rounded-full bg-green-500 mr-2"></span>
+                                                Active
+                                            </span>
+</td>
+<td class="px-6 py-5 whitespace-nowrap text-slate-500 dark:text-slate-400 text-sm">Yesterday</td>
+<td class="px-6 py-5 whitespace-nowrap text-right">
+<button class="text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="px-6 py-4 bg-slate-50 dark:bg-slate-800/50 border-t border-primary/5 flex items-center justify-between">
+<span class="text-xs font-medium text-slate-500">Showing 5 members</span>
+<div class="flex gap-2">
+<button class="px-3 py-1 bg-white dark:bg-slate-900 border border-primary/10 rounded-lg text-xs font-semibold disabled:opacity-50">Previous</button>
+<button class="px-3 py-1 bg-white dark:bg-slate-900 border border-primary/10 rounded-lg text-xs font-semibold">Next</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+<script src="../../../../prototype-nav.js"></script>
+</body></html>

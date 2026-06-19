@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI GTM Engine | Minimalist Data-Grid SaaS</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1978e5",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#111821",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 1.5rem;
+        }
+        .shimmer {
+            background: linear-gradient(90deg, rgba(25,120,229,1) 0%, rgba(59,153,255,1) 50%, rgba(25,120,229,1) 100%);
+            background-size: 200% auto;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display">
+<!-- Top Navigation -->
+<header class="sticky top-0 z-50 w-full border-b border-slate-200/60 bg-white/80 backdrop-blur-md dark:border-slate-800/60 dark:bg-background-dark/80">
+<div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+<div class="flex items-center gap-2">
+<div class="flex h-8 w-8 items-center justify-center rounded bg-primary text-white">
+<span class="material-symbols-outlined text-xl">database</span>
+</div>
+<span class="text-xl font-bold tracking-tight text-slate-900 dark:text-white">GTM<span class="text-primary">Engine</span></span>
+</div>
+<nav class="hidden items-center gap-8 lg:flex">
+<a class="text-sm font-medium text-slate-600 hover:text-primary dark:text-slate-400" href="#">Product</a>
+<a class="text-sm font-medium text-slate-600 hover:text-primary dark:text-slate-400" href="#">Solutions</a>
+<a class="text-sm font-medium text-slate-600 hover:text-primary dark:text-slate-400" href="#">Blog</a>
+<a class="text-sm font-medium text-slate-600 hover:text-primary dark:text-slate-400" href="#">Pricing</a>
+<a class="text-sm font-medium text-slate-600 hover:text-primary dark:text-slate-400" href="#">API</a>
+</nav>
+<div class="flex items-center gap-3">
+<button class="hidden px-4 py-2 text-sm font-semibold text-slate-700 hover:text-primary sm:block dark:text-slate-300">Login</button>
+<button class="shimmer rounded-lg bg-primary px-5 py-2.5 text-sm font-bold text-white shadow-lg shadow-primary/20 transition-transform hover:scale-105 active:scale-95">
+                    Start Free Trial
+                </button>
+</div>
+</div>
+</header>
+<main class="mx-auto max-w-7xl px-6">
+<!-- Hero Section -->
+<section class="py-16 text-center lg:py-24">
+<div class="mb-6 flex justify-center">
+<span class="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-primary ring-1 ring-inset ring-primary/20">
+<span class="material-symbols-outlined text-sm">bolt</span> New: AI Outreach 2.0
+                </span>
+</div>
+<h1 class="mx-auto max-w-4xl text-5xl font-black leading-[1.1] tracking-tight text-slate-900 lg:text-7xl dark:text-white">
+                The AI Engine for <br/><span class="text-primary">Modern GTM Teams</span>
+</h1>
+<p class="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-slate-600 dark:text-slate-400">
+                Enrich leads, automate outreach, and scale your pipeline with data-driven precision. Stop manually searching, start high-velocity selling.
+            </p>
+<div class="mt-10 flex flex-wrap justify-center gap-4">
+<button class="rounded-xl bg-primary px-8 py-4 text-lg font-bold text-white shadow-xl shadow-primary/30 transition-all hover:bg-primary/90">
+                    Get Started for Free
+                </button>
+<button class="rounded-xl border border-slate-200 bg-white px-8 py-4 text-lg font-bold text-slate-700 shadow-sm transition-all hover:bg-slate-50 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300">
+                    Book Demo
+                </button>
+</div>
+</section>
+<!-- Data Grid Preview Section -->
+<section class="relative mx-auto max-w-6xl pb-24">
+<div class="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-2xl dark:border-slate-800 dark:bg-slate-900">
+<div class="flex items-center justify-between border-b border-slate-100 bg-slate-50/50 px-6 py-3 dark:border-slate-800 dark:bg-slate-800/50">
+<div class="flex items-center gap-4">
+<div class="flex gap-1.5">
+<div class="h-3 w-3 rounded-full bg-red-400/80"></div>
+<div class="h-3 w-3 rounded-full bg-amber-400/80"></div>
+<div class="h-3 w-3 rounded-full bg-emerald-400/80"></div>
+</div>
+<div class="h-4 w-px bg-slate-200 dark:bg-slate-700"></div>
+<div class="flex items-center gap-2 text-xs font-semibold text-slate-500">
+<span class="material-symbols-outlined text-sm">search</span>
+                            Quick Search...
+                        </div>
+</div>
+<div class="flex items-center gap-3">
+<button class="flex items-center gap-1 rounded border border-slate-200 bg-white px-2 py-1 text-[10px] font-bold uppercase tracking-tight text-slate-600 shadow-sm dark:border-slate-700 dark:bg-slate-800 dark:text-slate-400">
+<span class="material-symbols-outlined text-sm">filter_list</span> Filter
+                        </button>
+<button class="flex items-center gap-1 rounded bg-primary px-2 py-1 text-[10px] font-bold uppercase tracking-tight text-white">
+<span class="material-symbols-outlined text-sm">add</span> Add Data
+                        </button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="bg-slate-50 text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:bg-slate-800/30 dark:text-slate-400">
+<th class="px-6 py-4">Company</th>
+<th class="px-6 py-4">LinkedIn Profile</th>
+<th class="px-6 py-4">AI Enrichment</th>
+<th class="px-6 py-4">Automation Status</th>
+<th class="px-6 py-4">Score</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100 dark:divide-slate-800">
+<tr class="transition-colors hover:bg-slate-50/50 dark:hover:bg-slate-800/50">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="h-8 w-8 rounded bg-slate-100 p-1 dark:bg-slate-800">
+<img alt="Acme Corp logo" class="h-full w-full object-contain" data-alt="Corporate logo for Acme Corp lead" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0zK0xv4-9CKK9DtsAC-TAAFcfFaydLKY_7CIJcbkUm6ZgYUkt6l8eXH8ED_5y8awCJl-3hYLGvtJFwT9YolrFs9LNF_OOQK3l9imLukF7Pqhe9OUwUDm5lvIFp4YB36LImr68g9_0tnfSdhp5ddlLUbVDZtXdASFvcNL9g7axgOwS6EKbKj22qtJAQDHXkIYS2vLk-P_hng94040bbHZkL1Klu9hYT8Nm2Xx6X3Nxc3GJEvQFWCrHiwYyi6oKN10l1ZgjIYZAi5E"/>
+</div>
+<span class="text-sm font-semibold">Acme Corp</span>
+</div>
+</td>
+<td class="px-6 py-4 text-xs font-medium text-primary">linkedin.com/company/acme</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1 rounded-full bg-emerald-100 px-2 py-0.5 text-[10px] font-bold text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400">
+<span class="material-symbols-outlined text-xs">verified</span> VERIFIED EMAIL
+                                    </span>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<div class="h-1.5 w-1.5 rounded-full bg-emerald-500"></div>
+<span class="text-xs font-medium">Synced to CRM</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<div class="h-1.5 w-16 overflow-hidden rounded-full bg-slate-100 dark:bg-slate-800">
+<div class="h-full w-[92%] bg-primary"></div>
+</div>
+<span class="text-[10px] font-bold">92</span>
+</div>
+</td>
+</tr>
+<tr class="transition-colors hover:bg-slate-50/50 dark:hover:bg-slate-800/50">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="h-8 w-8 rounded bg-slate-100 p-1 dark:bg-slate-800">
+<img alt="Globex logo" class="h-full w-full object-contain" data-alt="Corporate logo for Globex lead" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxEOT6oZJQel_GSrecmKfTJz_gJGfoWpFbb6yV_hRtcRrjxk2iOVC9Mwl5aQ5Prh6LOh1oqM9fRsMl0TMHWtzX0dfZm2NobZUnlpVcRTi4PD_69eZhrzaGg7XkWUluRgMWqMI8YxZIgKTUe2q1elcoCGS9JCUWZHqvWyx0aUHWfIXqNpx4Ymxnq0CIRHUEZ1yYsGO3xaJ0lY8ppUoOzhhYlkpD5IbSBzK6d_AN7QbMOwU_wmL682v1-x-cLqySu8hv4nSlCU7TzQ4"/>
+</div>
+<span class="text-sm font-semibold">Globex Inc</span>
+</div>
+</td>
+<td class="px-6 py-4 text-xs font-medium text-primary">linkedin.com/company/globex</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1 rounded-full bg-blue-100 px-2 py-0.5 text-[10px] font-bold text-blue-700 dark:bg-blue-900/30 dark:text-blue-400">
+<span class="material-symbols-outlined text-xs">person_search</span> FOUND FOUNDER
+                                    </span>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<div class="h-1.5 w-1.5 rounded-full bg-amber-500"></div>
+<span class="text-xs font-medium">Processing...</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<div class="h-1.5 w-16 overflow-hidden rounded-full bg-slate-100 dark:bg-slate-800">
+<div class="h-full w-[78%] bg-primary"></div>
+</div>
+<span class="text-[10px] font-bold">78</span>
+</div>
+</td>
+</tr>
+<tr class="transition-colors hover:bg-slate-50/50 dark:hover:bg-slate-800/50">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="h-8 w-8 rounded bg-slate-100 p-1 dark:bg-slate-800">
+<img alt="Soylent logo" class="h-full w-full object-contain" data-alt="Corporate logo for Soylent lead" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmIg6Op6p9vHd0B0KP0P-h4qOIJEj_q9117ysGETbLSxeAFThzYD1jQK_EOQ9Ijs6teiOamnuAOuNWT2DKRDx1aD5RYezJpptPK4wL3mG6DyShnbXHWJkJ7OT7KPJdI0OsWTJyHEOfKOMs5uVmCCp-C_921NQ3FPe8ssjQ8jg3jfwWk3kAE2y9WZaBlZUW3xlHuH8YaxwaLQBHWsjuDWnx38clc7S0dEAq4kEck4R56vQg3f0R-fgudAsqW2A7gM4CjsL2tUZuVUk"/>
+</div>
+<span class="text-sm font-semibold">Soylent Corp</span>
+</div>
+</td>
+<td class="px-6 py-4 text-xs font-medium text-primary">linkedin.com/company/soylent</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1 rounded-full bg-purple-100 px-2 py-0.5 text-[10px] font-bold text-purple-700 dark:bg-purple-900/30 dark:text-purple-400">
+<span class="material-symbols-outlined text-xs">insights</span> GROWTH DATA
+                                    </span>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<div class="h-1.5 w-1.5 rounded-full bg-slate-300 dark:bg-slate-600"></div>
+<span class="text-xs font-medium">Pending</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<div class="h-1.5 w-16 overflow-hidden rounded-full bg-slate-100 dark:bg-slate-800">
+<div class="h-full w-[45%] bg-primary"></div>
+</div>
+<span class="text-[10px] font-bold">45</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Decorative blur background for grid -->
+<div class="absolute -top-12 -left-24 -z-10 h-64 w-64 rounded-full bg-primary/10 blur-[100px]"></div>
+<div class="absolute -bottom-12 -right-24 -z-10 h-64 w-64 rounded-full bg-primary/10 blur-[100px]"></div>
+</section>
+<!-- Social Proof Bar -->
+<section class="py-12">
+<p class="mb-8 text-center text-xs font-bold uppercase tracking-[0.2em] text-slate-400">Trusted by modern sales organizations</p>
+<div class="flex flex-wrap items-center justify-center gap-12 opacity-50 grayscale transition-all hover:grayscale-0">
+<img alt="Stripe" class="h-6" data-alt="Stripe brand logo grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0WgfGmpkOZtnfqXA8gzQSlov_YtC-um_t7lMeEXG3auovhHPN4q19UF4hXrGJKkWmBPuasLJF35NIr8-jldmN8MNAcTeBaovUEx-SbbV0un16UF1llW2noZ-gqfMHEasFZFPd7rG12XV0Xvd_HncBG0AoFPslCTTC9-IQujJhVb64Ins6KP-t695pJ7D2k5e-dMqSi6PP6zOD57NIzuoMhZJR_6CstFCbYVL1kX33sZgj5qN8Kp56tuyo-QUOngmHtPgEO5tSgB8"/>
+<img alt="Airtable" class="h-6" data-alt="Airtable brand logo grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrH9ipcBRMis7-Cg1hA4507j5hltPt4YMByxfJsNjGTiG9iQ2TvV5pEfg9QjQv4czTArcIR3_js9bqRdBohZDCN7nNCnBLjVobqPP_mjMeY_jXFNE3mAvVZUIBAm-0MWEp3M1Yy0LKRxnkwMw8WfTR-YKVv2akkSFZP9Ccq-4A9gZO_8nO0YzZAFVH_wJSzg1MolxQxAHOcGOkLubz3KUmunYqyeu7Iewnm9ninp4OgF7DFJmhLCrvaiesHKOFqzfvLn3r147iC9c"/>
+<img alt="Notion" class="h-6" data-alt="Notion brand logo grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9jtY4-_gJpNsNgcls5P1A7pW8k6n4LRGE2h8ucRSMDyk1pHqVb5fryOMhQxS8g07N4nITSchTCcwgNp-V--XdEwpIw0BCNkBfYrXL87FvKYFjckl1XFpyLq8iNQ6p3yG0yZS8bX8oPZIlQYaANUxnn-JaANewdg8DjBs-FKnzavFcgT7fGq6DUYq-3y9-zwLkF4GqosvVG6oYLtwwMcZIUcRWTpwov32yRmRb5mlDQ6vyMC6IGcJIRuNOqjBVgANQUtQwedU492c"/>
+<img alt="Intercom" class="h-6" data-alt="Intercom brand logo grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAi2ry0p-oxNDbPs2VLrG6ejbgnuRnfEFYLs2Uz5miD6CylJS_ZAKEIl7mZHZB8c7_GTkSHlfnVdyDdYDcvWe3qM1vp88AfpE5RHwbTgn6FnILbDlMOM4E-7G8IP2WtX0_fFM7ZxMO-kDewO-3YEwauA3crpZpsGu5UyQ5H1rDuhV-R8XmsWlJmC1GiheS2rrIrL4sTDI6ARzA_VUd0dhs3MhnxN344w3J5szf6j2fOodwXng0fABuX6c1KitV9gs_a9hhnjT8HEAk"/>
+<img alt="Zapier" class="h-6" data-alt="Zapier brand logo grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAx3W28XGngPFB_2vZy_CotDAVEgtDpI_-BVk3ad7L-0ATP2MRR32S5Sk5KPK-fUO0tshgIuVMIhRU19PdDNTVJ_6PKUD_3MZ8hHjKIuYf8EX_sc1MVDtDxn1r6G1T4GAPRLYdlM252nemiUM-v74ivD2OMlXGvgovw1orc5Nt6cHMLxA9nvhWdU-qptlZ_4nyo32TnNv19eSNkxNdivdwLu1ku794_FS9RVY4Tv7mQY7FUpjM7KZNAxp82ws6YkgXEQb-FyXz86hw"/>
+</div>
+</section>
+<!-- Bento Box Features Section -->
+<section class="py-24">
+<div class="mb-16 text-center">
+<h2 class="text-3xl font-bold tracking-tight text-slate-900 lg:text-5xl dark:text-white">Built for High-Growth Teams</h2>
+<p class="mt-4 text-slate-600 dark:text-slate-400">Every tool you need to build a predictable outbound machine.</p>
+</div>
+<div class="bento-grid">
+<!-- Large Feature -->
+<div class="col-span-12 rounded-2xl border border-slate-200 bg-white p-8 shadow-sm lg:col-span-7 dark:border-slate-800 dark:bg-slate-900">
+<div class="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary mb-6">
+<span class="material-symbols-outlined">dataset</span>
+</div>
+<h3 class="text-2xl font-bold text-slate-900 dark:text-white">75+ Premium Data Sources</h3>
+<p class="mt-4 text-slate-600 dark:text-slate-400">We aggregate data from LinkedIn, Apollo, Clearbit, and proprietary internal databases to give you the most accurate contact information available on the market.</p>
+<div class="mt-8 flex gap-4 overflow-hidden py-2">
+<div class="flex h-10 w-10 shrink-0 items-center justify-center rounded border border-slate-100 bg-white shadow-sm">
+<img alt="LinkedIn" class="h-6 w-6" data-alt="LinkedIn icon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYV2M94jpI6FTzyaDdVHaQ8nUkTVLFsOQy_dnt0f7Cob4r1zwhhit2K4MTsfNiyMlCqT8SAFH4xxn_H2G596IKY3_qlw4nxpt4sOkHHaJ8K1hytM5QVQxDzpX1PnCH-d9485tSpYj8TKJX21OuF-DKBHlq0aydu_dxKx1Mkh11Oh89T68DTx--UiaFwNgjystC0EBn1vqQ-7aVMVZHVgh5I4rj0V871nVTAzPAT2cdQox9wvXNEHk9SlMY1NDCrp9QW1Wj3ba-0rA"/>
+</div>
+<div class="flex h-10 w-10 shrink-0 items-center justify-center rounded border border-slate-100 bg-white shadow-sm">
+<img alt="Crunchbase" class="h-6 w-6" data-alt="Crunchbase icon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCidS9rYuVGuyGjDJ86YiEo4qGiCsJsSspg-fQdFSa6jf0J0Q6THrYYJMES_IS1trOsSeXaY63OMhi4hEs8pkM2qoGi3opEPKIrEr8VAwpxMAQighzVj9zxK1nJPwgBiKUnnpylAMYheoZ86jsBBDZfEVAdRt1HSf-HBkKyStcP1jI440QDdutnEw-AAmDMpJJavGra59TZQMR19D36vnu11w4XQ5qEPlHrE6xPiq5UOMLCrgDs09XrzeBzY_uzNNQGUgAdLnjxAys"/>
+</div>
+<div class="flex h-10 w-10 shrink-0 items-center justify-center rounded border border-slate-100 bg-white shadow-sm">
+<img alt="GitHub" class="h-6 w-6" data-alt="GitHub icon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJnVTrLTjI2jBchsYZ80_s3HU2TUZYj-WxoAygc6FBg7I8KIzju0woVZDnuz_dZTSy7nIVxXMTcYE0dcKwK9rcSb5RS_5B9TkvHxYy1vuOhhNgZ5_SKz8XthPhA9R4AfPrDqPl6eFJCEMmVZMab0FETYaBuBOx3gb5JPnbn-CVLaCDDrJV3y9emjo-QQ2vICbx8NJ6KXDd9SN5Ubsof4dFUBLD-gQdjOmD5OzQ-Oa4mGPXGopDEUEpsfPxxC7PQwiaxte7ZLkMZYM"/>
+</div>
+<div class="flex h-10 w-10 shrink-0 items-center justify-center rounded border border-slate-100 bg-white shadow-sm">
+<img alt="Twitter" class="h-6 w-6" data-alt="Twitter icon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPkuNIlPmlFRb6SjW9o1lCXVA4MrK430dhYC8RhLQBUUwaS3JczdVr8FpkqXImUuzepXZrDkqawc3_zYQ93vqKA5pdlziHnGmpVQU91uMyzRDPKV-_Egg0sBvg5tRmRXbN0CsQuCHTobb3WJYEAyo85DxczEPdiIYdMVXviMYbVyBYy9plS9G8rUUr4SYBjCexlLQdFVVp8_C_WRnqpM_5yftfljw7OUrwFsPGelueQwqFhOVCRw9g0HLiFojOxOc7hnVPgToihy4"/>
+</div>
+</div>
+</div>
+<!-- Medium Feature -->
+<div class="col-span-12 rounded-2xl border border-slate-200 bg-white p-8 shadow-sm lg:col-span-5 dark:border-slate-800 dark:bg-slate-900">
+<div class="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary mb-6">
+<span class="material-symbols-outlined">auto_fix_high</span>
+</div>
+<h3 class="text-2xl font-bold text-slate-900 dark:text-white">AI Writing Assistant</h3>
+<p class="mt-4 text-slate-600 dark:text-slate-400">Generate hyper-personalized emails based on prospect LinkedIn posts, company news, and annual reports.</p>
+</div>
+<!-- Small Features -->
+<div class="col-span-12 rounded-2xl border border-slate-200 bg-white p-8 shadow-sm lg:col-span-4 dark:border-slate-800 dark:bg-slate-900">
+<div class="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary mb-6">
+<span class="material-symbols-outlined">verified_user</span>
+</div>
+<h3 class="text-xl font-bold text-slate-900 dark:text-white">Real-time Verification</h3>
+<p class="mt-2 text-sm text-slate-600 dark:text-slate-400">Zero bounce rates. Every email is verified in real-time before it hits your outreach sequence.</p>
+</div>
+<div class="col-span-12 rounded-2xl border border-slate-200 bg-white p-8 shadow-sm lg:col-span-4 dark:border-slate-800 dark:bg-slate-900">
+<div class="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary mb-6">
+<span class="material-symbols-outlined">account_tree</span>
+</div>
+<h3 class="text-xl font-bold text-slate-900 dark:text-white">Workflow Automation</h3>
+<p class="mt-2 text-sm text-slate-600 dark:text-slate-400">Connect to 2,000+ apps via Zapier or use our native Slack, HubSpot, and Salesforce integrations.</p>
+</div>
+<div class="col-span-12 rounded-2xl border border-slate-200 bg-white p-8 shadow-sm lg:col-span-4 dark:border-slate-800 dark:bg-slate-900">
+<div class="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary mb-6">
+<span class="material-symbols-outlined">insights</span>
+</div>
+<h3 class="text-xl font-bold text-slate-900 dark:text-white">Pipeline Analytics</h3>
+<p class="mt-2 text-sm text-slate-600 dark:text-slate-400">Visualize which data signals are converting best and optimize your outreach strategy instantly.</p>
+</div>
+</div>
+</section>
+<!-- Why Us / Metrics Section -->
+<section class="rounded-3xl bg-slate-900 px-8 py-20 text-white lg:px-16">
+<div class="grid gap-12 lg:grid-cols-2 lg:items-center">
+<div>
+<h2 class="text-4xl font-bold tracking-tight lg:text-5xl">Engineered for <br/>Outsized Results</h2>
+<p class="mt-6 max-w-lg text-lg text-slate-400">Traditional GTM tools are static. GTM Engine is dynamic, learning from your best conversations to find more people like your best customers.</p>
+<div class="mt-10 space-y-4">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+<span class="text-slate-300">Dedicated Account Executive Support</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+<span class="text-slate-300">Enterprise-grade Security (SOC2 Type II)</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+<span class="text-slate-300">Infinite Scale with Parallel AI Processing</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-6">
+<div class="rounded-2xl bg-white/5 p-8 backdrop-blur-sm">
+<div class="text-4xl font-black text-primary">3x</div>
+<div class="mt-2 text-sm font-bold uppercase tracking-wider text-slate-500">Higher Conversion</div>
+</div>
+<div class="rounded-2xl bg-white/5 p-8 backdrop-blur-sm">
+<div class="text-4xl font-black text-primary">15h</div>
+<div class="mt-2 text-sm font-bold uppercase tracking-wider text-slate-500">Saved/Week</div>
+</div>
+<div class="rounded-2xl bg-white/5 p-8 backdrop-blur-sm">
+<div class="text-4xl font-black text-primary">99.9%</div>
+<div class="mt-2 text-sm font-bold uppercase tracking-wider text-slate-500">Data Accuracy</div>
+</div>
+<div class="rounded-2xl bg-white/5 p-8 backdrop-blur-sm">
+<div class="text-4xl font-black text-primary">50M+</div>
+<div class="mt-2 text-sm font-bold uppercase tracking-wider text-slate-500">Leads Enriched</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-24 text-center">
+<div class="mx-auto max-w-4xl rounded-3xl bg-primary px-8 py-16 shadow-2xl shadow-primary/20">
+<h2 class="text-3xl font-black text-white lg:text-5xl">Ready to automate your pipeline?</h2>
+<p class="mx-auto mt-6 max-w-lg text-lg text-white/80">Join 1,000+ sales teams using GTM Engine to scale their outbound today.</p>
+<div class="mt-10 flex flex-wrap justify-center gap-4">
+<button class="rounded-xl bg-white px-10 py-4 text-lg font-bold text-primary shadow-lg transition-all hover:scale-105">
+                        Start Free Trial
+                    </button>
+<button class="rounded-xl border border-white/30 bg-white/10 px-10 py-4 text-lg font-bold text-white backdrop-blur-sm transition-all hover:bg-white/20">
+                        Book a Demo
+                    </button>
+</div>
+<p class="mt-6 text-sm font-medium text-white/60">No credit card required. 14-day free trial.</p>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="border-t border-slate-200 bg-white py-16 dark:border-slate-800 dark:bg-background-dark">
+<div class="mx-auto max-w-7xl px-6">
+<div class="grid gap-12 lg:grid-cols-4">
+<div class="col-span-2">
+<div class="flex items-center gap-2">
+<div class="flex h-8 w-8 items-center justify-center rounded bg-primary text-white">
+<span class="material-symbols-outlined text-xl">database</span>
+</div>
+<span class="text-xl font-bold tracking-tight text-slate-900 dark:text-white">GTM<span class="text-primary">Engine</span></span>
+</div>
+<p class="mt-6 max-w-xs text-slate-600 dark:text-slate-400">The modern data-driven engine for B2B growth teams. Automate your pipeline with AI precision.</p>
+</div>
+<div>
+<h4 class="font-bold text-slate-900 dark:text-white">Product</h4>
+<ul class="mt-6 space-y-4 text-sm text-slate-600 dark:text-slate-400">
+<li><a class="hover:text-primary" href="#">Enrichment</a></li>
+<li><a class="hover:text-primary" href="#">AI Writing</a></li>
+<li><a class="hover:text-primary" href="#">Integrations</a></li>
+<li><a class="hover:text-primary" href="#">Pricing</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-slate-900 dark:text-white">Company</h4>
+<ul class="mt-6 space-y-4 text-sm text-slate-600 dark:text-slate-400">
+<li><a class="hover:text-primary" href="#">About Us</a></li>
+<li><a class="hover:text-primary" href="#">Partner Program</a></li>
+<li><a class="hover:text-primary" href="#">Careers</a></li>
+<li><a class="hover:text-primary" href="#">Contact</a></li>
+</ul>
+</div>
+</div>
+<div class="mt-16 flex flex-col items-center justify-between gap-6 border-t border-slate-100 pt-8 sm:flex-row dark:border-slate-800">
+<p class="text-sm text-slate-500">© 2024 GTM Engine AI Inc. All rights reserved.</p>
+<div class="flex gap-6 text-slate-400">
+<a class="hover:text-primary" href="#">Twitter</a>
+<a class="hover:text-primary" href="#">LinkedIn</a>
+<a class="hover:text-primary" href="#">Privacy Policy</a>
+</div>
+</div>
+</div>
+</footer>
+<script src="../../prototype-nav.js"></script>
+</body></html>

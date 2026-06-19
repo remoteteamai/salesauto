@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Neural AI - Deal Deep Dive</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec5b13",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#221610",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen">
+<div class="flex h-screen overflow-hidden">
+<!-- Sidebar Navigation -->
+<aside class="w-64 border-r border-primary/10 bg-white dark:bg-background-dark hidden lg:flex flex-col">
+<div class="p-6 flex items-center gap-3">
+<div class="size-8 bg-primary rounded-lg flex items-center justify-center text-white">
+<span class="material-symbols-outlined">psychology</span>
+</div>
+<h1 class="text-xl font-bold tracking-tight">Neural AI</h1>
+</div>
+<nav class="flex-1 px-4 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-primary/10 rounded-xl transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 bg-primary/10 text-primary rounded-xl transition-colors" href="#">
+<span class="material-symbols-outlined">handshake</span>
+<span class="text-sm font-medium">Deals</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-primary/10 rounded-xl transition-colors" href="#">
+<span class="material-symbols-outlined">insights</span>
+<span class="text-sm font-medium">Neural Insights</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-primary/10 rounded-xl transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-sm font-medium">Settings</span>
+</a>
+</nav>
+<div class="p-4 border-t border-primary/10">
+<div class="flex items-center gap-3 p-2 bg-primary/5 rounded-xl">
+<div class="size-10 rounded-full bg-slate-200 dark:bg-slate-800 bg-cover" data-alt="User profile avatar circle" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBnmmxf6Hg5jBw5HZ8mSzeGUCXn4k5cMVCrd6U3Nn1anFZVoDQrYOM5x6fUceaSJs-6ASg_OfOsMjjtNCAgvQUqAeDTdHqrqBjwIimPPG4GoIeBdsI4w9YSeqKdekM7AghGm-YVxOZ9bfOdqAsslC8yRQ4BTKXQ6uA7tSXDRJV_8a3PWlgW_6Ck5rfaRCaLLbbos3AScw6C539AlzoFbWGOI3Xon4g085Hx9WUXJkewhqPRuAiTDEd_pE97q2WpFhu8ryDKYc7Vb3s')"></div>
+<div class="flex-1 min-w-0">
+<p class="text-sm font-semibold truncate">Alex Rivera</p>
+<p class="text-xs text-slate-500 truncate">Enterprise Lead</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col min-w-0 overflow-hidden">
+<!-- Top Navbar -->
+<header class="h-16 border-b border-primary/10 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md flex items-center justify-between px-8 shrink-0">
+<div class="flex items-center gap-4">
+<span class="text-slate-400">/</span>
+<span class="font-medium">Deals</span>
+<span class="text-slate-400">/</span>
+<span class="font-bold text-primary">Acme Corp Deep Dive</span>
+</div>
+<div class="flex items-center gap-3">
+<button class="flex items-center gap-2 px-4 py-2 rounded-xl bg-primary text-white text-sm font-bold shadow-lg shadow-primary/20 hover:brightness-110 transition-all">
+<span class="material-symbols-outlined text-[18px]">share</span>
+                        Share Report
+                    </button>
+</div>
+</header>
+<div class="flex-1 overflow-y-auto p-8 space-y-8">
+<!-- Header Stats Section -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-white dark:bg-background-dark/40 border border-primary/10 p-6 rounded-xl shadow-sm">
+<div class="flex justify-between items-start mb-4">
+<p class="text-sm font-medium text-slate-500">Relationship Strength</p>
+<span class="material-symbols-outlined text-primary">hub</span>
+</div>
+<div class="flex items-baseline gap-2">
+<h2 class="text-4xl font-black text-slate-900 dark:text-slate-100">78<span class="text-lg text-slate-400">/100</span></h2>
+<span class="text-emerald-500 text-sm font-bold flex items-center">
+<span class="material-symbols-outlined text-[16px]">trending_up</span> +5%
+                            </span>
+</div>
+<div class="mt-4 h-2 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+<div class="h-full bg-primary" style="width: 78%"></div>
+</div>
+</div>
+<div class="bg-white dark:bg-background-dark/40 border border-primary/10 p-6 rounded-xl shadow-sm md:col-span-2">
+<div class="flex justify-between items-start mb-2">
+<div>
+<p class="text-sm font-medium text-slate-500">Prospect Sentiment Trend</p>
+<h3 class="text-2xl font-bold">Consistently Positive</h3>
+</div>
+<div class="flex items-center gap-2 text-emerald-500 bg-emerald-500/10 px-3 py-1 rounded-full text-xs font-bold">
+<span class="material-symbols-outlined text-[14px]">call</span> Last 3 Calls
+                            </div>
+</div>
+<div class="h-[80px] w-full mt-4">
+<svg class="w-full h-full" preserveaspectratio="none" viewbox="0 0 500 100">
+<path class="text-primary" d="M0 80 Q 125 40 250 60 T 500 20" fill="none" stroke="currentColor" stroke-width="4"></path>
+<circle class="fill-primary" cx="125" cy="50" r="4"></circle>
+<circle class="fill-primary" cx="250" cy="60" r="4"></circle>
+<circle class="fill-primary" cx="500" cy="20" r="4"></circle>
+</svg>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Chat UI Sidebar Integration -->
+<div class="lg:col-span-2 flex flex-col gap-6">
+<div class="bg-white dark:bg-background-dark/40 border border-primary/10 rounded-xl flex flex-col overflow-hidden shadow-sm h-[600px]">
+<div class="p-4 border-b border-primary/10 bg-primary/5 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">chat_bubble</span>
+<span class="font-bold">Neural AI Deep Dive Chat</span>
+</div>
+<span class="text-xs text-slate-500">Agentic Mode Active</span>
+</div>
+<div class="flex-1 overflow-y-auto p-6 space-y-6">
+<!-- User Message -->
+<div class="flex justify-end">
+<div class="max-w-[80%] bg-primary text-white p-4 rounded-2xl rounded-tr-none shadow-md">
+<p class="text-sm">Why is the Acme Corp deal stalling? We haven't had a signature in 12 days.</p>
+</div>
+</div>
+<!-- AI Message -->
+<div class="flex gap-4">
+<div class="size-8 bg-primary/10 rounded-lg flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary text-[20px]">psychology</span>
+</div>
+<div class="max-w-[80%] bg-slate-100 dark:bg-slate-800 p-4 rounded-2xl rounded-tl-none border border-slate-200 dark:border-slate-700">
+<p class="text-sm leading-relaxed">Based on my analysis of the last 3 call transcripts and email sentiment, the stall is primarily due to <strong>Budget Re-evaluation</strong> in their HR department. </p>
+<div class="mt-4 p-3 bg-white dark:bg-background-dark rounded-lg border border-primary/20">
+<p class="text-xs font-bold text-primary mb-1 uppercase tracking-wider">Agent Findings:</p>
+<ul class="text-xs space-y-2 text-slate-600 dark:text-slate-400">
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-[14px] text-primary">check_circle</span>
+                                                    Champion (Sarah Chen) remains highly positive.
+                                                </li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-[14px] text-amber-500">warning</span>
+                                                    New Blocker identified: CFO Mark Johnson requested a ROI proof-of-concept.
+                                                </li>
+</ul>
+</div>
+</div>
+</div>
+<!-- User Message 2 -->
+<div class="flex justify-end">
+<div class="max-w-[80%] bg-primary text-white p-4 rounded-2xl rounded-tr-none shadow-md">
+<p class="text-sm">Map out the stakeholders. Who do we need to influence to unblock Mark?</p>
+</div>
+</div>
+</div>
+<div class="p-4 border-t border-primary/10">
+<div class="flex items-center gap-2 bg-slate-50 dark:bg-slate-800 px-4 py-2 rounded-xl border border-primary/10">
+<input class="flex-1 bg-transparent border-none focus:ring-0 text-sm py-2" placeholder="Ask Neural AI about this deal..." type="text"/>
+<button class="bg-primary p-2 rounded-lg text-white">
+<span class="material-symbols-outlined">send</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Stakeholder Mapping Sidebar -->
+<div class="space-y-6">
+<div class="bg-white dark:bg-background-dark/40 border border-primary/10 rounded-xl p-6 shadow-sm">
+<h3 class="font-bold mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">groups</span>
+                                Stakeholder Mapping
+                            </h3>
+<div class="space-y-6 relative">
+<!-- Org Chart Visualization (Simplified) -->
+<div class="flex flex-col items-center gap-8">
+<!-- CFO Level -->
+<div class="relative">
+<div class="p-3 bg-red-500/10 border border-red-500 rounded-xl flex items-center gap-3 w-56">
+<div class="size-10 rounded-full bg-slate-300 dark:bg-slate-700 bg-cover" data-alt="Male corporate headshot" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBkiZ9VuRmbdtS-Xf9iZnK6oDuQc7ZgNLDEZ8PReFmqZM69e0i34QQujdpCh5NTvwUTy9KUIhDChxPgeVwYtqg-t5q1Gh3YUza16OfBNAcmvFbMSP1pw2oRAInJd6Kvebfh4IC5slIkZ-tMLV0fifaUpfgl2SR__lpYn8mU-ROOi_GAX3MaKJYXtdXLnwkfB7xcXweNzes7c-5LD20Dp4brQ4jbl2yonhMCKyM_U7T1OXijbOfkZfMv9tIxAjRkg6TNesIU2-PB83o')"></div>
+<div class="min-w-0">
+<p class="text-xs font-bold truncate">Mark Johnson</p>
+<p class="text-[10px] text-slate-500">CFO - <span class="text-red-500 font-bold uppercase">Blocker</span></p>
+</div>
+</div>
+<div class="absolute top-full left-1/2 w-px h-8 bg-primary/20 -translate-x-1/2"></div>
+</div>
+<!-- Middle Level -->
+<div class="flex gap-4">
+<div class="p-3 bg-emerald-500/10 border border-emerald-500 rounded-xl flex items-center gap-3 w-48 shadow-lg shadow-emerald-500/10">
+<div class="size-10 rounded-full bg-slate-300 dark:bg-slate-700 bg-cover" data-alt="Female professional headshot" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAfZl-nnr4kl2nmTeaWzGBsSPSpwOfhP-8wXmwEcsJPiAHKkWT48ZIGmnYDO3593-KTy1ieo16Bw8XEKpz3LCgNGtrd9C9f-LO5i1uCUr_i4_tLPTXzn4MKr6Tcajw9BZ-uJjDakcYg9mHQg3Wzpc5AxkUrJ-BEhYgn3IVR-6vspEVsgOuK44wKcEw119AY4t47yj2NGvQigH1tC1vhVl3TmIzlhR_0JMOG5leSpVPBiLsFM_NoaQKmdILs6rK-Z97xG1ksN5a-AwE')"></div>
+<div class="min-w-0">
+<p class="text-xs font-bold truncate">Sarah Chen</p>
+<p class="text-[10px] text-slate-500">VP HR - <span class="text-emerald-500 font-bold uppercase">Champion</span></p>
+</div>
+</div>
+<div class="p-3 bg-slate-500/10 border border-slate-400 rounded-xl flex items-center gap-3 w-48 opacity-60">
+<div class="size-10 rounded-full bg-slate-300 dark:bg-slate-700 bg-cover" data-alt="Neutral profile placeholder" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA5Ty_4mlf6_YayPdtiTjQUqZbhSA8C6SMb9yLtMTdRo24cq1TYvTKoGfc3wdTt81ujq5ZdmNKH15N3adk1jL1np9ZGNth86k_zcebcfZ6Om7nVB2G6dehz4s2FViGBlYc9smFeQP-649gKIsrgX5GE-sJG7okpUyCFUDl_42Vv7iBZmGQK8o33sKEuBUC9eOn1ZnwN259VRGvC5l_5UN0DyxYcfnZyLE-0wpORcC9oU7SpDog1q10XvIgxF7gtIo_pipvPTEGxUL8')"></div>
+<div class="min-w-0">
+<p class="text-xs font-bold truncate">Kevin Lee</p>
+<p class="text-[10px] text-slate-500">IT Director - Neutral</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-8 pt-6 border-t border-primary/10">
+<p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-4">Neural Recommendation</p>
+<div class="bg-primary/10 p-4 rounded-xl border-l-4 border-primary">
+<p class="text-xs leading-relaxed italic text-slate-700 dark:text-slate-300">
+                                        "Draft an email to <strong>Sarah Chen</strong> providing the specific cost-saving case study for 1,000+ employee orgs. This directly addresses Mark's budget concerns."
+                                    </p>
+<button class="mt-3 text-primary text-xs font-bold flex items-center gap-1 hover:underline">
+                                        Draft now <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Key Risks Widget -->
+<div class="bg-white dark:bg-background-dark/40 border border-primary/10 rounded-xl p-6 shadow-sm">
+<h3 class="font-bold mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">report</span>
+                                Agentic Risk Audit
+                            </h3>
+<div class="space-y-3">
+<div class="flex items-center justify-between p-3 bg-slate-50 dark:bg-slate-800/50 rounded-lg">
+<span class="text-xs font-medium">Competitor Activity</span>
+<span class="px-2 py-0.5 bg-emerald-100 text-emerald-700 text-[10px] font-bold rounded">LOW</span>
+</div>
+<div class="flex items-center justify-between p-3 bg-slate-50 dark:bg-slate-800/50 rounded-lg">
+<span class="text-xs font-medium">Timeline Slippage</span>
+<span class="px-2 py-0.5 bg-amber-100 text-amber-700 text-[10px] font-bold rounded">MEDIUM</span>
+</div>
+<div class="flex items-center justify-between p-3 bg-slate-50 dark:bg-slate-800/50 rounded-lg">
+<span class="text-xs font-medium">Budget Authority</span>
+<span class="px-2 py-0.5 bg-red-100 text-red-700 text-[10px] font-bold rounded">CRITICAL</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<script src="../../../prototype-nav.js"></script>
+</body></html>

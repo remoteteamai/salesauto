@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec5b13",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#221610",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: "Public Sans", sans-serif; }
+        .material-symbols-outlined { font-size: 20px; }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display">
+<!-- Background Dashboard (Blurred) -->
+<div class="relative min-h-screen w-full overflow-hidden blur-sm pointer-events-none select-none">
+<div class="layout-container flex h-full grow flex-col">
+<header class="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 px-10 py-3 bg-white dark:bg-background-dark">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-4 text-primary">
+<span class="material-symbols-outlined text-3xl">neurology</span>
+<h2 class="text-slate-900 dark:text-white text-lg font-bold">Neural AI</h2>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="h-8 w-32 bg-slate-200 dark:bg-slate-700 rounded-lg"></div>
+<div class="h-8 w-8 bg-slate-200 dark:bg-slate-700 rounded-full"></div>
+</div>
+</header>
+<main class="max-w-5xl mx-auto w-full p-8">
+<div class="flex justify-between items-end mb-8">
+<div>
+<h1 class="text-4xl font-black tracking-tight mb-2">Usage Dashboard</h1>
+<p class="text-slate-500">Monitor your credit consumption and limits</p>
+</div>
+<div class="h-10 w-32 bg-primary/20 rounded-xl"></div>
+</div>
+<div class="grid grid-cols-3 gap-4 mb-8">
+<div class="h-32 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700"></div>
+<div class="h-32 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700"></div>
+<div class="h-32 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700"></div>
+</div>
+<div class="h-64 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-6">
+<div class="w-full h-full bg-slate-50 dark:bg-slate-900 rounded-lg"></div>
+</div>
+</main>
+</div>
+</div>
+<!-- Modal Overlay -->
+<div class="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/40 backdrop-blur-sm p-4">
+<!-- Modal Content -->
+<div class="bg-white dark:bg-background-dark w-full max-w-lg rounded-xl shadow-2xl overflow-hidden border border-slate-200 dark:border-slate-800">
+<!-- Modal Header -->
+<div class="px-6 py-5 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between">
+<div>
+<h3 class="text-xl font-bold text-slate-900 dark:text-white">Configure Usage Alert</h3>
+<p class="text-sm text-slate-500 dark:text-slate-400">Get notified before you run out of credits</p>
+</div>
+<button class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<!-- Modal Body -->
+<div class="p-6 space-y-6">
+<!-- Threshold Setting -->
+<div class="space-y-3">
+<label class="block text-sm font-semibold text-slate-700 dark:text-slate-300">Threshold Trigger</label>
+<div class="relative flex items-center">
+<span class="absolute left-4 text-slate-400 text-sm">Notify me when credits fall below</span>
+<input class="w-full pl-52 pr-4 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary outline-none text-right font-bold text-primary transition-all" type="number" value="5000"/>
+</div>
+</div>
+<!-- Notification Channels -->
+<div class="space-y-3">
+<label class="block text-sm font-semibold text-slate-700 dark:text-slate-300">Notification Channels</label>
+<div class="grid grid-cols-3 gap-3">
+<label class="flex flex-col items-center justify-center p-3 rounded-xl border border-primary bg-primary/5 cursor-pointer hover:bg-primary/10 transition-colors">
+<input checked="" class="hidden" type="checkbox"/>
+<span class="material-symbols-outlined text-primary mb-1">mail</span>
+<span class="text-xs font-medium">Email</span>
+</label>
+<label class="flex flex-col items-center justify-center p-3 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-primary/50 transition-colors cursor-pointer">
+<input class="hidden" type="checkbox"/>
+<span class="material-symbols-outlined text-slate-500 mb-1">forum</span>
+<span class="text-xs font-medium">Slack</span>
+</label>
+<label class="flex flex-col items-center justify-center p-3 rounded-xl border border-primary bg-primary/5 cursor-pointer">
+<input checked="" class="hidden" type="checkbox"/>
+<span class="material-symbols-outlined text-primary mb-1">notifications_active</span>
+<span class="text-xs font-medium">In-app</span>
+</label>
+</div>
+</div>
+<!-- Recipients -->
+<div class="space-y-3">
+<label class="block text-sm font-semibold text-slate-700 dark:text-slate-300">Recipients</label>
+<div class="relative">
+<div class="flex flex-wrap gap-2 p-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl">
+<div class="flex items-center gap-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-2 py-1 rounded-lg text-xs font-medium">
+<span class="size-5 rounded-full bg-primary/20 flex items-center justify-center text-[10px] text-primary">JD</span>
+                                John Doe
+                                <span class="material-symbols-outlined text-sm cursor-pointer hover:text-red-500">close</span>
+</div>
+<div class="flex items-center gap-1.5 bg-primary/10 border border-primary/20 px-2 py-1 rounded-lg text-xs font-medium text-primary">
+<span class="material-symbols-outlined text-sm">groups</span>
+                                Admins
+                                <span class="material-symbols-outlined text-sm cursor-pointer">close</span>
+</div>
+<input class="flex-1 min-w-[120px] bg-transparent border-none focus:ring-0 text-sm p-1" placeholder="Add member or role..." type="text"/>
+</div>
+</div>
+</div>
+<!-- Frequency -->
+<div class="space-y-3">
+<label class="block text-sm font-semibold text-slate-700 dark:text-slate-300">Alert Frequency</label>
+<div class="flex gap-2">
+<button class="flex-1 py-2 px-3 text-xs font-semibold rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200 transition-colors">Once</button>
+<button class="flex-1 py-2 px-3 text-xs font-semibold rounded-lg bg-primary text-white shadow-md shadow-primary/20">Daily</button>
+<button class="flex-1 py-2 px-3 text-xs font-semibold rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200 transition-colors">Every Time</button>
+</div>
+</div>
+</div>
+<!-- Modal Footer -->
+<div class="px-6 py-4 bg-slate-50 dark:bg-slate-900/50 border-t border-slate-100 dark:border-slate-800 flex gap-3 justify-end">
+<button class="px-5 py-2.5 rounded-xl text-sm font-bold text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800 transition-all">
+                    Cancel
+                </button>
+<button class="px-5 py-2.5 rounded-xl text-sm font-bold text-white bg-primary hover:bg-primary/90 shadow-lg shadow-primary/30 transition-all transform active:scale-95">
+                    Save Alert
+                </button>
+</div>
+</div>
+</div>
+<script src="../../../../prototype-nav.js"></script>
+</body></html>

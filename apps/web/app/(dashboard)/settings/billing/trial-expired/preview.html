@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Trial Expired - SaaS Platform</title>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec5b13",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#221610",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Public Sans', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen">
+<div class="layout-container flex h-full grow flex-col">
+<!-- Top Navigation Bar -->
+<header class="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 px-6 py-3 bg-white dark:bg-background-dark/50 backdrop-blur-md sticky top-0 z-50">
+<div class="flex items-center gap-4">
+<div class="size-8 bg-primary rounded-lg flex items-center justify-center text-white">
+<span class="material-symbols-outlined">rocket_launch</span>
+</div>
+<h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-tight font-display">SaaS Analytics</h2>
+</div>
+<div class="flex gap-3">
+<button class="flex items-center justify-center rounded-xl h-10 w-10 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="flex items-center justify-center rounded-xl h-10 w-10 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</header>
+<main class="max-w-5xl mx-auto w-full px-6 py-12 flex flex-col items-center">
+<!-- Hero Warning Section -->
+<div class="text-center mb-12">
+<div class="inline-flex items-center justify-center p-3 bg-primary/10 text-primary rounded-full mb-6">
+<span class="material-symbols-outlined text-4xl">timer_off</span>
+</div>
+<h1 class="text-slate-900 dark:text-white tracking-tight text-4xl md:text-5xl font-extrabold leading-tight mb-4 font-display">
+                    Your trial period is over
+                </h1>
+<p class="text-slate-600 dark:text-slate-400 text-lg max-w-2xl mx-auto">
+                    Your 14-day free trial has expired. To continue accessing your sequences, leads, and historical data, please choose a plan that fits your needs.
+                </p>
+</div>
+<!-- Stats Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full mb-12">
+<div class="flex flex-col gap-2 rounded-xl p-6 bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 shadow-sm">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-sm">mail</span>
+<p class="text-sm font-semibold uppercase tracking-wider">Emails Sent</p>
+</div>
+<div class="flex items-baseline justify-between mt-2">
+<p class="text-slate-900 dark:text-white text-3xl font-bold font-display tracking-tight">1,284</p>
+<span class="text-emerald-500 text-sm font-bold flex items-center">
+<span class="material-symbols-outlined text-xs">arrow_upward</span> 15%
+                        </span>
+</div>
+<p class="text-slate-500 text-xs mt-1 italic">Total during trial period</p>
+</div>
+<div class="flex flex-col gap-2 rounded-xl p-6 bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 shadow-sm">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-sm">account_tree</span>
+<p class="text-sm font-semibold uppercase tracking-wider">Sequences Created</p>
+</div>
+<div class="flex items-baseline justify-between mt-2">
+<p class="text-slate-900 dark:text-white text-3xl font-bold font-display tracking-tight">12</p>
+<span class="text-emerald-500 text-sm font-bold flex items-center">
+<span class="material-symbols-outlined text-xs">arrow_upward</span> 2%
+                        </span>
+</div>
+<p class="text-slate-500 text-xs mt-1 italic">Active automation flows</p>
+</div>
+<div class="flex flex-col gap-2 rounded-xl p-6 bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 shadow-sm">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-sm">person_add</span>
+<p class="text-sm font-semibold uppercase tracking-wider">Leads Captured</p>
+</div>
+<div class="flex items-baseline justify-between mt-2">
+<p class="text-slate-900 dark:text-white text-3xl font-bold font-display tracking-tight">450</p>
+<span class="text-emerald-500 text-sm font-bold flex items-center">
+<span class="material-symbols-outlined text-xs">arrow_upward</span> 10%
+                        </span>
+</div>
+<p class="text-slate-500 text-xs mt-1 italic">Ready for conversion</p>
+</div>
+</div>
+<!-- Usage Chart Placeholder Area -->
+<div class="w-full bg-white dark:bg-slate-800/30 rounded-xl p-8 border border-slate-200 dark:border-slate-700 mb-12">
+<div class="flex justify-between items-end mb-8">
+<div>
+<h3 class="text-slate-900 dark:text-white text-xl font-bold font-display">Trial Engagement</h3>
+<p class="text-slate-500 dark:text-slate-400">Daily activity for the last 14 days</p>
+</div>
+<div class="text-right">
+<p class="text-primary font-bold text-lg">Active</p>
+<p class="text-slate-400 text-sm">Trial Status</p>
+</div>
+</div>
+<div class="flex items-end justify-between gap-2 h-48 w-full group">
+<div class="w-full bg-slate-100 dark:bg-slate-800 rounded-t-md relative flex flex-col justify-end" style="height: 45%;">
+<div class="absolute inset-0 bg-primary/20 rounded-t-md opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="w-full bg-primary rounded-t-md" style="height: 60%;"></div>
+</div>
+<div class="w-full bg-slate-100 dark:bg-slate-800 rounded-t-md relative flex flex-col justify-end" style="height: 65%;">
+<div class="w-full bg-primary rounded-t-md" style="height: 75%;"></div>
+</div>
+<div class="w-full bg-slate-100 dark:bg-slate-800 rounded-t-md relative flex flex-col justify-end" style="height: 85%;">
+<div class="w-full bg-primary rounded-t-md" style="height: 90%;"></div>
+</div>
+<div class="w-full bg-slate-100 dark:bg-slate-800 rounded-t-md relative flex flex-col justify-end" style="height: 55%;">
+<div class="w-full bg-primary rounded-t-md" style="height: 40%;"></div>
+</div>
+<div class="w-full bg-slate-100 dark:bg-slate-800 rounded-t-md relative flex flex-col justify-end" style="height: 70%;">
+<div class="w-full bg-primary rounded-t-md" style="height: 80%;"></div>
+</div>
+<div class="w-full bg-slate-100 dark:bg-slate-800 rounded-t-md relative flex flex-col justify-end" style="height: 100%;">
+<div class="w-full bg-primary rounded-t-md" style="height: 95%;"></div>
+</div>
+<div class="w-full bg-slate-100 dark:bg-slate-800 rounded-t-md relative flex flex-col justify-end" style="height: 90%;">
+<div class="w-full bg-primary rounded-t-md" style="height: 100%;"></div>
+</div>
+<div class="w-full bg-slate-100 dark:bg-slate-800 rounded-t-md relative flex flex-col justify-end" style="height: 80%;">
+<div class="w-full bg-primary rounded-t-md" style="height: 70%;"></div>
+</div>
+<div class="w-full bg-slate-100 dark:bg-slate-800 rounded-t-md relative flex flex-col justify-end" style="height: 60%;">
+<div class="w-full bg-primary rounded-t-md" style="height: 50%;"></div>
+</div>
+<div class="w-full bg-slate-100 dark:bg-slate-800 rounded-t-md relative flex flex-col justify-end" style="height: 40%;">
+<div class="w-full bg-primary rounded-t-md" style="height: 30%;"></div>
+</div>
+<div class="w-full bg-slate-100 dark:bg-slate-800 rounded-t-md relative flex flex-col justify-end" style="height: 75%;">
+<div class="w-full bg-primary rounded-t-md" style="height: 85%;"></div>
+</div>
+<div class="w-full bg-slate-100 dark:bg-slate-800 rounded-t-md relative flex flex-col justify-end" style="height: 85%;">
+<div class="w-full bg-primary rounded-t-md" style="height: 70%;"></div>
+</div>
+<div class="w-full bg-slate-100 dark:bg-slate-800 rounded-t-md relative flex flex-col justify-end" style="height: 95%;">
+<div class="w-full bg-primary rounded-t-md" style="height: 80%;"></div>
+</div>
+<div class="w-full bg-slate-100 dark:bg-slate-800 rounded-t-md relative flex flex-col justify-end" style="height: 20%;">
+<div class="w-full bg-primary/40 rounded-t-md" style="height: 100%;"></div>
+</div>
+</div>
+<div class="flex justify-between mt-4 px-1 text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+<span>Day 1</span>
+<span>Day 7</span>
+<span>Expired</span>
+</div>
+</div>
+<!-- CTA Section -->
+<div class="w-full flex flex-col md:flex-row items-center justify-center gap-4">
+<button class="w-full md:w-auto px-10 py-4 bg-primary text-white rounded-xl font-bold text-lg hover:shadow-lg hover:shadow-primary/30 transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">upgrade</span>
+                    Upgrade Now
+                </button>
+<button class="w-full md:w-auto px-10 py-4 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 rounded-xl font-bold text-lg hover:bg-slate-50 dark:hover:bg-slate-700 transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">download</span>
+                    Export Data
+                </button>
+</div>
+<!-- Retention Note -->
+<p class="mt-8 text-slate-500 dark:text-slate-500 text-sm text-center max-w-lg">
+                Your data will be stored securely for the next 30 days. If no plan is selected by then, your sequences and lead data will be permanently removed.
+            </p>
+</main>
+<!-- Footer Footer -->
+<footer class="mt-auto border-t border-slate-200 dark:border-slate-800 py-8 px-6 bg-white/50 dark:bg-background-dark/30">
+<div class="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+<div class="flex items-center gap-2 opacity-60">
+<span class="material-symbols-outlined text-sm">shield</span>
+<p class="text-xs">Secure Payment Processing via Stripe</p>
+</div>
+<div class="flex gap-6">
+<a class="text-xs text-slate-500 hover:text-primary transition-colors" href="#">Help Center</a>
+<a class="text-xs text-slate-500 hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="text-xs text-slate-500 hover:text-primary transition-colors" href="#">Terms of Service</a>
+</div>
+</div>
+</footer>
+</div>
+<script src="../../../../prototype-nav.js"></script>
+</body></html>
