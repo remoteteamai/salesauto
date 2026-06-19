@@ -27,11 +27,15 @@ metadata:
   name: melioro-secrets
   namespace: melioro
 type: Opaque
-stringData:
-  DATABASE_URL: "postgresql://melioro:CHANGEME@postgres:5432/melioro"
-  JWT_SECRET: "your-super-secret-jwt-key-min-32-chars"
-  REDIS_URL: "redis://redis:6379"
-  # Add more secrets as needed
+# Populate secrets via a sealed-secrets controller, external-secrets operator,
+# or `kubectl create secret` — never commit plaintext values to version control.
+# Example:
+#   kubectl create secret generic melioro-secrets \
+#     --namespace=melioro \
+#     --from-literal=DATABASE_URL='<value>' \
+#     --from-literal=JWT_SECRET='<value>' \
+#     --from-literal=REDIS_URL='<value>'
+data: {}
 
 ---
 apiVersion: apps/v1

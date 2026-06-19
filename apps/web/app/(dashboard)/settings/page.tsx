@@ -54,14 +54,14 @@ export default function SettingsPage() {
     {
       id: '1',
       name: 'Production Key',
-      key: 'sk_live_melioro_a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6',
+      key: 'sk_live_melioro_••••••••••••••••••••••••',
       createdAt: new Date('2024-01-15'),
       lastUsed: new Date(Date.now() - 1000 * 60 * 30),
     },
     {
       id: '2',
       name: 'Development Key',
-      key: 'sk_test_melioro_z9y8x7w6v5u4t3s2r1q0p9o8n7m6l5k4',
+      key: 'sk_test_melioro_••••••••••••••••••••••••',
       createdAt: new Date('2024-01-10'),
       lastUsed: new Date(Date.now() - 1000 * 60 * 60 * 2),
     },
@@ -90,7 +90,7 @@ export default function SettingsPage() {
     const newKey: ApiKey = {
       id: Date.now().toString(),
       name: 'New API Key',
-      key: `sk_live_melioro_${Math.random().toString(36).substring(2, 15)}${Math.random().toString(36).substring(2, 15)}`,
+      key: 'sk_live_melioro_••••••••••••••••••••••••',
       createdAt: new Date(),
       lastUsed: null,
     }

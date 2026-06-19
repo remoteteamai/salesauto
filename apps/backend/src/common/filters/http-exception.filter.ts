@@ -49,9 +49,7 @@ export class HttpExceptionFilter implements ExceptionFilter {
       }
     } else if (exception instanceof Error) {
       status = HttpStatus.INTERNAL_SERVER_ERROR;
-      message = process.env.NODE_ENV === 'production' 
-        ? 'Internal server error' 
-        : exception.message;
+      message = 'Internal server error';
       error = 'InternalServerError';
       
       this.logger.error(
