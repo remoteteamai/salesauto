@@ -1,4 +1,15 @@
-import { NextRequest, NextResponse } from 'next/server'
+import { NextRequest } from 'next/server'
+import {
+  successResponse,
+  paginatedResponse,
+} from '@/lib/api-response'
+import {
+  parsePaginationParams,
+  paginateArray,
+  buildPaginationMeta,
+  filterBySearch,
+  filterByField,
+} from '@/lib/api-pagination'
 
 // Mock data for prospects
 const prospects = [
@@ -112,47 +123,20 @@ export async function GET(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams
   const search = searchParams.get('search')
   const status = searchParams.get('status')
-  const page = parseInt(searchParams.get('page') || '1')
-  const limit = parseInt(searchParams.get('limit') || '10')
+  const pagination = parsePaginationParams(request)
 
-  let filteredProspects = [...prospects]
+  let filtered = filterBySearch(prospects, search, ['company', 'person', 'email'])
+  filtered = filterByField(filtered, status, 'status')
 
-  // Filter by search
-  if (search) {
-    const searchLower = search.toLowerCase()
-    filteredProspects = filteredProspects.filter(p => 
-      p.company.toLowerCase().includes(searchLower) ||
-      p.person.toLowerCase().includes(searchLower) ||
-      p.email.toLowerCase().includes(searchLower)
-    )
-  }
+  const paginated = paginateArray(filtered, pagination)
+  const meta = buildPaginationMeta(filtered.length, pagination)
 
-  // Filter by status
-  if (status && status !== 'all') {
-    filteredProspects = filteredProspects.filter(p => p.status === status)
-  }
-
-  // Pagination
-  const startIndex = (page - 1) * limit
-  const endIndex = startIndex + limit
-  const paginatedProspects = filteredProspects.slice(startIndex, endIndex)
-
-  return NextResponse.json({
-    success: true,
-    data: paginatedProspects,
-    meta: {
-      page,
-      limit,
-      total: filteredProspects.length,
-      totalPages: Math.ceil(filteredProspects.length / limit),
-    },
-  })
+  return paginatedResponse(paginated, meta)
 }
 
 export async function POST(request: NextRequest) {
   const body = await request.json()
   
-  // Create new prospect
   const newProspect = {
     id: String(Date.now()),
     ...body,
@@ -162,10 +146,7 @@ export async function POST(request: NextRequest) {
     lastContacted: 'Never',
   }
 
-  return NextResponse.json({
-    success: true,
-    data: newProspect,
-  }, { status: 201 })
+  return successResponse(newProspect, 201)
 }
 
 export async function PATCH(request: NextRequest) {
@@ -173,22 +154,12 @@ export async function PATCH(request: NextRequest) {
   const { prospectId, action, data } = body
 
   if (action === 'update') {
-    return NextResponse.json({
-      success: true,
-      message: 'Prospect updated',
-      data,
-    })
+    return successResponse({ message: 'Prospect updated', ...data })
   }
 
   if (action === 'delete') {
-    return NextResponse.json({
-      success: true,
-      message: 'Prospect deleted',
-    })
+    return successResponse({ message: 'Prospect deleted' })
   }
 
-  return NextResponse.json({
-    success: true,
-    message: 'Action completed',
-  })
+  return successResponse({ message: 'Action completed' })
 }

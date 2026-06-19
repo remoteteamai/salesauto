@@ -1,12 +1,14 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from '../../database/prisma.service';
+import { BaseCrudService, PrismaDelegate } from '../../common/utils/base-crud.service';
 
 @Injectable()
-export class ProspectsService {
-  constructor(private readonly prisma: PrismaService) {}
-  async findAll(organizationId: string) { return this.prisma.prospect.findMany({ where: { organizationId } }); }
-  async findOne(id: string, organizationId: string) { return this.prisma.prospect.findFirst({ where: { id, organizationId } }); }
-  async create(organizationId: string, data: any) { return this.prisma.prospect.create({ data: { ...data, organizationId } }); }
-  async update(id: string, data: any) { return this.prisma.prospect.update({ where: { id }, data }); }
-  async delete(id: string) { return this.prisma.prospect.delete({ where: { id } }); }
+export class ProspectsService extends BaseCrudService {
+  constructor(prisma: PrismaService) {
+    super(prisma);
+  }
+
+  protected getDelegate(): PrismaDelegate {
+    return this.prisma.prospect;
+  }
 }

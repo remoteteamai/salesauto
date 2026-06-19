@@ -1,4 +1,15 @@
-import { NextRequest, NextResponse } from 'next/server'
+import { NextRequest } from 'next/server'
+import {
+  successResponse,
+  paginatedResponse,
+} from '@/lib/api-response'
+import {
+  parsePaginationParams,
+  paginateArray,
+  buildPaginationMeta,
+  filterBySearch,
+  filterByField,
+} from '@/lib/api-pagination'
 
 // Mock data for sequences
 const sequences = [
@@ -81,34 +92,15 @@ export async function GET(request: NextRequest) {
   const search = searchParams.get('search')
   const status = searchParams.get('status')
   const type = searchParams.get('type')
-  const page = parseInt(searchParams.get('page') || '1')
-  const limit = parseInt(searchParams.get('limit') || '10')
+  const pagination = parsePaginationParams(request)
 
-  let filteredSequences = [...sequences]
+  let filtered = filterBySearch(sequences, search, ['name'])
+  filtered = filterByField(filtered, status, 'status')
+  filtered = filterByField(filtered, type, 'type')
 
-  // Filter by search
-  if (search) {
-    const searchLower = search.toLowerCase()
-    filteredSequences = filteredSequences.filter(s => 
-      s.name.toLowerCase().includes(searchLower))
-  }
+  const paginated = paginateArray(filtered, pagination)
+  const meta = buildPaginationMeta(filtered.length, pagination)
 
-  // Filter by status
-  if (status && status !== 'all') {
-    filteredSequences = filteredSequences.filter(s => s.status === status)
-  }
-
-  // Filter by type
-  if (type && type !== 'all') {
-    filteredSequences = filteredSequences.filter(s => s.type === type)
-  }
-
-  // Pagination
-  const startIndex = (page - 1) * limit
-  const endIndex = startIndex + limit
-  const paginatedSequences = filteredSequences.slice(startIndex, endIndex)
-
-  // Calculate stats
   const stats = {
     total: sequences.length,
     active: sequences.filter(s => s.status === 'active').length,
@@ -120,23 +112,12 @@ export async function GET(request: NextRequest) {
     ),
   }
 
-  return NextResponse.json({
-    success: true,
-    data: paginatedSequences,
-    stats,
-    meta: {
-      page,
-      limit,
-      total: filteredSequences.length,
-      totalPages: Math.ceil(filteredSequences.length / limit),
-    },
-  })
+  return paginatedResponse(paginated, meta, { stats })
 }
 
 export async function POST(request: NextRequest) {
   const body = await request.json()
   
-  // Create new sequence
   const newSequence = {
     id: String(Date.now()),
     ...body,
@@ -147,10 +128,7 @@ export async function POST(request: NextRequest) {
     createdAt: new Date().toISOString().split('T')[0],
   }
 
-  return NextResponse.json({
-    success: true,
-    data: newSequence,
-  }, { status: 201 })
+  return successResponse(newSequence, 201)
 }
 
 export async function PATCH(request: NextRequest) {
@@ -158,36 +136,20 @@ export async function PATCH(request: NextRequest) {
   const { sequenceId, action, data } = body
 
   if (action === 'update') {
-    return NextResponse.json({
-      success: true,
-      message: 'Sequence updated',
-      data,
-    })
+    return successResponse({ message: 'Sequence updated', ...data })
   }
 
   if (action === 'pause') {
-    return NextResponse.json({
-      success: true,
-      message: 'Sequence paused',
-    })
+    return successResponse({ message: 'Sequence paused' })
   }
 
   if (action === 'resume') {
-    return NextResponse.json({
-      success: true,
-      message: 'Sequence resumed',
-    })
+    return successResponse({ message: 'Sequence resumed' })
   }
 
   if (action === 'delete') {
-    return NextResponse.json({
-      success: true,
-      message: 'Sequence deleted',
-    })
+    return successResponse({ message: 'Sequence deleted' })
   }
 
-  return NextResponse.json({
-    success: true,
-    message: 'Action completed',
-  })
+  return successResponse({ message: 'Action completed' })
 }

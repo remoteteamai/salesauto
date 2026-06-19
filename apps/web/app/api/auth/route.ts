@@ -1,4 +1,5 @@
-import { NextRequest, NextResponse } from 'next/server'
+import { NextRequest } from 'next/server'
+import { successResponse, errorResponse } from '@/lib/api-response'
 
 // Mock user data
 const mockUser = {
@@ -41,34 +42,19 @@ const mockIntegrations = [
 export async function GET(request: NextRequest) {
   const path = request.nextUrl.pathname
   
-  // User profile
   if (path.endsWith('/me')) {
-    return NextResponse.json({
-      success: true,
-      data: mockUser,
-    })
+    return successResponse(mockUser)
   }
   
-  // API keys
   if (path.endsWith('/api-keys')) {
-    return NextResponse.json({
-      success: true,
-      data: mockApiKeys,
-    })
+    return successResponse(mockApiKeys)
   }
   
-  // Integrations
   if (path.endsWith('/integrations')) {
-    return NextResponse.json({
-      success: true,
-      data: mockIntegrations,
-    })
+    return successResponse(mockIntegrations)
   }
 
-  return NextResponse.json({
-    success: true,
-    data: { message: 'Auth API' },
-  })
+  return successResponse({ message: 'Auth API' })
 }
 
 export async function POST(request: NextRequest) {
@@ -76,31 +62,21 @@ export async function POST(request: NextRequest) {
   const { action } = body
 
   if (action === 'login') {
-    // Mock login
-    return NextResponse.json({
-      success: true,
-      data: {
-        user: mockUser,
-        token: 'mock_jwt_token_' + Date.now(),
-      },
+    return successResponse({
+      user: mockUser,
+      token: 'mock_jwt_token_' + Date.now(),
     })
   }
 
   if (action === 'logout') {
-    return NextResponse.json({
-      success: true,
-      message: 'Logged out successfully',
-    })
+    return successResponse({ message: 'Logged out successfully' })
   }
 
   if (action === 'register') {
-    return NextResponse.json({
-      success: true,
-      data: {
-        user: { ...mockUser, ...body },
-        token: 'mock_jwt_token_' + Date.now(),
-      },
-    }, { status: 201 })
+    return successResponse({
+      user: { ...mockUser, ...body },
+      token: 'mock_jwt_token_' + Date.now(),
+    }, 201)
   }
 
   if (action === 'generate-api-key') {
@@ -112,50 +88,28 @@ export async function POST(request: NextRequest) {
       createdAt: new Date().toISOString().split('T')[0],
       lastUsed: 'Never',
     }
-    return NextResponse.json({
-      success: true,
-      data: newKey,
-    }, { status: 201 })
+    return successResponse(newKey, 201)
   }
 
-  return NextResponse.json({
-    success: false,
-    message: 'Invalid action',
-  }, { status: 400 })
+  return errorResponse('Invalid action')
 }
 
 export async function PATCH(request: NextRequest) {
   const body = await request.json()
   
-  // Update profile
   if (body.profile) {
-    return NextResponse.json({
-      success: true,
-      data: { ...mockUser, ...body.profile },
-      message: 'Profile updated',
-    })
+    return successResponse({ ...mockUser, ...body.profile })
   }
 
-  // Update notifications
   if (body.notifications) {
-    return NextResponse.json({
-      success: true,
-      message: 'Notifications updated',
-    })
+    return successResponse({ message: 'Notifications updated' })
   }
 
-  // Change password
   if (body.currentPassword && body.newPassword) {
-    return NextResponse.json({
-      success: true,
-      message: 'Password changed successfully',
-    })
+    return successResponse({ message: 'Password changed successfully' })
   }
 
-  return NextResponse.json({
-    success: false,
-    message: 'Invalid update',
-  }, { status: 400 })
+  return errorResponse('Invalid update')
 }
 
 export async function DELETE(request: NextRequest) {
@@ -163,14 +117,8 @@ export async function DELETE(request: NextRequest) {
   const keyId = searchParams.get('apiKeyId')
 
   if (keyId) {
-    return NextResponse.json({
-      success: true,
-      message: 'API key deleted',
-    })
+    return successResponse({ message: 'API key deleted' })
   }
 
-  return NextResponse.json({
-    success: false,
-    message: 'Invalid delete request',
-  }, { status: 400 })
+  return errorResponse('Invalid delete request')
 }

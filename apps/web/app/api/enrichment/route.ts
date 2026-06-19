@@ -1,4 +1,5 @@
-import { NextRequest, NextResponse } from 'next/server'
+import { NextRequest } from 'next/server'
+import { successResponse, errorResponse } from '@/lib/api-response'
 
 // Mock data providers
 const providers = [
@@ -54,19 +55,13 @@ const activityHistory = [
 export async function GET(request: NextRequest) {
   const path = request.nextUrl.pathname
   
-  // Get providers
   if (path.endsWith('/providers')) {
-    return NextResponse.json({
-      success: true,
-      data: providers,
-    })
+    return successResponse(providers)
   }
   
-  // Get enrichment records
   if (path.endsWith('/records')) {
-    return NextResponse.json({
-      success: true,
-      data: enrichmentRecords,
+    return successResponse({
+      records: enrichmentRecords,
       meta: {
         total: enrichmentRecords.length,
         completed: enrichmentRecords.filter(r => r.status === 'success').length,
@@ -75,18 +70,11 @@ export async function GET(request: NextRequest) {
     })
   }
   
-  // Get activity history
   if (path.endsWith('/activity')) {
-    return NextResponse.json({
-      success: true,
-      data: activityHistory,
-    })
+    return successResponse(activityHistory)
   }
 
-  return NextResponse.json({
-    success: true,
-    data: { message: 'Enrichment API' },
-  })
+  return successResponse({ message: 'Enrichment API' })
 }
 
 export async function POST(request: NextRequest) {
@@ -94,54 +82,37 @@ export async function POST(request: NextRequest) {
   const { action, data } = body
 
   if (action === 'upload') {
-    // Simulate file upload and enrichment process
-    const batchId = 'BATCH_' + Date.now()
-    return NextResponse.json({
-      success: true,
-      data: {
-        batchId,
-        status: 'processing',
-        totalRecords: data.records || 0,
-        estimatedTime: '5-10 minutes',
-      },
-    }, { status: 201 })
+    return successResponse({
+      batchId: 'BATCH_' + Date.now(),
+      status: 'processing',
+      totalRecords: data.records || 0,
+      estimatedTime: '5-10 minutes',
+    }, 201)
   }
 
   if (action === 'toggleProvider') {
     const { providerId, enabled } = data
-    return NextResponse.json({
-      success: true,
-      message: `Provider ${enabled ? 'enabled' : 'disabled'}`,
-    })
+    return successResponse({ message: `Provider ${enabled ? 'enabled' : 'disabled'}` })
   }
 
   if (action === 'sync') {
-    const { target } = data // 'salesforce' or 'hubspot'
-    return NextResponse.json({
-      success: true,
+    const { target } = data
+    return successResponse({
       message: `Sync to ${target} initiated`,
-      data: {
-        syncId: 'SYNC_' + Date.now(),
-        status: 'in_progress',
-      },
+      syncId: 'SYNC_' + Date.now(),
+      status: 'in_progress',
     })
   }
 
   if (action === 'export') {
-    return NextResponse.json({
-      success: true,
+    return successResponse({
       message: 'Export initiated',
-      data: {
-        exportId: 'EXPORT_' + Date.now(),
-        downloadUrl: '/api/enrichment/download/' + Date.now() + '.csv',
-      },
+      exportId: 'EXPORT_' + Date.now(),
+      downloadUrl: '/api/enrichment/download/' + Date.now() + '.csv',
     })
   }
 
-  return NextResponse.json({
-    success: false,
-    message: 'Invalid action',
-  }, { status: 400 })
+  return errorResponse('Invalid action')
 }
 
 export async function PATCH(request: NextRequest) {
@@ -150,22 +121,13 @@ export async function PATCH(request: NextRequest) {
 
   if (recordId) {
     if (action === 'retry') {
-      return NextResponse.json({
-        success: true,
-        message: 'Record retry initiated',
-      })
+      return successResponse({ message: 'Record retry initiated' })
     }
 
     if (action === 'dismiss') {
-      return NextResponse.json({
-        success: true,
-        message: 'Record dismissed',
-      })
+      return successResponse({ message: 'Record dismissed' })
     }
   }
 
-  return NextResponse.json({
-    success: false,
-    message: 'Invalid request',
-  }, { status: 400 })
+  return errorResponse('Invalid request')
 }

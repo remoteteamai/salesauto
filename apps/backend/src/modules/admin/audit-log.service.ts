@@ -1,5 +1,10 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from '../../database/prisma.service';
+import {
+  normalizePaginationParams,
+  getPaginationSkip,
+  buildPaginatedResult,
+} from '../../common/utils/pagination';
 
 export interface AuditLogInput {
   userId?: string;
@@ -43,10 +48,11 @@ export class AuditLogService {
     action?: string,
     startDate?: Date,
     endDate?: Date,
-    page = 1,
-    limit = 50,
+    page?: number,
+    limit?: number,
   ) {
-    const skip = (page - 1) * limit;
+    const params = normalizePaginationParams({ page, limit });
+    const skip = getPaginationSkip(params.page, params.limit);
 
     const where: any = {};
 
@@ -66,7 +72,7 @@ export class AuditLogService {
       this.prisma.auditLog.findMany({
         where,
         skip,
-        take: limit,
+        take: params.limit,
         orderBy: { createdAt: 'desc' },
         include: {
           user: { select: { email: true, firstName: true, lastName: true } },
@@ -75,15 +81,7 @@ export class AuditLogService {
       this.prisma.auditLog.count({ where }),
     ]);
 
-    return {
-      data: logs,
-      meta: {
-        total,
-        page,
-        limit,
-        totalPages: Math.ceil(total / limit),
-      },
-    };
+    return buildPaginatedResult(logs, total, params.page, params.limit);
   }
 
   async getLogsByEntity(entityType: string, entityId: string) {

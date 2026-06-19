@@ -24,11 +24,11 @@ export class CampaignsController {
 
   @Put(':id')
   async update(@Param('id') id: string, @Body() data: any) {
-    return this.campaignsService.update(id, data.organizationId, data);
+    return this.campaignsService.update(id, data);
   }
 
   @Delete(':id')
   async delete(@Param('id') id: string, @Query('organizationId') organizationId: string) {
-    return this.campaignsService.delete(id, organizationId);
+    return this.campaignsService.delete(id);
   }
 }
