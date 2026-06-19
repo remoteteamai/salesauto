@@ -1,4 +1,5 @@
-import { NextRequest, NextResponse } from 'next/server'
+import { NextRequest } from 'next/server'
+import { successResponse, errorResponse } from '@/lib/api-response'
 
 // Mock integrations data
 const integrations = [
@@ -19,7 +20,6 @@ const integrations = [
   { id: 'zapier', name: 'Zapier', category: 'ops', connected: false },
 ]
 
-// Connected integrations (would be stored in database)
 const connectedIntegrations = ['salesforce', 'hubspot']
 
 export async function GET(request: NextRequest) {
@@ -27,30 +27,26 @@ export async function GET(request: NextRequest) {
   const category = searchParams.get('category')
   const featured = searchParams.get('featured')
   
-  let filteredIntegrations = [...integrations]
+  let filtered = [...integrations]
   
-  // Filter by category
   if (category) {
-    filteredIntegrations = filteredIntegrations.filter(i => i.category === category)
+    filtered = filtered.filter(i => i.category === category)
   }
   
-  // Filter featured only
   if (featured === 'true') {
-    filteredIntegrations = filteredIntegrations.filter(i => i.featured)
+    filtered = filtered.filter(i => i.featured)
   }
   
-  // Add connected status
-  const integrationsWithStatus = filteredIntegrations.map(i => ({
+  const withStatus = filtered.map(i => ({
     ...i,
     connected: connectedIntegrations.includes(i.id),
   }))
 
-  return NextResponse.json({
-    success: true,
-    data: integrationsWithStatus,
+  return successResponse({
+    integrations: withStatus,
     meta: {
-      total: integrationsWithStatus.length,
-      connected: integrationsWithStatus.filter(i => i.connected).length,
+      total: withStatus.length,
+      connected: withStatus.filter(i => i.connected).length,
     },
   })
 }
@@ -60,61 +56,42 @@ export async function POST(request: NextRequest) {
   const { action, integrationId, data } = body
 
   if (action === 'connect') {
-    // Simulate OAuth flow
-    return NextResponse.json({
-      success: true,
-      data: {
-        integrationId,
-        status: 'connected',
-        authUrl: `https://oauth.example.com/authorize?client_id=${integrationId}`,
-      },
+    return successResponse({
+      integrationId,
+      status: 'connected',
+      authUrl: `https://oauth.example.com/authorize?client_id=${integrationId}`,
     })
   }
 
   if (action === 'disconnect') {
-    return NextResponse.json({
-      success: true,
-      message: 'Integration disconnected successfully',
-    })
+    return successResponse({ message: 'Integration disconnected successfully' })
   }
 
   if (action === 'sync') {
-    return NextResponse.json({
-      success: true,
-      data: {
-        syncId: 'SYNC_' + Date.now(),
-        status: 'in_progress',
-        recordsProcessed: 0,
-      },
+    return successResponse({
+      syncId: 'SYNC_' + Date.now(),
+      status: 'in_progress',
+      recordsProcessed: 0,
     })
   }
 
   if (action === 'requestIntegration') {
-    return NextResponse.json({
-      success: true,
+    return successResponse({
       message: 'Integration request submitted',
-      data: {
-        requestId: 'REQ_' + Date.now(),
-      },
+      requestId: 'REQ_' + Date.now(),
     })
   }
 
-  return NextResponse.json({
-    success: false,
-    message: 'Invalid action',
-  }, { status: 400 })
+  return errorResponse('Invalid action')
 }
 
 export async function PATCH(request: NextRequest) {
   const body = await request.json()
   const { integrationId, settings } = body
 
-  return NextResponse.json({
-    success: true,
+  return successResponse({
     message: 'Integration settings updated',
-    data: {
-      integrationId,
-      settings,
-    },
+    integrationId,
+    settings,
   })
 }

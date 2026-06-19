@@ -1,6 +1,11 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from '../../database/prisma.service';
 import { LoggerService } from '../../common/utils/logger.service';
+import {
+  normalizePaginationParams,
+  getPaginationSkip,
+  buildPaginatedResult,
+} from '../../common/utils/pagination';
 
 @Injectable()
 export class AdminService {
@@ -48,12 +53,13 @@ export class AdminService {
     };
   }
 
-  async getAllOrganizations(page = 1, limit = 20) {
-    const skip = (page - 1) * limit;
+  async getAllOrganizations(page?: number, limit?: number) {
+    const params = normalizePaginationParams({ page, limit });
+    const skip = getPaginationSkip(params.page, params.limit);
     const [organizations, total] = await Promise.all([
       this.prisma.organization.findMany({
         skip,
-        take: limit,
+        take: params.limit,
         orderBy: { createdAt: 'desc' },
         include: {
           _count: {
@@ -65,18 +71,16 @@ export class AdminService {
       this.prisma.organization.count(),
     ]);
 
-    return {
-      data: organizations,
-      meta: { total, page, limit, totalPages: Math.ceil(total / limit) },
-    };
+    return buildPaginatedResult(organizations, total, params.page, params.limit);
   }
 
-  async getAllUsers(page = 1, limit = 20) {
-    const skip = (page - 1) * limit;
+  async getAllUsers(page?: number, limit?: number) {
+    const params = normalizePaginationParams({ page, limit });
+    const skip = getPaginationSkip(params.page, params.limit);
     const [users, total] = await Promise.all([
       this.prisma.user.findMany({
         skip,
-        take: limit,
+        take: params.limit,
         orderBy: { createdAt: 'desc' },
         where: { deletedAt: null },
         select: {
@@ -94,10 +98,7 @@ export class AdminService {
       this.prisma.user.count({ where: { deletedAt: null } }),
     ]);
 
-    return {
-      data: users,
-      meta: { total, page, limit, totalPages: Math.ceil(total / limit) },
-    };
+    return buildPaginatedResult(users, total, params.page, params.limit);
   }
 
   async updateSystemSetting(key: string, value: any) {

@@ -1,4 +1,13 @@
-import { NextRequest, NextResponse } from 'next/server'
+import { NextRequest } from 'next/server'
+import {
+  successResponse,
+  paginatedResponse,
+} from '@/lib/api-response'
+import {
+  parsePaginationParams,
+  paginateArray,
+  buildPaginationMeta,
+} from '@/lib/api-pagination'
 
 // Mock data for alerts
 const alerts = [
@@ -86,51 +95,34 @@ export async function GET(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams
   const alertName = searchParams.get('alertName')
   const minScore = searchParams.get('minScore')
-  const page = parseInt(searchParams.get('page') || '1')
-  const limit = parseInt(searchParams.get('limit') || '10')
+  const pagination = parsePaginationParams(request)
 
-  let filteredAlerts = [...alerts]
+  let filtered = [...alerts]
 
-  // Filter by alert name
   if (alertName && alertName !== 'All') {
-    filteredAlerts = filteredAlerts.filter(a => a.name === alertName)
+    filtered = filtered.filter(a => a.name === alertName)
   }
 
-  // Filter by minimum score
   if (minScore) {
     const minScoreNum = parseInt(minScore.replace('> ', ''))
-    filteredAlerts = filteredAlerts.filter(a => a.intentScore >= minScoreNum)
+    filtered = filtered.filter(a => a.intentScore >= minScoreNum)
   }
 
-  // Pagination
-  const startIndex = (page - 1) * limit
-  const endIndex = startIndex + limit
-  const paginatedAlerts = filteredAlerts.slice(startIndex, endIndex)
+  const paginated = paginateArray(filtered, pagination)
+  const meta = buildPaginationMeta(filtered.length, pagination)
 
-  // Calculate stats
   const stats = {
     total: alerts.length,
     unread: alerts.filter(a => a.isUnread).length,
-    filtered: filteredAlerts.length,
+    filtered: filtered.length,
   }
 
-  return NextResponse.json({
-    success: true,
-    data: paginatedAlerts,
-    stats,
-    meta: {
-      page,
-      limit,
-      total: filteredAlerts.length,
-      totalPages: Math.ceil(filteredAlerts.length / limit),
-    },
-  })
+  return paginatedResponse(paginated, meta, { stats })
 }
 
 export async function POST(request: NextRequest) {
   const body = await request.json()
   
-  // Create new alert
   const newAlert = {
     id: String(Date.now()),
     ...body,
@@ -138,33 +130,20 @@ export async function POST(request: NextRequest) {
     isUnread: true,
   }
 
-  return NextResponse.json({
-    success: true,
-    data: newAlert,
-  }, { status: 201 })
+  return successResponse(newAlert, 201)
 }
 
 export async function PATCH(request: NextRequest) {
   const body = await request.json()
   const { alertId, action } = body
 
-  // Update alert status
   if (action === 'markRead') {
-    return NextResponse.json({
-      success: true,
-      message: 'Alert marked as read',
-    })
+    return successResponse({ message: 'Alert marked as read' })
   }
 
   if (action === 'dismiss') {
-    return NextResponse.json({
-      success: true,
-      message: 'Alert dismissed',
-    })
+    return successResponse({ message: 'Alert dismissed' })
   }
 
-  return NextResponse.json({
-    success: true,
-    message: 'Alert updated',
-  })
+  return successResponse({ message: 'Alert updated' })
 }
