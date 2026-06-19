@@ -11,19 +11,19 @@ const mockUser = {
   plan: 'enterprise',
 }
 
-// Mock API keys
+// Mock API keys — only masked prefixes are returned; full keys are never stored in source
 const mockApiKeys = [
   {
     id: 'key_1',
     name: 'Production API Key',
-    key: 'sk_live_xxxxxxxxxxxxx',
+    key: 'sk_live_••••••••••••••',
     createdAt: '2024-10-01',
     lastUsed: '2 hours ago',
   },
   {
     id: 'key_2',
     name: 'Development API Key',
-    key: 'sk_test_xxxxxxxxxxxxx',
+    key: 'sk_test_••••••••••••••',
     createdAt: '2024-09-15',
     lastUsed: '1 day ago',
   },
@@ -107,8 +107,7 @@ export async function POST(request: NextRequest) {
     const newKey = {
       id: 'key_' + Date.now(),
       name: body.name || 'New API Key',
-      key: 'sk_live_' + Array.from({length: 24}, () => 
-        Math.random().toString(36).charAt(2)).join(''),
+      key: 'sk_live_••••••••••••••',
       createdAt: new Date().toISOString().split('T')[0],
       lastUsed: 'Never',
     }

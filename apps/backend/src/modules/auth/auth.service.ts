@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { PrismaService } from '../../database/prisma.service';
 import { JwtService } from '@nestjs/jwt';
 import * as bcrypt from 'bcrypt';
@@ -37,7 +37,7 @@ export class AuthService {
       include: { organization: true },
     });
     if (!user || !user.passwordHash || !(await bcrypt.compare(password, user.passwordHash))) {
-      throw new Error('Invalid credentials');
+      throw new UnauthorizedException('Invalid credentials');
     }
     const token = this.jwtService.sign({ sub: user.id, email: user.email, organizationId: user.organizationId });
     return { user, token };
