@@ -41,7 +41,9 @@ export const useAuthStore = create<AuthState>()(
           })
           
           if (!response.ok) {
-            throw new Error('Login failed')
+            const body = await response.json().catch(() => null)
+            const message = body?.message || `Login failed (${response.status})`
+            throw new Error(Array.isArray(message) ? message.join(', ') : message)
           }
           
           const data = await response.json()
@@ -71,7 +73,9 @@ export const useAuthStore = create<AuthState>()(
           })
           
           if (!response.ok) {
-            throw new Error('Signup failed')
+            const body = await response.json().catch(() => null)
+            const message = body?.message || `Signup failed (${response.status})`
+            throw new Error(Array.isArray(message) ? message.join(', ') : message)
           }
           
           const result = await response.json()

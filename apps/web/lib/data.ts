@@ -36,7 +36,9 @@ async function apiFetch(endpoint: string, options?: RequestInit) {
     },
   })
   if (!response.ok) {
-    throw new Error(`API Error: ${response.status}`)
+    const body = await response.json().catch(() => null)
+    const message = body?.message || response.statusText
+    throw new Error(`API Error (${response.status}): ${Array.isArray(message) ? message.join(', ') : message}`)
   }
   return response.json()
 }
@@ -286,15 +288,11 @@ class DataService {
   async getProspects(filters?: { search?: string; status?: string }): Promise<Prospect[]> {
     // Try backend API first
     if (USE_BACKEND) {
-      try {
-        const params = new URLSearchParams()
-        if (filters?.search) params.append('search', filters.search)
-        if (filters?.status) params.append('status', filters.status)
-        const data = await apiFetch(`/api/prospects?${params}`)
-        return data.data || MOCK_PROSPECTS
-      } catch (e) {
-        console.warn('Backend unavailable, using mock data:', e)
-      }
+      const params = new URLSearchParams()
+      if (filters?.search) params.append('search', filters.search)
+      if (filters?.status) params.append('status', filters.status)
+      const data = await apiFetch(`/api/prospects?${params}`)
+      return data.data || []
     }
 
     // Fall back to Supabase
@@ -304,7 +302,11 @@ class DataService {
         .select('*')
         .order('intent_score', { ascending: false })
 
-      if (!error && data) {
+      if (error) {
+        throw new Error(`Failed to fetch prospects: ${error.message}`)
+      }
+
+      if (data) {
         return data.map(p => ({
           id: p.id,
           company: p.company_name,
@@ -368,8 +370,7 @@ class DataService {
       .single()
 
     if (error) {
-      console.error('Error creating prospect:', error)
-      return null
+      throw new Error(`Failed to create prospect: ${error.message}`)
     }
 
     return data
@@ -393,8 +394,7 @@ class DataService {
       .single()
 
     if (error) {
-      console.error('Error updating prospect:', error)
-      return null
+      throw new Error(`Failed to update prospect ${id}: ${error.message}`)
     }
 
     return data
@@ -416,8 +416,7 @@ class DataService {
       .eq('id', id)
 
     if (error) {
-      console.error('Error deleting prospect:', error)
-      return false
+      throw new Error(`Failed to delete prospect ${id}: ${error.message}`)
     }
 
     return true
@@ -435,11 +434,10 @@ class DataService {
       .order('created_at', { ascending: false })
 
     if (error) {
-      console.error('Error fetching sequences:', error)
-      return MOCK_SEQUENCES
+      throw new Error(`Failed to fetch sequences: ${error.message}`)
     }
 
-    return data
+    return data || []
   }
 
   // Alerts
@@ -454,11 +452,10 @@ class DataService {
       .order('created_at', { ascending: false })
 
     if (error) {
-      console.error('Error fetching alerts:', error)
-      return MOCK_ALERTS
+      throw new Error(`Failed to fetch alerts: ${error.message}`)
     }
 
-    return data
+    return data || []
   }
 
   async markAlertRead(id: string): Promise<boolean> {
@@ -476,7 +473,11 @@ class DataService {
       .update({ read: true })
       .eq('id', id)
 
-    return !error
+    if (error) {
+      throw new Error(`Failed to mark alert ${id} as read: ${error.message}`)
+    }
+
+    return true
   }
 
   // Campaigns
@@ -491,11 +492,10 @@ class DataService {
       .order('start_date', { ascending: false })
 
     if (error) {
-      console.error('Error fetching campaigns:', error)
-      return MOCK_CAMPAIGNS
+      throw new Error(`Failed to fetch campaigns: ${error.message}`)
     }
 
-    return data
+    return data || []
   }
 
   // Analytics
@@ -520,8 +520,7 @@ class DataService {
       .limit(30)
 
     if (error) {
-      console.error('Error fetching analytics:', error)
-      return mockAnalytics
+      throw new Error(`Failed to fetch analytics: ${error.message}`)
     }
 
     // Aggregate data

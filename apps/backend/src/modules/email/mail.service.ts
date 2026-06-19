@@ -1,4 +1,4 @@
-import { Injectable, BadRequestException } from '@nestjs/common';
+import { Injectable, BadRequestException, InternalServerErrorException } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import * as nodemailer from 'nodemailer';
 import * as handlebars from 'handlebars';
@@ -79,8 +79,10 @@ export class MailService {
       });
       this.logger.log(`Email sent to ${options.to}: ${result.messageId}`, 'MailService');
     } catch (error) {
-      this.logger.error(`Failed to send email to ${options.to}`, error.stack, 'MailService');
-      throw new BadRequestException('Failed to send email');
+      const errorMessage = error instanceof Error ? error.message : String(error);
+      const errorStack = error instanceof Error ? error.stack : undefined;
+      this.logger.error(`Failed to send email to ${options.to}: ${errorMessage}`, errorStack, 'MailService');
+      throw new InternalServerErrorException(`Failed to send email to ${options.to}: ${errorMessage}`);
     }
   }
 

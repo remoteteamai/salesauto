@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { PrismaService } from '../../database/prisma.service';
 
 @Injectable()
@@ -10,7 +10,11 @@ export class CampaignsService {
   }
 
   async findOne(id: string, organizationId: string) {
-    return this.prisma.campaign.findFirst({ where: { id, organizationId } });
+    const campaign = await this.prisma.campaign.findFirst({ where: { id, organizationId } });
+    if (!campaign) {
+      throw new NotFoundException(`Campaign with id ${id} not found`);
+    }
+    return campaign;
   }
 
   async create(organizationId: string, data: any) {
@@ -20,6 +24,10 @@ export class CampaignsService {
   }
 
   async update(id: string, organizationId: string, data: any) {
+    const campaign = await this.prisma.campaign.findFirst({ where: { id, organizationId } });
+    if (!campaign) {
+      throw new NotFoundException(`Campaign with id ${id} not found`);
+    }
     return this.prisma.campaign.update({
       where: { id },
       data,
@@ -27,6 +35,10 @@ export class CampaignsService {
   }
 
   async delete(id: string, organizationId: string) {
+    const campaign = await this.prisma.campaign.findFirst({ where: { id, organizationId } });
+    if (!campaign) {
+      throw new NotFoundException(`Campaign with id ${id} not found`);
+    }
     return this.prisma.campaign.delete({ where: { id } });
   }
 }

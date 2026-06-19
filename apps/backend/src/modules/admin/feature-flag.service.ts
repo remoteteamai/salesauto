@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { PrismaService } from '../../database/prisma.service';
 
 @Injectable()
@@ -43,7 +43,9 @@ export class FeatureFlagService {
     isEnabled: boolean,
   ) {
     const flag = await this.prisma.featureFlag.findUnique({ where: { key } });
-    if (!flag) return null;
+    if (!flag) {
+      throw new NotFoundException(`Feature flag with key ${key} not found`);
+    }
 
     const meta = (flag.metadata as any) || {};
     meta.organizationOverrides = meta.organizationOverrides || {};

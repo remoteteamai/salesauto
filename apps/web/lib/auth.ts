@@ -100,7 +100,8 @@ class SupabaseAuthService {
 
       return { user: null, error: 'Signup failed' }
     } catch (err) {
-      return { user: null, error: 'An unexpected error occurred' }
+      const message = err instanceof Error ? err.message : 'An unexpected error occurred'
+      return { user: null, error: message }
     }
   }
 
@@ -126,7 +127,8 @@ class SupabaseAuthService {
 
       return { user: null, error: 'Signin failed' }
     } catch (err) {
-      return { user: null, error: 'An unexpected error occurred' }
+      const message = err instanceof Error ? err.message : 'An unexpected error occurred'
+      return { user: null, error: message }
     }
   }
 
@@ -171,7 +173,8 @@ class SupabaseAuthService {
         error: null,
       }
     } catch (err) {
-      return { user: null, error: 'An unexpected error occurred' }
+      const message = err instanceof Error ? err.message : 'An unexpected error occurred'
+      return { user: null, error: message }
     }
   }
 
